@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "description": "DDR/chromatin/cell cycle panel v1 — CrisPRO Atlas Panel 1",
+  "genes": {
+    "ddr_hr": [
+      "BRCA1", "BRCA2", "PALB2", "RAD51",
+      "RAD51C", "RAD51D", "BRIP1", "FANCA",
+      "FANCD2", "ATM", "ATR", "CHEK1", "CHEK2"
+    ],
+    "cell_cycle": [
+      "CCNE1", "CDK2", "WEE1", "CDC25A",
+      "PLK1", "PKMYT1", "CCND1"
+    ],
+    "ber_chromatin": [
+      "MBD4", "TET2", "DNMT3A", "ARID1A",
+      "SMARCA4", "ARID2"
+    ],
+    "replication": [
+      "RRM2", "PCNA", "RFC1", "MCM2",
+      "MCM4", "SLFN11"
+    ],
+    "parp_axis": [
+      "PARP1", "PARP2", "RNF144A", "SLFN11",
+      "XRCC1"
+    ],
+    "replication_stress": [
+      "ATR", "CHEK1", "WEE1",
+      "CDC25A", "RRM2", "CCNE1"
+    ]
+  },
+  "total_genes": 50,
+  "axes": ["DDR", "RS", "IO", "CYTIDINE", "PARP", "WEE1_ATR"]
+}
