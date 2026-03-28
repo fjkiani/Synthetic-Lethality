@@ -1,0 +1,610 @@
+---
+description: CrisPRO SL Agent — Full Engineering Debrief and Integration Plan
+globs: ["sl_agent/**/*", "api/services/synthetic_lethality/**/*", "api/services/sl_agent_v2/**/*"]
+alwaysApply: false
+---
+
+# CrisPRO SL Agent — Full Engineering Debrief
+
+**Document type**: Engineering debrief and integration plan
+**Author**: Computer 1 (hardening instance)
+**Date**: 2026-03-28
+**Status**: Sprint 4S complete — 236/236 passing — integration pending
+**Repos**: `Synthetic-Lethality` (silo) → `crispro-backend-v2` (target)
+
+---
+
+## Section 1: Project Overview
+
+### What We Built
+
+The SL (Synthetic Lethality) Agent backend — a precision oncology AI module for CrisPRO. CrisPRO is built on the S/P/E (Sensitivity/Pathway/Evidence) framework. The SL Agent is the subsystem responsible for identifying gene-drug synthetic lethal pairs from multi-modal evidence, scoring confidence, and routing candidates through a human-audited receipt pipeline.
+
+### Canonical Use Case
+
+MBD4 + gemcitabine. MBD4-deficient tumors show selective sensitivity to cytidine analogues via base excision repair disruption. Validated in npj Precision Oncology 2022 (PMID 35428381). This pair served as the ground-truth benchmark throughout all four sprints.
+
+### Mars Protocol
+
+No paywalled APIs. No OncoKB dependency. The entire knowledge base stack runs on open/public-domain sources:
+
+| Source | License | Role |
+|--------|---------|------|
+| CIViC | CC0 | Clinical evidence records, gene-drug associations |
+| CGI | CC0 | Cancer Genome Interpreter biomarker annotations |
+| JAX CKB | Curated seed (open subset) | Curated gene-drug-indication triples |
+| ClinVar | Public domain | Variant clinical significance |
+
+The function `oncokb_gene_drugs()` was replaced with `open_kb_drugs()` aliased to `oncokb_drop_in()`. Zero runtime dependency on OncoKB.
+
+### Key Constraint
+
+**VALIDATED tier is NEVER auto-assigned.** All promotions to VALIDATED require human approval through the audit queue. This is enforced by:
+- `_project_tier()` logic that cannot return "Validated"
+- `generate_frozen_receipt_snippet()` clamping output to {STRONG, MECHANISTIC, INSUFFICIENT}
+- Automated sabotage tests that assert this invariant on every run
+
+### Platform Context
+
+This is Computer 1 (hardening instance) working on the SL agent subsystem of CrisPRO. The SL Agent lives in a silo repo (`Synthetic-Lethality`) and must be integrated into the main `crispro-backend-v2` repo.
+
+---
+
+## Section 2: Sprint-by-Sprint Build Log
+
+### Sprint 1 — Core API + KB Engine (126 tests)
+
+**Objective**: Ship the API. Portal UI comes after.
+
+**Built**:
+- FastAPI application with startup lifecycle
+- KB engine with open KB stack (CIViC, CGI, JAX, ClinVar)
+- SL engine backed by DepMap CRISPR matrix
+- Drug mapper
+- Core Pydantic models
+
+**Key decision**: `oncokb_gene_drugs()` replaced with `open_kb_drugs()` aliased to `oncokb_drop_in()`. Zero dependency on OncoKB paywall.
+
+**Result**: 126/126 passing.
+
+---
+
+### Sprint 2 — Multimodal Evidence + Receipt Miner (158 tests)
+
+**Added**:
+- Multimodal evidence matrix: CRISPR + GDSC + KB + Expression (4 modalities)
+- Receipt miner with 0.40 confidence gate
+- Audit queue with SQLite backend
+- Sabotage test: `_project_tier()` MUST never return "Validated" — non-negotiable invariant
+
+**Doctor Portal Layer**:
+- Audit routes added
+- `GET /audit/coverage` endpoint (feeds Atlas Panel 1 heat map + doctor portal coverage view)
+
+**RUO Tagging**: All endpoints return `ruo: true, disclaimer: "Research use only. Not validated for clinical decision-making."` in every response envelope.
+
+**Result**: 158/158 passing.
+
+---
+
+### Sprint 3 — PRISM Bonus Signal + RS Axis (180 tests)
+
+**Added**:
+- PRISM drug sensitivity as additive +0.05 bonus signal
+- Weight invariant preserved: CRISPR 0.35 + GDSC 0.30 + KB 0.25 + Expr 0.10 = 1.0. PRISM does NOT rebalance weights.
+
+**RS (Replication Stress) Axis**:
+- Covers ATR/WEE1 and PKMYT1 only
+- RS modulation is additive AFTER existing tier logic
+- RS can NEVER promote directly to Validated
+- RS can only promote Mechanistic → Strong when independent CRISPR or pharma evidence exists
+- MBD4 alone gives RS=0.05 (low)
+
+**Phase 2**: Combinatorial Vulnerability Framework introduced.
+
+**Result**: 180/180 passing.
+
+---
+
+### Sprint 4 — Atlas Panel + DDR Coverage Matrix + POLE Guard (195 tests)
+
+**Added**:
+- DDR Panel v1: 36 genes across 6 groups
+- `load_default_panel()` utility
+- `GET /audit/coverage` endpoint with full matrix shape
+- POLE axis guard
+
+**POLE Guard Specifics**:
+
+| Axis | Quarantined by POLE guard |
+|------|--------------------------|
+| PARP_INHIBITORS | Yes |
+| ATR_WEE1 | Yes |
+| PKMYT1 | Yes |
+| WRN | Yes |
+| CYTIDINE_ANALOGS | Yes |
+| IMMUNOTHERAPY | **No** |
+
+IMMUNOTHERAPY is explicitly NOT quarantined. POLE hypermutators are IO-positive (pembrolizumab FDA-approved for TMB-high). Quarantining IO would be a clinical error.
+
+**Management**: Provisional pass pending artifact audit.
+
+**Result**: 195/195 passing.
+
+---
+
+### Sprint 4S — Adversarial Stress Test Suite (236 tests)
+
+**Scope**: Red-team pass across 6 attack categories. Directive: "take no mercy."
+
+**Vulnerabilities Found and Patched**:
+
+| ID | Severity | Vulnerability | Fix |
+|----|----------|--------------|-----|
+| P1 | CRITICAL | Tier laundering — VALIDATED could leak into frozen receipt snippets via direct DB injection | Clamp in `generate_frozen_receipt_snippet()` to {STRONG, MECHANISTIC, INSUFFICIENT} |
+| P2 | HIGH | Decision flip — approve→reject and reject→approve both silently succeeded | Immutability guard raises `ValueError`; routes return HTTP 409 Conflict |
+| P2b | HIGH | Empty `audited_by` accepted — anonymous audit records | Whitespace check before any DB write |
+| P3 | HIGH | KB direction blindness — RESISTANCE records inflated sensitivity score | Filter to `ResponseType.SENSITIVITY` only |
+| P4 | MEDIUM | No POLE axis guard existed | Guard fires on 5 DDR axes; IO explicitly excluded |
+| P5 | MEDIUM | Integer overflow on candidate IDs → HTTP 500 + stack trace leak | Bounds check > 2^63-1 → HTTP 422 |
+
+**Deliverables**: 6 artifact proofs delivered to management. All 18 sub-assertions pass.
+
+**Prior Assurance Discrepancy**: Sprint 2-3 stated immutability as intent. The API flip gap was real and is now closed. Acknowledged.
+
+**Result**: 236/236 passing, 0 failures.
+
+---
+
+## Section 3: Final Architecture
+
+### Repository
+
+`https://github.com/fjkiani/Synthetic-Lethality`
+
+### Package Structure
+
+```
+sl_agent/
+├── api/
+│   ├── app.py              — FastAPI app, startup, RUO wrapper
+│   ├── routes.py           — /analyze, /async-analyze
+│   └── kb_routes.py        — /kb/query
+├── audit/
+│   ├── queue.py            — AuditQueue (SQLite), tier clamp, immutability guards
+│   ├── routes.py           — /audit/* endpoints, 409/422 guards
+│   ├── models.py           — ReceiptCandidate Pydantic model
+│   └── tests/
+│       ├── test_audit.py         — 28 tests
+│       ├── test_audit_sprint3.py — 7 tests
+│       ├── test_audit_sprint4.py — 15 tests
+│       └── test_stress.py        — 26 adversarial tests
+├── core/
+│   ├── sl_engine.py        — DepMap CRISPR matrix, pan-essential filter
+│   ├── drug_mapper.py      — PRISM drug sensitivity
+│   └── orchestrator.py     — startup, matrix loading
+├── data/
+│   ├── depmap_loader.py    — DepMap 24Q2 CRISPR data
+│   ├── gdsc_biomarker_loader.py — GDSC1/GDSC2 biomarker stratification
+│   ├── prism_loader.py     — PRISM drug screen
+│   └── gene_panels/
+│       └── ddr_panel_v1.json — 36 genes, 6 DDR groups
+├── kb/
+│   ├── kb_engine.py        — open KB stack, oncokb_drop_in() alias
+│   ├── models.py           — ResponseType (SENSITIVITY, RESISTANCE, etc.)
+│   ├── clients/            — CIViC, CGI, JAX, ClinVar clients
+│   └── tests/test_kb.py    — 28 tests
+├── multimodal/
+│   ├── receipt_miner.py    — mine_receipts(), _compute_* signals, POLE guard, KB direction filter
+│   ├── models.py           — CandidateAxis enum (7 axes)
+│   ├── replication_stress.py — RS scoring, ATR/WEE1 + PKMYT1 axes
+│   └── tests/
+│       ├── test_multimodal.py    — 37 tests
+│       ├── test_prism_sprint3.py — 15 tests
+│       ├── test_receipt_miner.py — 30 tests
+│       ├── test_rs_benchmark.py  — 16 tests
+│       └── test_adversarial.py   — 15 adversarial tests
+└── tests/
+    ├── test_api.py         — 5 tests
+    ├── test_drug_mapper.py — 6 tests
+    └── test_sl_engine.py   — 8 tests
+```
+
+### Test Distribution
+
+| Module | Test File(s) | Count |
+|--------|-------------|-------|
+| API | test_api.py | 5 |
+| SL Engine | test_sl_engine.py | 8 |
+| Drug Mapper | test_drug_mapper.py | 6 |
+| KB Engine | test_kb.py | 28 |
+| Multimodal | test_multimodal.py | 37 |
+| PRISM Sprint 3 | test_prism_sprint3.py | 15 |
+| Receipt Miner | test_receipt_miner.py | 30 |
+| RS Benchmark | test_rs_benchmark.py | 16 |
+| Adversarial (multimodal) | test_adversarial.py | 15 |
+| Audit Core | test_audit.py | 28 |
+| Audit Sprint 3 | test_audit_sprint3.py | 7 |
+| Audit Sprint 4 | test_audit_sprint4.py | 15 |
+| Audit Stress | test_stress.py | 26 |
+| **Total** | | **236** |
+
+### Key Invariants (Locked by Automated Tests)
+
+1. **VALIDATED tier never auto-assigned** — `_project_tier()` cannot return "Validated"
+2. **Snippet clamp** — `generate_frozen_receipt_snippet()` never emits VALIDATED
+3. **Human decisions immutable** — approve→reject and reject→approve both raise `ValueError` + HTTP 409
+4. **KB direction filter** — only `SENSITIVITY` records count toward confidence
+5. **POLE DDR guard** — DDR axes quarantined for POLE mutants; IO explicitly permitted (clinical safety)
+6. **PRISM bonus capped at 1.0** — additive bonus cannot push total confidence above ceiling
+7. **Integer overflow → 422** — candidate IDs > 2^63-1 return HTTP 422, not 500
+8. **Empty audited_by rejected** — whitespace-only or empty strings blocked before DB write
+
+### Test Run Command
+
+```bash
+python -m pytest sl_agent/tests/ sl_agent/kb/tests/ sl_agent/multimodal/tests/ sl_agent/audit/tests/ -q
+# 236 passed
+```
+
+---
+
+## Section 4: The Integration Problem
+
+### Current State
+
+The SL Agent lives in a completely siloed repo:
+- **Silo**: `https://github.com/fjkiani/Synthetic-Lethality`
+- **Target**: `https://github.com/fjkiani/crispro-backend-v2`
+
+### What crispro-backend-v2 Already Has
+
+| Path | Description |
+|------|-------------|
+| `api/services/synthetic_lethality/` | Existing SL module: sl_agent.py, dependency_identifier.py, essentiality_scorer.py, drug_recommender.py, pathway_mapper.py, models.py, constants.py |
+| `api/services/orchestrator/agents/synthetic_lethality_runner.py` | Orchestrator integration point |
+| `api/services/synthetic_lethality/tests/` | Existing test suite |
+| `api/routers/doctor_portal.py` | Existing doctor portal router |
+| `api/routers/evidence/` | Existing evidence routes |
+
+### The Gap
+
+The existing SL module in crispro-backend-v2 is likely a heuristic/stub implementation. Our SL Agent adds:
+
+- Real DepMap CRISPR matrix processing
+- GDSC biomarker stratification
+- PRISM drug sensitivity scoring
+- 5-signal confidence scoring with weight invariant
+- KB direction filtering (SENSITIVITY only)
+- DDR panel coverage matrix (36 genes x 6 groups)
+- Audit queue with frozen receipt workflow and immutability guards
+- RS axis modulation (ATR/WEE1, PKMYT1)
+- POLE axis guard with IO exclusion
+
+---
+
+## Section 5: Integration Plan
+
+### Step 1 — Clone and Audit (Day 1)
+
+```bash
+git clone https://github.com/fjkiani/crispro-backend-v2
+cd crispro-backend-v2
+# Read existing SL module
+cat api/services/synthetic_lethality/sl_agent.py
+cat api/services/orchestrator/agents/synthetic_lethality_runner.py
+cat api/routers/doctor_portal.py
+```
+
+**Audit questions**:
+
+| Question | Why It Matters |
+|----------|---------------|
+| What does the existing sl_agent.py actually do? Heuristic rules or real DepMap data? | Determines whether we replace or wrap |
+| What does synthetic_lethality_runner.py call and what does it return? | Defines the adapter contract |
+| Does doctor_portal.py already have coverage/audit endpoints or are they stubs? | Determines route mounting strategy |
+| What auth middleware is in place? (auth_middleware.py, mfa_middleware.py exist) | Our audit routes must pass through it |
+| What DB is in use? (database_connections.py, supabase_service.py seen) | Likely Supabase/Postgres, not SQLite — migration required |
+
+### Step 2 — Package sl_agent into crispro-backend-v2 (Day 1-2)
+
+**Decision**: Direct copy. Git submodule adds complexity. pip-installable git dependency adds fragility.
+
+**Recommendation**: Copy `sl_agent/` directly into crispro-backend-v2 and track it in the main repo going forward. The `Synthetic-Lethality` silo repo becomes the origin reference.
+
+**Target path** depends on audit results:
+
+| Scenario | Path | Rationale |
+|----------|------|-----------|
+| Existing module is a stub | `api/services/synthetic_lethality/` | Replace directly, preserve existing models.py interface |
+| Existing module has real callers | `api/services/sl_agent_v2/` | New package, avoid collision |
+
+### Step 3 — Adapter Layer (Day 2-3)
+
+The crispro-backend-v2 SL runner (`synthetic_lethality_runner.py`) calls the existing sl_agent with some interface. We need an adapter that:
+
+1. Accepts the existing input contract from the orchestrator
+2. Routes it through our `mine_receipts()` and `AuditQueue`
+3. Returns a response that matches whatever the orchestrator and doctor_portal expect
+
+**File**: `api/services/synthetic_lethality/adapter.py`
+
+```python
+from sl_agent.multimodal.receipt_miner import mine_receipts, MinerThresholds, load_default_panel
+from sl_agent.audit.queue import AuditQueue
+from sl_agent.multimodal.models import CandidateAxis
+
+def run_sl_analysis(gene_panel: list[str], cancer_type: str = None) -> dict:
+    """
+    Drop-in replacement for the existing SL runner interface.
+    Returns CrisPRO-compatible response with RUO envelope.
+    """
+    summary = mine_receipts(
+        gene_panel=gene_panel or load_default_panel(),
+        axes=[a for a in CandidateAxis if a != CandidateAxis.CUSTOM],
+        thresholds=MinerThresholds(),
+    )
+    return {
+        "ruo": True,
+        "disclaimer": "Research use only. Not validated for clinical decision-making.",
+        "candidates_queued": summary.candidates_queued,
+        "pairs_evaluated": summary.pairs_evaluated,
+        "depmap_release": summary.depmap_release,
+    }
+```
+
+### Step 4 — Audit Queue: SQLite to Supabase/Postgres Migration (Day 3-4)
+
+The existing crispro-backend-v2 uses Supabase (`supabase_service.py`). Our `AuditQueue` uses SQLite. This is the biggest integration lift.
+
+**Migration path**:
+
+1. Extract the schema from `sl_agent/audit/queue.py` — the `_CREATE_TABLE` SQL block
+2. Create a Supabase migration: `api/migrations/002_create_sl_audit_queue.sql`
+3. Write `api/services/sl_agent_v2/audit_supabase.py` — replaces `_conn()` with Supabase client calls, maintains identical Python interface (`AuditQueue.upsert`, `.approve`, `.reject`, `.list_pending`)
+4. The tier clamp, immutability guards, and empty `audited_by` checks live in Python — they are DB-agnostic and do not change
+
+**Schema to migrate**:
+
+```sql
+CREATE TABLE IF NOT EXISTS sl_receipt_candidates (
+    id                BIGSERIAL PRIMARY KEY,
+    gene              TEXT NOT NULL,
+    axis              TEXT NOT NULL,
+    cancer_type       TEXT,
+    crispr_delta_dep  REAL,
+    crispr_fdr        REAL,
+    crispr_n_mutant   INTEGER,
+    crispr_n_wt       INTEGER,
+    prism_delta_auc   REAL,
+    gdsc_delta_ic50   REAL,
+    kb_clinical_hits  INTEGER DEFAULT 0,
+    expression_corr   REAL,
+    confidence_score  REAL NOT NULL,
+    candidate_tier    TEXT NOT NULL,
+    evidence_summary  TEXT,
+    audit_status      TEXT DEFAULT 'pending',
+    audit_notes       TEXT,
+    audited_by        TEXT,
+    audited_at        TEXT,
+    generated_at      TEXT NOT NULL,
+    promoted_to_frozen BOOLEAN DEFAULT FALSE,
+    depmap_release    TEXT,
+    source_pipeline   TEXT,
+    UNIQUE(gene, axis)
+);
+```
+
+**Key point**: The tier clamp, immutability guards, and empty `audited_by` checks are all Python-layer logic. They fire before any DB write. The DB backend is swappable without touching safety invariants.
+
+### Step 5 — Wire Audit Routes into doctor_portal.py (Day 4)
+
+crispro-backend-v2 already has `api/routers/doctor_portal.py`. Our audit routes need to be registered there.
+
+**Routes to mount**:
+
+| Route | Method | Purpose |
+|-------|--------|---------|
+| `/api/v1/sl/audit/queue` | GET | List pending candidates |
+| `/api/v1/sl/audit/coverage` | GET | DDR panel coverage matrix |
+| `/api/v1/sl/audit/{id}/approve` | POST | Approve candidate (immutable) |
+| `/api/v1/sl/audit/{id}/reject` | POST | Reject candidate (immutable) |
+| `/api/v1/sl/audit/mine` | POST | Trigger mine_receipts() |
+| `/api/v1/sl/audit/stats` | GET | Queue statistics |
+
+**In `api/main.py`** (or `api/routers/doctor_portal.py`):
+
+```python
+from api.services.sl_agent_v2.audit_routes import audit_router
+app.include_router(audit_router, prefix="/api/v1/sl", tags=["SL Agent Audit"])
+```
+
+All existing middleware (`auth_middleware.py`, `hipaa_pii.py`, `quota_middleware.py`) applies automatically since the router mounts under the same app.
+
+### Step 6 — Update Orchestrator synthetic_lethality_runner.py (Day 4)
+
+**File**: `api/services/orchestrator/agents/synthetic_lethality_runner.py`
+
+Replace its core logic with a call to the adapter:
+
+```python
+from api.services.synthetic_lethality.adapter import run_sl_analysis
+
+async def run(self, patient_profile: dict) -> dict:
+    gene_panel = patient_profile.get("mutations", [])
+    cancer_type = patient_profile.get("cancer_type")
+    return run_sl_analysis(gene_panel=gene_panel, cancer_type=cancer_type)
+```
+
+### Step 7 — Data Dependencies (Day 5)
+
+Our pipeline requires runtime data:
+
+| Dataset | Source | Size | Required |
+|---------|--------|------|----------|
+| DepMap CRISPR matrix | Figshare (downloads on startup) | ~500MB | Yes |
+| GDSC1/GDSC2 biomarker data | Sanger CANCERRXGENE | ~50MB | Yes |
+| PRISM drug screen | Broad Institute | ~100MB | Optional (+0.05 bonus) |
+
+**For crispro-backend-v2 production (Railway/Render deployment)**:
+
+- Add `pyarrow>=14.0` to `requirements.txt` (currently missing — caused GDSC warmup failures in sandbox)
+- Set `DEPMAP_CACHE_DIR=/tmp/depmap_cache` in environment
+- Startup will download on cold start, cache on warm. First request ~90s, subsequent ~1s.
+- **Alternative**: Pre-bake a reduced CRISPR matrix for the DDR panel (36 genes) into the repo as a JSON artifact. This eliminates the download entirely for the common case.
+
+---
+
+## Section 6: Test Plan for Integration
+
+### Phase 1 — Smoke (Day 5)
+
+```bash
+cd crispro-backend-v2
+python -m pytest api/services/synthetic_lethality/tests/ -q
+# Existing tests must still pass
+python -m pytest sl_agent/tests/ sl_agent/kb/tests/ sl_agent/multimodal/tests/ sl_agent/audit/tests/ -q
+# Our 236 must still pass
+```
+
+### Phase 2 — Adapter Contract (Day 5)
+
+**File**: `api/services/synthetic_lethality/tests/test_adapter.py`
+
+| Test | Assertion |
+|------|-----------|
+| `test_adapter_returns_ruo_envelope()` | Response has `ruo=True`, disclaimer present |
+| `test_adapter_gene_panel_passed_through()` | Given BRCA1, BRCA2 → mine runs those genes |
+| `test_adapter_empty_panel_uses_default()` | Empty input uses `load_default_panel()` |
+| `test_adapter_no_validated_candidates()` | Sabotage test re-run via adapter interface |
+
+### Phase 3 — Audit Route Integration (Day 6)
+
+**File**: `api/tests/test_sl_audit_routes.py`
+
+| Test | Assertion |
+|------|-----------|
+| `test_audit_queue_endpoint_returns_ruo_envelope()` | RUO envelope present on queue response |
+| `test_audit_coverage_returns_matrix()` | Matrix shape matches 36 genes x 6 axes |
+| `test_approve_then_reject_returns_409()` | Immutability proof via crispro auth stack |
+| `test_integer_overflow_returns_422()` | ID > 2^63-1 returns 422, not 500 |
+
+### Phase 4 — Supabase Migration Verification (Day 6)
+
+```bash
+# Run migration against test Supabase instance
+psql $TEST_DATABASE_URL < api/migrations/002_create_sl_audit_queue.sql
+python -m pytest api/services/sl_agent_v2/tests/test_audit_supabase.py -q
+```
+
+### Phase 5 — End-to-End Orchestrator (Day 7)
+
+```bash
+python api/services/synthetic_lethality/tests/run_e2e_tests.py
+# Existing e2e tests pass with new adapter
+```
+
+### Phase 6 — Load Test (Day 7)
+
+The DepMap CRISPR matrix is loaded once at startup. Mine runs are CPU-bound, not I/O-bound after warmup.
+
+```bash
+python -m pytest sl_agent/multimodal/tests/ -k "mine" --benchmark-only
+# Target: <500ms per mine_receipts() call on 5-gene panel, <5s on full DDR panel
+```
+
+---
+
+## Section 7: Risks and Mitigations
+
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| Existing `synthetic_lethality/` in crispro-v2 has a different model contract than our `ReceiptCandidate` | HIGH | Audit existing `models.py` before Day 1 ends. Write adapter layer to translate. Do not delete existing module until adapter is proven. |
+| SQLite to Supabase migration breaks immutability guard timing | HIGH | Guards are in Python, not SQL. They fire before any DB write. DB-agnostic. |
+| DepMap download (500MB) times out on Railway/Render cold start | MEDIUM | Pre-bake 36-gene DDR panel as static JSON. Add `pyarrow` to requirements. |
+| GDSC parquet format requires pyarrow — missing from `requirements.txt` | MEDIUM | Add `pyarrow>=14.0` to `requirements.txt` immediately. |
+| HIPAA/PII middleware in crispro-v2 strips fields we need | LOW | RUO tagging already on all responses. `audit_queue` stores no PHI. |
+| Existing `doctor_portal.py` has its own `/coverage` endpoint that conflicts | LOW | Prefix our routes as `/api/v1/sl/audit/*` to avoid namespace collision. |
+| Concurrent mine runs overwhelm DepMap matrix in memory | LOW | Matrix is read-only after load. Thread-safe. No mutex needed. |
+
+---
+
+## Section 8: Files to Deliver to crispro-backend-v2
+
+### New Files
+
+| File | Purpose |
+|------|---------|
+| `api/services/sl_agent_v2/` | Copy of entire `sl_agent/` package |
+| `api/services/synthetic_lethality/adapter.py` | Adapter to existing orchestrator interface |
+| `api/migrations/002_create_sl_audit_queue.sql` | Supabase schema for audit queue |
+| `api/services/sl_agent_v2/audit_supabase.py` | Supabase backend for AuditQueue |
+
+### Modified Files
+
+| File | Change |
+|------|--------|
+| `api/services/orchestrator/agents/synthetic_lethality_runner.py` | Call adapter instead of existing sl_agent |
+| `api/routers/doctor_portal.py` | Mount `audit_router` |
+| `requirements.txt` | Add `pyarrow>=14.0`, `httpx>=0.27` |
+
+### New Test Files
+
+| File | Coverage |
+|------|----------|
+| `api/services/synthetic_lethality/tests/test_adapter.py` | Adapter contract tests |
+| `api/tests/test_sl_audit_routes.py` | Audit route integration via crispro auth stack |
+| `api/services/sl_agent_v2/tests/test_audit_supabase.py` | Supabase backend for AuditQueue |
+
+---
+
+## Section 9: Done Definition
+
+Integration is merge-ready when all of the following are true:
+
+| Criterion | Verification |
+|-----------|-------------|
+| All 236 sl_agent tests pass inside crispro-backend-v2 repo | `pytest sl_agent/ -q` → 236 passed |
+| All existing crispro-backend-v2 tests still pass (zero regressions) | `pytest api/ -q` → no failures |
+| Adapter test suite: 4+ tests, all green | `pytest test_adapter.py -q` |
+| Audit route integration tests: 4+ tests, all green | `pytest test_sl_audit_routes.py -q` |
+| Supabase migration applied to test instance, audit_supabase.py tests green | `psql` migration + `pytest test_audit_supabase.py -q` |
+| `POST /api/v1/sl/audit/{id}/approve` then `POST /api/v1/sl/audit/{id}/reject` returns HTTP 409 | Immutability guard confirmed |
+| `POST /api/v1/sl/audit/{id}/approve` with empty `audited_by` returns HTTP 422 | Empty-author guard confirmed |
+| `GET /api/v1/sl/audit/coverage` returns DDR panel matrix shape (36 genes x 6 axes) | Coverage matrix shape verified |
+| DepMap cold-start logs "Data pre-load failed" then recovers on first mine request | Graceful degradation confirmed |
+| No VALIDATED tier candidates in audit queue after `mine_receipts()` on full panel | Tier invariant holds end-to-end |
+
+---
+
+## Appendix A: Weight Table
+
+| Signal | Weight | Source |
+|--------|--------|--------|
+| CRISPR (DepMap) | 0.35 | DepMap 24Q2 CRISPR effect size |
+| GDSC (Drug Sensitivity) | 0.30 | GDSC1/GDSC2 biomarker-stratified IC50 |
+| KB (Clinical Evidence) | 0.25 | CIViC + CGI + JAX + ClinVar (SENSITIVITY only) |
+| Expression | 0.10 | Gene expression correlation |
+| **Total** | **1.00** | |
+| PRISM bonus | +0.05 (additive, capped at 1.0) | PRISM drug screen delta AUC |
+
+## Appendix B: CandidateAxis Enum
+
+| Axis | DDR Group | POLE Quarantined |
+|------|-----------|-----------------|
+| PARP_INHIBITORS | HRR | Yes |
+| ATR_WEE1 | Replication Stress | Yes |
+| PKMYT1 | Replication Stress | Yes |
+| WRN | MMR/MSI | Yes |
+| CYTIDINE_ANALOGS | BER | Yes |
+| IMMUNOTHERAPY | IO | No |
+| CUSTOM | N/A | N/A |
+
+## Appendix C: Confidence Gate and Tier Mapping
+
+| Confidence Score | Auto-Assigned Tier | Notes |
+|-----------------|-------------------|-------|
+| >= 0.70 | Strong | Highest auto-tier. Promotion to Validated requires human audit. |
+| >= 0.40 | Mechanistic | Queued for review. RS axis can promote to Strong with independent evidence. |
+| < 0.40 | Insufficient | Below confidence gate. Not queued. |
+| N/A | Validated | NEVER auto-assigned. Human-only via audit queue approve action. |
