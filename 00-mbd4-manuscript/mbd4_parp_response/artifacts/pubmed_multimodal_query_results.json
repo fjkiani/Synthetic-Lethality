@@ -1,0 +1,486 @@
+{
+  "Q1_MBD4_PARP_inhibitor": {
+    "total_hits": 1,
+    "articles": [
+      {
+        "pmid": "31639437",
+        "title": "Additional functions of selected proteins involved in DNA repair.",
+        "first_author": "Koliadenko V",
+        "journal": "Free radical biology & medicine",
+        "year": "2020",
+        "abstract_snippet": "Protein moonlighting is a phenomenon in which a single polypeptide chain can perform a number of different unrelated functions. Here we present our analysis of moonlighting in the case of selected DNA repair proteins which include G:T mismatch-specific thymine DNA glycosylase (TDG), methyl-CpG-binding domain protein 4 (MBD4), apurinic/apyrimidinic endonuclease 1 (APE1), AlkB homologs, poly (ADP-ribose) polymerase 1 (PARP-1) and single-strand selective monofunctional uracil DNA glycosylase 1 (SMU"
+      }
+    ]
+  },
+  "Q2_MBD4_cytidine_SL": {
+    "total_hits": 5,
+    "articles": [
+      {
+        "pmid": "36323843",
+        "title": "Cytidine analogs are synthetic lethal with base excision repair default due to MBD4 deficiency.",
+        "first_author": "Chabot T",
+        "journal": "NPJ precision oncology",
+        "year": "2022",
+        "abstract_snippet": "Inactivating mutations of MBD4 have been reported in subsets of various tumors. A deficiency of this DNA glycosylase, recognizing specifically T:G mismatch resulting from the deamination of methyl-cytosine, results in a hypermutated phenotype due to the accumulation of CpG>TpG transitions. Here, we hypothesize that the difference in DNA metabolism consecutive to MBD4 deficiency may result in specific cytotoxicities in MBD4-deficient tumor cells in a synthetic lethality fashion. After a large-sca"
+      },
+      {
+        "pmid": "27777312",
+        "title": "MBD4 Facilitates Immunoglobulin Class Switch Recombination.",
+        "first_author": "Grigera F",
+        "journal": "Molecular and cellular biology",
+        "year": "2017",
+        "abstract_snippet": "Immunoglobulin heavy chain class switch recombination (CSR) requires targeted formation of DNA double-strand breaks (DSBs) in repetitive switch region elements followed by ligation between distal breaks. The introduction of DSBs is initiated by activation-induced cytidine deaminase (AID) and requires base excision repair (BER) and mismatch repair (MMR). The BER enzyme methyl-CpG binding domain protein 4 (MBD4) has been linked to the MMR pathway through its interaction with MutL homologue 1 (MLH1"
+      },
+      {
+        "pmid": "24746924",
+        "title": "Error-free versus mutagenic processing of genomic uracil--relevance to cancer.",
+        "first_author": "Krokan HE",
+        "journal": "DNA repair",
+        "year": "2014",
+        "abstract_snippet": "Genomic uracil is normally processed essentially error-free by base excision repair (BER), with mismatch repair (MMR) as an apparent backup for U:G mismatches. Nuclear uracil-DNA glycosylase UNG2 is the major enzyme initiating BER of uracil of U:A pairs as well as U:G mismatches. Deficiency in UNG2 results in several-fold increases in genomic uracil in mammalian cells. Thus, the alternative uracil-removing glycosylases, SMUG1, TDG and MBD4 cannot efficiently complement UNG2-deficiency. A major f"
+      },
+      {
+        "pmid": "36748375",
+        "title": "Levels of base excision repair proteins in CD4<sup>+</sup> T cells in patients with systemic lupus erythematosus.",
+        "first_author": "Zhou X",
+        "journal": "Zhong nan da xue xue bao. Yi xue ban = Journal of Central South University. Medical sciences",
+        "year": "2022",
+        "abstract_snippet": "Systemic lupus erythematosus (SLE) is a multi-systemic disease with the unknown pathogenic mechanism. DNA demethylation is involved in SLE pathogenesis. Growth arrest and DNA damage inducible 45 alpha (Gadd45a) takes part in the process of DNA demethylation. Gadd45a is a DNA repair-related protein. This study aims to investigate the expressions of some proteins [including activation-induced cytidine deaminase (AID), thymine DNA glycosylase (TDG), and methyl-CpG-binding domain protein 4 (MBD4)] i"
+      },
+      {
+        "pmid": "12574322",
+        "title": "Cutting edge: the G-U mismatch glycosylase methyl-CpG binding domain 4 is dispensable for somatic hypermutation and class switch recombination.",
+        "first_author": "Bardwell PD",
+        "journal": "Journal of immunology (Baltimore, Md. : 1950)",
+        "year": "2003",
+        "abstract_snippet": "Affinity maturation of the humoral response is accomplished by somatic hypermutation and class switch recombination (CSR) of Ig genes. Activation-induced cytidine deaminase likely initiates these processes by deamination of cytidines in the V and switch regions of Ig genes. This activity is expected to produce G-U mismatches that can be substrates for MutS homolog 2/MutS homolog 6 heterodimers and for uracil DNA glycosylase. However, G-T and G-U mismatches are also substrates of the methyl-CpG b"
+      }
+    ]
+  },
+  "Q3_MBD4_WRN": {
+    "total_hits": 0,
+    "articles": []
+  },
+  "Q4_MBD4_ATR_WEE1": {
+    "total_hits": 5,
+    "articles": [
+      {
+        "pmid": "38625939",
+        "title": "Integrated mutational landscape analysis of poorly differentiated high-grade neuroendocrine carcinoma of the uterine cervix.",
+        "first_author": "Bellone S",
+        "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+        "year": "2024",
+        "abstract_snippet": "High-grade neuroendocrine cervical cancers (NETc) are exceedingly rare, highly aggressive tumors. We analyzed 64 NETc tumor samples by whole-exome sequencing (WES). Human papillomavirus DNA was detected in 65.6% (42/64) of the tumors. Recurrent mutations were identified in <i>PIK3CA, KMT2D/MLL2, K-RAS, ARID1A, NOTCH2,</i> and <i>RPL10.</i> The top mutated genes included <i>RB1, ARID1A, PTEN, KMT2D</i>/<i>MLL2,</i> and <i>WDFY3,</i> a gene not yet implicated in NETc. Somatic CNV analysis identifi"
+      },
+      {
+        "pmid": "19179424",
+        "title": "Analysis of microsatellite instability in medulloblastoma.",
+        "first_author": "Viana-Pereira M",
+        "journal": "Neuro-oncology",
+        "year": "2009",
+        "abstract_snippet": "Medulloblastoma is the most common malignant brain tumor in children. The presence of microsatellite instability (MSI) in brain tumors, particularly medulloblastomas, has not been properly addressed. The aim of the present study was to evaluate the role of MSI in medulloblastoma carcinogenesis. MSI status was determined in 36 patients using a pentaplex PCR of quasimonomorphic markers (NR27, NR21, NR24, BAT25, and BAT26). Methylation status of mismatch repair (MMR) genes was achieved by methylati"
+      },
+      {
+        "pmid": "28893156",
+        "title": "Erythrosine B and quinoline yellow dyes regulate DNA repair gene expression in human HepG2 cells.",
+        "first_author": "Chequer FM",
+        "journal": "Toxicology and industrial health",
+        "year": "2017",
+        "abstract_snippet": "Erythrosine B (ErB) is a cherry pink food colorant and is widely used in foods, drugs, and cosmetics. Quinoline yellow (QY) is a chinophthalon derivative used in cosmetic compositions for application to the skin, lips, and/or body surface. Previously, ErB and QY synthetic dyes were found to induce DNA damage in HepG2 cells. The aim of this study was to investigate the molecular basis underlying the genotoxicity attributed to ErB and QY using the RT<sup>2</sup> Profiler polymerase chain reaction "
+      },
+      {
+        "pmid": "17384679",
+        "title": "Frequent alteration of DNA damage signalling and repair pathways in human colorectal cancers with microsatellite instability.",
+        "first_author": "Miquel C",
+        "journal": "Oncogene",
+        "year": "2007",
+        "abstract_snippet": "Accumulation of frameshift mutations at genes containing coding mononucleotide repeats is thought to be the major molecular mechanism by which mismatch repair-deficient cells accumulate functional alterations. These mutations resulting from microsatellite instability (MSI) can affect genes involved in pathways with a putative oncogenic role, but may also arise in genes without any expected role in MSI carcinogenesis because of the high mutation background of these tumours. We here screened 39 MS"
+      },
+      {
+        "pmid": "16288216",
+        "title": "Microsatellite instability and mutation analysis of candidate genes in urothelial cell carcinomas of upper urinary tract.",
+        "first_author": "Mongiat-Artus P",
+        "journal": "Oncogene",
+        "year": "2006",
+        "abstract_snippet": "A subset of upper urinary tract urothelial cell carcinomas (UUC), arising sporadically or as a manifestation of hereditary non-polyposis colorectal cancer, displays microsatellite instability (MSI). MSI tumours are characterized by defective mismatch repair and accumulation of frameshift mutations in numerous genes harbouring repeats in their coding sequences. We have evaluated the incidence of MSI in UUC and the intratumoral distribution of mutations in 13 candidate target genes. A total of 58 "
+      }
+    ]
+  },
+  "Q5_MBD4_drug_sensitivity": {
+    "total_hits": 4,
+    "articles": [
+      {
+        "pmid": "41534805",
+        "title": "Study on epigenetic regulatory mechanism of MBD4 with a germline loss-of-function mutation (rs140693) responsible for retinoblastoma chemoresistance via the cell cycle and apoptotic pathways.",
+        "first_author": "Zhang L",
+        "journal": "Pharmacological research",
+        "year": "2026",
+        "abstract_snippet": "Recurrence of high-risk advanced retinoblastoma (RB) is still a major obstacle even after enucleation due to resistance to adjuvant chemotherapy, especially in China. To identify any germline alterations or candidate genes associated with RB prognosis, we obtained whole-exome sequencing (WES) and reduced-representation bisulfite sequencing (RRBS) profiles by using patient peripheral blood samples, followed by clinical validation and functional characterization. For follow-up studies, we selected"
+      },
+      {
+        "pmid": "21491084",
+        "title": "Mode of action of trifluorothymidine (TFT) against DNA replication and repair enzymes.",
+        "first_author": "Suzuki N",
+        "journal": "International journal of oncology",
+        "year": "2011",
+        "abstract_snippet": "Trifluorothymidine (TFT) is well known to be converted to TFT-monophosphate by thymidine kinase and to inhibit thymidylate synthase. In addition, TFT-triphosphate (TFT-TP) is also incorporated into DNA, resulting in cytocidal effects. However, the precise mechanism of TFT-induced DNA damage is still unclear. Therefore, we investigated the modes of action of TFT against DNA replication and repair enzymes, as compared with those of 5FU and FdUrd. When HeLa cells were treated with TFT at a concentr"
+      },
+      {
+        "pmid": "18097604",
+        "title": "Validation of biomarkers associated with 5-fluorouracil and thymidylate synthase in colorectal cancer.",
+        "first_author": "Xi Y",
+        "journal": "Oncology reports",
+        "year": "2008",
+        "abstract_snippet": "Previous studies from our laboratory have identified a number of genes associated with chemosensitivity to 5-fluorouracil (5-FU) using an in vitro colon cancer cell line model. In this study, the in vivo significance of several marker genes in terms of prognostic potential was evaluated using colorectal cancer patient samples. Eight marker genes were selected based on their functional roles and significant fold changes in expression. They are SERTA domain containing 1 (SEI1), ribonucleotide redu"
+      },
+      {
+        "pmid": "23643670",
+        "title": "Acidic tumor microenvironment downregulates hMLH1 but does not diminish 5-fluorouracil chemosensitivity.",
+        "first_author": "Iwaizumi M",
+        "journal": "Mutation research",
+        "year": "2013",
+        "abstract_snippet": "Human DNA mismatch repair (MMR) recognizes and binds 5-fluorouracil (5FU) incorporated into DNA and triggers a MMR-dependent cell death. Absence of MMR in a patient's colorectal tumor abrogates 5FU's beneficial effects on survival. Changes in the tumor microenvironment like low extracellular pH (pHe) may diminish DNA repair, increasing genomic instability. Here, we explored if low pHe modifies MMR recognition of 5FU, as 5FU can exist in ionized and non-ionized forms depending on pH. We demonstra"
+      }
+    ]
+  },
+  "Q6_MBD4_clinical_outcomes": {
+    "total_hits": 32,
+    "articles": [
+      {
+        "pmid": "38060262",
+        "title": "Familial uveal melanoma and other tumors in 25 families with monoallelic germline MBD4 variants.",
+        "first_author": "Villy MC",
+        "journal": "Journal of the National Cancer Institute",
+        "year": "2024",
+        "abstract_snippet": "Monoallelic germline MBD4 pathogenic variants were recently reported to cause a predisposition to uveal melanoma, associated with a specific tumor mutational signature and good response to immunotherapy. Monoallelic tumor pathogenic variants have also been described in brain tumors, breast cancers, and myxofibrosarcomas, whereas biallelic germline MBD4 pathogenic variants have been involved in a recessive hereditary adenomatous polyposis and a specific type of acute myeloid leukemia. We analyzed"
+      },
+      {
+        "pmid": "35863105",
+        "title": "MBD4 deficiency is predictive of response to immune checkpoint inhibitors in metastatic uveal melanoma patients.",
+        "first_author": "Saint-Ghislain M",
+        "journal": "European journal of cancer (Oxford, England : 1990)",
+        "year": "2022",
+        "abstract_snippet": "MBD4 mutations have been reported in uveal melanomas, acute myeloid leukemias, colorectal adenocarcinomas, gliomas, and spiradenocarcinomas and cause a hypermutated phenotype. Although metastatic uveal melanomas (mUM) are usually resistant to immune checkpoint inhibitors (ICI), the first reported MBD4-mutated (MBD4m) patient responded to ICI, suggesting that MBD4 mutation may predict response to ICI. Retrospective cohort of mUM patients treated with ICI. MBD4 was sequenced in a subset of these p"
+      },
+      {
+        "pmid": "27086921",
+        "title": "The Mbd4 DNA glycosylase protects mice from inflammation-driven colon cancer and tissue injury.",
+        "first_author": "Yu AM",
+        "journal": "Oncotarget",
+        "year": "2016",
+        "abstract_snippet": "Much of the global cancer burden is associated with longstanding inflammation accompanied by release of DNA-damaging reactive oxygen and nitrogen species. Here, we report that the Mbd4 DNA glycosylase is protective in the azoxymethane/dextran sodium sulfate (AOM/DSS) mouse model of inflammation-driven colon cancer. Mbd4 excises T and U from T:G and U:G mismatches caused by deamination of 5-methylcytosine and cytosine. Since the rate of deamination is higher in inflamed tissues, we investigated t"
+      },
+      {
+        "pmid": "26503472",
+        "title": "Involvement of MBD4 inactivation in mismatch repair-deficient tumorigenesis.",
+        "first_author": "Tricarico R",
+        "journal": "Oncotarget",
+        "year": "2015",
+        "abstract_snippet": "The DNA glycosylase gene MBD4 safeguards genomic stability at CpG sites and is frequently mutated at coding poly-A tracks in mismatch repair (MMR)-defective colorectal tumors (CRC). Mbd4 biallelic inactivation in mice provided conflicting results as to its role in tumorigenesis. Thus, it is unclear whether MBD4 alterations are only secondary to MMR defects without functional consequences or can contribute to the mutator phenotype. We investigated MBD4 variants in a large series of hereditary/fam"
+      },
+      {
+        "pmid": "12417741",
+        "title": "Mbd4 inactivation increases Cright-arrowT transition mutations and promotes gastrointestinal tumor formation.",
+        "first_author": "Wong E",
+        "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+        "year": "2002",
+        "abstract_snippet": "Mbd4 (methyl-CpG binding domain 4) is a novel mammalian repair enzyme that has been implicated biochemically in the repair of mismatched G-T residues at methylated CpG sites. In addition, the human protein has been shown to interact with the DNA mismatch repair protein MLH1. To clarify the role of Mbd4 in DNA repair in vivo and to examine the impact of Mbd4 inactivation on gastrointestinal (GI) tumorigenesis, we introduced a null mutation into the murine Mbd4 gene by gene targeting. Heterozygous"
+      },
+      {
+        "pmid": "24746924",
+        "title": "Error-free versus mutagenic processing of genomic uracil--relevance to cancer.",
+        "first_author": "Krokan HE",
+        "journal": "DNA repair",
+        "year": "2014",
+        "abstract_snippet": "Genomic uracil is normally processed essentially error-free by base excision repair (BER), with mismatch repair (MMR) as an apparent backup for U:G mismatches. Nuclear uracil-DNA glycosylase UNG2 is the major enzyme initiating BER of uracil of U:A pairs as well as U:G mismatches. Deficiency in UNG2 results in several-fold increases in genomic uracil in mammalian cells. Thus, the alternative uracil-removing glycosylases, SMUG1, TDG and MBD4 cannot efficiently complement UNG2-deficiency. A major f"
+      },
+      {
+        "pmid": "31476572",
+        "title": "Modification of the base excision repair enzyme MBD4 by the small ubiquitin-like molecule SUMO1.",
+        "first_author": "Sannai M",
+        "journal": "DNA repair",
+        "year": "2019",
+        "abstract_snippet": "The base excision repair DNA N-glycosylase MBD4 (also known as MED1), an interactor of the DNA mismatch repair protein MLH1, plays a central role in the maintenance of genomic stability of CpG sites by removing thymine and uracil from G:T and G:U mismatches, respectively. MBD4 is also involved in DNA damage response and transcriptional regulation. The interaction with other proteins is likely critical for understanding MBD4 functions. To identify novel proteins that interact with MBD4, we used t"
+      },
+      {
+        "pmid": "36323843",
+        "title": "Cytidine analogs are synthetic lethal with base excision repair default due to MBD4 deficiency.",
+        "first_author": "Chabot T",
+        "journal": "NPJ precision oncology",
+        "year": "2022",
+        "abstract_snippet": "Inactivating mutations of MBD4 have been reported in subsets of various tumors. A deficiency of this DNA glycosylase, recognizing specifically T:G mismatch resulting from the deamination of methyl-cytosine, results in a hypermutated phenotype due to the accumulation of CpG>TpG transitions. Here, we hypothesize that the difference in DNA metabolism consecutive to MBD4 deficiency may result in specific cytotoxicities in MBD4-deficient tumor cells in a synthetic lethality fashion. After a large-sca"
+      },
+      {
+        "pmid": "32421892",
+        "title": "Germline loss-of-function variants in MBD4 are rare in Finnish patients with uveal melanoma.",
+        "first_author": "Repo P",
+        "journal": "Pigment cell & melanoma research",
+        "year": "2020",
+        "abstract_snippet": "Uveal melanoma (UM) is a rare intraocular cancer with the highest incidence in northern latitudes. Metastases develop in approximately 50% of patients, whereafter the median survival is 13\u00a0months. Generally, the mutation burden of these tumors is low. Germline variants predisposing to UM have been previously described in BRCA1-associated protein 1 (BAP1). Recently, germline and somatic loss-of-function (LOF) variants in the methyl-CpG-binding domain 4 (MBD4) gene have been found to cause a hyper"
+      },
+      {
+        "pmid": "40661151",
+        "title": "Advances in immunotherapy for uveal melanoma: enhancing efficacy and overcoming resistance.",
+        "first_author": "Song J",
+        "journal": "Frontiers in cell and developmental biology",
+        "year": "2025",
+        "abstract_snippet": "Uveal melanoma (UM) is the most common primary intraocular malignancy in adults, presenting a significant clinical challenge due to its high metastatic potential and limited response to conventional systemic therapies. While immunotherapy has transformed the treatment landscape for numerous cancers, its effectiveness in UM has been substantially limited, primarily due to the tumor's distinct immune-evasive characteristics and a suppressive tumor microenvironment (TME). This review systematically"
+      }
+    ]
+  },
+  "Q7_MBD4_BER_repair": {
+    "total_hits": 22,
+    "articles": [
+      {
+        "pmid": "35460607",
+        "title": "Germline MBD4 deficiency causes a multi-tumor predisposition syndrome.",
+        "first_author": "Palles C",
+        "journal": "American journal of human genetics",
+        "year": "2022",
+        "abstract_snippet": "We report an autosomal recessive, multi-organ tumor predisposition syndrome, caused by bi-allelic loss-of-function germline variants in the base excision repair (BER) gene MBD4. We identified five individuals with bi-allelic MBD4 variants within four families and these individuals had a personal and/or family history of adenomatous colorectal polyposis, acute myeloid leukemia, and uveal melanoma. MBD4 encodes a glycosylase involved in repair of G:T mismatches resulting from deamination of 5'-met"
+      },
+      {
+        "pmid": "40237887",
+        "title": "Genetics, genomics and clinical features of adenomatous polyposis.",
+        "first_author": "Joo JE",
+        "journal": "Familial cancer",
+        "year": "2025",
+        "abstract_snippet": "Adenomatous polyposis syndromes are hereditary conditions characterised by the development of multiple adenomas in the gastrointestinal tract, particularly in the colon and rectum, significantly increasing the risk of colorectal cancer and, in some cases, extra-colonic malignancies. These syndromes are caused by germline pathogenic variants (PVs) in genes involved in Wnt signalling and DNA repair. The main autosomal dominant adenomatous polyposis syndromes include familial adenomatous polyposis "
+      },
+      {
+        "pmid": "39543136",
+        "title": "Base-excision repair pathway shapes 5-methylcytosine deamination signatures in pan-cancer genomes.",
+        "first_author": "Silveira AB",
+        "journal": "Nature communications",
+        "year": "2024",
+        "abstract_snippet": "Transition of cytosine to thymine in CpG dinucleotides is the most frequent type of mutation in cancer. This increased mutability is commonly attributed to the spontaneous deamination of 5-methylcytosine (5mC), which is normally repaired by the base-excision repair (BER) pathway. However, the contribution of 5mC deamination in the increasing diversity of cancer mutational signatures remains poorly explored. We integrate mutational signatures analysis in a large series of tumor whole genomes with"
+      },
+      {
+        "pmid": "31476572",
+        "title": "Modification of the base excision repair enzyme MBD4 by the small ubiquitin-like molecule SUMO1.",
+        "first_author": "Sannai M",
+        "journal": "DNA repair",
+        "year": "2019",
+        "abstract_snippet": "The base excision repair DNA N-glycosylase MBD4 (also known as MED1), an interactor of the DNA mismatch repair protein MLH1, plays a central role in the maintenance of genomic stability of CpG sites by removing thymine and uracil from G:T and G:U mismatches, respectively. MBD4 is also involved in DNA damage response and transcriptional regulation. The interaction with other proteins is likely critical for understanding MBD4 functions. To identify novel proteins that interact with MBD4, we used t"
+      },
+      {
+        "pmid": "36323843",
+        "title": "Cytidine analogs are synthetic lethal with base excision repair default due to MBD4 deficiency.",
+        "first_author": "Chabot T",
+        "journal": "NPJ precision oncology",
+        "year": "2022",
+        "abstract_snippet": "Inactivating mutations of MBD4 have been reported in subsets of various tumors. A deficiency of this DNA glycosylase, recognizing specifically T:G mismatch resulting from the deamination of methyl-cytosine, results in a hypermutated phenotype due to the accumulation of CpG>TpG transitions. Here, we hypothesize that the difference in DNA metabolism consecutive to MBD4 deficiency may result in specific cytotoxicities in MBD4-deficient tumor cells in a synthetic lethality fashion. After a large-sca"
+      },
+      {
+        "pmid": "27890638",
+        "title": "Aberrant base excision repair pathway of oxidatively damaged DNA: Implications for degenerative diseases.",
+        "first_author": "Talhaoui I",
+        "journal": "Free radical biology & medicine",
+        "year": "2017",
+        "abstract_snippet": "In cellular organisms composition of DNA is constrained to only four nucleobases A, G, T and C, except for minor DNA base modifications such as methylation which serves for defence against foreign DNA or gene expression regulation. Interestingly, this severe evolutionary constraint among other things demands DNA repair systems to discriminate between regular and modified bases. DNA glycosylases specifically recognize and excise damaged bases among vast majority of regular bases in the base excis"
+      },
+      {
+        "pmid": "37957685",
+        "title": "MBD4 loss results in global reactivation of promoters and retroelements with low methylated CpG density.",
+        "first_author": "Papin C",
+        "journal": "Journal of experimental & clinical cancer research : CR",
+        "year": "2023",
+        "abstract_snippet": "Inherited defects in the base-excision repair gene MBD4 predispose individuals to adenomatous polyposis and colorectal cancer, which is characterized by an accumulation of C\u2009>\u2009T transitions resulting from spontaneous deamination of 5'-methylcytosine. Here, we have investigated the potential role of MBD4 in regulating DNA methylation levels using genome-wide transcriptome and methylome analyses. Additionally, we have elucidated its function through a series of in vitro experiments. Here we show t"
+      },
+      {
+        "pmid": "38625939",
+        "title": "Integrated mutational landscape analysis of poorly differentiated high-grade neuroendocrine carcinoma of the uterine cervix.",
+        "first_author": "Bellone S",
+        "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+        "year": "2024",
+        "abstract_snippet": "High-grade neuroendocrine cervical cancers (NETc) are exceedingly rare, highly aggressive tumors. We analyzed 64 NETc tumor samples by whole-exome sequencing (WES). Human papillomavirus DNA was detected in 65.6% (42/64) of the tumors. Recurrent mutations were identified in <i>PIK3CA, KMT2D/MLL2, K-RAS, ARID1A, NOTCH2,</i> and <i>RPL10.</i> The top mutated genes included <i>RB1, ARID1A, PTEN, KMT2D</i>/<i>MLL2,</i> and <i>WDFY3,</i> a gene not yet implicated in NETc. Somatic CNV analysis identifi"
+      },
+      {
+        "pmid": "40605265",
+        "title": "A Novel Deleterious Variant and a Founder Effect in Four New Families of MBD4-Associated Neoplasia Syndrome Recruited Over a Period of 20\u2009Years.",
+        "first_author": "Querido I",
+        "journal": "Clinical genetics",
+        "year": "2026",
+        "abstract_snippet": "DNA glycosylases play a crucial role in DNA repair mediated by the base excision repair (BER) pathway, and alterations in these enzymes have been associated with hereditary cancer predisposition. Recently, germline biallelic loss-of-function variants in MBD4 were shown to be responsible for a novel autosomal recessive multi-tumor predisposition syndrome, provisionally denominated as MBD4-associated neoplasia syndrome and characterized by the association of adenomatous polyposis, colorectal cance"
+      },
+      {
+        "pmid": "16570853",
+        "title": "Cytosine methylation and DNA repair.",
+        "first_author": "Walsh CP",
+        "journal": "Current topics in microbiology and immunology",
+        "year": "2006",
+        "abstract_snippet": "Cytosine methylation is a common form of post-replicative DNA modification seen in both bacteria and eukaryotes. Modified cytosines have long been known to act as hotspots for mutations due to the high rate of spontaneous deamination of this base to thymine, resulting in a G/T mismatch. This will be fixed as a C-->T transition after replication if not repaired by the base excision repair (BER) pathway or specific repair enzymes dedicated to this purpose. This hypermutability has led to depletion"
+      }
+    ]
+  },
+  "Q8_WRN_MSI_dependency": {
+    "total_hits": 29,
+    "articles": [
+      {
+        "pmid": "38658754",
+        "title": "Discovery of WRN inhibitor HRO761 with synthetic lethality in MSI cancers.",
+        "first_author": "Ferretti S",
+        "journal": "Nature",
+        "year": "2024",
+        "abstract_snippet": "The Werner syndrome RecQ helicase WRN was identified as a synthetic lethal target in cancer cells with microsatellite instability (MSI) by several genetic screens<sup>1-6</sup>. Despite advances in treatment with immune checkpoint inhibitors<sup>7-10</sup>, there is an unmet need in the treatment of MSI cancers<sup>11-14</sup>. Here we report the structural, biochemical, cellular and pharmacological characterization of the clinical-stage WRN helicase inhibitor HRO761, which was identified throug"
+      },
+      {
+        "pmid": "38658751",
+        "title": "Chemoproteomic discovery of a covalent allosteric inhibitor of WRN helicase.",
+        "first_author": "Baltgalvis KA",
+        "journal": "Nature",
+        "year": "2024",
+        "abstract_snippet": "WRN helicase is a promising target for treatment of cancers with microsatellite instability (MSI) due to its essential role in resolving deleterious non-canonical DNA structures that accumulate in cells with faulty mismatch repair mechanisms<sup>1-5</sup>. Currently there are no approved drugs directly targeting human DNA or RNA helicases, in part owing to the challenging nature of developing potent and selective compounds to this class of proteins. Here we describe the chemoproteomics-enabled d"
+      },
+      {
+        "pmid": "30971823",
+        "title": "WRN helicase is a synthetic lethal target in microsatellite unstable cancers.",
+        "first_author": "Chan EM",
+        "journal": "Nature",
+        "year": "2019",
+        "abstract_snippet": "Synthetic lethality-an interaction between two genetic events through which the co-occurrence of these two genetic events leads to cell death, but each event alone does not-can be exploited for cancer therapeutics<sup>1</sup>. DNA repair processes represent attractive synthetic lethal targets, because many cancers exhibit an impairment of a DNA repair pathway, which can lead to dependence on specific repair proteins<sup>2</sup>. The success of poly(ADP-ribose) polymerase 1 (PARP-1) inhibitors in"
+      },
+      {
+        "pmid": "39910291",
+        "title": "Synthetic lethality of mRNA quality control complexes in cancer.",
+        "first_author": "Prindle V",
+        "journal": "Nature",
+        "year": "2025",
+        "abstract_snippet": "Synthetic lethality exploits the genetic vulnerabilities of cancer cells to enable a targeted, precision approach to treat cancer<sup>1</sup>. Over the past 15 years, synthetic lethal cancer target discovery approaches have led to clinical successes of PARP inhibitors<sup>2</sup> and ushered several next-generation therapeutic targets such as WRN<sup>3</sup>, USP1<sup>4</sup>, PKMYT1<sup>5</sup>, POLQ<sup>6</sup> and PRMT5<sup>7</sup> into the clinic. Here we identify, in human cancer, a novel s"
+      },
+      {
+        "pmid": "36541070",
+        "title": "WRN helicase and mismatch repair complexes independently and synergistically disrupt cruciform DNA structures.",
+        "first_author": "Mengoli V",
+        "journal": "The EMBO journal",
+        "year": "2023",
+        "abstract_snippet": "The Werner Syndrome helicase, WRN, is a promising therapeutic target in cancers with microsatellite instability (MSI). Long-term MSI leads to the expansion of TA nucleotide repeats proposed to form cruciform DNA structures, which in turn cause DNA breaks and cell lethality upon WRN downregulation. Here we employed biochemical assays to show that WRN helicase can efficiently and directly unfold cruciform structures, thereby preventing their cleavage by the SLX1-SLX4 structure-specific endonucleas"
+      },
+      {
+        "pmid": "40526642",
+        "title": "WRN as a Novel Target of Synthetic Lethality: Current Advances and Future Perspectives.",
+        "first_author": "Zhang Y",
+        "journal": "Journal of medicinal chemistry",
+        "year": "2025",
+        "abstract_snippet": "Werner syndrome (WS) is an autosomal recessive disorder caused by mutations in the Werner syndrome protein (WRN, also known as RecQ3) gene. As a pivotal member of the RecQ DNA helicase family, WRN facilitates essential processes in DNA replication, recombination, and repair, thus safeguarding genomic stability. In this perspective, we provide a critical analysis of WRN's structural and biological features as well as its regulatory networks. Synthetic lethality strategies targeting WRN show promi"
+      },
+      {
+        "pmid": "40043505",
+        "title": "WRN dependency in dMMR/MSI-H endometrial cancer: Clinical perspectives of a novel synthetic lethality strategy.",
+        "first_author": "Fuc\u00e0 G",
+        "journal": "Gynecologic oncology",
+        "year": "2025",
+        "abstract_snippet": "No abstract"
+      },
+      {
+        "pmid": "37932011",
+        "title": "Comprehensive mapping of cell fates in microsatellite unstable cancer cells supports dual targeting of WRN and ATR.",
+        "first_author": "Zong D",
+        "journal": "Genes & development",
+        "year": "2023",
+        "abstract_snippet": "Addiction to the WRN helicase is a unique vulnerability of human cancers with high levels of microsatellite instability (MSI-H). However, while prolonged loss of WRN ultimately leads to cell death, little is known about how MSI-H cancers initially respond to acute loss of WRN-knowledge that would be helpful for informing clinical development of WRN targeting therapy, predicting possible resistance mechanisms, and identifying useful biomarkers of successful WRN inhibition. Here, we report the con"
+      },
+      {
+        "pmid": "39025847",
+        "title": "WRN inhibition leads to its chromatin-associated degradation via the PIAS4-RNF4-p97/VCP axis.",
+        "first_author": "Rodr\u00edguez P\u00e9rez F",
+        "journal": "Nature communications",
+        "year": "2024",
+        "abstract_snippet": "Synthetic lethality provides an attractive strategy for developing targeted cancer therapies. For example, cancer cells with high levels of microsatellite instability (MSI-H) are dependent on the Werner (WRN) helicase for survival. However, the mechanisms that regulate WRN spatiotemporal dynamics remain poorly understood. Here, we used single-molecule tracking (SMT) in combination with a WRN inhibitor to examine WRN dynamics within the nuclei of living cancer cells. WRN inhibition traps the heli"
+      },
+      {
+        "pmid": "34284257",
+        "title": "The WRN helicase: resolving a new target in microsatellite unstable cancers.",
+        "first_author": "van Wietmarschen N",
+        "journal": "Current opinion in genetics & development",
+        "year": "2021",
+        "abstract_snippet": "One of the goals of precision medicine is to uncover selective vulnerabilities in various cancers. A notable success has been the development of PARP inhibitors for the treatment of breast and ovarian cancers with mutations in BRCA genes. Only two years ago, it was discovered that cancers with microsatellite instability (MSI) were selectively dependent on the RecQ DNA helicase WRN. Subsequently, the molecular mechanism underlying WRN dependency in MSI cancers was uncovered. Here, we review how t"
+      }
+    ]
+  },
+  "Q9_PARP1_expression_biomarker": {
+    "total_hits": 54,
+    "articles": [
+      {
+        "pmid": "35879366",
+        "title": "Therapeutic targeting of ATR in alveolar rhabdomyosarcoma.",
+        "first_author": "Dorado Garc\u00eda H",
+        "journal": "Nature communications",
+        "year": "2022",
+        "abstract_snippet": "Despite advances in multi-modal treatment approaches, clinical outcomes of patients suffering from PAX3-FOXO1 fusion oncogene-expressing alveolar rhabdomyosarcoma (ARMS) remain dismal. Here we show that PAX3-FOXO1-expressing ARMS cells are sensitive to pharmacological ataxia telangiectasia and Rad3 related protein (ATR) inhibition. Expression of PAX3-FOXO1 in muscle progenitor cells is not only sufficient to increase sensitivity to ATR inhibition, but PAX3-FOXO1-expressing rhabdomyosarcoma cells"
+      },
+      {
+        "pmid": "30487607",
+        "title": "CDK12 regulates DNA repair genes by suppressing intronic polyadenylation.",
+        "first_author": "Dubbury SJ",
+        "journal": "Nature",
+        "year": "2018",
+        "abstract_snippet": "Mutations that attenuate homologous recombination (HR)-mediated repair promote tumorigenesis and sensitize cells to chemotherapeutics that cause replication fork collapse, a phenotype known as 'BRCAness'<sup>1</sup>. BRCAness tumours arise from loss-of-function mutations in 22 genes<sup>1</sup>. Of these genes, all but one (CDK12) function directly in the HR repair pathway<sup>1</sup>. CDK12 phosphorylates serine 2 of the RNA polymerase II C-terminal domain heptapeptide repeat<sup>2-7</sup>, a m"
+      },
+      {
+        "pmid": "38619111",
+        "title": "PARP1 expression predicts PARP inhibitor sensitivity and correlates with metastatic potential and overall survival in melanoma.",
+        "first_author": "Fr\u00f6hlich LM",
+        "journal": "International journal of cancer",
+        "year": "2024",
+        "abstract_snippet": "Metastatic melanoma is still a difficult-to-treat cancer type owing to its frequent resistance mechanisms to targeted and immunotherapy. Therefore, we aimed to unravel novel therapeutic strategies for melanoma patients. Preclinical and clinical studies show that melanoma patients may benefit from a treatment with poly (ADP-ribose) polymerase (PARP) inhibitors (PARPi). In this study, we focus on PARP1 as a potential biomarker to predict the response of melanoma cells to PARPi therapy. We found th"
+      },
+      {
+        "pmid": "26539646",
+        "title": "PARP1 expression, activity and ex vivo sensitivity to the PARP inhibitor, talazoparib (BMN 673), in chronic lymphocytic leukaemia.",
+        "first_author": "Herriott A",
+        "journal": "Oncotarget",
+        "year": "2015",
+        "abstract_snippet": "In chronic lymphocytic leukemia (CLL), mutation and loss of p53 and ATM abrogate DNA damage signalling and predict poorer response and shorter survival. We hypothesised that poly (ADP-ribose) polymerase (PARP) activity, which is crucial for repair of DNA breaks induced by oxidative stress or chemotherapy, may be an additional predictive biomarker and a target for therapy with PARP inhibitors.We measured PARP activity in 109 patient-derived CLL samples, which varied widely (192 - 190052 pmol PAR/"
+      },
+      {
+        "pmid": "38199587",
+        "title": "Patient-derived tumor organoids with p53 mutations, and not wild-type p53, are sensitive to synergistic combination PARP inhibitor treatment.",
+        "first_author": "Madorsky Rowdo FP",
+        "journal": "Cancer letters",
+        "year": "2024",
+        "abstract_snippet": "Poly (ADP-ribose) polymerase inhibitors (PARPi) are used for patients with BRCA1/2 mutations, but patients with other mutations may benefit from PARPi treatment. Another mutation that is present in more cancers than BRCA1/2 is mutation to the TP53 gene. In 2D breast cancer cell lines, mutant p53 (mtp53) proteins tightly associate with replicating DNA and Poly (ADP-ribose) polymerase (PARP) protein. Combination drug treatment with the alkylating agent temozolomide and the PARPi talazoparib kills "
+      },
+      {
+        "pmid": "38310229",
+        "title": "Wnt/\u03b2-catenin signalling activates IMPDH2-mediated purine metabolism to facilitate oxaliplatin resistance by inhibiting caspase-dependent apoptosis in\u00a0colorectal cancer.",
+        "first_author": "Huang Y",
+        "journal": "Journal of translational medicine",
+        "year": "2024",
+        "abstract_snippet": "Oxaliplatin resistance usually leads to therapeutic failure and poor prognosis in colorectal cancer (CRC), while the underlying mechanisms are not yet fully understood. Metabolic reprogramming is strongly linked to drug resistance, however, the role and mechanism of metabolic reprogramming in oxaliplatin resistance remain unclear. Here, we aim to explore the functions and mechanisms of purine metabolism on the oxaliplatin-induced apoptosis of CRC. An oxaliplatin-resistant CRC cell line was gener"
+      },
+      {
+        "pmid": "36441795",
+        "title": "[18F]FluorThanatrace ([18F]FTT) PET Imaging of PARP-Inhibitor Drug-Target Engagement as a Biomarker of Response in Ovarian Cancer, a Pilot Study.",
+        "first_author": "Pantel AR",
+        "journal": "Clinical cancer research : an official journal of the American Association for Cancer Research",
+        "year": "2023",
+        "abstract_snippet": "PARP inhibitors have become the standard-of-care treatment for homologous recombination deficient (HRD) high-grade serous ovarian cancer (HGSOC). However, not all HRD tumors respond to PARPi. Biomarkers to predict response are needed. [18F]FluorThanatrace ([18F]FTT) is a PARPi-analog PET radiotracer that noninvasively measures PARP-1 expression. Herein, we evaluate [18F]FTT as a biomarker to predict response to PARPi in patient-derived xenograft (PDX) models and subjects with HRD HGSOC. In PDX m"
+      },
+      {
+        "pmid": "35701722",
+        "title": "Pilot Study: PARP1 Imaging in Advanced Prostate Cancer.",
+        "first_author": "Dehdashti F",
+        "journal": "Molecular imaging and biology",
+        "year": "2022",
+        "abstract_snippet": "PARP inhibitor (PARPi) therapy is approved for patients with metastatic castration-resistant prostate cancer (mCRPC) and homologous recombination repair (HRR) genomic aberrations. However, only a fraction of patients with BRCA1/2 mutations respond to PARPi therapy. In this pilot study, we assess PARP-1 expression in prostate cancer patients with and without HRR genomic alternations using a novel PARP-based imaging agent. Nine advanced prostate cancer patients were studied with PET/CT and [<sup>1"
+      },
+      {
+        "pmid": "40381483",
+        "title": "HELQ upregulates PARP1 to drive platinum resistance and predict therapeutic response in ovarian cancer.",
+        "first_author": "Tan S",
+        "journal": "Translational oncology",
+        "year": "2025",
+        "abstract_snippet": "POLQ-like helicase (HELQ), an evolutionarily conserved 3'-5' DNA helicase, is markedly overexpressed in platinum-resistant ovarian cancer (OC), which is correlated with a poor prognosis. However, the mechanisms linking HELQ with resistance to platinum-based chemotherapy remain unkonwn. Our study presents both in vitro and in vivo evidence that elevated HELQ expression is linked to increased chemoresistance in OC models, with reduced HELQ levels enhancing their sensitivity to platinum agents. The"
+      },
+      {
+        "pmid": "40313621",
+        "title": "Targeting PCNA/PARP1 axis inhibits the malignant progression of hepatocellular carcinoma.",
+        "first_author": "Li J",
+        "journal": "Frontiers in pharmacology",
+        "year": "2025",
+        "abstract_snippet": "Proliferating cell nuclear antigen (PCNA) is associated with the proliferation and recurrence of various cancers, and its high expression is associated with poor prognosis in hepatocellular carcinoma (HCC) patients. However, the mechanistic role of PCNA in HCC progression remains poorly understood. This study aimed to investigate how PCNA regulates DNA damage repair and cell cycle progression in HCC, with a focus on its interaction with poly (ADP-ribose) polymerase 1 (PARP1) and therapeutic impl"
+      }
+    ]
+  }
+}

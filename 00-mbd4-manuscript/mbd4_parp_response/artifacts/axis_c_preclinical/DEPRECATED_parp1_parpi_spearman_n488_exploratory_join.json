@@ -1,0 +1,59 @@
+{
+  "test": "parp1_expression_x_parpi_sensitivity",
+  "n_total_lines": 488,
+  "n_mbd4_lof_with_gdsc": 8,
+  "parp1_vs_parpi_z_all_lines": {
+    "high_parp1_q75_median_z": -0.5765,
+    "low_parp1_q25_median_z": 0.4205
+  },
+  "mbd4_lof_per_line": [
+    {
+      "model": "ACH-001709",
+      "parp1_expr": 7.575,
+      "rnf144a_expr": 0.151,
+      "parp_z": -1.349
+    },
+    {
+      "model": "ACH-000883",
+      "parp1_expr": 6.532,
+      "rnf144a_expr": 2.239,
+      "parp_z": -0.637
+    },
+    {
+      "model": "ACH-000971",
+      "parp1_expr": 7.602,
+      "rnf144a_expr": 2.77,
+      "parp_z": -0.326
+    },
+    {
+      "model": "ACH-000956",
+      "parp1_expr": 8.15,
+      "rnf144a_expr": 1.993,
+      "parp_z": 0.19
+    },
+    {
+      "model": "ACH-000963",
+      "parp1_expr": 7.377,
+      "rnf144a_expr": 1.799,
+      "parp_z": 0.203
+    },
+    {
+      "model": "ACH-000978",
+      "parp1_expr": 7.044,
+      "rnf144a_expr": 2.84,
+      "parp_z": 0.289
+    },
+    {
+      "model": "ACH-000985",
+      "parp1_expr": 6.837,
+      "rnf144a_expr": 0.057,
+      "parp_z": 0.85
+    },
+    {
+      "model": "ACH-000936",
+      "parp1_expr": 6.274,
+      "rnf144a_expr": 2.811,
+      "parp_z": 1.165
+    }
+  ]
+}

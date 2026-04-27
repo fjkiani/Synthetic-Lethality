@@ -1,0 +1,82 @@
+{
+  "cn_proxy_signature_within_lof": null,
+  "delta_median_parp_mean_z_LOF_minus_WT_no_MBD4_record": {
+    "bootstrap_95ci": [
+      -0.8379669574999999,
+      0.6243421100000001
+    ],
+    "interpretation": "Negative suggests greater PARPi sensitivity in MBD4_LOF (more negative Z).",
+    "point_estimate": -0.024062499999999987
+  },
+  "expr_proxy_signature_within_lof": {
+    "delta_median_z_sig_minus_no_sig": {
+      "bootstrap_95ci": [
+        -2.1992116,
+        -1.0229712
+      ],
+      "point_estimate": -1.5528515999999999
+    },
+    "interpretation": "Negative suggests greater PARPi sensitivity in the RNF144A-low/PARP1-high expression proxy subset (more negative Z).",
+    "median_no_sig_parp_mean_z": 0.20339460000000004,
+    "median_sig_parp_mean_z": -1.349457,
+    "n_lof_no_sig": 7,
+    "n_lof_sig": 1,
+    "thresholds": {
+      "parp1_expr_q75": 7.413500860520323,
+      "rnf144a_expr_q25": 0.6507645591169022
+    }
+  },
+  "group_summary": {
+    "MBD4_LOF": {
+      "median_parp_mean_auc": 0.9562352999999999,
+      "median_parp_mean_z": 0.19650320000000002,
+      "n_lines": 8.0
+    },
+    "MBD4_nonLOF_mut": {
+      "median_parp_mean_auc": 0.8543704999999999,
+      "median_parp_mean_z": -0.7342045666666668,
+      "n_lines": 2.0
+    },
+    "WT_no_MBD4_record": {
+      "median_parp_mean_auc": 0.953681425,
+      "median_parp_mean_z": 0.2205657,
+      "n_lines": 478.0
+    }
+  },
+  "inputs": {
+    "cn": "publications/synthetic_lethality/data/OmicsCNGeneWGS.csv",
+    "expr": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/depmap_expression_axis_genes.csv",
+    "gdsc": "publications/synthetic_lethality/data/GDSC2_fitted_dose_response_27Oct23.xlsx",
+    "model": "data/depmap/Model.csv",
+    "omics": "publications/synthetic_lethality/data/OmicsSomaticMutations.csv"
+  },
+  "lineage_controlled_deltas": {
+    "Bowel": {
+      "delta_median_z_lof_minus_wt": {
+        "bootstrap_95ci": [
+          -0.8513788,
+          0.6269502
+        ],
+        "point_estimate": -0.20043159999999993
+      },
+      "median_lof_parp_mean_z": 0.20339460000000004,
+      "median_wt_parp_mean_z": 0.40382619999999997,
+      "n_lof": 3,
+      "n_wt": 24
+    }
+  },
+  "notes": [
+    "This is preclinical: PARPi sensitivity derived from GDSC2 Z_SCORE/AUC.",
+    "MBD4 status derived from OmicsSomaticMutations VEP-style fields + LikelyLoF flags (heuristic).",
+    "WT_no_MBD4_record is a stricter comparator than WT_or_unknown: no MBD4 row observed in OmicsSomaticMutations for that line.",
+    "RNF144A/PARP1 axis includes an EXPRESSION proxy (DepMap TPM log1p) and a COPY-NUMBER proxy (OmicsCNGeneWGS). Treat both as exploratory."
+  ],
+  "outputs": {
+    "per_drug_receipts_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/gdsc2_parpi_per_drug_per_line_receipts.csv",
+    "per_line_receipts_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/gdsc2_parpi_per_line_receipts.csv",
+    "raw_excerpt_cn_proxy_lof_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/raw_excerpt_cn_proxy_mbd4_lof.csv",
+    "raw_excerpt_expr_proxy_lof_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/raw_excerpt_expr_proxy_mbd4_lof.csv",
+    "raw_excerpt_gdsc2_lof_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/raw_excerpt_gdsc2_parpi_rows_mbd4_lof.csv",
+    "raw_excerpt_omics_lof_csv": "oncology-coPilot/oncology-backend-minimal/data/literature_mbd4/out/axis_c_parpi_preclinical/raw_excerpt_omics_mbd4_rows_lof.csv"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "ucec_mbd4_os_comparison": {
+    "mbd4_any_n": 26,
+    "mbd4_lof_n": 4,
+    "non_mbd4_n": 502
+  },
+  "mbd4_patients_detail": {
+    "TCGA-A5-A0G1": {
+      "mutations": [
+        "Missense_Mutation P242T"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-A5-A0G1-01"
+    },
+    "TCGA-A5-A0G2": {
+      "mutations": [
+        "Missense_Mutation A295S"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-A5-A0G2-01"
+    },
+    "TCGA-A5-A0GN": {
+      "mutations": [
+        "In_Frame_Del L511del"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-A5-A0GN-01"
+    },
+    "TCGA-A5-A1OF": {
+      "mutations": [
+        "Missense_Mutation H211Y"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-A5-A1OF-01"
+    },
+    "TCGA-A5-A2K5": {
+      "mutations": [
+        "Missense_Mutation K244Q",
+        "Missense_Mutation R546Q"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-A5-A2K5-01"
+    },
+    "TCGA-AJ-A3EL": {
+      "mutations": [
+        "Missense_Mutation L198S"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AJ-A3EL-01"
+    },
+    "TCGA-AP-A051": {
+      "mutations": [
+        "Missense_Mutation P440H",
+        "Frame_Shift_Del T515Pfs*10"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AP-A051-01"
+    },
+    "TCGA-AP-A056": {
+      "mutations": [
+        "Missense_Mutation S266Y"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AP-A056-01"
+    },
+    "TCGA-AP-A0LM": {
+      "mutations": [
+        "Missense_Mutation R83C"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AP-A0LM-01"
+    },
+    "TCGA-AX-A0J0": {
+      "mutations": [
+        "Missense_Mutation S135Y",
+        "Missense_Mutation T21A"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AX-A0J0-01"
+    },
+    "TCGA-AX-A2HC": {
+      "mutations": [
+        "Nonsense_Mutation E265*"
+      ],
+      "is_lof": true,
+      "sample": "TCGA-AX-A2HC-01"
+    },
+    "TCGA-AX-A2HJ": {
+      "mutations": [
+        "Missense_Mutation I464V"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-AX-A2HJ-01"
+    },
+    "TCGA-B5-A1MR": {
+      "mutations": [
+        "Nonsense_Mutation G115*"
+      ],
+      "is_lof": true,
+      "sample": "TCGA-B5-A1MR-01"
+    },
+    "TCGA-B5-A3FA": {
+      "mutations": [
+        "Missense_Mutation F336S"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-B5-A3FA-01"
+    },
+    "TCGA-BG-A0VW": {
+      "mutations": [
+        "Missense_Mutation C254Y"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-BG-A0VW-01"
+    },
+    "TCGA-BS-A0TJ": {
+      "mutations": [
+        "Frame_Shift_Del G249Dfs*54"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-BS-A0TJ-01"
+    },
+    "TCGA-BS-A0UF": {
+      "mutations": [
+        "Nonsense_Mutation E48*"
+      ],
+      "is_lof": true,
+      "sample": "TCGA-BS-A0UF-01"
+    },
+    "TCGA-D1-A103": {
+      "mutations": [
+        "Nonsense_Mutation S123*",
+        "Missense_Mutation R378C"
+      ],
+      "is_lof": true,
+      "sample": "TCGA-D1-A103-01"
+    },
+    "TCGA-D1-A17A": {
+      "mutations": [
+        "Frame_Shift_Del E314Kfs*4"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-D1-A17A-01"
+    },
+    "TCGA-EO-A22R": {
+      "mutations": [
+        "Missense_Mutation K458T",
+        "Missense_Mutation S253R"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-EO-A22R-01"
+    },
+    "TCGA-EO-A22U": {
+      "mutations": [
+        "Missense_Mutation K335R"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-EO-A22U-01"
+    },
+    "TCGA-EO-A22X": {
+      "mutations": [
+        "Missense_Mutation F399C"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-EO-A22X-01"
+    },
+    "TCGA-EY-A1GI": {
+      "mutations": [
+        "Missense_Mutation V223A"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-EY-A1GI-01"
+    },
+    "TCGA-EY-A215": {
+      "mutations": [
+        "Missense_Mutation A76V"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-EY-A215-01"
+    },
+    "TCGA-FI-A2D0": {
+      "mutations": [
+        "Frame_Shift_Ins L353Ffs*4"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-FI-A2D0-01"
+    },
+    "TCGA-FI-A2D5": {
+      "mutations": [
+        "Missense_Mutation T439A"
+      ],
+      "is_lof": false,
+      "sample": "TCGA-FI-A2D5-01"
+    }
+  }
+}

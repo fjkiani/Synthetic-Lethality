@@ -1,0 +1,132 @@
+{
+  "artifact_type": "ceralasertib_ln_ic50_leave_one_out_MANUSCRIPT_RECEIPT",
+  "manuscript_alignment": "Fig. 3C leave-one-out panel; max p matches canonical_atr_wee1_rerun.json LN_IC50_LOO_max_p",
+  "canonical_script": "publications/00-mbd4-manuscript/mbd4_parp_response/rxiv/scripts/canonical_atr_wee1_rerun.py",
+  "depmap_cache": "oncology-coPilot/src/components/orchestrator/Analysis/SyntheticLethality/.cache/depmap",
+  "drug_row_filter_regex": "Ceralasertib|AZD6738",
+  "metric": "LN_IC50",
+  "wt_rule": "Methods: COSMIC IDs with no somatic MBD4 (any MBD4 mutation excludes line from WT)",
+  "lof_rule": "MBD4 LikelyLoF=True -> ModelID -> COSMIC_INT",
+  "test": "one-sided Mann-Whitney U, alternative=less (LOF < WT)",
+  "n_lof_lines_with_ln_ic50": 14,
+  "n_wt": 914,
+  "iterations_sorted_by_cosmic_id_then_index": [
+    {
+      "iteration_index_1_based": 1,
+      "leave_out_cosmic_id": 905936,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.8570319879649893,
+      "p_value_one_sided_mwu_lof_less_wt": 0.010041485439335264
+    },
+    {
+      "iteration_index_1_based": 2,
+      "leave_out_cosmic_id": 906838,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6659379110419124,
+      "p_value_one_sided_mwu_lof_less_wt": 0.04006042836449033
+    },
+    {
+      "iteration_index_1_based": 3,
+      "leave_out_cosmic_id": 906852,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.7867676033496049,
+      "p_value_one_sided_mwu_lof_less_wt": 0.017121638693054154
+    },
+    {
+      "iteration_index_1_based": 4,
+      "leave_out_cosmic_id": 906877,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6685522187342203,
+      "p_value_one_sided_mwu_lof_less_wt": 0.03925698934011239
+    },
+    {
+      "iteration_index_1_based": 5,
+      "leave_out_cosmic_id": 907794,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6686798341188356,
+      "p_value_one_sided_mwu_lof_less_wt": 0.03925698934011239
+    },
+    {
+      "iteration_index_1_based": 6,
+      "leave_out_cosmic_id": 909750,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6636292956572971,
+      "p_value_one_sided_mwu_lof_less_wt": 0.04042177589852696
+    },
+    {
+      "iteration_index_1_based": 7,
+      "leave_out_cosmic_id": 909770,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6535626802726817,
+      "p_value_one_sided_mwu_lof_less_wt": 0.04264579630728509
+    },
+    {
+      "iteration_index_1_based": 8,
+      "leave_out_cosmic_id": 909785,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.6368802187342202,
+      "p_value_one_sided_mwu_lof_less_wt": 0.045165724128583974
+    },
+    {
+      "iteration_index_1_based": 9,
+      "leave_out_cosmic_id": 910554,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.8610138341188354,
+      "p_value_one_sided_mwu_lof_less_wt": 0.00976580262853413
+    },
+    {
+      "iteration_index_1_based": 10,
+      "leave_out_cosmic_id": 924100,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.8902079879649891,
+      "p_value_one_sided_mwu_lof_less_wt": 0.008176319225402332
+    },
+    {
+      "iteration_index_1_based": 11,
+      "leave_out_cosmic_id": 1240123,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.675785449503451,
+      "p_value_one_sided_mwu_lof_less_wt": 0.03768945184662051
+    },
+    {
+      "iteration_index_1_based": 12,
+      "leave_out_cosmic_id": 1240127,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.8101052187342199,
+      "p_value_one_sided_mwu_lof_less_wt": 0.014367963582719126
+    },
+    {
+      "iteration_index_1_based": 13,
+      "leave_out_cosmic_id": 1240222,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.7133264495034508,
+      "p_value_one_sided_mwu_lof_less_wt": 0.029115937404179216
+    },
+    {
+      "iteration_index_1_based": 14,
+      "leave_out_cosmic_id": 1674021,
+      "n_lof_after_drop": 13,
+      "n_wt": 914,
+      "delta_ln_ic50_lof_minus_wt": -0.702861141811143,
+      "p_value_one_sided_mwu_lof_less_wt": 0.03192232999461827
+    }
+  ],
+  "summary": {
+    "max_p_across_iterations": 0.045165724128583974,
+    "min_p_across_iterations": 0.008176319225402332,
+    "all_lt_0_05": true
+  }
+}

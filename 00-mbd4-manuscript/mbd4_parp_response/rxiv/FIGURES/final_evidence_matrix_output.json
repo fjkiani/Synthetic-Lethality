@@ -1,0 +1,35 @@
+{
+  "axes": [
+    "Cytidine Analogs\n(Gold Standard)",
+    "PARP Inhibitors\n(Trapping)",
+    "ATR/WEE1 Inhibitors\n(Checkpoint)",
+    "WRN Helicase\nInhibitors",
+    "Immunotherapy\n(Anti-PD1/L1)",
+    "PKMYT1 Inhibitors"
+  ],
+  "modalities": [
+    "CRISPR\nDependency",
+    "PRISM\nPharma",
+    "GDSC\nPharma",
+    "In Vitro\nFunctional",
+    "In Vivo\nPDX",
+    "Clinical\nOutcome",
+    "Expression/\nPathway"
+  ],
+  "matrix": [
+    ["MISSING", "MISSING", "MISSING", "POSITIVE", "POSITIVE", "POSITIVE", "POSITIVE"],
+    ["NEGATIVE", "MISSING", "NEGATIVE", "MISSING", "MISSING", "MISSING", "NEGATIVE"],
+    ["NEGATIVE", "MISSING", "POSITIVE", "MISSING", "MISSING", "MISSING", "POSITIVE"],
+    ["CONFOUNDED", "MISSING", "MISSING", "MISSING", "MISSING", "MISSING", "MISSING"],
+    ["MISSING", "MISSING", "MISSING", "MISSING", "MISSING", "POSITIVE", "MIXED"],
+    ["MISSING", "MISSING", "MISSING", "MISSING", "MISSING", "MISSING", "MISSING"]
+  ],
+  "tiers": [
+    "Validated SL",
+    "Negative",
+    "Strong",
+    "Confounded",
+    "Sentinel",
+    "Insufficient"
+  ]
+}

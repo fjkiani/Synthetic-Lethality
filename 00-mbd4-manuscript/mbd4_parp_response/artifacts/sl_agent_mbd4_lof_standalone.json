@@ -1,0 +1,329 @@
+{
+  "analysis": "MBD4_LOF_SL_vectorized",
+  "date": "2026-03-16",
+  "method": "Welch_t_test_vectorized_BH_FDR",
+  "n_mut": 7,
+  "n_wt": 1179,
+  "n_genes_tested": 17453,
+  "n_passing_fdr025": 0,
+  "elapsed_seconds": 3.5,
+  "top_50_partners": [],
+  "parp_ber_hits": [],
+  "all_parp_ber_ddr": [
+    {
+      "gene": "APEX1",
+      "delta_dependency": -0.0902,
+      "p_value": 0.09438722931495531,
+      "fdr": 0.998586,
+      "cohend": -0.6448,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PARP2",
+      "delta_dependency": -0.1081,
+      "p_value": 0.009152742470203354,
+      "fdr": 0.998586,
+      "cohend": -0.9205,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PARP4",
+      "delta_dependency": -0.1013,
+      "p_value": 0.12251768638315585,
+      "fdr": 0.998586,
+      "cohend": -0.9501,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "RECQL",
+      "delta_dependency": -0.0843,
+      "p_value": 0.1654167737150436,
+      "fdr": 0.998586,
+      "cohend": -0.7396,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "TDG",
+      "delta_dependency": -0.0667,
+      "p_value": 0.1600104100328722,
+      "fdr": 0.998586,
+      "cohend": -0.4493,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "UNG",
+      "delta_dependency": -0.0783,
+      "p_value": 0.13895113382388724,
+      "fdr": 0.998586,
+      "cohend": -0.5904,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "WRN",
+      "delta_dependency": -0.9119,
+      "p_value": 0.039260272190595025,
+      "fdr": 0.998586,
+      "cohend": -2.768,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PALB2",
+      "delta_dependency": -0.055,
+      "p_value": 0.18736657546389204,
+      "fdr": 0.998785,
+      "cohend": -0.2352,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "APTX",
+      "delta_dependency": 0.0485,
+      "p_value": 0.718329927414969,
+      "fdr": 0.999827,
+      "cohend": 0.3461,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "ATM",
+      "delta_dependency": 0.0211,
+      "p_value": 0.6036848257520666,
+      "fdr": 0.999827,
+      "cohend": 0.0997,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "BLM",
+      "delta_dependency": -0.0002,
+      "p_value": 0.49906538330983896,
+      "fdr": 0.999827,
+      "cohend": -0.0007,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "BRCA1",
+      "delta_dependency": 0.1024,
+      "p_value": 0.890512684028693,
+      "fdr": 0.999827,
+      "cohend": 0.3598,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "BRCA2",
+      "delta_dependency": 0.0186,
+      "p_value": 0.604091833485677,
+      "fdr": 0.999827,
+      "cohend": 0.0742,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "CHEK2",
+      "delta_dependency": -0.0281,
+      "p_value": 0.34861734348451745,
+      "fdr": 0.999827,
+      "cohend": -0.154,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "FEN1",
+      "delta_dependency": -0.0233,
+      "p_value": 0.43748419343137324,
+      "fdr": 0.999827,
+      "cohend": -0.0575,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "HPF1",
+      "delta_dependency": 0.0575,
+      "p_value": 0.9307029062421417,
+      "fdr": 0.999827,
+      "cohend": 0.4286,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "LIG3",
+      "delta_dependency": 0.01,
+      "p_value": 0.5554439279246282,
+      "fdr": 0.999827,
+      "cohend": 0.0617,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "MLH1",
+      "delta_dependency": 0.0595,
+      "p_value": 0.85673894846152,
+      "fdr": 0.999827,
+      "cohend": 0.4063,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "MSH2",
+      "delta_dependency": 0.0973,
+      "p_value": 0.8692309354222384,
+      "fdr": 0.999827,
+      "cohend": 0.7779,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "MSH6",
+      "delta_dependency": 0.0264,
+      "p_value": 0.6367411162183558,
+      "fdr": 0.999827,
+      "cohend": 0.2156,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "MUTYH",
+      "delta_dependency": 0.055,
+      "p_value": 0.8889011743495717,
+      "fdr": 0.999827,
+      "cohend": 0.6032,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "OGG1",
+      "delta_dependency": 0.0962,
+      "p_value": 0.9004700042653274,
+      "fdr": 0.999827,
+      "cohend": 0.6978,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PARP1",
+      "delta_dependency": 0.0308,
+      "p_value": 0.6749268806744817,
+      "fdr": 0.999827,
+      "cohend": 0.2,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PARP3",
+      "delta_dependency": -0.0059,
+      "p_value": 0.46662920574908595,
+      "fdr": 0.999827,
+      "cohend": -0.0459,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PMS2",
+      "delta_dependency": 0.1007,
+      "p_value": 0.9580656590138156,
+      "fdr": 0.999827,
+      "cohend": 0.7387,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "PNKP",
+      "delta_dependency": -0.0386,
+      "p_value": 0.30986983641724486,
+      "fdr": 0.999827,
+      "cohend": -0.1253,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "POLB",
+      "delta_dependency": 0.0322,
+      "p_value": 0.7602049772515069,
+      "fdr": 0.999827,
+      "cohend": 0.2573,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "RAD51C",
+      "delta_dependency": 0.1654,
+      "p_value": 0.9437439938598056,
+      "fdr": 0.999827,
+      "cohend": 0.6175,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "RAD51D",
+      "delta_dependency": 0.0828,
+      "p_value": 0.8455707080281025,
+      "fdr": 0.999827,
+      "cohend": 0.2374,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "RNF144A",
+      "delta_dependency": 0.0239,
+      "p_value": 0.6760991526845221,
+      "fdr": 0.999827,
+      "cohend": 0.2211,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "RNF144B",
+      "delta_dependency": 0.0718,
+      "p_value": 0.8385792142454092,
+      "fdr": 0.999827,
+      "cohend": 0.7231,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "SMUG1",
+      "delta_dependency": 0.0984,
+      "p_value": 0.9970431134728325,
+      "fdr": 0.999827,
+      "cohend": 0.6626,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "TDP1",
+      "delta_dependency": 0.0641,
+      "p_value": 0.684093054733542,
+      "fdr": 0.999827,
+      "cohend": 0.4301,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "TDP2",
+      "delta_dependency": 0.0954,
+      "p_value": 0.8844020424876646,
+      "fdr": 0.999827,
+      "cohend": 0.3426,
+      "n_mut": 7,
+      "n_wt": 1179
+    },
+    {
+      "gene": "XRCC1",
+      "delta_dependency": 0.0575,
+      "p_value": 0.7151699921253811,
+      "fdr": 0.999827,
+      "cohend": 0.2898,
+      "n_mut": 7,
+      "n_wt": 1179
+    }
+  ]
+}
