@@ -1,0 +1,479 @@
+{
+  "query_date": "2026-03-15",
+  "total_mbd4_mutations": 50,
+  "total_lof": 5,
+  "by_study": {
+    "ov_tcga_pan_can_atlas_2018": {
+      "total": 1,
+      "lof": 0
+    },
+    "ov_tcga": {
+      "total": 2,
+      "lof": 0
+    },
+    "brca_tcga_pan_can_atlas_2018": {
+      "total": 4,
+      "lof": 0
+    },
+    "ucec_tcga_pan_can_atlas_2018": {
+      "total": 31,
+      "lof": 4
+    },
+    "coadread_tcga_pan_can_atlas_2018": {
+      "total": 12,
+      "lof": 1
+    }
+  },
+  "all_mutations": [
+    {
+      "study": "ov_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-13-1510",
+      "sample": "TCGA-13-1510-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K340R",
+      "vaf": 0.3349282296650718,
+      "keyword": "MBD4 K340 missense"
+    },
+    {
+      "study": "ov_tcga",
+      "patient": "TCGA-13-1510",
+      "sample": "TCGA-13-1510-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K340R",
+      "vaf": null,
+      "keyword": "MBD4 K340 missense"
+    },
+    {
+      "study": "ov_tcga",
+      "patient": "TCGA-24-1604",
+      "sample": "TCGA-24-1604-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R492T",
+      "vaf": null,
+      "keyword": "MBD4 R492 missense"
+    },
+    {
+      "study": "brca_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AN-A046",
+      "sample": "TCGA-AN-A046-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R546Q",
+      "vaf": 0.09615384615384616,
+      "keyword": "MBD4 R546 missense"
+    },
+    {
+      "study": "brca_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-C8-A133",
+      "sample": "TCGA-C8-A133-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R406Q",
+      "vaf": 0.44271844660194176,
+      "keyword": "MBD4 R406 missense"
+    },
+    {
+      "study": "brca_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-C8-A8HQ",
+      "sample": "TCGA-C8-A8HQ-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "D495H",
+      "vaf": 0.23880597014925373,
+      "keyword": "MBD4 D495 missense"
+    },
+    {
+      "study": "brca_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EW-A1IZ",
+      "sample": "TCGA-EW-A1IZ-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "V20I",
+      "vaf": 0.17647058823529413,
+      "keyword": "MBD4 V20 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A0G1",
+      "sample": "TCGA-A5-A0G1-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "P242T",
+      "vaf": 0.21530249110320285,
+      "keyword": "MBD4 P242 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A0G2",
+      "sample": "TCGA-A5-A0G2-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "A295S",
+      "vaf": 0.23703703703703705,
+      "keyword": "MBD4 A295 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A0GN",
+      "sample": "TCGA-A5-A0GN-01",
+      "mutation_type": "In_Frame_Del",
+      "protein_change": "L511del",
+      "vaf": 0.3229166666666667,
+      "keyword": "MBD4 511-511 deletion"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A1OF",
+      "sample": "TCGA-A5-A1OF-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "H211Y",
+      "vaf": 0.35714285714285715,
+      "keyword": "MBD4 H211 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A2K5",
+      "sample": "TCGA-A5-A2K5-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K244Q",
+      "vaf": 0.40540540540540543,
+      "keyword": "MBD4 K244 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A5-A2K5",
+      "sample": "TCGA-A5-A2K5-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R546Q",
+      "vaf": 0.3548387096774194,
+      "keyword": "MBD4 R546 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AJ-A3EL",
+      "sample": "TCGA-AJ-A3EL-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "L198S",
+      "vaf": 0.45161290322580644,
+      "keyword": "MBD4 L198 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AP-A051",
+      "sample": "TCGA-AP-A051-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "P440H",
+      "vaf": 0.25,
+      "keyword": "MBD4 P440 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AP-A051",
+      "sample": "TCGA-AP-A051-01",
+      "mutation_type": "Frame_Shift_Del",
+      "protein_change": "T515Pfs*10",
+      "vaf": 0.25,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AP-A056",
+      "sample": "TCGA-AP-A056-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "S266Y",
+      "vaf": 0.29357798165137616,
+      "keyword": "MBD4 S266 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AP-A0LM",
+      "sample": "TCGA-AP-A0LM-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R83C",
+      "vaf": 0.25229357798165136,
+      "keyword": "MBD4 R83 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AX-A0J0",
+      "sample": "TCGA-AX-A0J0-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "S135Y",
+      "vaf": 0.4155844155844156,
+      "keyword": "MBD4 S135 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AX-A0J0",
+      "sample": "TCGA-AX-A0J0-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "T21A",
+      "vaf": 0.36666666666666664,
+      "keyword": "MBD4 T21 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AX-A2HC",
+      "sample": "TCGA-AX-A2HC-01",
+      "mutation_type": "Nonsense_Mutation",
+      "protein_change": "E265*",
+      "vaf": 0.4482758620689655,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AX-A2HJ",
+      "sample": "TCGA-AX-A2HJ-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "I464V",
+      "vaf": 0.39473684210526316,
+      "keyword": "MBD4 I464 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-B5-A1MR",
+      "sample": "TCGA-B5-A1MR-01",
+      "mutation_type": "Nonsense_Mutation",
+      "protein_change": "G115*",
+      "vaf": 0.20454545454545456,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-B5-A3FA",
+      "sample": "TCGA-B5-A3FA-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "F336S",
+      "vaf": 0.08928571428571429,
+      "keyword": "MBD4 F336 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-BG-A0VW",
+      "sample": "TCGA-BG-A0VW-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "C254Y",
+      "vaf": 0.028795811518324606,
+      "keyword": "MBD4 C254 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-BS-A0TJ",
+      "sample": "TCGA-BS-A0TJ-01",
+      "mutation_type": "Frame_Shift_Del",
+      "protein_change": "G249Dfs*54",
+      "vaf": 0.3333333333333333,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-BS-A0UF",
+      "sample": "TCGA-BS-A0UF-01",
+      "mutation_type": "Nonsense_Mutation",
+      "protein_change": "E48*",
+      "vaf": 0.26108374384236455,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-D1-A103",
+      "sample": "TCGA-D1-A103-01",
+      "mutation_type": "Nonsense_Mutation",
+      "protein_change": "S123*",
+      "vaf": 0.31746031746031744,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-D1-A103",
+      "sample": "TCGA-D1-A103-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R378C",
+      "vaf": 0.2727272727272727,
+      "keyword": "MBD4 R378 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-D1-A17A",
+      "sample": "TCGA-D1-A17A-01",
+      "mutation_type": "Frame_Shift_Del",
+      "protein_change": "E314Kfs*4",
+      "vaf": 0.3375,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EO-A22R",
+      "sample": "TCGA-EO-A22R-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K458T",
+      "vaf": 0.43902439024390244,
+      "keyword": "MBD4 K458 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EO-A22R",
+      "sample": "TCGA-EO-A22R-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "S253R",
+      "vaf": 0.40425531914893614,
+      "keyword": "MBD4 S253 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EO-A22U",
+      "sample": "TCGA-EO-A22U-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K335R",
+      "vaf": 0.5185185185185185,
+      "keyword": "MBD4 K335 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EO-A22X",
+      "sample": "TCGA-EO-A22X-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "F399C",
+      "vaf": 0.3958333333333333,
+      "keyword": "MBD4 F399 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EY-A1GI",
+      "sample": "TCGA-EY-A1GI-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "V223A",
+      "vaf": 0.3888888888888889,
+      "keyword": "MBD4 V223 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-EY-A215",
+      "sample": "TCGA-EY-A215-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "A76V",
+      "vaf": 0.0851063829787234,
+      "keyword": "MBD4 A76 missense"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-FI-A2D0",
+      "sample": "TCGA-FI-A2D0-01",
+      "mutation_type": "Frame_Shift_Ins",
+      "protein_change": "L353Ffs*4",
+      "vaf": 0.25,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "ucec_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-FI-A2D5",
+      "sample": "TCGA-FI-A2D5-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "T439A",
+      "vaf": 0.25,
+      "keyword": "MBD4 T439 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-A6-6137",
+      "sample": "TCGA-A6-6137-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "G47R",
+      "vaf": 0.0945945945945946,
+      "keyword": "MBD4 G47 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AA-3947",
+      "sample": "TCGA-AA-3947-01",
+      "mutation_type": "Splice_Region",
+      "protein_change": "X555_splice",
+      "vaf": 0.09322033898305085,
+      "keyword": ""
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AA-3971",
+      "sample": "TCGA-AA-3971-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "V556M",
+      "vaf": 0.2786885245901639,
+      "keyword": "MBD4 V556 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AA-3977",
+      "sample": "TCGA-AA-3977-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "K565T",
+      "vaf": 0.24691358024691357,
+      "keyword": "MBD4 K565 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AA-3984",
+      "sample": "TCGA-AA-3984-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "G507S",
+      "vaf": 0.3592814371257485,
+      "keyword": "MBD4 G507 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AD-A5EJ",
+      "sample": "TCGA-AD-A5EJ-01",
+      "mutation_type": "Frame_Shift_Del",
+      "protein_change": "E314Kfs*4",
+      "vaf": 0.5,
+      "keyword": "MBD4 truncating"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AM-5821",
+      "sample": "TCGA-AM-5821-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "E50D",
+      "vaf": 0.3256880733944954,
+      "keyword": "MBD4 E50 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-AZ-6599",
+      "sample": "TCGA-AZ-6599-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "G249R",
+      "vaf": 0.07582938388625593,
+      "keyword": "MBD4 G249 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-CA-6717",
+      "sample": "TCGA-CA-6717-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "F519L",
+      "vaf": 0.11764705882352941,
+      "keyword": "MBD4 F519 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-CA-6718",
+      "sample": "TCGA-CA-6718-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "R512W",
+      "vaf": 0.2549019607843137,
+      "keyword": "MBD4 R512 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-F5-6814",
+      "sample": "TCGA-F5-6814-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "S308N",
+      "vaf": 0.34375,
+      "keyword": "MBD4 S308 missense"
+    },
+    {
+      "study": "coadread_tcga_pan_can_atlas_2018",
+      "patient": "TCGA-G4-6299",
+      "sample": "TCGA-G4-6299-01",
+      "mutation_type": "Missense_Mutation",
+      "protein_change": "N131S",
+      "vaf": 0.6153846153846154,
+      "keyword": "MBD4 N131 missense"
+    }
+  ]
+}

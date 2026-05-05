@@ -1,0 +1,86 @@
+{
+  "artifact_type": "parp_axis_expression_MANUSCRIPT_RECEIPT",
+  "manuscript_alignment": "Abstract/Results PARP1 expression block (n=19 LOF, n=1498 comparator, medians ~6.77 vs ~6.66, two-sided MWU p~0.605)",
+  "inputs": {
+    "expression_csv": "OmicsExpression.csv (repo root)",
+    "expression_columns": {
+      "model_id": "Unnamed: 0",
+      "PARP1": "PARP1 (142)",
+      "RNF144A": "RNF144A (9781)"
+    },
+    "mbd4_lof_source": "oncology-coPilot/src/components/orchestrator/Analysis/SyntheticLethality/.cache/depmap/OmicsSomaticMutations.parquet",
+    "mbd4_lof_rule": "HugoSymbol==MBD4 AND LikelyLoF==True -> ModelID in LOF set"
+  },
+  "tests": {
+    "expression_mann_whitney": "scipy.stats.mannwhitneyu(..., alternative='two-sided')",
+    "note_vs_pharmacology": "GDSC2 pharmacology contrasts in this manuscript use one-sided Mann-Whitney (LOF more sensitive than WT) with WT = no somatic MBD4 mutation."
+  },
+  "PARP1": {
+    "gene": "PARP1",
+    "n_lof": 19,
+    "n_comparator": 1498,
+    "comparator_label": "non_LOF_expression_pool",
+    "comparator_definition": "All cell lines with non-missing expression for this gene that are NOT in MBD4 LikelyLoF=True ModelID set (includes MBD4 non-LOF mutants). This reproduces manuscript PARP1 counts n=19 vs n=1498 and is NOT the same as pharmacology WT (no somatic MBD4).",
+    "median_lof": 6.770300489499416,
+    "median_comparator": 6.656138754403964,
+    "mean_lof": 6.73416402057303,
+    "mean_comparator": 6.637985998665526,
+    "mann_whitney_two_sided_U_statistic": 15213.5,
+    "mann_whitney_two_sided_p_value": 0.6047878879741422,
+    "lof_model_ids_sorted": [
+      "ACH-000883",
+      "ACH-000885",
+      "ACH-000895",
+      "ACH-000925",
+      "ACH-000936",
+      "ACH-000949",
+      "ACH-000956",
+      "ACH-000963",
+      "ACH-000970",
+      "ACH-000971",
+      "ACH-000972",
+      "ACH-000978",
+      "ACH-000985",
+      "ACH-000998",
+      "ACH-000999",
+      "ACH-001369",
+      "ACH-001669",
+      "ACH-001709",
+      "ACH-001737"
+    ]
+  },
+  "RNF144A": {
+    "gene": "RNF144A",
+    "n_lof": 19,
+    "n_comparator": 1498,
+    "comparator_label": "non_LOF_expression_pool",
+    "comparator_definition": "All cell lines with non-missing expression for this gene that are NOT in MBD4 LikelyLoF=True ModelID set (includes MBD4 non-LOF mutants). This reproduces manuscript PARP1 counts n=19 vs n=1498 and is NOT the same as pharmacology WT (no somatic MBD4).",
+    "median_lof": 2.150559676575381,
+    "median_comparator": 1.704865176932225,
+    "mean_lof": 2.125134969327202,
+    "mean_comparator": 1.8772281024545563,
+    "mann_whitney_two_sided_U_statistic": 15584.5,
+    "mann_whitney_two_sided_p_value": 0.4758082233977804,
+    "lof_model_ids_sorted": [
+      "ACH-000883",
+      "ACH-000885",
+      "ACH-000895",
+      "ACH-000925",
+      "ACH-000936",
+      "ACH-000949",
+      "ACH-000956",
+      "ACH-000963",
+      "ACH-000970",
+      "ACH-000971",
+      "ACH-000972",
+      "ACH-000978",
+      "ACH-000985",
+      "ACH-000998",
+      "ACH-000999",
+      "ACH-001369",
+      "ACH-001669",
+      "ACH-001709",
+      "ACH-001737"
+    ]
+  }
+}

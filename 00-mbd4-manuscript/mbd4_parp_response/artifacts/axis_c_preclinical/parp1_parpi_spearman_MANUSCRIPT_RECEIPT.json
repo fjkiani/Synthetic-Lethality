@@ -1,0 +1,13 @@
+{
+  "artifact_type": "parp1_parpi_spearman_MANUSCRIPT_RECEIPT",
+  "manuscript_alignment": "PARP1 expression vs mean PARPi Z-score Spearman (n=481, rho~-0.416, p~1.36e-21)",
+  "inputs": {
+    "expression_csv": "OmicsExpression.csv (repo root)",
+    "parpi_z_table": "publications/00-mbd4-manuscript/mbd4_parp_response/artifacts/axis_c_preclinical/gdsc2_parpi_per_line_receipts.csv"
+  },
+  "join": "inner merge on ModelID; drop rows with missing PARP1 or parp_mean_z",
+  "n": 481,
+  "spearman_rho": -0.4163667519753189,
+  "spearman_p_value_two_sided": 1.3645432568789883e-21,
+  "parpi_z_column": "parp_mean_z"
+}

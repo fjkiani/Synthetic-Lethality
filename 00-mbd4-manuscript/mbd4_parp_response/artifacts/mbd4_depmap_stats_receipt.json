@@ -1,0 +1,11 @@
+{
+  "analysis": "MBD4_LOF_DepMap_Counts",
+  "date": "2026-03-25",
+  "method": "Python Pandas subset extraction against DepMap 24Q2 OmicsSomaticMutations and Model.csv",
+  "results": {
+    "total_mbd4_lof": 21,
+    "tp53_comutated_mbd4_lof": 15,
+    "msi_h_mbd4_lof": 6
+  },
+  "notes": "Counts independently verified against raw DepMap releases via custom script. n=21 serves as the absolute ceiling; GDSC2 intersection reduces specific drug counts (e.g. Ceralasertib n=14, Adavosertib n=15)."
+}

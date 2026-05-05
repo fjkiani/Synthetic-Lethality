@@ -1,0 +1,110 @@
+{
+  "date": "2026-03-15",
+  "superseded_note": "PARP-axis numeric blocks in findings 1–3 were revised 2026-04 to match manuscript receipts (n=19/1498 expression; Spearman n=481). Exploratory JSONs with n=8/1665 and n=488 are deprecated—see deprecated_exploratory.",
+  "hypothesis_versions": {
+    "v1_DEAD": "MBD4 LOF → RNF144A downregulation → PARP1 not degraded → PARPi sensitivity",
+    "v2_ALIVE": "MBD4 LOF → BER stress → PARP1 transcriptional upregulation → more PARP trapping → PARPi sensitivity"
+  },
+  "authoritative_parp_axis_receipts": {
+    "expression_mwu_two_sided": "artifacts/axis_c_preclinical/parp_axis_expression_MANUSCRIPT_RECEIPT.json",
+    "parp1_parpi_spearman_two_sided": "artifacts/axis_c_preclinical/parp1_parpi_spearman_MANUSCRIPT_RECEIPT.json",
+    "ceralasertib_loo_one_sided_mwu": "artifacts/canonical_atr_wee1_rerun_20260405/ceralasertib_ln_ic50_leave_one_out_MANUSCRIPT_RECEIPT.json"
+  },
+  "deprecated_exploratory": [
+    "artifacts/axis_c_preclinical/DEPRECATED_mbd4_rnf144a_expression_n8_vs_1665_exploratory.json",
+    "artifacts/axis_c_preclinical/DEPRECATED_parp1_parpi_spearman_n488_exploratory_join.json"
+  ],
+  "findings": {
+    "1_rnf144a_hop_killed": {
+      "test": "Mann-Whitney (two-sided): RNF144A expression in MBD4 LikelyLoF vs non-LOF expression pool",
+      "n_lof": 19,
+      "n_comparator": 1498,
+      "p_value": 0.4758082233977804,
+      "lof_median": 2.150559676575381,
+      "comparator_median": 1.704865176932225,
+      "delta": 0.445694499643156,
+      "direction": "LOF higher than comparator (not downregulation)",
+      "verdict": "DEAD — RNF144A is not downregulated in MBD4 LOF under manuscript-aligned cohort definition",
+      "receipt": "artifacts/axis_c_preclinical/parp_axis_expression_MANUSCRIPT_RECEIPT.json",
+      "deprecated_alternate_cohort": "artifacts/axis_c_preclinical/DEPRECATED_mbd4_rnf144a_expression_n8_vs_1665_exploratory.json"
+    },
+    "2_parp1_expression_not_significant": {
+      "test": "Mann-Whitney (two-sided): PARP1 expression in MBD4 LikelyLoF vs non-LOF expression pool",
+      "n_lof": 19,
+      "n_comparator": 1498,
+      "p_value": 0.6047878879741422,
+      "lof_median": 6.770300489499416,
+      "comparator_median": 6.656138754403964,
+      "delta": 0.114161735095452,
+      "direction": "small LOF elevation, not statistically significant",
+      "verdict": "NOT SIGNIFICANT — PARP1 is not convincingly upregulated in MBD4 LOF at expression level (manuscript p≈0.605)",
+      "receipt": "artifacts/axis_c_preclinical/parp_axis_expression_MANUSCRIPT_RECEIPT.json",
+      "note_comparator_vs_pharmacology_wt": "Expression comparator ≠ pharmacology WT (no somatic MBD4); see receipt inputs.tests.note_vs_pharmacology",
+      "deprecated_alternate_cohort": "artifacts/axis_c_preclinical/DEPRECATED_mbd4_rnf144a_expression_n8_vs_1665_exploratory.json"
+    },
+    "3_parp1_predicts_parpi_sensitivity_pancancer": {
+      "test": "Spearman (two-sided): PARP1 expression vs mean PARPi Z-score (GDSC2), inner join on ModelID",
+      "n": 481,
+      "rho": -0.4163667519753189,
+      "p_value": 1.3645432568789883e-21,
+      "verdict": "STRONG PAN-CANCER ASSOCIATION — higher PARP1 expression associates with greater PARPi sensitivity (more negative Z) under manuscript-aligned join",
+      "receipt": "artifacts/axis_c_preclinical/parp1_parpi_spearman_MANUSCRIPT_RECEIPT.json",
+      "deprecated_alternate_join": "artifacts/axis_c_preclinical/DEPRECATED_parp1_parpi_spearman_n488_exploratory_join.json",
+      "quartile_stratification": "Fig. 4 panel B computes Q25/Q75 median Z from merged table at figure-build time (not frozen in this synthesis file)"
+    },
+    "4_ucec_clinical_os_signal": {
+      "test": "MBD4-mutant vs non-mutant overall survival in TCGA UCEC",
+      "mbd4_any_n": 26,
+      "mbd4_any_median_os": 60.1,
+      "mbd4_lof_n": 4,
+      "mbd4_lof_all_alive": true,
+      "non_mbd4_n": 502,
+      "non_mbd4_median_os": 29.5,
+      "os_ratio": "2.0× (MBD4 median / non-MBD4 median)",
+      "confound": "18/26 BRCA1 co-mutated, 22/26 BRCA2 co-mutated — hypermutated MSI-H tumors. Survival advantage NOT independently attributable to MBD4.",
+      "verdict": "SIGNAL but CONFOUNDED — MBD4 patients live 2× longer but are hypermutated with BRCA co-mutations. Cannot isolate MBD4 effect.",
+      "receipt": "ucec_mbd4_clinical_outcomes.json"
+    },
+    "5_cbioportal_parpi_cohort_search": {
+      "test": "Search for PARPi-treated cohorts with MBD4 status",
+      "msk_impact": "0 MBD4 mutations — gene not on targeted panel",
+      "msk_mettropism": "0 MBD4 mutations",
+      "tcga_ovarian": "1-2 missense only — no LOF",
+      "genie_bpc": "Not on public cBioPortal — requires Synapse access",
+      "parpi_specific_studies": "None found on public cBioPortal",
+      "verdict": "BLOCKED — no publicly available PARPi cohort with MBD4 status exists on cBioPortal",
+      "receipt": "cbioportal_mbd4_clinical_query.json"
+    }
+  },
+  "remaining_blocking_receipts": {
+    "clinical_parpi_cohort": {
+      "status": "BLOCKED",
+      "options": [
+        "AACR GENIE BPC via Synapse (requires account + access request)",
+        "Author request from Clinical and Translational Oncology (2025) olaparib maintenance paper",
+        "MSK-IMPACT 50K download from AACR (may include MBD4 if on extended panel)",
+        "Institutional EHR cohort (requires IRB)"
+      ]
+    },
+    "parp1_expression_as_biomarker": {
+      "status": "PUBLISHABLE NOW",
+      "description": "PARP1 expression vs PARPi sensitivity (ρ≈−0.416, n=481, two-sided p≈1.36×10⁻²¹) is receipt-backed in parp1_parpi_spearman_MANUSCRIPT_RECEIPT.json.",
+      "what_would_strengthen": "Validate in independent drug screen (PRISM, CTD^2) or clinical PFS correlation"
+    }
+  },
+  "actionable_outputs": {
+    "publishable_now": [
+      "Axis A: MBD4 → cytidine analog SL (existing receipts)",
+      "PARP1 expression as pan-cancer PARPi sensitivity correlate (Spearman; manuscript receipt n=481)",
+      "Ceralasertib / ATR-axis pharmacology stress tests and LOO (canonical_atr_wee1_rerun receipts)"
+    ],
+    "needs_more_data": [
+      "MBD4 LOF → PARPi sensitivity at single-drug level (see pharmacology n_lof vs expression n_lof definitions)",
+      "Clinical validation of any MBD4 → PARPi claim"
+    ],
+    "killed": [
+      "RNF144A downregulation mechanism (two-sided MWU p≈0.48; wrong direction for v1)",
+      "cBioPortal public PARPi cohort with MBD4 (doesn't exist)"
+    ]
+  }
+}
