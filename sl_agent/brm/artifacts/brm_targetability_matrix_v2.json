@@ -1,0 +1,698 @@
+{
+  "query_context": "NSCLC brain metastasis",
+  "cancer_type": "NSCLC",
+  "depmap_release": "24Q4",
+  "gold_standard_gene": "BACE1",
+  "version": "v2",
+  "rows": [
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "BACE1",
+      "visibility_axis": "absent_from_standard_DDR_and_oncology_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_CRISPRa_screen_NSCLC_PDX",
+      "secondary_evidence_modalities": [
+        "genetic_suppression_BrM_in_vivo",
+        "pharmacologic_BACE1i_BrM_suppression",
+        "patient_NSCLC_BrM_expression"
+      ],
+      "cascade_step": "colonization",
+      "cascade_step_label": "Brain parenchyma colonization",
+      "primary_exploit_mode": "direct",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "BACE1 cleaves EGFR to drive brain parenchyma colonization; CNS-penetrant BACE1 inhibitors (verubecestat class) block this step.",
+      "target_node": "BACE1",
+      "target_node_role": "self",
+      "drug_class": "BACE1 inhibitor",
+      "best_drug_example": "verubecestat",
+      "cns_bbb_feasibility": "established",
+      "cns_bbb_rationale": "Verubecestat, lanabecestat, and atabecestat were all designed for CNS penetration in Alzheimer's disease programs; BBB crossing is established.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Strong",
+      "recommendation_status": "Prioritize",
+      "confidence_score": 0.255,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1126/scitranslmed.adu2459"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.82, pmids=1",
+        "layer4_adjacency: BACE1 via BACE1 inhibitor, score=0.50"
+      ],
+      "data_gaps": [
+        "Phase I/II trial of BACE1i in NSCLC BrM patients",
+        "Isogenic BACE1-KO vs WT BrM colonization assay with rescue"
+      ],
+      "frozen_at": "2026-05-07T14:34:50.038239+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "MMP9",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_capillary_remodeling_NSCLC",
+      "secondary_evidence_modalities": [
+        "pharmacologic_pan_MMP_inhibitor_mixed"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / extravasation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [
+        "pathway"
+      ],
+      "primary_vulnerability_hypothesis": "Cancer cell-derived MMP9 remodels capillary endothelium for brain colonization; MMP9-selective inhibition blocks BBB transit.",
+      "target_node": "MMP9",
+      "target_node_role": "delivery_interface",
+      "drug_class": "MMP9-selective inhibitor",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "MMP9 acts at the BBB endothelium; inhibitors must reach the vascular compartment but need not cross the BBB themselves.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.18,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-22-3964",
+        "10.1158/0008-5472.can-23-0151"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": "[2025] LGR5: An emerging therapeutic target for cancer metastasis and chemotherapy resistance. Cancer stem cells play an important role in tumor progression and chemotherapy resistance. Leucine-rich G repeat-containing protein-coupled receptor 5 (LGR5) has been identified as a cancer stem cell ... | [2021] NFAT as a Biomarker and Therapeutic Target in Non\u2013Small Cell Lung Cancer\u2013Related Brain Metastasis. Background Brain metastases (BMs) are associated with poor prognosis and significant mortality, and approximately 25% of patients with non\u2013small cell lung cancer (NSCLC) develop BMs. The present study... | [2025] GABA regulates metabolic reprogramming to mediate the development of brain metastasis in non-small cell lung cancer. Brain metastasis (BrM) poses a significant challenge to the prognosis and quality of life for patients with non-small cell lung cancer (NSCLC). Gamma-aminobutyric acid (GABA), an inhibitory neurotrans...",
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.58, pmids=2",
+        "layer4_adjacency: MMP9 via MMP9-selective inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "MMP9-selective inhibitor (not pan-MMP) in NSCLC BrM model",
+        "Patient MMP9 expression stratification in BrM vs primary NSCLC"
+      ],
+      "frozen_at": "2026-05-07T14:34:50.979577+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "CCL2",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "patient_expression",
+      "primary_evidence_modality": "patient_expression_BrM_TME",
+      "secondary_evidence_modalities": [
+        "pharmacologic_CCR2_antagonist_preclinical"
+      ],
+      "cascade_step": "immune_evasion",
+      "cascade_step_label": "Immune evasion / monocyte recruitment",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "CCL2 drives monocyte recruitment into BrM TME via CCR2; CCR2 antagonism (BMS-813160) blocks immunosuppressive niche formation.",
+      "target_node": "CCR2",
+      "target_node_role": "pathway_bottleneck",
+      "drug_class": "CCR2 antagonist",
+      "best_drug_example": "BMS-813160",
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "CCL2/CCR2 axis recruits monocytes across the BBB; CCR2 antagonists act at the vascular interface.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.145,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41591-019-0392-0"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: patient_expression, confidence=0.44, pmids=1",
+        "layer4_adjacency: CCR2 via CCR2 antagonist, score=0.35"
+      ],
+      "data_gaps": [
+        "CCR2 antagonist in NSCLC BrM model with immune profiling",
+        "Patient CCL2 expression stratification vs BrM incidence"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.496713+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "ICAM1",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "patient_expression",
+      "primary_evidence_modality": "patient_expression_BrM",
+      "secondary_evidence_modalities": [
+        "genetic_suppression_transendothelial_migration"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / transendothelial migration",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "ICAM1 mediates cancer cell transendothelial migration across the BBB; anti-ICAM1 antibody blocks this step at the vascular surface.",
+      "target_node": "ICAM1",
+      "target_node_role": "microenvironment",
+      "drug_class": "anti-ICAM1 antibody",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "ICAM1 is expressed on BBB endothelium; antibody-accessible at vascular surface without requiring CNS penetration.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.1375,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": true,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-20-1236"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: patient_expression, confidence=0.41, pmids=1",
+        "layer4_adjacency: ICAM1 via anti-ICAM1 antibody, score=0.35"
+      ],
+      "data_gaps": [
+        "Anti-ICAM1 antibody in NSCLC BrM in vivo model",
+        "ICAM1 expression stratification vs BrM incidence in NSCLC patients"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.675914+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "MMP2",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_basement_membrane_remodeling",
+      "secondary_evidence_modalities": [
+        "pharmacologic_pan_MMP_inhibitor_mixed"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / basement membrane degradation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [
+        "pathway"
+      ],
+      "primary_vulnerability_hypothesis": "MMP2 degrades BBB basement membrane for cancer cell extravasation; MMP2-selective inhibition blocks this step. Dual MMP2/MMP9 targeting may be required.",
+      "target_node": "MMP2",
+      "target_node_role": "delivery_interface",
+      "drug_class": "MMP2-selective inhibitor",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "MMP2 degrades BBB basement membrane; inhibitors act at the vascular compartment and need not cross the BBB.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.135,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-22-3964"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.40, pmids=1",
+        "layer4_adjacency: MMP2 via MMP2-selective inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "MMP2-selective inhibitor in NSCLC BrM model",
+        "MMP2 vs MMP9 relative contribution to BBB degradation in NSCLC"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.858885+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "CLDN5",
+      "visibility_axis": "absent_from_standard_oncology_panels",
+      "brm_evidence_class": "bbb_biology",
+      "primary_evidence_modality": "genetic_suppression_BBB_permeability",
+      "secondary_evidence_modalities": [],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / tight junction modulation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [],
+      "primary_vulnerability_hypothesis": "CLDN5 downregulation in BrM-associated endothelium increases BBB permeability; tumor-cell-specific CLDN5 modulation may block transit.",
+      "target_node": "CLDN5",
+      "target_node_role": "delivery_interface",
+      "drug_class": "claudin-targeting antibody",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "barrier",
+      "cns_bbb_rationale": "CLDN5 maintains BBB integrity; targeting it opens the barrier but creates CNS toxicity risk requiring tumor-cell-specific strategy.",
+      "context_specificity": "cns_relevant",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.13,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41586-020-2698-6"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": "[2025] LGR5: An emerging therapeutic target for cancer metastasis and chemotherapy resistance. Cancer stem cells play an important role in tumor progression and chemotherapy resistance. Leucine-rich G repeat-containing protein-coupled receptor 5 (LGR5) has been identified as a cancer stem cell ... | [2025] Evolving roles of MET as a therapeutic target in NSCLC and beyond. ... | [2021] NFAT as a Biomarker and Therapeutic Target in Non\u2013Small Cell Lung Cancer\u2013Related Brain Metastasis. Background Brain metastases (BMs) are associated with poor prognosis and significant mortality, and approximately 25% of patients with non\u2013small cell lung cancer (NSCLC) develop BMs. The present study...",
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: bbb_biology, confidence=0.38, pmids=1",
+        "layer4_adjacency: CLDN5 via claudin-targeting antibody, score=0.35"
+      ],
+      "data_gaps": [
+        "Tumor-cell-specific CLDN5 modulation strategy",
+        "In vivo BrM model with CLDN5 perturbation"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.038923+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "TWIST1",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "genetic_suppression",
+      "primary_evidence_modality": "genetic_suppression_EMT_BrM",
+      "secondary_evidence_modalities": [
+        "pharmacologic_BETi_EMT_reversal"
+      ],
+      "cascade_step": "multi_step",
+      "cascade_step_label": "EMT / intravasation + colonization",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [],
+      "primary_vulnerability_hypothesis": "TWIST1 drives EMT enabling intravasation and colonization; BRD4 inhibition (JQ1/OTX015) suppresses TWIST1 transcription.",
+      "target_node": "BRD4",
+      "target_node_role": "pathway_bottleneck",
+      "drug_class": "BET bromodomain inhibitor",
+      "best_drug_example": "JQ1 / OTX015",
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "BETi CNS penetration is variable by compound; JQ1 has demonstrated CNS exposure in preclinical models.",
+      "context_specificity": "pan_cancer",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.1175,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41467-019-09270-4"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: genetic_suppression, confidence=0.33, pmids=1",
+        "layer4_adjacency: BRD4 via BET bromodomain inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "TWIST1-driven BrM model with BETi treatment",
+        "HDAC inhibitor as alternative TWIST1 pathway node"
+      ],
+      "frozen_at": "2026-05-07T14:34:53.033055+00:00"
+    }
+  ],
+  "calibration_rows": [
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "BACE1",
+      "visibility_axis": "absent_from_standard_DDR_and_oncology_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_CRISPRa_screen_NSCLC_PDX",
+      "secondary_evidence_modalities": [
+        "genetic_suppression_BrM_in_vivo",
+        "pharmacologic_BACE1i_BrM_suppression",
+        "patient_NSCLC_BrM_expression"
+      ],
+      "cascade_step": "colonization",
+      "cascade_step_label": "Brain parenchyma colonization",
+      "primary_exploit_mode": "direct",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "BACE1 cleaves EGFR to drive brain parenchyma colonization; CNS-penetrant BACE1 inhibitors (verubecestat class) block this step.",
+      "target_node": "BACE1",
+      "target_node_role": "self",
+      "drug_class": "BACE1 inhibitor",
+      "best_drug_example": "verubecestat",
+      "cns_bbb_feasibility": "established",
+      "cns_bbb_rationale": "Verubecestat, lanabecestat, and atabecestat were all designed for CNS penetration in Alzheimer's disease programs; BBB crossing is established.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Strong",
+      "recommendation_status": "Prioritize",
+      "confidence_score": 0.255,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1126/scitranslmed.adu2459"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.82, pmids=1",
+        "layer4_adjacency: BACE1 via BACE1 inhibitor, score=0.50"
+      ],
+      "data_gaps": [
+        "Phase I/II trial of BACE1i in NSCLC BrM patients",
+        "Isogenic BACE1-KO vs WT BrM colonization assay with rescue"
+      ],
+      "frozen_at": "2026-05-07T14:34:50.038239+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "MMP9",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_capillary_remodeling_NSCLC",
+      "secondary_evidence_modalities": [
+        "pharmacologic_pan_MMP_inhibitor_mixed"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / extravasation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [
+        "pathway"
+      ],
+      "primary_vulnerability_hypothesis": "Cancer cell-derived MMP9 remodels capillary endothelium for brain colonization; MMP9-selective inhibition blocks BBB transit.",
+      "target_node": "MMP9",
+      "target_node_role": "delivery_interface",
+      "drug_class": "MMP9-selective inhibitor",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "MMP9 acts at the BBB endothelium; inhibitors must reach the vascular compartment but need not cross the BBB themselves.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.18,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-22-3964",
+        "10.1158/0008-5472.can-23-0151"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": "[2025] LGR5: An emerging therapeutic target for cancer metastasis and chemotherapy resistance. Cancer stem cells play an important role in tumor progression and chemotherapy resistance. Leucine-rich G repeat-containing protein-coupled receptor 5 (LGR5) has been identified as a cancer stem cell ... | [2021] NFAT as a Biomarker and Therapeutic Target in Non\u2013Small Cell Lung Cancer\u2013Related Brain Metastasis. Background Brain metastases (BMs) are associated with poor prognosis and significant mortality, and approximately 25% of patients with non\u2013small cell lung cancer (NSCLC) develop BMs. The present study... | [2025] GABA regulates metabolic reprogramming to mediate the development of brain metastasis in non-small cell lung cancer. Brain metastasis (BrM) poses a significant challenge to the prognosis and quality of life for patients with non-small cell lung cancer (NSCLC). Gamma-aminobutyric acid (GABA), an inhibitory neurotrans...",
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.58, pmids=2",
+        "layer4_adjacency: MMP9 via MMP9-selective inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "MMP9-selective inhibitor (not pan-MMP) in NSCLC BrM model",
+        "Patient MMP9 expression stratification in BrM vs primary NSCLC"
+      ],
+      "frozen_at": "2026-05-07T14:34:50.979577+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "CCL2",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "patient_expression",
+      "primary_evidence_modality": "patient_expression_BrM_TME",
+      "secondary_evidence_modalities": [
+        "pharmacologic_CCR2_antagonist_preclinical"
+      ],
+      "cascade_step": "immune_evasion",
+      "cascade_step_label": "Immune evasion / monocyte recruitment",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "CCL2 drives monocyte recruitment into BrM TME via CCR2; CCR2 antagonism (BMS-813160) blocks immunosuppressive niche formation.",
+      "target_node": "CCR2",
+      "target_node_role": "pathway_bottleneck",
+      "drug_class": "CCR2 antagonist",
+      "best_drug_example": "BMS-813160",
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "CCL2/CCR2 axis recruits monocytes across the BBB; CCR2 antagonists act at the vascular interface.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.145,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41591-019-0392-0"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: patient_expression, confidence=0.44, pmids=1",
+        "layer4_adjacency: CCR2 via CCR2 antagonist, score=0.35"
+      ],
+      "data_gaps": [
+        "CCR2 antagonist in NSCLC BrM model with immune profiling",
+        "Patient CCL2 expression stratification vs BrM incidence"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.496713+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "ICAM1",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "patient_expression",
+      "primary_evidence_modality": "patient_expression_BrM",
+      "secondary_evidence_modalities": [
+        "genetic_suppression_transendothelial_migration"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / transendothelial migration",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [
+        "delivery"
+      ],
+      "primary_vulnerability_hypothesis": "ICAM1 mediates cancer cell transendothelial migration across the BBB; anti-ICAM1 antibody blocks this step at the vascular surface.",
+      "target_node": "ICAM1",
+      "target_node_role": "microenvironment",
+      "drug_class": "anti-ICAM1 antibody",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "ICAM1 is expressed on BBB endothelium; antibody-accessible at vascular surface without requiring CNS penetration.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.1375,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": true,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-20-1236"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: patient_expression, confidence=0.41, pmids=1",
+        "layer4_adjacency: ICAM1 via anti-ICAM1 antibody, score=0.35"
+      ],
+      "data_gaps": [
+        "Anti-ICAM1 antibody in NSCLC BrM in vivo model",
+        "ICAM1 expression stratification vs BrM incidence in NSCLC patients"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.675914+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "MMP2",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "in_vivo_crispr_screen",
+      "primary_evidence_modality": "in_vivo_basement_membrane_remodeling",
+      "secondary_evidence_modalities": [
+        "pharmacologic_pan_MMP_inhibitor_mixed"
+      ],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / basement membrane degradation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [
+        "pathway"
+      ],
+      "primary_vulnerability_hypothesis": "MMP2 degrades BBB basement membrane for cancer cell extravasation; MMP2-selective inhibition blocks this step. Dual MMP2/MMP9 targeting may be required.",
+      "target_node": "MMP2",
+      "target_node_role": "delivery_interface",
+      "drug_class": "MMP2-selective inhibitor",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "MMP2 degrades BBB basement membrane; inhibitors act at the vascular compartment and need not cross the BBB.",
+      "context_specificity": "brm_specific",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.135,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1158/0008-5472.can-22-3964"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: in_vivo_crispr_screen, confidence=0.40, pmids=1",
+        "layer4_adjacency: MMP2 via MMP2-selective inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "MMP2-selective inhibitor in NSCLC BrM model",
+        "MMP2 vs MMP9 relative contribution to BBB degradation in NSCLC"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.858885+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "CLDN5",
+      "visibility_axis": "absent_from_standard_oncology_panels",
+      "brm_evidence_class": "bbb_biology",
+      "primary_evidence_modality": "genetic_suppression_BBB_permeability",
+      "secondary_evidence_modalities": [],
+      "cascade_step": "bbb_transit",
+      "cascade_step_label": "BBB transit / tight junction modulation",
+      "primary_exploit_mode": "delivery",
+      "secondary_exploit_modes": [],
+      "primary_vulnerability_hypothesis": "CLDN5 downregulation in BrM-associated endothelium increases BBB permeability; tumor-cell-specific CLDN5 modulation may block transit.",
+      "target_node": "CLDN5",
+      "target_node_role": "delivery_interface",
+      "drug_class": "claudin-targeting antibody",
+      "best_drug_example": null,
+      "cns_bbb_feasibility": "barrier",
+      "cns_bbb_rationale": "CLDN5 maintains BBB integrity; targeting it opens the barrier but creates CNS toxicity risk requiring tumor-cell-specific strategy.",
+      "context_specificity": "cns_relevant",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.13,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41586-020-2698-6"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": "[2025] LGR5: An emerging therapeutic target for cancer metastasis and chemotherapy resistance. Cancer stem cells play an important role in tumor progression and chemotherapy resistance. Leucine-rich G repeat-containing protein-coupled receptor 5 (LGR5) has been identified as a cancer stem cell ... | [2025] Evolving roles of MET as a therapeutic target in NSCLC and beyond. ... | [2021] NFAT as a Biomarker and Therapeutic Target in Non\u2013Small Cell Lung Cancer\u2013Related Brain Metastasis. Background Brain metastases (BMs) are associated with poor prognosis and significant mortality, and approximately 25% of patients with non\u2013small cell lung cancer (NSCLC) develop BMs. The present study...",
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: bbb_biology, confidence=0.38, pmids=1",
+        "layer4_adjacency: CLDN5 via claudin-targeting antibody, score=0.35"
+      ],
+      "data_gaps": [
+        "Tumor-cell-specific CLDN5 modulation strategy",
+        "In vivo BrM model with CLDN5 perturbation"
+      ],
+      "frozen_at": "2026-05-07T14:34:52.038923+00:00"
+    },
+    {
+      "row_class": "calibration",
+      "score_basis": "receipt",
+      "gene": "TWIST1",
+      "visibility_axis": "absent_from_standard_DDR_panels",
+      "brm_evidence_class": "genetic_suppression",
+      "primary_evidence_modality": "genetic_suppression_EMT_BrM",
+      "secondary_evidence_modalities": [
+        "pharmacologic_BETi_EMT_reversal"
+      ],
+      "cascade_step": "multi_step",
+      "cascade_step_label": "EMT / intravasation + colonization",
+      "primary_exploit_mode": "pathway",
+      "secondary_exploit_modes": [],
+      "primary_vulnerability_hypothesis": "TWIST1 drives EMT enabling intravasation and colonization; BRD4 inhibition (JQ1/OTX015) suppresses TWIST1 transcription.",
+      "target_node": "BRD4",
+      "target_node_role": "pathway_bottleneck",
+      "drug_class": "BET bromodomain inhibitor",
+      "best_drug_example": "JQ1 / OTX015",
+      "cns_bbb_feasibility": "partial",
+      "cns_bbb_rationale": "BETi CNS penetration is variable by compound; JQ1 has demonstrated CNS exposure in preclinical models.",
+      "context_specificity": "pan_cancer",
+      "evidence_tier": "Mechanistic",
+      "recommendation_status": "Investigate",
+      "confidence_score": 0.1175,
+      "novelty_score": null,
+      "sl_partners": [],
+      "emt_cluster": false,
+      "broad_state_marker": false,
+      "supporting_pmids": [
+        "10.1038/s41467-019-09270-4"
+      ],
+      "depmap_expression_note": null,
+      "live_literature_note": null,
+      "escalation_path": [
+        "layer1_depmap_sl: no signal or unavailable \u2192 escalate",
+        "layer2_depmap_codep: unavailable \u2192 escalate",
+        "layer3_receipt: genetic_suppression, confidence=0.33, pmids=1",
+        "layer4_adjacency: BRD4 via BET bromodomain inhibitor, score=0.35"
+      ],
+      "data_gaps": [
+        "TWIST1-driven BrM model with BETi treatment",
+        "HDAC inhibitor as alternative TWIST1 pathway node"
+      ],
+      "frozen_at": "2026-05-07T14:34:53.033055+00:00"
+    }
+  ],
+  "novel_rows": [],
+  "negative_rows": [],
+  "exploit_mode_summary": {
+    "direct": 1,
+    "delivery": 3,
+    "pathway": 3
+  },
+  "cascade_step_summary": {
+    "colonization": 1,
+    "bbb_transit": 4,
+    "immune_evasion": 1,
+    "multi_step": 1
+  },
+  "row_class_summary": {
+    "calibration": 7,
+    "novel": 0,
+    "negative": 0
+  },
+  "frozen_at": "2026-05-07T14:34:49.847582+00:00",
+  "ruo": true,
+  "disclaimer": "Research use only. Not validated for clinical decision-making. All BrM targetability rows require human expert review before clinical translation."
+}
