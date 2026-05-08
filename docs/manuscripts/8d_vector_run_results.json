@@ -1,0 +1,608 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-05-08",
+  "ruo_notice": "Research Use Only. Not cleared for clinical decision-making.",
+  "description": "8D mechanism fit run: 6 GBM trial failure classes scored against 3 NSCLC BrM patient profiles using MechanismFitRanker (formula: fit = (patient\u00b7trial)/\u2016trial\u2016\u2082, combined = 0.7\u00d7eligibility + 0.3\u00d7fit). Eligibility uniform at 0.75 \u2014 isolating mechanism alignment. Trial vectors encode the mechanism each drug class was designed to hit. Patient vectors encode the dominant pathway state of each NSCLC BrM profile.",
+  "vector_version": "8D.v1",
+  "axes": [
+    "ddr",
+    "mapk",
+    "pi3k",
+    "vegf",
+    "her2",
+    "io",
+    "efflux",
+    "rss"
+  ],
+  "formula": "combined = (0.7 \u00d7 eligibility_score) + (0.3 \u00d7 magnitude_weighted_fit); fit = (patient\u00b7trial) / \u2016trial\u2016\u2082",
+  "eligibility_note": "All eligibility scores set to 0.75 (uniform) \u2014 mechanism alignment is the variable being tested, not eligibility.",
+  "provenance": {
+    "ranker": "layer1_engines/mechanism_fit/mechanism_fit_ranker.py (crispro-backend-v3)",
+    "artifact": "brm_targetability_matrix_v3.json (commit 64258b6, fjkiani/Synthetic-Lethality)",
+    "cilengitide_commit": "f64758a (fjkiani/crispro-backend-v3)",
+    "depmap_release": "24Q4",
+    "nsclc_lines": 95
+  },
+  "profiles": {
+    "ZEB1_high_KRAS_mut": {
+      "profile_label": "ZEB1-high NSCLC BrM (EGFR-wt, KRAS-mut)",
+      "profile_description": "Canonical SL exploit profile. KRAS-mut \u2192 MAPK dominant. ZEB1-high EMT state \u2192 RSS burden. Moderate IO (PD-L1 via ZEB1\u2192CD274). ITGAV dependency via ZEB1\u2192ITGAV SL axis.",
+      "patient_vector": {
+        "ddr": 0.1,
+        "mapk": 0.7,
+        "pi3k": 0.4,
+        "vegf": 0.2,
+        "her2": 0.0,
+        "io": 0.4,
+        "efflux": 0.0,
+        "rss": 0.6
+      },
+      "ranked_trial_classes": [
+        {
+          "trial_key": "egfr_tkis_erlotinib",
+          "trial_class": "EGFR TKIs (erlotinib/gefitinib)",
+          "mechanism": "EGFR \u2192 RAS/MAPK + PI3K/AKT; P-gp efflux",
+          "primary_failure_mode": "P-gp exclusion + PTEN decoupling",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.6325,
+          "combined_score": 0.7148,
+          "dominant_alignment_axes": [
+            [
+              "mapk",
+              0.49
+            ],
+            [
+              "pi3k",
+              0.2
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.49,
+            "pi3k": 0.2,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 1
+        },
+        {
+          "trial_key": "checkpoint_CheckMate",
+          "trial_class": "Checkpoint inhibitors (CheckMate 143/498/548)",
+          "mechanism": "PD-1/PD-L1 blockade \u2192 T cell reinvigoration",
+          "primary_failure_mode": "Cold TME + low TMB in GBM",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.5692,
+          "combined_score": 0.6958,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.36
+            ],
+            [
+              "rss",
+              0.18
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.36,
+            "efflux": 0.0,
+            "rss": 0.18
+          },
+          "rank": 2
+        },
+        {
+          "trial_key": "cilengitide_CENTRIC",
+          "trial_class": "Cilengitide (CENTRIC)",
+          "mechanism": "\u03b1V integrin inhibitor \u2192 FAK/PI3K/AKT + anti-angiogenic",
+          "primary_failure_mode": "BBB paradox + unselected population",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.5207,
+          "combined_score": 0.6812,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.24
+            ],
+            [
+              "vegf",
+              0.1
+            ],
+            [
+              "mapk",
+              0.07
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.07,
+            "pi3k": 0.24,
+            "vegf": 0.1,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 3
+        },
+        {
+          "trial_key": "mtor_pi3k_inhibitors",
+          "trial_class": "mTOR/PI3K inhibitors (everolimus/BKM120)",
+          "mechanism": "Direct PI3K/mTOR axis inhibition",
+          "primary_failure_mode": "AKT feedback loop + STAT3 bypass",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.4749,
+          "combined_score": 0.6675,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.36
+            ],
+            [
+              "mapk",
+              0.07
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.07,
+            "pi3k": 0.36,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 4
+        },
+        {
+          "trial_key": "rindopepimut_ACTIV",
+          "trial_class": "Rindopepimut (ACT IV)",
+          "mechanism": "EGFRvIII peptide vaccine \u2192 antigen-specific T cell response",
+          "primary_failure_mode": "Immunoediting / antigen loss",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.4,
+          "combined_score": 0.645,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.28
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.28,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 5
+        },
+        {
+          "trial_key": "bevacizumab_AVAglio",
+          "trial_class": "Bevacizumab (AVAglio/RTOG 0825)",
+          "mechanism": "Anti-VEGF monotherapy",
+          "primary_failure_mode": "Vascular normalization \u2192 invasion escape",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.2,
+          "combined_score": 0.585,
+          "dominant_alignment_axes": [
+            [
+              "vegf",
+              0.18
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.18,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 6
+        }
+      ]
+    },
+    "EGFR_mut_BrM": {
+      "profile_label": "EGFR-mutant NSCLC BrM",
+      "profile_description": "SOC anchor profile. EGFR-mut \u2192 MAPK dominant, PI3K activated. IO-cold (low TMB, immune exclusion in EGFR-mut). Low RSS. Osimertinib-eligible.",
+      "patient_vector": {
+        "ddr": 0.1,
+        "mapk": 0.8,
+        "pi3k": 0.5,
+        "vegf": 0.1,
+        "her2": 0.2,
+        "io": 0.1,
+        "efflux": 0.3,
+        "rss": 0.2
+      },
+      "ranked_trial_classes": [
+        {
+          "trial_key": "egfr_tkis_erlotinib",
+          "trial_class": "EGFR TKIs (erlotinib/gefitinib)",
+          "mechanism": "EGFR \u2192 RAS/MAPK + PI3K/AKT; P-gp efflux",
+          "primary_failure_mode": "P-gp exclusion + PTEN decoupling",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.9625,
+          "combined_score": 0.8138,
+          "dominant_alignment_axes": [
+            [
+              "mapk",
+              0.56
+            ],
+            [
+              "pi3k",
+              0.25
+            ],
+            [
+              "efflux",
+              0.18
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.56,
+            "pi3k": 0.25,
+            "vegf": 0.0,
+            "her2": 0.06,
+            "io": 0.0,
+            "efflux": 0.18,
+            "rss": 0.0
+          },
+          "rank": 1
+        },
+        {
+          "trial_key": "mtor_pi3k_inhibitors",
+          "trial_class": "mTOR/PI3K inhibitors (everolimus/BKM120)",
+          "mechanism": "Direct PI3K/mTOR axis inhibition",
+          "primary_failure_mode": "AKT feedback loop + STAT3 bypass",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.5853,
+          "combined_score": 0.7006,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.45
+            ],
+            [
+              "mapk",
+              0.08
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.08,
+            "pi3k": 0.45,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 2
+        },
+        {
+          "trial_key": "cilengitide_CENTRIC",
+          "trial_class": "Cilengitide (CENTRIC)",
+          "mechanism": "\u03b1V integrin inhibitor \u2192 FAK/PI3K/AKT + anti-angiogenic",
+          "primary_failure_mode": "BBB paradox + unselected population",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.5461,
+          "combined_score": 0.6888,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.3
+            ],
+            [
+              "mapk",
+              0.08
+            ],
+            [
+              "vegf",
+              0.05
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.08,
+            "pi3k": 0.3,
+            "vegf": 0.05,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 3
+        },
+        {
+          "trial_key": "checkpoint_CheckMate",
+          "trial_class": "Checkpoint inhibitors (CheckMate 143/498/548)",
+          "mechanism": "PD-1/PD-L1 blockade \u2192 T cell reinvigoration",
+          "primary_failure_mode": "Cold TME + low TMB in GBM",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.1581,
+          "combined_score": 0.5724,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.09
+            ],
+            [
+              "rss",
+              0.06
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.09,
+            "efflux": 0.0,
+            "rss": 0.06
+          },
+          "rank": 4
+        },
+        {
+          "trial_key": "bevacizumab_AVAglio",
+          "trial_class": "Bevacizumab (AVAglio/RTOG 0825)",
+          "mechanism": "Anti-VEGF monotherapy",
+          "primary_failure_mode": "Vascular normalization \u2192 invasion escape",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.1,
+          "combined_score": 0.555,
+          "dominant_alignment_axes": [
+            [
+              "vegf",
+              0.09
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.09,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 5
+        },
+        {
+          "trial_key": "rindopepimut_ACTIV",
+          "trial_class": "Rindopepimut (ACT IV)",
+          "mechanism": "EGFRvIII peptide vaccine \u2192 antigen-specific T cell response",
+          "primary_failure_mode": "Immunoediting / antigen loss",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.1,
+          "combined_score": 0.555,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.07
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.07,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 6
+        }
+      ]
+    },
+    "PTEN_null_ZEB1_high": {
+      "profile_label": "PTEN-null ZEB1-high NSCLC BrM",
+      "profile_description": "Candidate convergence signal profile. PTEN-null \u2192 PI3K hyperactivated. ZEB1-high \u2192 RSS burden. IO-suppressed (PTEN-loss immune exclusion). Candidate enrichment for ITGAV dependency (hypothesis, not confirmed).",
+      "patient_vector": {
+        "ddr": 0.1,
+        "mapk": 0.5,
+        "pi3k": 0.9,
+        "vegf": 0.2,
+        "her2": 0.0,
+        "io": 0.2,
+        "efflux": 0.0,
+        "rss": 0.4
+      },
+      "ranked_trial_classes": [
+        {
+          "trial_key": "mtor_pi3k_inhibitors",
+          "trial_class": "mTOR/PI3K inhibitors (everolimus/BKM120)",
+          "mechanism": "Direct PI3K/mTOR axis inhibition",
+          "primary_failure_mode": "AKT feedback loop + STAT3 bypass",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.9497,
+          "combined_score": 0.8099,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.81
+            ],
+            [
+              "mapk",
+              0.05
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.05,
+            "pi3k": 0.81,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 1
+        },
+        {
+          "trial_key": "cilengitide_CENTRIC",
+          "trial_class": "Cilengitide (CENTRIC)",
+          "mechanism": "\u03b1V integrin inhibitor \u2192 FAK/PI3K/AKT + anti-angiogenic",
+          "primary_failure_mode": "BBB paradox + unselected population",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.8763,
+          "combined_score": 0.7879,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.54
+            ],
+            [
+              "vegf",
+              0.1
+            ],
+            [
+              "mapk",
+              0.05
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.05,
+            "pi3k": 0.54,
+            "vegf": 0.1,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 2
+        },
+        {
+          "trial_key": "egfr_tkis_erlotinib",
+          "trial_class": "EGFR TKIs (erlotinib/gefitinib)",
+          "mechanism": "EGFR \u2192 RAS/MAPK + PI3K/AKT; P-gp efflux",
+          "primary_failure_mode": "P-gp exclusion + PTEN decoupling",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.7334,
+          "combined_score": 0.745,
+          "dominant_alignment_axes": [
+            [
+              "pi3k",
+              0.45
+            ],
+            [
+              "mapk",
+              0.35
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.35,
+            "pi3k": 0.45,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 3
+        },
+        {
+          "trial_key": "checkpoint_CheckMate",
+          "trial_class": "Checkpoint inhibitors (CheckMate 143/498/548)",
+          "mechanism": "PD-1/PD-L1 blockade \u2192 T cell reinvigoration",
+          "primary_failure_mode": "Cold TME + low TMB in GBM",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.3162,
+          "combined_score": 0.6199,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.18
+            ],
+            [
+              "rss",
+              0.12
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.18,
+            "efflux": 0.0,
+            "rss": 0.12
+          },
+          "rank": 4
+        },
+        {
+          "trial_key": "bevacizumab_AVAglio",
+          "trial_class": "Bevacizumab (AVAglio/RTOG 0825)",
+          "mechanism": "Anti-VEGF monotherapy",
+          "primary_failure_mode": "Vascular normalization \u2192 invasion escape",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.2,
+          "combined_score": 0.585,
+          "dominant_alignment_axes": [
+            [
+              "vegf",
+              0.18
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.18,
+            "her2": 0.0,
+            "io": 0.0,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 5
+        },
+        {
+          "trial_key": "rindopepimut_ACTIV",
+          "trial_class": "Rindopepimut (ACT IV)",
+          "mechanism": "EGFRvIII peptide vaccine \u2192 antigen-specific T cell response",
+          "primary_failure_mode": "Immunoediting / antigen loss",
+          "eligibility_score": 0.75,
+          "mechanism_fit_score": 0.2,
+          "combined_score": 0.585,
+          "dominant_alignment_axes": [
+            [
+              "io",
+              0.14
+            ]
+          ],
+          "full_alignment": {
+            "ddr": 0.0,
+            "mapk": 0.0,
+            "pi3k": 0.0,
+            "vegf": 0.0,
+            "her2": 0.0,
+            "io": 0.14,
+            "efflux": 0.0,
+            "rss": 0.0
+          },
+          "rank": 6
+        }
+      ]
+    }
+  }
+}
