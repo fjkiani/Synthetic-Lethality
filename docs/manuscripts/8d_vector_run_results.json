@@ -66,7 +66,9 @@
             "efflux": 0.0,
             "rss": 0.0
           },
-          "rank": 1
+          "rank": 1,
+          "governance_flag": "FALSE_POSITIVE",
+          "governance_note": "FALSE POSITIVE: EGFR TKIs rank #1 (mfit=0.6325) because KRAS-mut drives MAPK, which overlaps with the EGFR\u2192MAPK axis. But KRAS is downstream of EGFR \u2014 EGFR TKIs do not suppress KRAS-driven MAPK signaling. High mechanism fit reflects pathway overlap, not clinical actionability. KRAS-mut NSCLC does not respond to EGFR TKIs. Governance pattern: mirrors IMblaze370 FALSE_POSITIVE in Brenus data room (high fit_A=0.8262 reflecting patient MAPK burden, not positive precedent)."
         },
         {
           "trial_key": "checkpoint_CheckMate",

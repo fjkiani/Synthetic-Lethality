@@ -195,7 +195,7 @@ PTEN loss may therefore serve as a patient enrichment candidate for the ZEB1→I
 |---|---|---|---|---|
 | Cilengitide (CENTRIC) | BBB paradox + unselected | BBB disrupted by BrM process | STRONG — ZEB1→ITGAV SL axis | ZEB1-high expression |
 | Bevacizumab (AVAglio/RTOG 0825) | Vascular normalization + invasion escape | MMP9 delivery interface | MODERATE — MMP9 biomarker | MMP9-high expression |
-| EGFR TKIs | P-gp exclusion + PTEN decoupling | Osimertinib solves delivery | HIGH — PTEN convergence node | PTEN-null + EGFR-mutant |
+| EGFR TKIs | P-gp exclusion + PTEN decoupling | Osimertinib solves delivery | HIGH — PTEN candidate signal | PTEN-null + EGFR-mutant |
 | Rindopepimut (ACT IV) | Immunoediting / antigen loss | SL dependencies are non-antigenic | MAXIMUM — proves SL paradigm | ZEB1-high (structural) |
 | Checkpoint inhibitors | Cold TME + low TMB | NSCLC BrM TME is immunogenic | HIGH — ZEB1→PD-L1 combination | ZEB1-high + PD-L1-high |
 | mTOR/PI3K inhibitors | AKT feedback + STAT3 bypass | PTEN loss = ITGAV dependency | HIGH — PTEN enrichment marker | PTEN-null |

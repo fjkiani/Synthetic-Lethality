@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "generated": "2026-05-08",
-  "context": "CrisPRO BrM Framework — manuscript brm_graveyard_perspective_v2.md, Section 6.1",
-  "description": "Structured literature traces for the three anchor citations used in Section 6.1 (The Antigen Escape Problem: Why CAR-T Faces the Same Wall). These citations ground the claim that antigen-targeted CNS immunotherapies face a structural vulnerability profile — antigen escape plus trafficking constraints — that creates a theoretical advantage for SL dependency-based strategies.",
+  "context": "CrisPRO BrM Framework \u2014 manuscript brm_graveyard_perspective_v2.md, Section 6.1",
+  "description": "Structured literature traces for the three anchor citations used in Section 6.1 (The Antigen Escape Problem: Why CAR-T Faces the Same Wall). These citations ground the claim that antigen-targeted CNS immunotherapies face a structural vulnerability profile \u2014 antigen escape plus trafficking constraints \u2014 that creates a theoretical advantage for SL dependency-based strategies.",
   "ruo_notice": "Research Use Only. Not cleared for clinical decision-making.",
   "citations": [
     {
@@ -18,7 +18,8 @@
       "claim_anchored": "Antigen loss or downregulation is the primary resistance mechanism in CAR-T therapy and is likely an even greater barrier in solid tumors because of higher antigen heterogeneity.",
       "exact_quote": "Emerging data from chimeric antigen receptor (CAR) T-cell trials in B-cell malignancies demonstrate that a common mechanism of resistance to this novel class of therapeutics is the emergence of tumors with loss or downregulation of the target antigen. Antigen loss or antigen-low escape is likely to emerge as an even greater barrier to success in solid tumors, which manifest greater heterogeneity in target antigen expression.",
       "manuscript_use": "Establishes antigen escape as the structural resistance class shared by CAR-T and vaccines. Grounds the claim that SL-based targeting is less exposed to this failure mode.",
-      "notes": "Canonical reference for CAR-T antigen escape. Cited in Section 6.1 as [1] in the session literature scout numbering."
+      "notes": "Canonical reference for CAR-T antigen escape. Cited in Section 6.1 as [1] in the session literature scout numbering.",
+      "pmid_status": "CONFIRMED"
     },
     {
       "citation_key": "orourke_2017",
@@ -32,8 +33,9 @@
       "role_in_manuscript": "PRIMARY_ANCHOR",
       "claim_anchored": "In recurrent GBM, EGFRvIII-directed CAR-T cells trafficked to active tumor regions but antigen decrease was observed in post-treatment specimens alongside adaptive resistance.",
       "exact_quote": "We found that manufacturing and infusion of CAR-modified T cell (CART)-EGFRvIII cells are feasible and safe... antigen decrease in 5 of 7 evaluable patients, alongside adaptive resistance.",
-      "manuscript_use": "Direct clinical evidence that EGFRvIII antigen loss occurs under CAR-T pressure in GBM — the cellular therapy parallel to the ACT IV vaccine failure. Confirms the escape mechanism is antigen-targeting-specific, not modality-specific.",
-      "notes": "First-in-human EGFRvIII CAR-T study. 10 recurrent GBM patients. Cited in Section 6.1 as [50] in the session literature scout numbering."
+      "manuscript_use": "Direct clinical evidence that EGFRvIII antigen loss occurs under CAR-T pressure in GBM \u2014 the cellular therapy parallel to the ACT IV vaccine failure. Confirms the escape mechanism is antigen-targeting-specific, not modality-specific.",
+      "notes": "First-in-human EGFRvIII CAR-T study. 10 recurrent GBM patients. Cited in Section 6.1 as [50] in the session literature scout numbering.",
+      "pmid_status": "CONFIRMED"
     },
     {
       "citation_key": "li_2022",
@@ -45,10 +47,11 @@
       "title": "Targeting brain lesions of non-small cell lung cancer by enhancing CCL2-mediated CAR-T cell migration",
       "section": "6.1",
       "role_in_manuscript": "SUPPORTING",
-      "claim_anchored": "For NSCLC brain metastasis, B7-H3 CAR-T cells required engineering with CCR2b to exploit the CCL2 gradient and improve BBB passage — BBB trafficking is a real engineering barrier, not a solved problem.",
+      "claim_anchored": "For NSCLC brain metastasis, B7-H3 CAR-T cells required engineering with CCR2b to exploit the CCL2 gradient and improve BBB passage \u2014 BBB trafficking is a real engineering barrier, not a solved problem.",
       "exact_quote": "CAR T cells targeting B7-H3 (B7-H3.CAR) exhibit antitumor activity in vitro... [CCR2b engineering] significantly improved migration through the BBB and intracranial antitumor activity.",
       "manuscript_use": "Establishes that CAR-T trafficking to NSCLC brain lesions requires active engineering intervention. Grounds the claim that CNS delivery is a second structural constraint on top of antigen escape.",
-      "notes": "NSCLC BrM-specific CAR-T study. Cited in Section 6.1 as [6] in the session literature scout numbering."
+      "notes": "NSCLC BrM-specific CAR-T study. Cited in Section 6.1 as [6] in the session literature scout numbering.",
+      "pmid_status": "CONFIRMED"
     },
     {
       "citation_key": "mishra_2023",
@@ -61,7 +64,8 @@
       "section": "6.1",
       "role_in_manuscript": "SUPPORTING",
       "claim_anchored": "Antigen loss or downregulation accounts for 30-70% of relapses in patients with recurrent disease after CAR-T.",
-      "manuscript_use": "Quantifies the prevalence of antigen escape across CAR-T trials. Cited in Section 6.1 as [2] in the session literature scout numbering."
+      "manuscript_use": "Quantifies the prevalence of antigen escape across CAR-T trials. Cited in Section 6.1 as [2] in the session literature scout numbering.",
+      "pmid_status": "UNVERIFIED \u2014 DOI 10.1111/ejh.14101 not found in PubMed search. Citation may be hallucinated by prior agent. PUBLICATION-BLOCKING: claim (30-70% antigen loss relapse rate) must be re-anchored to a verified source before submission."
     },
     {
       "citation_key": "tang_2024",
@@ -73,12 +77,13 @@
       "title": "Brain Metastasis from EGFR-Mutated Non-Small Cell Lung Cancer: Secretion of IL11 from Astrocytes Up-Regulates PDL1 and Promotes Immune Escape",
       "section": "6.1",
       "role_in_manuscript": "SUPPORTING",
-      "claim_anchored": "In EGFR-mutant NSCLC BrM, reactive astrocytes secrete IL-11 which upregulates PD-L1 and promotes immune escape — a CNS-specific immunosuppressive mechanism.",
-      "manuscript_use": "Establishes brain-specific immunosuppressive mechanism as a third structural constraint on antigen-targeted approaches in the CNS. Cited in Section 6.1 as [70] in the session literature scout numbering."
+      "claim_anchored": "In EGFR-mutant NSCLC BrM, reactive astrocytes secrete IL-11 which upregulates PD-L1 and promotes immune escape \u2014 a CNS-specific immunosuppressive mechanism.",
+      "manuscript_use": "Establishes brain-specific immunosuppressive mechanism as a third structural constraint on antigen-targeted approaches in the CNS. Cited in Section 6.1 as [70] in the session literature scout numbering.",
+      "pmid_status": "UNRESOLVED \u2014 DOI confirmed (10.1002/advs.202306348), paper verified on PubMed but PMID blocked by reCAPTCHA. Manual lookup required."
     },
     {
       "citation_key": "weller_2017_activ",
-      "pmid": null,
+      "pmid": "28844499",
       "doi": "10.1016/s1470-2045(17)30517-x",
       "authors": "Weller M, Butowski N, Tran D, et al.",
       "year": 2017,
@@ -86,8 +91,9 @@
       "title": "Rindopepimut with temozolomide for patients with newly diagnosed, EGFRvIII-expressing glioblastoma (ACT IV)",
       "section": "3.4",
       "role_in_manuscript": "PRIMARY_ANCHOR",
-      "claim_anchored": "ACT IV Phase III trial: HR 1.01, p=0.93. EGFRvIII expression lost in recurrent tumors from vaccinated patients — immunoediting confirmed as mechanism of failure.",
-      "manuscript_use": "The definitive proof-of-concept that antigen-targeted immunotherapy fails through immunoediting in brain tumors. Central to Section 3.4 and the paradigm shift argument in Section 6."
+      "claim_anchored": "ACT IV Phase III trial: HR 1.01, p=0.93. EGFRvIII expression lost in recurrent tumors from vaccinated patients \u2014 immunoediting confirmed as mechanism of failure.",
+      "manuscript_use": "The definitive proof-of-concept that antigen-targeted immunotherapy fails through immunoediting in brain tumors. Central to Section 3.4 and the paradigm shift argument in Section 6.",
+      "pmid_status": "CONFIRMED"
     }
   ],
   "provenance": {
