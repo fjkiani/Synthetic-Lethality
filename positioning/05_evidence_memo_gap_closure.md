@@ -1,17 +1,17 @@
 # Evidence Memo: Validation Gap Closure
-**Version:** 1.0 — 2026-05-09
+**Version:** 2.0 — 2026-05-09
 **Prepared by:** CrisPRO Research Engine
-**Purpose:** Structured evidence summary for two validation gaps identified in patent briefs v2.0. Informs v3.0 brief updates and patent specification language.
+**Purpose:** Structured evidence summary for two validation gaps. v1.0 informed briefs v3.0. v2.0 adds in silico upgrade results: DepMap mutation/CN stratification, cBioPortal BrM frequency, TCGA LUAD co-expression, GSE271259 BrM co-expression. Informs v4.0 brief updates.
 **Status:** Final — ready for counsel review
 
 ---
 
 ## Executive Summary
 
-| Gap | Hypothesis | DepMap Result | Literature Support | Verdict |
+| Gap | Hypothesis | DepMap Result (v1.0) | In Silico Upgrade (v2.0) | Verdict |
 |---|---|---|---|---|
-| Gap 1 | PTEN-null NSCLC → ITGAV dependency | **NULL** (delta=−0.040, p=0.73, n=95) | Mechanistic only (PTEN→FAK in NSCLC SCC; no direct PTEN→ITGAV sensitivity data) | **Downgrade Brief #2 claim. Retain as method claim with honest evidence tier.** |
-| Gap 3 | ZEB1-high NSCLC BrM → αV integrin + PD-1 combination | N/A (combination not testable in DepMap) | Multi-tier support: ZEB1→PD-L1 in NSCLC (2 papers), ZEB1 upregulation in BrM (n=46 paired), combination preclinical in melanoma (not NSCLC) | **Upgrade Brief #3 specification language. Combination claim is mechanistically grounded with NSCLC-specific ZEB1→PD-L1 evidence.** |
+| Gap 1 | PTEN-null NSCLC → ITGAV dependency | **NULL** (mRNA proxy: delta=−0.040, p=0.73, n=95) | **NULL confirmed** (mutation+CN: delta=+0.023, p=1.000, n=4 PTEN-loss); PTEN-loss freq in 322 NSCLC BrM: 7.5% overall, LUSC 20.7% (cBioPortal) | **Brief #2 remains COMPUTATIONAL HYPOTHESIS. All DepMap proxies null. Target population defined (7.5% BrM). Isogenic models required.** |
+| Gap 3 | ZEB1-high NSCLC BrM → αV integrin + PD-1 combination | N/A (combination not testable in DepMap) | TCGA LUAD ZEB1/CD274: r=0.253, p=6.97×10⁻⁹, n=510 (POSITIVE, primary); GSE271259 BrM: r=0.050, p=0.780, n=34 (NULL, BrM-specific) | **Brief #3 upgraded for primary NSCLC (TCGA quantitative). BrM-specific co-expression not detected in available bulk RNA-seq. Gap partially closed.** |
 
 ---
 
@@ -179,20 +179,24 @@ ZEB1-high NSCLC BrM tumors are simultaneously: (1) ITGAV-dependent (ZEB1→ITGAV
 
 ### Gap 1 (PTEN→ITGAV) — Required to Upgrade Brief #2
 
-| Priority | Experiment | Expected Timeline | Outcome if Positive |
-|---|---|---|---|
-| 1 | DepMap PTEN protein/mutation stratification (OmicsSomaticMutationsMatrixDamaging.csv) | 1 week | More rigorous null/positive result |
-| 2 | Isogenic PTEN-KO NSCLC cell lines (H1299, A549) + cilengitide dose-response | 3–6 months | Upgrade to CRISPR-validated SL |
-| 3 | PTEN-null NSCLC patient-derived organoids + cilengitide | 6–12 months | Clinical translation evidence |
+| Priority | Experiment | Status | Expected Timeline | Outcome if Positive |
+|---|---|---|---|---|
+| 1 | DepMap PTEN mutation/CN stratification (OmicsSomaticMutationsMatrixDamaging + OmicsAbsoluteCNGene) | **COMPLETED (v2.0) — NULL** | — | n=4 PTEN-loss; all proxies null; pipeline confirmed |
+| 1B | PTEN frequency in NSCLC BrM (cBioPortal bm_nsclc_mskcc_2023) | **COMPLETED (v2.0) — POSITIVE** | — | 7.5% overall; LUSC 20.7%; target population defined |
+| 2 | Isogenic PTEN-KO NSCLC cell lines (H1299, A549) + cilengitide dose-response | Pending | 3–6 months | Upgrade to CRISPR-validated SL |
+| 3 | PTEN-null NSCLC patient-derived organoids + cilengitide | Pending | 6–12 months | Clinical translation evidence |
 
 ### Gap 3 (ZEB1→PD-L1 + Combination) — Required to Upgrade Brief #3
 
-| Priority | Experiment | Expected Timeline | Outcome if Positive |
-|---|---|---|---|
-| 1 | ZEB1/PD-L1 co-IHC in NSCLC BrM tissue microarray | 3–6 months | Direct co-expression evidence in BrM |
-| 2 | ZEB1-high NSCLC BrM syngeneic model + cilengitide + anti-PD-1 | 6–12 months | Combination preclinical proof in NSCLC BrM |
-| 3 | ZEB1 overexpression in NSCLC cell lines → PD-L1 upregulation (Western, flow) | 1–3 months | Direct mechanistic validation in NSCLC |
+| Priority | Experiment | Status | Expected Timeline | Outcome if Positive |
+|---|---|---|---|---|
+| 1 | TCGA LUAD ZEB1/CD274 co-expression (cBioPortal, n=510) | **COMPLETED (v2.0) — POSITIVE** | — | r=0.253, p=6.97×10⁻⁹; quantitative RNA-seq upgrade |
+| 1B | GSE271259 ZEB1/CD274 in NSCLC BrM (n=34 MET-amp) | **COMPLETED (v2.0) — NULL** | — | r=0.050, p=0.780; MET-amp cohort confound; underpowered |
+| 1C | GSE223503 NSCLC BrM Atlas (snRNA-seq) | **DROPPED — snRNA-seq, not executable** | — | Dataset is snRNA-seq; requires cell-type deconvolution |
+| 2 | ZEB1/PD-L1 co-IHC in NSCLC BrM tissue microarray | Pending | 3–6 months | Direct co-expression evidence in BrM |
+| 3 | ZEB1-high NSCLC BrM syngeneic model + cilengitide + anti-PD-1 | Pending | 6–12 months | Combination preclinical proof in NSCLC BrM |
+| 4 | ZEB1 overexpression in NSCLC cell lines → PD-L1 upregulation (Western, flow) | Pending | 1–3 months | Direct mechanistic validation in NSCLC |
 
 ---
 
-*Evidence Memo v1.0 — 2026-05-09 | CrisPRO Research Engine | Confidential — Attorney-Client Privileged when transmitted to counsel*
+*Evidence Memo v2.0 — 2026-05-09 | CrisPRO Research Engine | Confidential — Attorney-Client Privileged when transmitted to counsel*
