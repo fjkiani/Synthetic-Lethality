@@ -84,6 +84,11 @@ class CandidateAxis(str, Enum):
     IMMUNOTHERAPY    = "immunotherapy"       # PD-1/PD-L1 (hypermutator / MSI-H)
     PKMYT1           = "pkmyt1"              # PKMYT1 checkpoint kinase — RS-specific SL
     CUSTOM           = "custom"              # Any gene/drug pair injected at query time
+    # ── MM Sprint 1 axes (B3 extension) ──────────────────────────────────────
+    PROTEASOME       = "proteasome"          # Bortezomib, carfilzomib — MM primary anchor
+    BCL2_MCL1        = "bcl2_mcl1"          # Venetoclax, navitoclax — t(11;14)/BCL2-high
+    HDAC             = "hdac"               # Panobinostat, vorinostat — exploratory salvage axis
+    IMID             = "imid"               # Lenalidomide — conditional (IC50 caveat applies)
 
 
 # ── Full row in the evidence matrix ──────────────────────────────────────────

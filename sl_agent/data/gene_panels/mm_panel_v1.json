@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "description": "Multiple Myeloma gene panel v1 — Sprint 1 pilot. Two groups: tumor-state (stratification anchors) and therapy-mechanism (SL partner candidates).",
+  "genes": {
+    "tumor_state": [
+      "NSD2", "FGFR3", "CCND1", "CCND2",
+      "MAF", "MAFB", "MYC", "TP53",
+      "RB1", "DIS3", "FAM46C", "CDKN2C"
+    ],
+    "therapy_mechanism": [
+      "CRBN", "IKZF1", "IKZF3",
+      "BCL2", "MCL1", "PMAIP1",
+      "PSMD1", "PSMD2", "PSMC1", "VCP", "USP7",
+      "HDAC1", "HDAC2", "BRD4",
+      "TNFRSF17", "CD38", "SLAMF7"
+    ]
+  },
+  "total_genes": 29,
+  "axes": ["PROTEASOME", "BCL2_MCL1", "HDAC", "IMiD"],
+  "notes": {
+    "tumor_state": "Translocation/deletion-defined genes that stratify MM into subtypes. NSD2=t(4;14), CCND1=t(11;14), MAF/MAFB=t(14;16)/t(14;20). TP53/RB1/DIS3/FAM46C are recurrent deletions. These are the 'gene A' in the SL pair.",
+    "therapy_mechanism": "Direct targets of MM drug classes. CRBN/IKZF1/IKZF3=IMiD mechanism. BCL2/MCL1/PMAIP1=apoptotic rheostat. PSMD/PSMC=proteasome subunits (likely pan-essential, see audit). HDAC1/2 and BRD4=epigenetic co-dependencies. These are the 'gene B' in the SL pair.",
+    "pan_essential_warning": "PSMD1, PSMD2, PSMC1, VCP are pan-essential (>80% of all lines dependent). Engine will filter these from scoring. Proteasome axis pharmacology (bortezomib) is still scored against non-pan-essential partner genes.",
+    "fam46c_absent": "FAM46C is absent from DepMap 25Q2 CRISPR matrix. Included in panel for completeness but will produce no CRISPR signal.",
+    "imid_caveat": "IMiD mechanism (CRBN-mediated IKZF1/IKZF3 degradation) is not well-captured by IC50-based pharmacology. Lenalidomide is present in GDSC but results should be interpreted cautiously."
+  }
+}

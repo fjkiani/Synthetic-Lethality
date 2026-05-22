@@ -66,6 +66,34 @@ _DRUG_TO_AXIS: Dict[str, str] = {
     "pembrolizumab": "immunotherapy",
     "nivolumab": "immunotherapy",
     "atezolizumab": "immunotherapy",
+    # ── MM Sprint 1 axes (B3 extension) ──────────────────────────────────────
+    # PROTEASOME — primary MM anchor; bortezomib confirmed in GDSC1+2 (17 MM lines)
+    "bortezomib":   "proteasome",
+    "carfilzomib":  "proteasome",
+    "ixazomib":     "proteasome",     # second-gen proteasome inhibitor
+    "marizomib":    "proteasome",
+    "oprozomib":    "proteasome",
+    # BCL2_MCL1 — t(11;14)/BCL2-high; venetoclax confirmed in GDSC2 (17 MM lines)
+    "venetoclax":   "bcl2_mcl1",
+    "navitoclax":   "bcl2_mcl1",
+    "s63845":       "bcl2_mcl1",      # MCL1 inhibitor
+    "ami-1521":     "bcl2_mcl1",      # MCL1 inhibitor
+    "abt-199":      "bcl2_mcl1",      # venetoclax alias
+    "abt199":       "bcl2_mcl1",
+    # HDAC — exploratory salvage axis; panobinostat confirmed in GDSC1 (14 MM lines)
+    "panobinostat": "hdac",
+    "vorinostat":   "hdac",
+    "romidepsin":   "hdac",
+    "entinostat":   "hdac",
+    "mocetinostat": "hdac",
+    "belinostat":   "hdac",
+    "tucidinostat": "hdac",
+    # IMiD — conditional (lenalidomide in GDSC; IC50 caveat: CRBN-mediated mechanism)
+    "lenalidomide": "imid",
+    "pomalidomide": "imid",
+    "thalidomide":  "imid",
+    "iberdomide":   "imid",
+    "mezigdomide":  "imid",
 }
 
 # MSI/MMR marker columns we look for in sample_info

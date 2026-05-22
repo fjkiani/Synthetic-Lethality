@@ -124,3 +124,66 @@ def test_drug_class_inference():
     assert _infer_drug_class("PD-L1 checkpoint") == DrugClass.IMMUNOTHERAPY
     assert _infer_drug_class("novel compound") == DrugClass.OTHER
     assert _infer_drug_class("") == DrugClass.UNKNOWN
+
+
+# ── MM Sprint 1: drug-to-axis mapping tests ───────────────────────────────────
+
+def test_mm_drug_to_axis_proteasome():
+    """Bortezomib and carfilzomib must map to proteasome axis."""
+    from sl_agent.multimodal.pharmacologic_analyzer import _match_drug_to_axis
+    assert _match_drug_to_axis("bortezomib") == "proteasome"
+    assert _match_drug_to_axis("carfilzomib") == "proteasome"
+    assert _match_drug_to_axis("ixazomib") == "proteasome"
+    assert _match_drug_to_axis("marizomib") == "proteasome"
+
+
+def test_mm_drug_to_axis_bcl2_mcl1():
+    """Venetoclax and navitoclax must map to bcl2_mcl1 axis."""
+    from sl_agent.multimodal.pharmacologic_analyzer import _match_drug_to_axis
+    assert _match_drug_to_axis("venetoclax") == "bcl2_mcl1"
+    assert _match_drug_to_axis("navitoclax") == "bcl2_mcl1"
+    assert _match_drug_to_axis("s63845") == "bcl2_mcl1"
+
+
+def test_mm_drug_to_axis_hdac():
+    """Panobinostat and vorinostat must map to hdac axis."""
+    from sl_agent.multimodal.pharmacologic_analyzer import _match_drug_to_axis
+    assert _match_drug_to_axis("panobinostat") == "hdac"
+    assert _match_drug_to_axis("vorinostat") == "hdac"
+    assert _match_drug_to_axis("romidepsin") == "hdac"
+    assert _match_drug_to_axis("entinostat") == "hdac"
+
+
+def test_mm_drug_to_axis_imid():
+    """Lenalidomide must map to imid axis."""
+    from sl_agent.multimodal.pharmacologic_analyzer import _match_drug_to_axis
+    assert _match_drug_to_axis("lenalidomide") == "imid"
+    assert _match_drug_to_axis("pomalidomide") == "imid"
+    assert _match_drug_to_axis("thalidomide") == "imid"
+
+
+def test_mm_drug_to_axis_no_false_positives():
+    """Daratumumab and melphalan must NOT map to any MM axis (not in GDSC)."""
+    from sl_agent.multimodal.pharmacologic_analyzer import _match_drug_to_axis
+    assert _match_drug_to_axis("daratumumab") is None
+    assert _match_drug_to_axis("melphalan") is None
+    assert _match_drug_to_axis("dexamethasone") is None
+
+
+def test_load_mm_panel_returns_expected_genes():
+    """load_mm_panel() must return all 29 panel genes (FAM46C included even if absent from CRISPR)."""
+    from sl_agent.multimodal.receipt_miner import load_mm_panel
+    panel = load_mm_panel()
+    assert len(panel) == 29, f"Expected 29 genes, got {len(panel)}: {panel}"
+    # Key genes must be present
+    for gene in ["NSD2", "CCND2", "MAF", "BCL2", "MCL1", "IKZF1", "IKZF3", "BRD4"]:
+        assert gene in panel, f"{gene} missing from MM panel"
+
+
+def test_mm_candidate_axes_in_enum():
+    """All 4 MM Sprint 1 axes must be valid CandidateAxis enum values."""
+    from sl_agent.multimodal.models import CandidateAxis
+    assert CandidateAxis.PROTEASOME.value == "proteasome"
+    assert CandidateAxis.BCL2_MCL1.value == "bcl2_mcl1"
+    assert CandidateAxis.HDAC.value == "hdac"
+    assert CandidateAxis.IMID.value == "imid"

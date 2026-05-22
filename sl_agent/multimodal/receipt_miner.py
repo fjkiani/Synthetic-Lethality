@@ -65,6 +65,45 @@ def load_default_panel() -> List[str]:
         return list(DEFAULT_GENE_PANEL)
 
 
+_MM_PANEL_JSON = Path(__file__).parent.parent / "data" / "gene_panels" / "mm_panel_v1.json"
+
+
+def load_mm_panel() -> List[str]:
+    """
+    Load the Multiple Myeloma gene panel from mm_panel_v1.json.
+    Flattens tumor_state + therapy_mechanism groups, deduplicates, returns list.
+    Falls back to a hardcoded MM seed panel if file missing or parse fails (never raises).
+
+    Panel groups:
+      tumor_state: translocation/deletion-defined genes (NSD2, CCND1, MAF, etc.)
+      therapy_mechanism: drug target genes (BCL2, MCL1, PSMD1, IKZF1, etc.)
+    """
+    try:
+        with open(_MM_PANEL_JSON, "r") as f:
+            data = json.load(f)
+        seen: dict = {}
+        for group_genes in data["genes"].values():
+            for g in group_genes:
+                g_up = g.strip().upper()
+                if g_up:
+                    seen[g_up] = None
+        return list(seen.keys())
+    except Exception as e:
+        logger.warning("load_mm_panel failed, using MM_SEED_PANEL: %s", e)
+        return list(MM_SEED_PANEL)
+
+
+MM_SEED_PANEL: List[str] = [
+    # Tumor-state genes
+    "NSD2", "FGFR3", "CCND1", "CCND2", "MAF", "MAFB",
+    "MYC", "TP53", "RB1", "DIS3", "FAM46C", "CDKN2C",
+    # Therapy-mechanism genes
+    "CRBN", "IKZF1", "IKZF3", "BCL2", "MCL1", "PMAIP1",
+    "PSMD1", "PSMD2", "PSMC1", "VCP", "USP7",
+    "HDAC1", "HDAC2", "BRD4", "TNFRSF17", "CD38", "SLAMF7",
+]
+
+
 # ── Seed gene panel ───────────────────────────────────────────────────────────
 
 DEFAULT_GENE_PANEL: List[str] = [
@@ -273,6 +312,11 @@ def _axis_to_kb_keywords(axis: CandidateAxis) -> List[str]:
         CandidateAxis.WRN:             ["wrn", "vx-803", "mrtx1719"],
         CandidateAxis.IMMUNOTHERAPY:   ["pembrolizumab", "nivolumab", "atezolizumab", "pd-1", "pd-l1", "io"],
         CandidateAxis.PKMYT1:          ["rp-6306", "pkmyt1"],
+        # MM Sprint 1 axes
+        CandidateAxis.PROTEASOME:      ["bortezomib", "carfilzomib", "ixazomib", "proteasome", "26s"],
+        CandidateAxis.BCL2_MCL1:       ["venetoclax", "navitoclax", "bcl2", "mcl1", "bcl-2", "mcl-1"],
+        CandidateAxis.HDAC:            ["panobinostat", "vorinostat", "romidepsin", "hdac", "histone deacetylase"],
+        CandidateAxis.IMID:            ["lenalidomide", "pomalidomide", "thalidomide", "imid", "cereblon", "crbn"],
     }.get(axis, [])
 
 
