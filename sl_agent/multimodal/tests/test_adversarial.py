@@ -303,7 +303,7 @@ class TestClinicalPlausibility:
             increments pairs_no_signal+1 via zero-score path
           - 4 MM axes (PROTEASOME, BCL2_MCL1, HDAC, IMID): NOT DDR axes, NOT quarantined;
             each increments pairs_evaluated+1 and pairs_no_signal+1 (all mocked to 0.0)
-          → pairs_evaluated == 10 (5 DDR + 1 IO + 4 MM), pairs_no_signal == 10
+          → pairs_evaluated == 11 (5 DDR + 1 IO + 4 MM + 1 PRMT5_MTAP), pairs_no_signal == 11
           Note: pairs_evaluated and pairs_no_signal are NOT mutually exclusive;
           a quarantined pair increments both. The key invariant is that the IO pair
           is NOT pre-emptively skipped by the guard.
@@ -330,17 +330,17 @@ class TestClinicalPlausibility:
                 axes=list(CandidateAxis),  # all axes including CUSTOM
                 thresholds=MinerThresholds(),
             )
-        # CUSTOM is unconditionally skipped — pairs_evaluated stays at 10 (not 11)
-        # Axis breakdown: 5 DDR (quarantined) + 1 IO + 4 MM (PROTEASOME, BCL2_MCL1, HDAC, IMID)
+        # CUSTOM is unconditionally skipped — pairs_evaluated stays at 11 (not 12)
+        # Axis breakdown: 5 DDR (quarantined) + 1 IO + 4 MM (PROTEASOME, BCL2_MCL1, HDAC, IMID) + 1 PRMT5_MTAP + 1 PRMT5_MTAP
         # MM axes are NOT DDR axes and are NOT quarantined by the POLE guard.
-        assert summary.pairs_evaluated == 10, (
-            f"Expected 10 pairs evaluated (5 DDR quarantined + 1 IO + 4 MM, CUSTOM excluded), "
+        assert summary.pairs_evaluated == 11, (
+            f"Expected 11 pairs evaluated (5 DDR quarantined + 1 IO + 4 MM + 1 PRMT5_MTAP, CUSTOM excluded), "
             f"got {summary.pairs_evaluated}. CUSTOM axis must be skipped silently."
         )
-        # All 10 evaluated pairs end up in no_signal:
-        # 5 DDR quarantined by guard + 1 IO + 4 MM all score 0.0 from mocked signals
-        assert summary.pairs_no_signal == 10, (
-            f"Expected 10 pairs_no_signal (5 DDR quarantined + 1 IO + 4 MM zero-score), "
+        # All 11 evaluated pairs end up in no_signal:
+        # 5 DDR quarantined by guard + 1 IO + 4 MM + 1 PRMT5_MTAP all score 0.0 from mocked signals
+        assert summary.pairs_no_signal == 11, (
+            f"Expected 11 pairs_no_signal (5 DDR quarantined + 1 IO + 4 MM + 1 PRMT5_MTAP zero-score), "
             f"got {summary.pairs_no_signal}."
         )
         # Nothing should be queued — all signals mocked to 0.0

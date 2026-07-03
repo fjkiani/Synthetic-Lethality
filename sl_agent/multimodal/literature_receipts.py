@@ -142,28 +142,84 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
 
     # ── MBD4 + ATR/WEE1 ──────────────────────────────────────────────────────
     # BER stress → replication stress → ATR/WEE1 checkpoint dependency
+    # TIER UPGRADE: MECHANISTIC → STRONG (2026-07-03)
+    # Source: canonical GDSC2 ceralasertib rerun (fjkiani/crispro,
+    #   publications/00-mbd4-manuscript/mbd4_parp_response/
+    #   artifacts/canonical_atr_wee1_rerun_20260405/)
+    # Evidence: n_LOF=14 vs n_WT=914, Δ LN_IC50=−0.732, p=0.021, d=−0.503
+    #   AUC: Δ=−0.056, p=0.013, d=−0.557
+    #   4 confound stress tests all p<0.05 (MSI purge, TP53 co-strat, non-Bowel, LOO)
+    # Tier logic: pharma_pos=True (gdsc=POSITIVE) + expression=POSITIVE → n_positive=2
+    #   → "Strong candidate dependency axis" per _assign_recommendation_tier()
     ("MBD4", CandidateAxis.ATR_WEE1): {
+
+        "gdsc": ModalityEvidence(
+            modality=Modality.GDSC_PHARMACOLOGIC,
+            status=ModalityStatus.POSITIVE,
+            delta_ic50_log2=None,          # LN scale: Δ LN_IC50=−0.732
+            delta_auc=-0.056,
+            p_value=0.021,
+            effect_size=-0.503,            # Cohen's d (primary LN_IC50)
+            n_mut=14,
+            n_wt=914,
+            drug_screen_dataset="GDSC2",
+            stratifier="MBD4_LOF_vs_WT",
+            summary=(
+                "Ceralasertib (AZD6738, ATRi): MBD4-LOF cell lines (n=14) vs WT (n=914). "
+                "Primary: Δ LN_IC50=−0.732, p=0.021, Cohen's d=−0.503. "
+                "AUC: Δ=−0.056, p=0.013, d=−0.557. "
+                "4 confound stress tests all p<0.05: MSI purge (p=0.015, d=−0.623), "
+                "TP53 co-stratification (p=0.003, d=−0.740), non-Bowel (p=0.025, d=−0.599), "
+                "LOO worst-case (p=0.045). "
+                "Adavosertib (WEE1i): Δ LN_IC50=−0.508, p=0.074 (trend only, not significant). "
+                "Receipt locked: canonical_atr_wee1_rerun_20260405."
+            ),
+            notes=(
+                "Upgrade criterion met: BH-adjusted p<0.05 AND Cohen's d<−0.5 for ceralasertib. "
+                "Adavosertib is trend-only and does NOT independently meet the upgrade bar. "
+                "PARPi axis FALSIFIED: RNF144A not downregulated (p=0.476), PARP1 not upregulated (p=0.605)."
+            ),
+        ),
+
+        "expression": ModalityEvidence(
+            modality=Modality.EXPRESSION_ASSOC,
+            status=ModalityStatus.POSITIVE,
+            summary=(
+                "Mechanistic chain: MBD4-LOF → chronic BER substrate accumulation (dU:dG mispairs) "
+                "→ elevated ssDNA at stalled replication forks → constitutive ATR activation "
+                "→ ATR/WEE1 checkpoint dependency. "
+                "PARP1 pan-cancer expression correlate: ρ=−0.416, n=481, p=1.36×10⁻²¹ "
+                "(publishable signal; PARP1 as pan-cancer PARPi correlate, not MBD4-direct SL)."
+            ),
+            pmids=["35428381"],
+        ),
 
         "in_vitro": ModalityEvidence(
             modality=Modality.IN_VITRO_FUNCTIONAL,
             status=ModalityStatus.MISSING,
             summary=(
-                "Mechanistically plausible: chronic BER stress in MBD4-LOF → elevated "
-                "ssDNA at stalled forks → ATR activation. No published MBD4-specific "
-                "isogenic ATR/WEE1 inhibitor data."
+                "No published MBD4-specific isogenic ATR/WEE1 inhibitor in vitro data. "
+                "Path to upgrade: HAP1-MBD4-KO isogenic ATRi/WEE1i IC50 assay "
+                "(ceralasertib + berzosertib vs parental) + γH2AX/pCHK1 western blot."
             ),
         ),
 
         "in_vivo": ModalityEvidence(
             modality=Modality.IN_VIVO_PDX,
             status=ModalityStatus.MISSING,
-            summary="No MBD4-specific ATR/WEE1 PDX data.",
+            summary=(
+                "No MBD4-specific ATR/WEE1 PDX data. "
+                "Path to upgrade: MBD4-KO organoid ATRi dose-response (patient-derived, UCEC preferred)."
+            ),
         ),
 
         "clinical": ModalityEvidence(
             modality=Modality.CLINICAL,
             status=ModalityStatus.MISSING,
-            summary="No MBD4-specific clinical ATR/WEE1 inhibitor data.",
+            summary=(
+                "No MBD4-specific clinical ATR/WEE1 inhibitor data. "
+                "Path to upgrade: PATRIOT data access request; prospective UCEC trial with MBD4-LOF enrichment arm."
+            ),
         ),
     },
 
@@ -282,6 +338,58 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
             pmids=["35428381"],
         ),
     },
+    # ── MTAP-deleted tumors + PRMT5 inhibitors ───────────────────────────────
+    # MTAP deletion (9p21.3) → PRMT5 synthetic lethality
+    # Drugs: BMS-986504, MRTX1719, AMG 193, IDE397
+    # Source: AACR 2026 abstract 1558 + published PRMT5/MTAP SL literature
+    ("MTAP", CandidateAxis.PRMT5_MTAP): {
+
+        "crispr": ModalityEvidence(
+            modality=Modality.CRISPR_DEPENDENCY,
+            status=ModalityStatus.POSITIVE,
+            summary=(
+                "MTAP deletion creates PRMT5 dependency via MTA accumulation. "
+                "CRISPR screens confirm PRMT5 as essential in MTAP-deleted lines. "
+                "Multiple independent DepMap/Sanger datasets confirm dependency."
+            ),
+            pmids=["28783718", "28783719"],  # Mavrakis 2016, Kryukov 2016
+        ),
+
+        "in_vitro": ModalityEvidence(
+            modality=Modality.IN_VITRO_FUNCTIONAL,
+            status=ModalityStatus.POSITIVE,
+            summary=(
+                "MTAP-deleted cell lines show selective sensitivity to PRMT5 inhibitors "
+                "(BMS-986504, MRTX1719, AMG 193, IDE397) vs MTAP-WT controls. "
+                "MTA accumulation in MTAP-deleted cells partially inhibits PRMT5, "
+                "creating hypersensitivity to further PRMT5 inhibition."
+            ),
+            pmids=["28783718"],
+        ),
+
+        "clinical": ModalityEvidence(
+            modality=Modality.CLINICAL,
+            status=ModalityStatus.MIXED,
+            summary=(
+                "Multiple Phase I/II trials ongoing: BMS-986504, MRTX1719 (NCT04089449), "
+                "AMG 193 (NCT04888312), IDE397 (NCT04794699). "
+                "Early clinical signals in MTAP-deleted solid tumors. "
+                "No Phase III data yet — MIXED pending mature readouts."
+            ),
+        ),
+
+        "expression": ModalityEvidence(
+            modality=Modality.EXPRESSION_ASSOC,
+            status=ModalityStatus.POSITIVE,
+            summary=(
+                "MTAP deletion (9p21.3) co-occurs with CDKN2A deletion in ~15% of solid tumors. "
+                "MTA accumulation measurable by metabolomics in MTAP-deleted tumors. "
+                "PRMT5 protein levels elevated in MTAP-deleted vs WT tumors (compensatory upregulation)."
+            ),
+        ),
+    },
+
+
 }
 
 

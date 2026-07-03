@@ -89,6 +89,8 @@ class CandidateAxis(str, Enum):
     BCL2_MCL1        = "bcl2_mcl1"          # Venetoclax, navitoclax — t(11;14)/BCL2-high
     HDAC             = "hdac"               # Panobinostat, vorinostat — exploratory salvage axis
     IMID             = "imid"               # Lenalidomide — conditional (IC50 caveat applies)
+    # ── PRMT5/MTAP axis (AACR 2026 addition) ─────────────────────────────────
+    PRMT5_MTAP       = "prmt5_mtap"         # PRMT5 SL in MTAP-deleted tumors (9p21 deletion)
 
 
 # ── Full row in the evidence matrix ──────────────────────────────────────────
