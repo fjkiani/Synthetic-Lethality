@@ -232,6 +232,13 @@ def build_evidence_matrix(
                 row.clinical = receipts["clinical"]
             if "expression" in receipts and row.expression.status == ModalityStatus.MISSING:
                 row.expression = receipts["expression"]
+            # Merge frozen GDSC receipts only when live GDSC data was not loaded
+            # (live data takes precedence; frozen receipts fill the gap for canonical pairs)
+            if "gdsc" in receipts and row.gdsc.status == ModalityStatus.MISSING:
+                row.gdsc = receipts["gdsc"]
+            # Merge frozen CRISPR receipts only when live CRISPR data was not loaded
+            if "crispr" in receipts and row.crispr.status == ModalityStatus.MISSING:
+                row.crispr = receipts["crispr"]
 
     # ── Step 5: Build matrix object ───────────────────────────────────────────
     cal_narrative = None
