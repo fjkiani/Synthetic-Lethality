@@ -91,6 +91,8 @@ class CandidateAxis(str, Enum):
     IMID             = "imid"               # Lenalidomide — conditional (IC50 caveat applies)
     # ── PRMT5/MTAP axis (AACR 2026 addition) ─────────────────────────────────
     PRMT5_MTAP       = "prmt5_mtap"         # PRMT5 SL in MTAP-deleted tumors (9p21 deletion)
+    # ── Breast cancer expansion axes ─────────────────────────────────────────
+    PI3K_AKT         = "pi3k_akt"           # PI3K/AKT pathway (PIK3CA-mut, PIK3R1-LOF)
 
 
 # ── Full row in the evidence matrix ──────────────────────────────────────────
