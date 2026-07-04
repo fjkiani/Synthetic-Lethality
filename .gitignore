@@ -50,3 +50,6 @@ skills/
 .claude/
 CLAUDE.md
 .mcp.json
+# Large data files — stored in shared workspace, not git
+data/aacr2026/*.jsonl
+data/aacr2026/*.json
