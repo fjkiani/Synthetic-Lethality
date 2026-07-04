@@ -112,7 +112,7 @@ class TestValidatedTierBreastCancer:
         """PALB2/PARP clinical receipt must be POSITIVE (TBCRC 048)."""
         receipts = get_literature_receipts("PALB2", CandidateAxis.PARP_INHIBITORS)
         assert receipts["clinical"].status == ModalityStatus.POSITIVE
-        assert "32023372" in receipts["clinical"].pmids
+        assert "33119476" in receipts["clinical"].pmids  # Tung et al. JCO 2020 (DOI: 10.1200/jco.20.02151)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -134,7 +134,7 @@ class TestStrongTierBreastCancer:
         """ARID1A/ATR_WEE1 CRISPR receipt must be POSITIVE (Williamson 2016)."""
         receipts = get_literature_receipts("ARID1A", CandidateAxis.ATR_WEE1)
         assert receipts["crispr"].status == ModalityStatus.POSITIVE
-        assert "27070702" in receipts["crispr"].pmids
+        assert "27958275" in receipts["crispr"].pmids  # Williamson et al. Nat Commun 2016 (DOI: 10.1038/ncomms13837)
 
     def test_arid1a_atr_has_in_vitro_positive(self):
         """ARID1A/ATR_WEE1 in_vitro receipt must be POSITIVE."""

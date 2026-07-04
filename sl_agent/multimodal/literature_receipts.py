@@ -511,13 +511,17 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
 
         "crispr": ModalityEvidence(
             modality=Modality.CRISPR_DEPENDENCY,
-            status=ModalityStatus.POSITIVE,
+            status=ModalityStatus.MIXED,
             summary=(
-                "PIK3CA-mutant breast cancer lines show PI3K pathway dependency in DepMap. "
-                "PIK3CA itself is not a dependency target (gain-of-function), but downstream "
-                "AKT1/mTOR are dependencies in PIK3CA-mutant context."
+                "PIK3CA is a gain-of-function oncogene — CRISPR KO of PIK3CA itself reduces "
+                "pathway activity and is not a dependency readout. "
+                "Downstream effectors AKT1 and mTOR show elevated dependency scores in "
+                "PIK3CA-mutant lines in DepMap, but this is an indirect/context dependency, "
+                "not a direct PIK3CA SL. Marked MIXED: pathway dependency exists but "
+                "PIK3CA-direct CRISPR SL is not established."
             ),
             pmids=["31091374"],
+            notes="Tier driven by clinical=POSITIVE (SOLAR-1) + in_vitro=POSITIVE, not CRISPR.",
         ),
     },
 
@@ -534,7 +538,7 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
                 "PALB2 is a BRCA2 binding partner; PALB2-LOF → HR deficiency → PARP dependency. "
                 "Isogenic PALB2-KO cell lines confirm PARP inhibitor sensitivity."
             ),
-            pmids=["32023372"],
+            pmids=["33119476"],  # Tung et al. JCO 2020 (DOI: 10.1200/jco.20.02151)
         ),
 
         "clinical": ModalityEvidence(
@@ -542,11 +546,11 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
             status=ModalityStatus.POSITIVE,
             summary=(
                 "TBCRC 048 (Phase II, n=54): olaparib in PALB2-mutant breast cancer. "
-                "ORR: 82% in PALB2-mutant cohort (vs 33% in ATM-mutant). "
+                "ORR: 75% in germline PALB2-mutant cohort. "
                 "Tung et al. NEJM 2020 (PMID 32023372). "
                 "Supports PALB2 as a PARP inhibitor biomarker beyond BRCA1/2."
             ),
-            pmids=["32023372"],
+            pmids=["33119476"],  # Tung et al. JCO 2020 (DOI: 10.1200/jco.20.02151)
         ),
 
         "expression": ModalityEvidence(
@@ -557,7 +561,7 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
                 "PALB2 bridges BRCA1 and BRCA2 in HR repair complex. "
                 "RAD51 foci formation impaired in PALB2-LOF cells."
             ),
-            pmids=["32023372"],
+            pmids=["33119476"],  # Tung et al. JCO 2020 (DOI: 10.1200/jco.20.02151)
         ),
     },
 
@@ -575,7 +579,7 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
                 "Williamson et al. 2016: ARID1A-LOF → chromatin remodeling defect → "
                 "fork instability → ATR checkpoint dependency."
             ),
-            pmids=["27070702"],
+            pmids=["27958275"],  # Williamson et al. Nat Commun 2016
         ),
 
         "in_vitro": ModalityEvidence(
@@ -587,7 +591,7 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
                 "Williamson 2016: ARID1A-LOF → ATRi sensitivity in ovarian and breast cancer lines. "
                 "Effect is ARID1A-specific: re-expression of ARID1A restores resistance."
             ),
-            pmids=["27070702"],
+            pmids=["27958275"],  # Williamson et al. Nat Commun 2016 (DOI: 10.1038/ncomms13837)
         ),
 
         "expression": ModalityEvidence(
@@ -599,7 +603,7 @@ _FROZEN_RECEIPTS: _ReceiptStore = {
                 "RS markers elevated in ARID1A-LOF cells. "
                 "ARID1A mutation frequency: ~10% of breast cancers (TCGA)."
             ),
-            pmids=["27070702"],
+            pmids=["27958275"],  # Williamson et al. Nat Commun 2016
         ),
     },
 
