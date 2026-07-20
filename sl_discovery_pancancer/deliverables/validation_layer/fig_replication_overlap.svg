@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="834.624pt" height="602.073484pt" viewBox="0 0 834.624 602.073484" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2022-01-01T05:00:00+00:00</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 602.073484 
+L 834.624 602.073484 
+L 834.624 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 113.184 481.963761 
+L 445.388651 481.963761 
+L 445.388651 127.147761 
+L 113.184 127.147761 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 113.184 385.867761 
+L 435.039597 385.867761 
+L 435.039597 311.947761 
+L 113.184 311.947761 
+z
+" clip-path="url(#p6e98cd4484)" style="fill: #75a025; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 435.039597 385.867761 
+L 439.179218 385.867761 
+L 439.179218 311.947761 
+L 435.039597 311.947761 
+z
+" clip-path="url(#p6e98cd4484)" style="fill: #ff9400; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 439.179218 385.867761 
+L 442.283935 385.867761 
+L 442.283935 311.947761 
+L 439.179218 311.947761 
+z
+" clip-path="url(#p6e98cd4484)" style="fill: #9aa0a6; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m3e6a318239" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m3e6a318239" x="113.184" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="113.184" y="496.244034" transform="rotate(-0 113.184 496.244034)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m3e6a318239" x="164.929273" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="164.929273" y="496.244034" transform="rotate(-0 164.929273 496.244034)">50</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m3e6a318239" x="216.674546" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="216.674546" y="496.244034" transform="rotate(-0 216.674546 496.244034)">100</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m3e6a318239" x="268.419818" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="268.419818" y="496.244034" transform="rotate(-0 268.419818 496.244034)">150</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m3e6a318239" x="320.165091" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="320.165091" y="496.244034" transform="rotate(-0 320.165091 496.244034)">200</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m3e6a318239" x="371.910364" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="371.910364" y="496.244034" transform="rotate(-0 371.910364 496.244034)">250</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m3e6a318239" x="423.655637" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="423.655637" y="496.244034" transform="rotate(-0 423.655637 496.244034)">300</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="279.286326" y="509.992813" transform="rotate(-0 279.286326 509.992813)">Sanger Project Score cell lines (n = 318)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_6">
+    <path d="M 113.184 481.963761 
+L 445.388651 481.963761 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 14px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="274.111798" y="352.530808" transform="rotate(-0 274.111798 352.530808)">311</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 431.460638 214.978856 
+Q 434.226842 262.464559 436.993046 309.950263 
+" style="fill: none; stroke: #ff9400; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #202124" x="430.899975" y="208.459761" transform="rotate(-0 430.899975 208.459761)">4</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 444.497423 214.978856 
+Q 442.653287 262.464559 440.809151 309.950263 
+" style="fill: none; stroke: #9aa0a6; stroke-width: 1.1; stroke-linecap: round"/>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #202124" x="444.871198" y="208.459761" transform="rotate(-0 444.871198 208.459761)">3</text>
+   </g>
+   <g id="text_12">
+    <g id="patch_9">
+     <path d="M 140.885013 18.978594 
+L 417.687638 18.978594 
+Q 421.207638 18.978594 421.207638 15.458594 
+L 421.207638 7.2 
+Q 421.207638 3.68 417.687638 3.68 
+L 140.885013 3.68 
+Q 137.365013 3.68 137.365013 7.2 
+L 137.365013 15.458594 
+Q 137.365013 18.978594 140.885013 18.978594 
+z
+" style="fill: #f4f4f4; stroke: #9aa0a6; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 8.8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #202124" x="279.286326" y="13.606641" transform="rotate(-0 279.286326 13.606641)">Discovery panel = 1178 lines  •  Sanger ∩ discovery = 315/318 (99.1%)</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(144.818201 109.159909)">Cell-line accounting: panels overlap almost entirely</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(153.710154 121.147761)">→ cross-platform replication, NOT out-of-cohort</text>
+   </g>
+   <g id="legend_1">
+    <g id="line2d_8">
+     <path d="M 171.645951 563.406785 
+L 179.845951 563.406785 
+L 188.045951 563.406785 
+" style="fill: none; stroke: #ffffff; stroke-width: 1.5; stroke-linecap: square"/>
+     <defs>
+      <path id="m9383c2aa34" d="M -6 6 
+L 6 6 
+L 6 -6 
+L -6 -6 
+z
+" style="stroke: #ffffff; stroke-linejoin: miter"/>
+     </defs>
+     <g>
+      <use xlink:href="#m9383c2aa34" x="179.845951" y="563.406785" style="fill: #75a025; stroke: #ffffff; stroke-linejoin: miter"/>
+     </g>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 8.2px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start" x="194.605951" y="566.276785" transform="rotate(-0 194.605951 566.276785)">Shared with discovery &amp; testable (has mutation calls)</text>
+    </g>
+    <g id="line2d_9">
+     <path d="M 171.645951 575.202293 
+L 179.845951 575.202293 
+L 188.045951 575.202293 
+" style="fill: none; stroke: #ffffff; stroke-width: 1.5; stroke-linecap: square"/>
+     <defs>
+      <path id="mbab11aadf8" d="M -6 6 
+L 6 6 
+L 6 -6 
+L -6 -6 
+z
+" style="stroke: #ffffff; stroke-linejoin: miter"/>
+     </defs>
+     <g>
+      <use xlink:href="#mbab11aadf8" x="179.845951" y="575.202293" style="fill: #ff9400; stroke: #ffffff; stroke-linejoin: miter"/>
+     </g>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 8.2px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start" x="194.605951" y="578.072293" transform="rotate(-0 194.605951 578.072293)">Shared but no mutation calls</text>
+    </g>
+    <g id="line2d_10">
+     <path d="M 171.645951 586.9978 
+L 179.845951 586.9978 
+L 188.045951 586.9978 
+" style="fill: none; stroke: #ffffff; stroke-width: 1.5; stroke-linecap: square"/>
+     <defs>
+      <path id="mb693f4e250" d="M -6 6 
+L 6 6 
+L 6 -6 
+L -6 -6 
+z
+" style="stroke: #ffffff; stroke-linejoin: miter"/>
+     </defs>
+     <g>
+      <use xlink:href="#mb693f4e250" x="179.845951" y="586.9978" style="fill: #9aa0a6; stroke: #ffffff; stroke-linejoin: miter"/>
+     </g>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 8.2px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start" x="194.605951" y="589.8678" transform="rotate(-0 194.605951 589.8678)">Held-out (Sanger-only) — untestable</text>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_10">
+    <path d="M 538.55039 481.963761 
+L 827.424 481.963761 
+L 827.424 127.147761 
+L 538.55039 127.147761 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 538.55039 198.520843 
+L 792.559944 198.520843 
+L 792.559944 143.275761 
+L 538.55039 143.275761 
+z
+" clip-path="url(#p36db5b1953)" style="fill: #75a025; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 538.55039 287.625816 
+L 558.472708 287.625816 
+L 558.472708 232.380733 
+L 538.55039 232.380733 
+z
+" clip-path="url(#p36db5b1953)" style="fill: #9aa0a6; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 538.55039 376.730788 
+L 553.492129 376.730788 
+L 553.492129 321.485705 
+L 538.55039 321.485705 
+z
+" clip-path="url(#p36db5b1953)" style="fill: #ff9400; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 538.55039 465.835761 
+L 538.55039 465.835761 
+L 538.55039 410.590678 
+L 538.55039 410.590678 
+z
+" clip-path="url(#p36db5b1953)" style="fill: #fd9bed; stroke: #ffffff; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_8">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m3e6a318239" x="538.55039" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="538.55039" y="496.244034" transform="rotate(-0 538.55039 496.244034)">0</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m3e6a318239" x="588.356185" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="588.356185" y="496.244034" transform="rotate(-0 588.356185 496.244034)">10</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m3e6a318239" x="638.16198" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="638.16198" y="496.244034" transform="rotate(-0 638.16198 496.244034)">20</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m3e6a318239" x="687.967775" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="687.967775" y="496.244034" transform="rotate(-0 687.967775 496.244034)">30</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m3e6a318239" x="737.773569" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="737.773569" y="496.244034" transform="rotate(-0 737.773569 496.244034)">40</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m3e6a318239" x="787.579364" y="481.963761" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="787.579364" y="496.244034" transform="rotate(-0 787.579364 496.244034)">50</text>
+     </g>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="682.987195" y="509.992813" transform="rotate(-0 682.987195 509.992813)">Number of SL axes (of 58 survivors)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_1">
+     <g id="line2d_17">
+      <defs>
+       <path id="maab53f0d61" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#maab53f0d61" x="538.55039" y="170.898302" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(506.213984 169.67108)">Tested</text>
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(434.989859 179.031139)">(≥ 5 mutant + 5 WT lines)</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#maab53f0d61" x="538.55039" y="260.003274" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(475.161265 258.776053)">CN-driven axis</text>
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(466.073484 268.136111)">(not re-derivable)</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#maab53f0d61" x="538.55039" y="349.108247" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_26">
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(454.748359 347.881025)">Insufficient mutant n</text>
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(474.427578 357.241084)">(&lt; 5 in Sanger)</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#maab53f0d61" x="538.55039" y="438.213219" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_27">
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(453.62364 436.985998)">Partner gene absent</text>
+      <text style="font-size: 8.6px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(488.703578 446.346056)">(KY library)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_15">
+    <path d="M 538.55039 481.963761 
+L 538.55039 127.147761 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 538.55039 481.963761 
+L 827.424 481.963761 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start; fill: #202124" x="795.548291" y="174.003771" transform="rotate(-0 795.548291 174.003771)">51</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start; fill: #202124" x="561.461056" y="263.108743" transform="rotate(-0 561.461056 263.108743)">4</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start; fill: #202124" x="556.480476" y="352.213716" transform="rotate(-0 556.480476 352.213716)">3</text>
+   </g>
+   <g id="text_31">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start; fill: #9aa0a6" x="541.538738" y="441.318688" transform="rotate(-0 541.538738 441.318688)">0</text>
+   </g>
+   <g id="text_32">
+    <g id="patch_17">
+     <path d="M 682.987195 189.654557 
+L 736.047508 189.654557 
+Q 738.267508 189.654557 738.267508 187.434557 
+L 738.267508 163.272545 
+Q 738.267508 161.052545 736.047508 161.052545 
+L 682.987195 161.052545 
+Q 680.767195 161.052545 680.767195 163.272545 
+L 680.767195 187.434557 
+Q 680.767195 189.654557 682.987195 189.654557 
+z
+" style="fill: #ffffff; opacity: 0.9; stroke: #75a025; stroke-linejoin: miter"/>
+    </g>
+    <text style="font-size: 7.4px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; fill: #202124" transform="translate(682.987195 169.214586)">41 replicated</text>
+    <text style="font-size: 7.4px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; fill: #202124" transform="translate(682.987195 177.26859)">6 concordant-ns</text>
+    <text style="font-size: 7.4px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; fill: #202124" transform="translate(682.987195 185.322594)">4 discordant</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(572.661492 109.159909)">Per-axis testability on the Sanger platform</text>
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(584.10493 121.147761)">51/58 tested; 41 replicated (FDR&lt;0.05)</text>
+   </g>
+  </g>
+  <g id="text_34">
+   <text style="font-weight: 700; font-size: 13px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="458.784" y="72.100116" transform="rotate(-0 458.784 72.100116)">Honest replication scope: what was tested, and on which cell lines</text>
+  </g>
+  <g id="text_35">
+   <text style="font-size: 7.4px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start; fill: #202124; opacity: 0.85" x="7.2" y="546.475761" transform="rotate(-0 7.2 546.475761)">The Figshare CERES release is pre-filtered to Sanger lines with Broad copy-number data, so only 3 lines are held-out and none carry mutation calls → held-out (cross-cohort) replication rate = N/A (reported, not hidden).</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6e98cd4484">
+   <rect x="113.184" y="127.147761" width="332.204651" height="354.816"/>
+  </clipPath>
+  <clipPath id="p36db5b1953">
+   <rect x="538.55039" y="127.147761" width="288.87361" height="354.816"/>
+  </clipPath>
+ </defs>
+</svg>

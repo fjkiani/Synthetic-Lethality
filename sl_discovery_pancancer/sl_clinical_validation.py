@@ -261,3 +261,126 @@ def assign_trust_tier(row: pd.Series) -> str:
     if druggable:
         return "T2_reproduced_druggable"
     return "T3_reproduced_not_druggable"
+
+
+# ---------------------------------------------------------------------------
+# v2.0 clinical-grade layer -- cross-platform independent replication + evidence ladder
+# ---------------------------------------------------------------------------
+
+SCHEMA_VERSION = "v2.0-clinical-grade"
+
+# Evidence-grade rubric (ordered, conservative). See CLINICAL_GRADE_REPORT.md.
+#   E1 approved-in-context    : approved drug for the node in the matched genomic context
+#   E2 clinical-trial precedent: node in active trial (ideally matched context)
+#   E3 preclinical in vivo    : SL shown in animal/xenograft/PDX
+#   E4 preclinical in vitro / paralog-established
+#   E5 computational-only     : pipeline + reproducibility only; no external biology
+EVIDENCE_GRADES = ("E1", "E2", "E3", "E4", "E5")
+
+
+def load_sanger_score(gene_effect_csv: str) -> pd.DataFrame:
+    """Load the Sanger Project Score CERES matrix (Figshare 9116732) and return
+    a cell-line x gene DataFrame with clean HUGO gene columns (Entrez suffix
+    stripped) and Broad ACH- row IDs preserved.
+
+    This is an ORTHOGONAL platform to the Broad Avana/Chronos discovery matrix:
+    different library (KY1.0/1.1), wet-lab (Sanger), and algorithm (CERES).
+    Note: this Figshare version is pre-filtered to lines with Broad CN data, so
+    its cell panel overlaps the Broad discovery panel almost entirely -- it
+    supports CROSS-PLATFORM replication, not cross-cohort (held-out) replication.
+    """
+    df = pd.read_csv(gene_effect_csv, index_col=0)
+    df.columns = [c.split(" (")[0] for c in df.columns]
+    df = df.loc[:, ~df.columns.duplicated()]
+    return df
+
+
+def independent_replication(sanger: pd.DataFrame, muts: pd.DataFrame,
+                            axes: pd.DataFrame) -> pd.DataFrame:
+    """Run cross-platform replication for a set of axes on the Sanger matrix.
+
+    `axes` must have columns driver, partner, mode. Reuses replicate_axis (the
+    same one-sided MWU + Cohen's d as discovery) and applies BH-FDR across the
+    TESTED axes only. Returns a per-axis DataFrame with sanger_* columns,
+    sign_concordant (needs L1_cohens_d in `axes`), and an independent_replication_status.
+    """
+    rows = []
+    for _, r in axes.iterrows():
+        res = replicate_axis(sanger, muts, r["driver"], r["partner"], r["mode"])
+        if "L1_cohens_d" in axes.columns:
+            res["L1_cohens_d"] = r["L1_cohens_d"]
+        rows.append(res)
+    out = pd.DataFrame(rows)
+    tested = out["screen_status"] == "tested"
+    out["sanger_fdr"] = np.nan
+    if tested.any():
+        out.loc[tested, "sanger_fdr"] = bh_fdr(out.loc[tested, "screen_p"].values)
+    if "L1_cohens_d" in out.columns:
+        out["sign_concordant"] = np.sign(out["screen_d"]) == np.sign(out["L1_cohens_d"])
+    else:
+        out["sign_concordant"] = np.nan
+    out["sanger_replicated"] = tested & out["sign_concordant"].fillna(False) & (out["sanger_fdr"] < 0.05)
+
+    def _status(row):
+        st = row["screen_status"]
+        if st == "na_cn":
+            return "not_testable_cn"
+        if st == "insufficient_n":
+            return "insufficient_n"
+        if st == "partner_absent":
+            return "partner_absent"
+        if row["sanger_replicated"]:
+            return "replicated_crossplatform"
+        if bool(row.get("sign_concordant", False)):
+            return "concordant_not_sig"
+        return "discordant"
+
+    out["independent_replication_status"] = out.apply(_status, axis=1)
+    return out
+
+
+def assign_evidence_grade(precedent_class: str) -> str:
+    """Map a precedent_class to an ordered evidence grade (E1..E5).
+
+    precedent_class taxonomy:
+      clinical_target_in_trials -> E1/E2 (caller refines E1 if approved-in-context)
+      established_SL_drug_dev    -> E3
+      preclinical_in_vivo        -> E3
+      preclinical_in_vitro       -> E4
+      mechanistic_no_drug        -> E4 (pathway-plausible) [conservative floor]
+      none_found                 -> E5
+
+    This is the conservative default map; approved-in-context E1 promotions are
+    assigned explicitly by the curator with a citation (context-match required).
+    Promiscuous/hub-only hits cannot raise a grade.
+    """
+    mapping = {
+        "clinical_target_in_trials": "E2",
+        "established_SL_drug_dev": "E3",
+        "preclinical_in_vivo": "E3",
+        "preclinical_in_vitro": "E4",
+        "mechanistic_no_drug": "E4",
+        "none_found": "E5",
+    }
+    return mapping.get(precedent_class, "E5")
+
+
+def assign_trust_tier_v2(evidence_grade: str, replication_status: str) -> str:
+    """Two-dimensional trust tier from (evidence_grade, independent replication).
+
+    Keeps external precedent and internal replication as orthogonal axes.
+    """
+    strong = evidence_grade in ("E1", "E2")
+    mid = evidence_grade in ("E3", "E4")
+    replicated = replication_status == "replicated_crossplatform"
+    if strong and replicated:
+        return "T1_anchored_and_replicated"
+    if strong:
+        return "T2_anchored_precedent"
+    if mid and replicated:
+        return "T2_anchored_precedent"
+    if mid:
+        return "T3_precedent_only"
+    if replicated:
+        return "T3_replicated_no_precedent"
+    return "T4_discovery_only"

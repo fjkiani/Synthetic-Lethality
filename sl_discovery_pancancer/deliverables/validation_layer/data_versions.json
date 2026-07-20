@@ -1,0 +1,58 @@
+{
+  "schema_version": "v2.0-clinical-grade",
+  "generated_utc": "2026-07-20T16:58:25.313590+00:00",
+  "datasets": {
+    "discovery_crispr": {
+      "name": "DepMap CRISPRGeneEffect (integrated Broad Avana + Sanger, Chronos)",
+      "release": "24Q4",
+      "path": "/mnt/shared-workspace/depmap_cache/crispr_gene_effect.parquet",
+      "shape": [
+        1178,
+        17916
+      ],
+      "note": "Combined Broad+Sanger via Chronos batch correction; used for discovery L1"
+    },
+    "independent_replication_sanger": {
+      "name": "Sanger Project Score CERES",
+      "source": "Figshare 10.6084/m9.figshare.9116732",
+      "publication": "Behan et al. Nature 2019, DOI 10.1038/s41586-019-1103-9",
+      "library": "KY1.0/1.1 (Tzelepis 2016, Addgene 67989)",
+      "pipeline": "CERES",
+      "file": "gene_effect.csv",
+      "md5": "9a9e92d984766532a7b4152d440ec86a",
+      "shape": [
+        318,
+        17799
+      ],
+      "path": "/mnt/shared-workspace/sanger_score/gene_effect.csv",
+      "replication_type": "cross-platform (orthogonal library+wet-lab+algorithm)",
+      "panel_overlap_with_discovery": 315,
+      "held_out_lines": 3,
+      "held_out_testable": false
+    },
+    "mutations": {
+      "name": "DepMap somatic mutations (in CRISPR lines)",
+      "release": "24Q4",
+      "path": "/mnt/shared-workspace/sl_discovery/mutations_in_crispr.parquet",
+      "rows": 666518
+    },
+    "model_metadata": {
+      "name": "DepMap Model",
+      "release": "24Q4",
+      "path": "/mnt/shared-workspace/depmap_cache/depmap_model.parquet",
+      "shape": [
+        2105,
+        46
+      ]
+    },
+    "repurposing_hub": {
+      "name": "Broad Drug Repurposing Hub",
+      "path": "/mnt/datalake/broad_drug_repurposing_hub/broad_repurposing_hub_phase_moa_target_info.parquet"
+    },
+    "clinpgx": {
+      "name": "ClinPGx relationships",
+      "version": "CREATED_2026-01-05",
+      "path": "/mnt/datalake/clinpgx/annotations_data/relationships/relationships.tsv"
+    }
+  }
+}
