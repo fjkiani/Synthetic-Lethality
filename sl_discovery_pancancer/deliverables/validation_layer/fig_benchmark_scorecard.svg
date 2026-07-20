@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="842.29608pt" height="357.013642pt" viewBox="0 0 842.29608 357.013642" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2022-01-01T05:00:00+00:00</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.5, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 357.013642 
+L 842.29608 357.013642 
+L 842.29608 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 45.136875 282.940151 
+L 380.072102 282.940151 
+L 380.072102 32.119031 
+L 45.136875 32.119031 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 60.361204 282.940151 
+L 132.415277 282.940151 
+L 132.415277 157.529591 
+L 60.361204 157.529591 
+z
+" clip-path="url(#pa8ba6a8331)" style="fill: #75a025; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 176.577452 282.940151 
+L 248.631526 282.940151 
+L 248.631526 146.128631 
+L 176.577452 146.128631 
+z
+" clip-path="url(#pa8ba6a8331)" style="fill: #0279ee; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 292.7937 282.940151 
+L 364.847774 282.940151 
+L 364.847774 199.333111 
+L 292.7937 199.333111 
+z
+" clip-path="url(#pa8ba6a8331)" style="fill: #ff9400; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m5fe5c336d4" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="96.38824" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(74.985897 297.187026)">Approved</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(86.38199 307.958276)">drug</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="212.604489" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(197.597457 297.187026)">Pivotal</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(204.548239 307.958276)">trial</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="328.820737" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(306.035581 297.187026)">Preclinical</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(308.807456 307.958276)">validated</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="m2d21f56392" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="286.563589" transform="rotate(-0 38.136875 286.563589)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="232.775927" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="236.399365" transform="rotate(-0 38.136875 236.399365)">20</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="182.611703" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="186.235141" transform="rotate(-0 38.136875 186.235141)">40</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="132.447479" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="136.070917" transform="rotate(-0 38.136875 136.070917)">60</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="82.283255" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="85.906693" transform="rotate(-0 38.136875 85.906693)">80</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m2d21f56392" x="45.136875" y="32.119031" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="38.136875" y="35.742469" transform="rotate(-0 38.136875 35.742469)">100</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="15.171563" y="157.529591" transform="rotate(-90 15.171563 157.529591)">Recall of clinically-anchored SL (%)</text>
+    </g>
+   </g>
+   <g id="line2d_10">
+    <path d="M 45.136875 168.816542 
+L 380.072102 168.816542 
+" clip-path="url(#pa8ba6a8331)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #202124; stroke-opacity: 0.7; stroke-width: 1.2"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 45.136875 282.940151 
+L 45.136875 32.119031 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 45.136875 282.940151 
+L 380.072102 282.940151 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(86.381209 139.666919)">50%</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(86.108553 150.438169)">(1/2)</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(202.597457 128.265959)">55%</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(199.544332 139.037209)">(6/11)</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(318.813706 181.470439)">33%</text>
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(318.541049 192.241689)">(3/9)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-style: italic; font-size: 9px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end; fill: #202124" x="369.496424" y="165.054225" transform="rotate(-0 369.496424 165.054225)">overall 46%</text>
+   </g>
+   <g id="text_15">
+    <text style="font-style: italic; font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #9aa0a6" x="212.604489" y="348.153642" transform="rotate(-0 212.604489 348.153642)">All misses trace to broadly-essential guard rejections or drug-stress-dependent SLs (see report)</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(127.413395 14.809219)">Benchmark A: known-SL recovery</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(50.12027 26.119031)">(CRISPR-visible pairs; PARP/BRCA excluded as modality-limited)</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_8">
+    <path d="M 461.088466 282.940151 
+L 796.023693 282.940151 
+L 796.023693 32.119031 
+L 461.088466 32.119031 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 476.312794 282.940151 
+L 546.578926 282.940151 
+L 546.578926 70.37988 
+L 476.312794 70.37988 
+z
+" clip-path="url(#pec640d9051)" style="fill: #9aa0a6; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 593.423014 282.940151 
+L 663.689145 282.940151 
+L 663.689145 70.37988 
+L 593.423014 70.37988 
+z
+" clip-path="url(#pec640d9051)" style="fill: #75a025; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 710.533233 282.940151 
+L 780.799365 282.940151 
+L 780.799365 70.37988 
+L 710.533233 70.37988 
+z
+" clip-path="url(#pec640d9051)" style="fill: #0279ee; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_4">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="511.44586" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(492.826329 297.187026)">Testable</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(491.444298 307.958276)">survivors</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="628.55608" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(604.931861 297.187026)">Replicated</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(610.070923 307.958276)">(p&lt;0.05,</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(596.59983 318.729526)">dir. preserved)</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#m5fe5c336d4" x="745.666299" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(735.659268 297.187026)">Sign</text>
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(720.92958 307.958276)">concordant</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="282.940151" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="286.563589" transform="rotate(-0 454.088466 286.563589)">0</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="242.83444" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="246.457877" transform="rotate(-0 454.088466 246.457877)">10</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="202.728728" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="206.352166" transform="rotate(-0 454.088466 206.352166)">20</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="162.623017" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_23">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="166.246454" transform="rotate(-0 454.088466 166.246454)">30</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="122.517305" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="126.140743" transform="rotate(-0 454.088466 126.140743)">40</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="82.411594" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="86.035031" transform="rotate(-0 454.088466 86.035031)">50</text>
+     </g>
+    </g>
+    <g id="ytick_13">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m2d21f56392" x="461.088466" y="42.305882" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_26">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="454.088466" y="45.929319" transform="rotate(-0 454.088466 45.929319)">60</text>
+     </g>
+    </g>
+    <g id="text_27">
+     <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="436.684091" y="157.529591" transform="rotate(-90 436.684091 157.529591)">Number of survivor axes</text>
+    </g>
+   </g>
+   <g id="patch_12">
+    <path d="M 461.088466 282.940151 
+L 461.088466 32.119031 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 461.088466 282.940151 
+L 796.023693 282.940151 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="511.44586" y="65.691037" transform="rotate(-0 511.44586 65.691037)">53</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="628.55608" y="65.691037" transform="rotate(-0 628.55608 65.691037)">53</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="745.666299" y="65.691037" transform="rotate(-0 745.666299 65.691037)">53</text>
+   </g>
+   <g id="text_31">
+    <text style="font-style: italic; font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle; fill: #9aa0a6" x="628.55608" y="348.153642" transform="rotate(-0 628.55608 348.153642)">NOT independent-cohort replication: shares 1177/1186 lines with discovery. Confirms no Chronos-integration artifact.</text>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(520.901548 14.809219)">Benchmark B: cross-screen reproducibility</text>
+    <text style="font-weight: 700; font-size: 10.5px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(485.764283 26.119031)">(integration-robustness; rho=0.973, 9/1186 lines held out)</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa8ba6a8331">
+   <rect x="45.136875" y="32.119031" width="334.935227" height="250.82112"/>
+  </clipPath>
+  <clipPath id="pec640d9051">
+   <rect x="461.088466" y="32.119031" width="334.935227" height="250.82112"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "benchmark": "cross_screen_reproducibility",
+  "framing": "INTEGRATION-ROBUSTNESS check, NOT independent-cohort replication. The independent per-screen matrix (ScreenGeneEffect) shares 1177/1186 cell lines with the integrated Chronos discovery matrix (only 9 truly held out). A survivor replicating here confirms its signal is robust to the Chronos integration pipeline (raw per-screen effect vs integrated model); it does NOT prove replication in an independent patient/line cohort.",
+  "independent_matrix": "DepMap 24Q4 ScreenGeneEffect.csv collapsed ScreenID->ModelID (1186 models)",
+  "cell_line_overlap_with_discovery": {
+    "shared": 1177,
+    "truly_held_out": 9,
+    "independent_total": 1186
+  },
+  "n_survivors": 58,
+  "n_testable": 53,
+  "n_cn_not_testable": 4,
+  "n_partner_absent": 1,
+  "replication_rate_among_testable": 1.0,
+  "n_replicated": 53,
+  "sign_concordance": 1.0,
+  "effect_size_concordance": {
+    "spearman_rho": 0.973,
+    "spearman_p": 4.844129665316855e-34,
+    "pearson_r": 0.99
+  },
+  "interpretation": "All 53 mutation-testable survivors preserve direction and remain significant (p<0.05) in the per-screen matrix; Spearman rho of effect sizes = 0.97. This means none of the survivors is an artifact of Chronos integration. It is a necessary robustness condition, not sufficient clinical proof. CN axes (MTAP/CCNE1) are not re-testable here because CN calls are not in this matrix; they retain their expression-proxy CN detection from discovery."
+}

@@ -1,0 +1,59 @@
+driver,partner,mode,stream,known,sel_druggable,sel_top_phase,sel_top_rank,sel_drugs,sel_moa,promiscuous_only,clinically_actionable,actionable_late_phase,clinpgx_annotated,clinpgx_n,clinpgx_pmids,has_label
+BRAF,MAPK1,ACT,mechanism_family,,True,Phase 2,2,TIC10,AKT inhibitor|TRAIL modulator,False,True,False,True,47,27403931; 28362716; 41193444; 20124951; 23788015,False
+BRAF,MAP2K1,ACT,mechanism_family,,True,Launched,5,binimetinib; cobimetinib; trametinib,MEK inhibitor,False,True,True,True,15,20124951; 28362716,False
+KRAS,CTNNB1,ACT,novel_anchor_extend,0.0,True,Preclinical,0,cardionogen-1; CCT-031374; ICG-001; iCRT-14; PNU-74654,WNT signaling inhibitor,False,False,False,True,16,22336956; 26521987,True
+KRAS,TCF7L2,ACT,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,True,50,21857094; 23041303; 24906949; 20054294; 29488276,False
+KRAS,RAF1,ACT,novel_anchor_extend,0.0,True,Launched,5,dabrafenib; vemurafenib,RAF inhibitor,False,True,True,True,43,21636554; 20124951; 28362716,False
+EP300,CREBBP,LOF,mechanism_family,,True,Preclinical,0,I-CBP-112; SGC-CBP30,bromodomain inhibitor,False,False,False,False,0,,False
+NRAS,SHOC2,ACT,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+MTAP,PRMT5,CN_loss,known_panel_cn,True,True,Preclinical,0,EPZ015666; HLCL-61,protein arginine N-methyltransferase inhibitor,False,False,False,False,0,,False
+RB1,E2F3,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+KMT2D,RAD50,LOF,mechanism_family,,False,none,-1,,,False,False,False,True,6,39738991,False
+KRAS,DOCK5,ACT,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+NRAS,RAF1,ACT,mechanism_family,,True,Launched,5,dabrafenib; vemurafenib,RAF inhibitor,False,True,True,True,43,21636554; 20124951; 28362716,False
+KRAS,RAB10,ACT,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+STAG2,STAG1,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+BRAF,ELAVL1,ACT,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+BRAF,CYB5R4,ACT,mechanism_family,,False,none,-1,,,False,False,False,True,10,,True
+PTEN,MLST8,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+SMARCA4,ACSL3,LOF,novel_anchor_extend,0.0,True,Launched,5,icosapent,platelet aggregation inhibitor,True,False,False,False,0,,False
+CIC,ZNF629,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+KMT2D,SMARCD1,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+BRAF,SYNCRIP,ACT,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+ARID1A,MRPL14,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+RB1,CCNE1,LOF,novel_anchor_extend,0.0,True,Preclinical,0,BMS-536924,IGF-1 inhibitor,True,False,False,True,2,34044612,False
+CDKN2A,FOSL1,LOF,mechanism_family,,False,none,-1,,,False,False,False,True,2,23922006,False
+PTEN,RICTOR,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,True,10,27676404; 29790419,False
+EP300,CPOX,LOF,mechanism_family,,False,none,-1,,,False,False,False,True,2,,True
+BRAF,PEA15,ACT,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+VHL,PAX8,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,True,2,,True
+ARID1A,WRN,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,True,12,28791697; 28796378,False
+TP53,KRTAP4-11,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+CDKN2A,EGFR,LOF,mechanism_family,,True,Launched,5,afatinib; brigatinib; dacomitinib; erlotinib; gefitinib; icotinib; lapatinib; lidocaine; neratinib; olmutinib; osimertinib,EGFR inhibitor,False,True,True,True,148,22370314; 20038723; 17020982; 17387341; 18596266,True
+KMT2D,DHX29,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+PTEN,PIK3CB,LOF,known_panel,1.0,True,Launched,5,alpelisib; copanlisib; duvelisib; idelalisib,PI3K inhibitor,False,True,True,True,8,28362716,False
+ARID1A,RPL22L1,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+CDKN2A,ITGA3,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+EP300,MRPL33,LOF,mechanism_family,,False,none,-1,,,False,False,False,False,0,,False
+KMT2D,WRN,LOF,mechanism_family,,False,none,-1,,,False,False,False,True,12,28791697; 28796378,False
+RB1,UBE2Q1,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+PTEN,PARS2,LOF,novel_anchor_extend,0.0,True,Launched,5,L-proline,glutamate receptor agonist,True,False,False,False,0,,False
+CDKN2A,TUBB4B,LOF,mechanism_family,,True,Launched,5,albendazole; mebendazole; oxibendazole,tubulin polymerization inhibitor,False,True,True,False,0,,False
+STK11,HDAC4,LOF,novel_anchor_extend,0.0,True,Launched,5,panobinostat,HDAC inhibitor,False,True,True,True,2,,False
+NRAS,N6AMT1,ACT,mechanism_family,,False,none,-1,,,False,False,False,True,10,30487649; 27981573; 38991024,False
+EP300,WRN,LOF,mechanism_family,,False,none,-1,,,False,False,False,True,12,28791697; 28796378,False
+ARID1A,ARID1B,LOF,known_panel,1.0,False,none,-1,,,False,False,False,False,0,,False
+PTEN,HSD17B12,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+PTEN,BRD2,LOF,novel_anchor_extend,0.0,True,Phase 2,2,I-BET-762; OTX015,bromodomain inhibitor,False,True,False,True,4,25897834,False
+PTEN,MTG1,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+ARID1A,KRTAP4-11,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+SMARCA4,ATP5PO,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+SMARCA4,CIT,LOF,novel_anchor_extend,0.0,False,none,-1,,,False,False,False,False,0,,False
+MTAP,MAT2A,CN_loss,known_panel_cn,True,False,none,-1,,,False,False,False,False,0,,False
+VHL,EPAS1,LOF,known_panel,1.0,True,Phase 1,1,PT-2385,hypoxia inducible factor inhibitor,False,True,False,True,32,24070809; 31486736; 35484400; 26100253,False
+ARID1A,EZH2,LOF,known_panel,1.0,True,Launched,5,tazemetostat,histone lysine methyltransferase inhibitor,False,True,True,True,1,,False
+SMARCA4,SMARCA2,LOF,known_panel,1.0,False,none,-1,,,False,False,False,False,0,,False
+KRAS,STK33,ACT,known_panel,1.0,True,Preclinical,0,ML281,serine/threonine kinase inhibitor,False,False,False,False,0,,False
+CCNE1,WEE1,CN_gain,known_panel_cn,True,True,Phase 2,2,MK-1775,WEE1 kinase inhibitor,False,True,False,False,0,,False
+CCNE1,PKMYT1,CN_gain,known_panel_cn,True,True,Preclinical,0,PD-166285,SRC inhibitor,False,False,False,False,0,,False
+BRCA1,PARP1,LOF,known_panel,1.0,True,Launched,5,niraparib; olaparib,PARP inhibitor,False,True,True,False,0,,False

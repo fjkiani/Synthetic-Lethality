@@ -1,0 +1,163 @@
+{
+  "deliverable": "Trust / Benchmark / Clinical-Validation Layer for Pan-Cancer SL Portfolio",
+  "generated_utc": "2026-07-20T11:56:13Z",
+  "phase": "external-validation + trust-scoring layer (adds to prior 5-layer confound-validated discovery)",
+  "honest_ceiling": "CRISPR-derived SL cannot be clinically validated here (requires prospective trial data). No axis labeled 'clinically proven'. Top rung = reproducible + clinically actionable node with trial precedent. Novel = discovery-only nominations.",
+  "engine": {
+    "repo": "fjkiani/Synthetic-Lethality",
+    "branch": "feat/pancancer-sl-5layer-validation",
+    "engine_commit_sha": "90a56b769f714fedd9e64e7e5f05028a08ac49a6",
+    "new_module": "sl_discovery_pancancer/sl_clinical_validation.py"
+  },
+  "data_sources": {
+    "discovery_crispr_integrated_chronos": "DepMap 24Q4 CRISPRGeneEffect (integrated Chronos), 1178 x 17916",
+    "independent_per_screen_crispr": "DepMap 24Q4 ScreenGeneEffect.csv (1416 screens -> 1186 models after ScreenID->ModelID collapse)",
+    "cell_line_overlap_note": "per-screen shares 1177/1186 lines with integrated discovery matrix (9 truly held out) -> Benchmark B = integration-robustness, NOT independent replication",
+    "mutations": "DepMap 24Q4 OmicsSomaticMutations subset (666518 rows)",
+    "model_metadata": "DepMap 24Q4 Model.csv (2105 x 46)",
+    "drug_repurposing_hub": "Broad Drug Repurposing Hub phase_moa_target (6798 drugs)",
+    "clinpgx_relationships": "clinpgx relationships.tsv (127601 rows; version CREATED_2026-01-05)",
+    "clinpgx_drug_labels": "clinpgx drugLabels.byGene.tsv (234 gene labels)"
+  },
+  "benchmarks": {
+    "rung_A_known_sl_recovery": {
+      "truth_set_pairs": 27,
+      "anchor_tiers": {
+        "approved": 4,
+        "pivotal_trial": 13,
+        "preclinical_validated": 10
+      },
+      "crispr_visible_recall": "10/22 = 0.455",
+      "recall_by_tier": {
+        "approved": "1/2",
+        "pivotal_trial": "6/11",
+        "preclinical_validated": "3/9"
+      },
+      "parp_modality_limited": "1/5 recovered; excluded from primary recall by design (CRISPR KO cannot model PARP trapping)",
+      "precision_note": "not meaningfully computable against truth set (most positives are novel pairs); recall + reclassification-correctness only",
+      "all_misses_mechanistically_explained": true
+    },
+    "rung_B_cross_screen_robustness": {
+      "framing": "INTEGRATION-ROBUSTNESS check, NOT independent-cohort replication (1177/1186 overlap)",
+      "n_survivors": 58,
+      "n_testable": 53,
+      "n_cn_not_testable": 4,
+      "n_partner_absent": 1,
+      "replication_rate_among_testable": "53/53 = 1.0",
+      "sign_concordance": 1.0,
+      "spearman_rho": 0.973,
+      "spearman_p": 4.844e-34,
+      "pearson_r": 0.99
+    },
+    "rung_C_actionability": {
+      "moa_consistent_selective_druggable_any_phase": "13/58",
+      "actionable_late_phase_ph3plus_approved": "9/58",
+      "druggable_or_trial_precedent": "17/58",
+      "clinpgx_annotated_partners": "23/58",
+      "fda_ema_label": "5/58",
+      "hub_promiscuity_caveat": "raw hub target annotations noisy; MOA-consistency filter (inhibitor/antagonist/degrader term + target-set <=8) applied; promiscuous-only nodes flagged not counted",
+      "literature_searched_axes": 12,
+      "literature_not_searched_axes": 46,
+      "not_searched_meaning": "unexamined, NOT 'no precedent'"
+    }
+  },
+  "trust_tiers": {
+    "T1_clinically_anchored": 12,
+    "T2_reproduced_druggable": 5,
+    "T3_reproduced_not_druggable": 40,
+    "T4_discovery_only": 1,
+    "drug_source_counts": {
+      "none": 33,
+      "repurposing_hub": 20,
+      "literature": 5
+    }
+  },
+  "emergent_hypothesis": {
+    "chromatin_loss_to_WRN": [
+      "ARID1A->WRN (FDR 6.6e-6)",
+      "KMT2D->WRN (2.7e-5)",
+      "EP300->WRN (5.3e-5)"
+    ],
+    "angle": "MSI-independent WRN dependency via chromatin-remodeler loss; survived MSI purge",
+    "external_corroboration_citations": "[4,5,7,10,11,12]",
+    "clinical_node": "WRN targeted by HRO761 (Ph1 NCT05838768) and VVD-214/RO7589831",
+    "status": "mechanistic-direction corroborated; NOT clinical proof of our specific axes; KMT2D/EP300 links less established than ARID1A"
+  },
+  "integrity_assertions": {
+    "prior_58_survivors_preserved": true,
+    "prior_44_reclassified_preserved": true,
+    "matrix_columns_before": 24,
+    "matrix_columns_after": 50,
+    "no_axis_deleted": true,
+    "no_fabricated_clinical_data": true,
+    "STAG2_STAG1_labeled_literature_known": true,
+    "PARP_BRCA_stays_modality_limited": true,
+    "PTEN_PIK3CB_stays_known_not_novel": true
+  },
+  "files": {
+    "CLINICAL_VALIDATION_REPORT.md": {
+      "sha256": "c76c9b4c9df25e3f6bbda5bb01f5ee1faef8d969485092a8d6551b0b0c8094b4",
+      "bytes": 14464
+    },
+    "sl_master_matrix.csv": {
+      "sha256": "15c29379355cfdbd328868cb5c913c7af1588d8cba40de80eb2faef07b516658",
+      "bytes": 49837
+    },
+    "sl_master_matrix.json": {
+      "sha256": "39bac6defb2fd049f8bc820cc07bede4baa7b68da4525762e108afec946959fa",
+      "bytes": 153865
+    },
+    "clinical_validation.csv": {
+      "sha256": "f6dd6ae87c5e2527c4d0e537b263d3bb80dd652242d69f2dcabe4ca463e216ad",
+      "bytes": 22989
+    },
+    "benchmark_known_sl_recovery.json": {
+      "sha256": "53067ac4cdec535505f8f4a926214da9a044e67f009c09c4223f91acafd5c573",
+      "bytes": 7347
+    },
+    "benchmark_cross_screen.csv": {
+      "sha256": "c8dff99c5d97d2c3b8a42c81cd2f7791871575280d5183620c633d480ea1f487",
+      "bytes": 10475
+    },
+    "benchmark_cross_screen_summary.json": {
+      "sha256": "b45a04e6287d45f92c70fc612a904cdbb3150fe56118f04f0f301215fdde0c9b",
+      "bytes": 1487
+    },
+    "clinical_actionability.csv": {
+      "sha256": "21adff337392247db31f462346e12530f60253ba052196615df3a148914b0a73",
+      "bytes": 6584
+    },
+    "fig_benchmark_scorecard.png": {
+      "sha256": "ec28cf8e8d0e022f89dda330897d5e08e6ba1062cf46c37b16db8e362eaad8f8",
+      "bytes": 168741
+    },
+    "fig_benchmark_scorecard.svg": {
+      "sha256": "8007b6af19eae31d042281e7dea35fe434b9195a64cffb177bb3b8a37540ca93",
+      "bytes": 17750
+    },
+    "fig_cross_screen_concordance.png": {
+      "sha256": "5b0ba445ac9c28285149aca9fea48f509e4c01b58cd823a09a9bb42d8b6a93d7",
+      "bytes": 215853
+    },
+    "fig_cross_screen_concordance.svg": {
+      "sha256": "f40fc3183ed9d1861bd0e6b1ea6a637029dced2a8436e79a86b74b4398da86c2",
+      "bytes": 27587
+    },
+    "fig_trust_tier_landscape.png": {
+      "sha256": "618495ceaf31a48a8e306d6e99da306f601d39072bd63ab156157840b28a9ec8",
+      "bytes": 250581
+    },
+    "fig_trust_tier_landscape.svg": {
+      "sha256": "87062b1d1432a224140da5f7698b0d76d86fc157e69ca13f49b75d88f65536a4",
+      "bytes": 40532
+    },
+    "fig_clinical_actionability_map.png": {
+      "sha256": "6a04f36f24076f1d17285a822f12fc407b3d9ade48f542bb222bd8ad226269cf",
+      "bytes": 226424
+    },
+    "fig_clinical_actionability_map.svg": {
+      "sha256": "8daf999af95f0e302f0ee3c87ca25f84dd1f9587f354a46b2844e7bc4acae89f",
+      "bytes": 26091
+    }
+  }
+}

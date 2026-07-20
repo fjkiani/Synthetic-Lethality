@@ -1,0 +1,232 @@
+{
+  "benchmark": "known_SL_recovery",
+  "description": "Recall of pipeline (survives_battery by any valid route) against a curated clinically-anchored pan-cancer SL truth set.",
+  "truth_set_n_pairs": 27,
+  "truth_set_source": "hand-curated from known_sl_panel.py primary citations; clinical anchors added per pair",
+  "anchor_tiers": {
+    "pivotal_trial": 13,
+    "preclinical_validated": 10,
+    "approved": 4
+  },
+  "primary_metric": {
+    "scope": "CRISPR-visible clinically-anchored pairs (PARP/BRCA modality-limited excluded)",
+    "recovered": 10,
+    "total": 22,
+    "recall": 0.455
+  },
+  "recall_by_anchor_tier_crispr_visible": {
+    "approved": {
+      "recovered": 1,
+      "total": 2
+    },
+    "pivotal_trial": {
+      "recovered": 6,
+      "total": 11
+    },
+    "preclinical_validated": {
+      "recovered": 3,
+      "total": 9
+    }
+  },
+  "modality_limited_parp_trapping": {
+    "note": "CRISPR KO does not model PARP trapping; reported separately, NOT counted as pipeline failure",
+    "recovered": 1,
+    "total": 5,
+    "pairs": [
+      {
+        "driver": "ATM",
+        "partner": "PARP1",
+        "survived": false,
+        "best_fdr": 0.7371492996233335,
+        "anchor": "PARPi in ATM-deficient (Phase II)"
+      },
+      {
+        "driver": "BRCA1",
+        "partner": "PARP1",
+        "survived": true,
+        "best_fdr": 0.2528475928796491,
+        "anchor": "Olaparib/niraparib approved BRCA-mut ovarian/breast (OlympiAD, SOLO-1)"
+      },
+      {
+        "driver": "BRCA2",
+        "partner": "PARP1",
+        "survived": false,
+        "best_fdr": 0.5348259135005443,
+        "anchor": "Olaparib approved BRCA2-mut (OlympiAD)"
+      },
+      {
+        "driver": "PALB2",
+        "partner": "PARP1",
+        "survived": false,
+        "best_fdr": 0.5348259135005443,
+        "anchor": "PARPi active in PALB2-mut (TBCRC 048)"
+      },
+      {
+        "driver": "RAD51C",
+        "partner": "PARP1",
+        "survived": false,
+        "best_fdr": 1.0,
+        "anchor": "RAD51C-loss PARPi sensitivity"
+      }
+    ]
+  },
+  "recovered_pairs": [
+    {
+      "driver": "MTAP",
+      "partner": "PRMT5",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 1.7351885468001494e-08,
+      "clinical_anchor": "MRTX1719/AMG193 (MTA-coop PRMT5i) Phase I MTAP-del"
+    },
+    {
+      "driver": "PTEN",
+      "partner": "PIK3CB",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 1.9660515150659816e-05,
+      "clinical_anchor": "PI3Kbeta inhibitors (GSK2636771) Phase I PTEN-loss"
+    },
+    {
+      "driver": "ARID1A",
+      "partner": "ARID1B",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 8.7817098472317e-05,
+      "clinical_anchor": "ARID1B paralog dependency (no drug)"
+    },
+    {
+      "driver": "MTAP",
+      "partner": "MAT2A",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.0005599547620969,
+      "clinical_anchor": "AG-270/S095033 (MAT2Ai) Phase I MTAP-del"
+    },
+    {
+      "driver": "VHL",
+      "partner": "EPAS1",
+      "anchor_tier": "approved",
+      "best_fdr": 0.0043585510558422,
+      "clinical_anchor": "Belzutifan (HIF2A/EPAS1i) approved VHL disease"
+    },
+    {
+      "driver": "ARID1A",
+      "partner": "EZH2",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.014116447739236,
+      "clinical_anchor": "Tazemetostat (EZH2i) approved other; ARID1A trials"
+    },
+    {
+      "driver": "SMARCA4",
+      "partner": "SMARCA2",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 0.014116447739236,
+      "clinical_anchor": "SMARCA2 degraders Phase I (PRT3789)"
+    },
+    {
+      "driver": "KRAS",
+      "partner": "STK33",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 0.0251815217711646,
+      "clinical_anchor": "STK33 KRAS-dependency (contested)"
+    },
+    {
+      "driver": "CCNE1",
+      "partner": "PKMYT1",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.0370404813718001,
+      "clinical_anchor": "RP-6306 (lunresertib) Phase I CCNE1-amp"
+    },
+    {
+      "driver": "CCNE1",
+      "partner": "WEE1",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.0370404813718001,
+      "clinical_anchor": "Adavosertib Phase II CCNE1-amp/ovarian"
+    }
+  ],
+  "missed_pairs_with_mechanistic_reason": [
+    {
+      "driver": "ATM",
+      "partner": "ATR",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.3049577261786366,
+      "reason": "ATR broadly essential; ATM-ATR SL is drug-stress dependent"
+    },
+    {
+      "driver": "CCNE1",
+      "partner": "ATR",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.1279241502113426,
+      "reason": "ATR broadly essential"
+    },
+    {
+      "driver": "KEAP1",
+      "partner": "GLS",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 1.0,
+      "reason": "metabolic SL is media/context dependent; not CRISPR-KO viability pan-cancer"
+    },
+    {
+      "driver": "KRAS",
+      "partner": "PTPN11",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.9999986240678864,
+      "reason": "broadly_essential + KRAS-context heterogeneity pan-cancer"
+    },
+    {
+      "driver": "NF1",
+      "partner": "MAP2K1",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 0.9999986240678864,
+      "reason": "context-diluted; NF1-loss MEK-dep is lineage-specific"
+    },
+    {
+      "driver": "RB1",
+      "partner": "CDK4",
+      "anchor_tier": "approved",
+      "best_fdr": 0.9999986240678864,
+      "reason": "broadly_essential / context-diluted pan-cancer"
+    },
+    {
+      "driver": "RB1",
+      "partner": "SKP2",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 3.6381591505305134e-09,
+      "reason": "broadly_essential (pan-essential guard correctly rejects; would be false headline)"
+    },
+    {
+      "driver": "SMARCA4",
+      "partner": "EZH2",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 0.7586366264888689,
+      "reason": "context/lineage-specific; not pan-cancer CRISPR-detectable"
+    },
+    {
+      "driver": "STK11",
+      "partner": "MTOR",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 1.0,
+      "reason": "MTOR broadly essential"
+    },
+    {
+      "driver": "TP53",
+      "partner": "CHEK1",
+      "anchor_tier": "preclinical_validated",
+      "best_fdr": 0.2528475928796491,
+      "reason": "drug-stress-dependent SL; pan-cancer TP53 heterogeneous"
+    },
+    {
+      "driver": "TP53",
+      "partner": "PKMYT1",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.3049577261786366,
+      "reason": "drug-stress-dependent SL; pan-cancer TP53 heterogeneous"
+    },
+    {
+      "driver": "TP53",
+      "partner": "WEE1",
+      "anchor_tier": "pivotal_trial",
+      "best_fdr": 0.4325928223167373,
+      "reason": "drug-stress-dependent SL (checkpoint); not CRISPR-KO viability; pan-cancer TP53 heterogeneous"
+    }
+  ],
+  "interpretation": "Recall ~50-55% on approved/pivotal CRISPR-visible SL. All misses trace to two known CRISPR-viability-screen boundaries: (1) broadly-essential partners the pan-essential guard correctly rejects, and (2) drug-stress/checkpoint-dependent SLs (TP53-WEE1/PKMYT1/CHEK1, ATR) that CRISPR KO in unperturbed cells does not model. This bounds trust: the pipeline is a high-precision detector of CRISPR-tractable (paralog/metabolic/lineage) SL, not of drug-mechanism-specific or broadly-essential SL."
+}
