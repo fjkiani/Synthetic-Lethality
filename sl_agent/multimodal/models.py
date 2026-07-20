@@ -225,6 +225,17 @@ class EvidenceMatrix(BaseModel):
         default_factory=list,
         description="Combinatorial two-pathway vulnerabilities detected for this gene/cancer context",
     )
+    biomarker_context: Optional[Any] = Field(
+        None,
+        description=(
+            "ADVISORY-ONLY prognostic/diagnostic biomarker context "
+            "(sl_agent.biomarkers.BiomarkerContext). Attached alongside the "
+            "synthetic-lethality evidence; it NEVER changes drug routing or "
+            "recommendation tiers. Typed Any to avoid a hard cross-package import "
+            "(same pattern as rs_score). Only validated biomarkers surface by "
+            "default; discovery-only results are clearly flagged."
+        ),
+    )
 
     def get_row(self, axis: CandidateAxis) -> Optional[EvidenceRow]:
         for r in self.rows:
