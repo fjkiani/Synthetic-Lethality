@@ -66,9 +66,26 @@ FABRICATED_STRINGS = [
     "prognostic killer", "toward platinum sensitivity",
 ]
 
+# Overstated-robustness claims: the TCGA-OV n=299 and n=303 cohorts are the SAME
+# patients reprocessed by two cBioPortal pipelines, NOT independent replication.
+# The interpretation must not describe them as independent cohorts.
+OVERSTATED_STRINGS = [
+    "two independent cohorts",
+    "independent cohorts (n=299 and n=303)",
+    "independent replication",
+    "replicated in an independent",
+]
+
 VALIDATED_TOKENS = [
     "NOT prognostic", "n=299", "n=303", "p=0.88", "p=0.93",
     "RESEARCH USE ONLY",
+]
+
+# The honest same-cohort framing must be explicit.
+REQUIRED_FRAMING = [
+    "SAME TCGA-OV patients",
+    "not an independent cohort",
+    "No external",
 ]
 
 
@@ -76,6 +93,22 @@ def test_pi3k_mtor_interpretation_has_no_fabricated_claims():
     interp = _AXIS_META[CandidateAxis.PI3K_MTOR]["interpretation"]
     for bad in FABRICATED_STRINGS:
         assert bad not in interp, f"Fabricated string leaked into interpretation: {bad!r}"
+
+
+def test_pi3k_mtor_interpretation_no_overstated_independence():
+    interp = _AXIS_META[CandidateAxis.PI3K_MTOR]["interpretation"]
+    low = interp.lower()
+    for bad in OVERSTATED_STRINGS:
+        assert bad.lower() not in low, (
+            f"Overstated-independence claim leaked into interpretation: {bad!r} "
+            "(n=299 and n=303 are the SAME TCGA-OV patients)"
+        )
+
+
+def test_pi3k_mtor_interpretation_states_same_cohort_honestly():
+    interp = _AXIS_META[CandidateAxis.PI3K_MTOR]["interpretation"]
+    for tok in REQUIRED_FRAMING:
+        assert tok in interp, f"Honest same-cohort framing missing: {tok!r}"
 
 
 def test_pi3k_mtor_interpretation_is_validation_grounded():

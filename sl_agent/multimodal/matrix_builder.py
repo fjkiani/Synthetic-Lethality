@@ -98,23 +98,27 @@ _AXIS_META: Dict[CandidateAxis, Dict] = {
             "Primary clinical evidence is in BREAST cancer; ovarian use is extrapolation."
         ),
         # Honest, validation-grounded interpretation. Numbers trace to the
-        # PI3K/mTOR VALIDATION_SUMMARY receipt (2-cohort TCGA-OV Cox + 3-cohort
-        # platinum-response). NO fabricated HR/p/sign-flip strings are used.
+        # PI3K/mTOR VALIDATION_SUMMARY receipt (TCGA-OV Cox + same-cohort
+        # cross-pipeline sensitivity check + 3-cohort GPL570 platinum-response).
+        # NO fabricated HR/p/sign-flip strings are used.
         "interpretation": (
-            "PI3K/mTOR pathway score is NOT prognostic in TCGA-OV: two independent cohorts "
-            "(n=299 and n=303) show no significant association with overall survival "
-            "(directional Cox HR/SD 1.01 p=0.88 and 1.01 p=0.93; PH assumption holds; 0/13 "
-            "genes significant at FDR<0.05). A weak, NON-significant trend toward worse OS "
-            "appears only in an unsigned score (p~0.06). As a platinum-response predictor it "
-            "is UNSTABLE and non-significant: directional AUROC 0.58/0.43/0.64 across three "
-            "GPL570 cohorts, all 95% CIs crossing 0.5, with inconsistent direction. It is "
-            "therefore a pharmacologically actionable but NON-validated-prognostic axis; treat "
-            "as a targetable-pathway flag, not a standalone risk or response classifier. "
+            "PI3K/mTOR pathway score is NOT prognostic in TCGA-OV: overall survival shows no "
+            "significant association (directional Cox HR/SD 1.01, p=0.88, n=299; PH assumption "
+            "holds; 0/13 genes significant at FDR<0.05). The null is stable to reprocessing — a "
+            "second cBioPortal rendering of the SAME TCGA-OV patients (n=303, not an independent "
+            "cohort) gives HR/SD 1.01, p=0.93. A weak, NON-significant trend toward worse OS "
+            "appears only in an unsigned score (p~0.06). No external (non-TCGA) prognostic "
+            "replication has been performed. As a platinum-response predictor it is UNSTABLE and "
+            "non-significant: directional AUROC 0.58/0.43/0.64 across three independent GPL570 "
+            "cohorts, all 95% CIs crossing 0.5, with inconsistent direction. It is therefore a "
+            "pharmacologically actionable but NON-validated-prognostic axis; treat as a "
+            "targetable-pathway flag, not a standalone risk or response classifier. "
             "RESEARCH USE ONLY — not validated for clinical decision-making."
         ),
-        "evidence_provenance": "pi3k_mtor VALIDATION_SUMMARY (W1 TCGA PanCan Cox, W2 ov_tcga "
-                               "replication, W3 GSE63885/GSE30161/GSE51373 platinum response, "
-                               "W4 grounded pharmacology).",
+        "evidence_provenance": "pi3k_mtor VALIDATION_SUMMARY (W1 TCGA-OV PanCan Cox; W2 same-cohort "
+                               "cross-pipeline sensitivity check on ov_tcga [NOT independent]; "
+                               "W3 GSE63885/GSE30161/GSE51373 platinum response; W4 grounded "
+                               "pharmacology).",
     },
 }
 
