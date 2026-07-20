@@ -1,0 +1,9 @@
+[
+  {
+    "capability": "expression_proxy_cn_detection",
+    "reason": "MTAP(9p21 del)/CCNE1(amp) are CN events invisible to point-mutation gating; standard MTAP-SL literature (Kryukov/Mavrakis 2016 Science) defines MTAP-loss by protein/expression",
+    "method": "log2(TPM+1) bottom-decile (loss) / top-decile (gain), restricted to CRISPR universe; battery primitives reused",
+    "impact": "recovered MTAP->PRMT5 (p=3.5e-9,d=-0.70) previously mut-gated n=2/p=1.0; added 'dependency_modifier' tier for differential SL on essential genes",
+    "date": "2026-07-20"
+  }
+]

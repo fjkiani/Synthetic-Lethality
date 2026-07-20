@@ -1,0 +1,6 @@
+driver,partner,mode,detection,n_mut,n_wt,delta,L1_p,cohens_d,broadly_ess_frac,tier,note,known,L1_fdr
+MTAP,PRMT5,CN_loss,expression_proxy,112,991,-0.2141,3.4703770936002993e-09,-0.695,0.941,dependency_modifier,differential sensitivity on broadly-essential target (SL lowers inhibition threshold),True,1.7351885468001494e-08
+MTAP,MAT2A,CN_loss,expression_proxy,112,991,-0.1393,0.00022398190483876514,-0.324,0.987,dependency_modifier,differential sensitivity on broadly-essential target (SL lowers inhibition threshold),True,0.0005599547620969128
+CCNE1,WEE1,CN_gain,expression_proxy,111,992,-0.0758,0.024994501140441064,-0.179,1.0,dependency_modifier,differential sensitivity on broadly-essential target (SL lowers inhibition threshold),True,0.0370404813718001
+CCNE1,PKMYT1,CN_gain,expression_proxy,111,992,-0.0705,0.02963238509744008,-0.162,0.945,dependency_modifier,differential sensitivity on broadly-essential target (SL lowers inhibition threshold),True,0.0370404813718001
+CCNE1,ATR,CN_gain,expression_proxy,111,992,-0.0045,0.12792415021134268,-0.017,0.992,not_supported,no differential dependency,True,0.12792415021134268
