@@ -1,0 +1,364 @@
+{
+  "title": "Pan-cancer synthetic-lethality master matrix (literature-anchored + novel, 5-layer validated)",
+  "generated_utc": "2026-07-20T08:25:24.509733+00:00",
+  "doctrine": "5-layer confound battery (CRISPR primary, MSI purge, TP53-strat, leave-one-out, lineage trap) + broadly-essential + positional/CN. Reclassify, never delete.",
+  "data": "DepMap 24Q4 (CRISPR Chronos 1178x17916, expression, mutations), GDSC2 (SANGER_MODEL_ID-keyed)",
+  "counts": {
+    "total_axes": 102,
+    "survive_full_battery": 58,
+    "known_confirmed": 29,
+    "novel_candidate": 24,
+    "dependency_modifier": 4,
+    "reclassified": 42
+  },
+  "positive_controls_recovered": [
+    "PTEN->PIK3CB (CRISPR FDR<1e-4 + GDSC2 falsification passes)",
+    "RB1->palbociclib RESISTANCE (correct direction, p<1e-4)",
+    "BRAF->MAPK1/MAP2K1 (FDR 1e-14/2e-11)",
+    "NRAS->SHOC2/RAF1",
+    "STAG2->STAG1 (cohesin paralog d=-3.0)",
+    "EP300<->CREBBP (HAT paralog)"
+  ],
+  "emergent_hypothesis": "Chromatin-remodeler LOF -> WRN dependency recurs across ARID1A, KMT2D, EP300 (all survive MSI-purge) -> candidate MSI-independent WRN-SL mechanism family beyond canonical MSI-H context.",
+  "headline_novel": [
+    {
+      "driver": "BRAF",
+      "partner": "MAPK1",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 52.0,
+      "L1_fdr": 1.1090740045432946e-14,
+      "L1_cohens_d": -1.7787544796402963,
+      "L2_msipurge_p": 1.215800261333523e-15,
+      "L4_loo_max_p": 1.3366702375691579e-15,
+      "broadly_essential_frac": 0.143
+    },
+    {
+      "driver": "BRAF",
+      "partner": "MAP2K1",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 52.0,
+      "L1_fdr": 1.8928377438315623e-11,
+      "L1_cohens_d": -1.5228493381099943,
+      "L2_msipurge_p": 8.590418489782709e-12,
+      "L4_loo_max_p": 4.174884775075521e-12,
+      "broadly_essential_frac": 0.034
+    },
+    {
+      "driver": "KRAS",
+      "partner": "CTNNB1",
+      "mode": "ACT",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 104.0,
+      "L1_fdr": 9.849947964042759e-11,
+      "L1_cohens_d": -0.8473510101497104,
+      "L2_msipurge_p": 3.1597719906903376e-11,
+      "L4_loo_max_p": 5.778849259443467e-12,
+      "broadly_essential_frac": 0.104
+    },
+    {
+      "driver": "KRAS",
+      "partner": "TCF7L2",
+      "mode": "ACT",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 104.0,
+      "L1_fdr": 4.664018442354054e-10,
+      "L1_cohens_d": -0.8718570399942214,
+      "L2_msipurge_p": 4.5680986217253855e-11,
+      "L4_loo_max_p": 5.3387080219388116e-11,
+      "broadly_essential_frac": 0.071
+    },
+    {
+      "driver": "KRAS",
+      "partner": "RAF1",
+      "mode": "ACT",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 104.0,
+      "L1_fdr": 9.137605589486792e-10,
+      "L1_cohens_d": -0.774596847963659,
+      "L2_msipurge_p": 5.919185718401168e-11,
+      "L4_loo_max_p": 1.5428555954865915e-10,
+      "broadly_essential_frac": 0.119
+    },
+    {
+      "driver": "EP300",
+      "partner": "CREBBP",
+      "mode": "LOF",
+      "stream": "mechanism_family",
+      "n_mut_total": 68.0,
+      "L1_fdr": 8.039069504951484e-09,
+      "L1_cohens_d": -0.948191765118978,
+      "L2_msipurge_p": 4.312438544728396e-08,
+      "L4_loo_max_p": 2.708971924141859e-09,
+      "broadly_essential_frac": 0.076
+    },
+    {
+      "driver": "NRAS",
+      "partner": "SHOC2",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 37.0,
+      "L1_fdr": 8.039069504951484e-09,
+      "L1_cohens_d": -1.5143565419782443,
+      "L2_msipurge_p": 1.2078561142057263e-09,
+      "L4_loo_max_p": 3.6794481252817038e-09,
+      "broadly_essential_frac": 0.16
+    },
+    {
+      "driver": "RB1",
+      "partner": "E2F3",
+      "mode": "LOF",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 47.0,
+      "L1_fdr": 1.95238963848693e-08,
+      "L1_cohens_d": -1.296021623492663,
+      "L2_msipurge_p": 2.081059032130138e-09,
+      "L4_loo_max_p": 5.648404283959125e-09,
+      "broadly_essential_frac": 0.126
+    },
+    {
+      "driver": "KMT2D",
+      "partner": "RAD50",
+      "mode": "LOF",
+      "stream": "mechanism_family",
+      "n_mut_total": 69.0,
+      "L1_fdr": 1.983609789798732e-08,
+      "L1_cohens_d": -0.7899399076989091,
+      "L2_msipurge_p": 1.8464866494664677e-07,
+      "L4_loo_max_p": 8.567863400406874e-09,
+      "broadly_essential_frac": 0.02
+    },
+    {
+      "driver": "KRAS",
+      "partner": "DOCK5",
+      "mode": "ACT",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 104.0,
+      "L1_fdr": 4.1683529226143725e-08,
+      "L1_cohens_d": -0.8636487854043929,
+      "L2_msipurge_p": 5.036333413888332e-09,
+      "L4_loo_max_p": 1.1000104595869404e-08,
+      "broadly_essential_frac": 0.053
+    },
+    {
+      "driver": "NRAS",
+      "partner": "RAF1",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 37.0,
+      "L1_fdr": 4.9262897699693604e-08,
+      "L1_cohens_d": -1.192997076750096,
+      "L2_msipurge_p": 1.0749948354515701e-08,
+      "L4_loo_max_p": 3.2417440957133036e-08,
+      "broadly_essential_frac": 0.119
+    },
+    {
+      "driver": "KRAS",
+      "partner": "RAB10",
+      "mode": "ACT",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 104.0,
+      "L1_fdr": 8.853127508702556e-08,
+      "L1_cohens_d": -0.6082334607416767,
+      "L2_msipurge_p": 6.663121009832928e-08,
+      "L4_loo_max_p": 3.1831520874050634e-08,
+      "broadly_essential_frac": 0.359
+    },
+    {
+      "driver": "STAG2",
+      "partner": "STAG1",
+      "mode": "LOF",
+      "stream": "mechanism_family",
+      "n_mut_total": 18.0,
+      "L1_fdr": 4.356081493249899e-07,
+      "L1_cohens_d": -3.0474232782313253,
+      "L2_msipurge_p": 1.1577460949464109e-07,
+      "L4_loo_max_p": 4.527369471849485e-07,
+      "broadly_essential_frac": 0.056
+    },
+    {
+      "driver": "BRAF",
+      "partner": "ELAVL1",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 52.0,
+      "L1_fdr": 4.356081493249899e-07,
+      "L1_cohens_d": -0.8360968926950977,
+      "L2_msipurge_p": 9.745067723663764e-08,
+      "L4_loo_max_p": 3.1672352496637694e-07,
+      "broadly_essential_frac": 0.183
+    },
+    {
+      "driver": "BRAF",
+      "partner": "CYB5R4",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 52.0,
+      "L1_fdr": 7.763602405099738e-07,
+      "L1_cohens_d": -0.7866349848365488,
+      "L2_msipurge_p": 9.442008394167436e-07,
+      "L4_loo_max_p": 6.218056194870783e-07,
+      "broadly_essential_frac": 0.143
+    },
+    {
+      "driver": "PTEN",
+      "partner": "MLST8",
+      "mode": "LOF",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 52.0,
+      "L1_fdr": 2.0634059455918256e-06,
+      "L1_cohens_d": -0.7987710751660848,
+      "L2_msipurge_p": 7.811955007184652e-08,
+      "L4_loo_max_p": 1.56901024633267e-06,
+      "broadly_essential_frac": 0.434
+    },
+    {
+      "driver": "SMARCA4",
+      "partner": "ACSL3",
+      "mode": "LOF",
+      "stream": "novel_anchor_extend",
+      "n_mut_total": 30.0,
+      "L1_fdr": 2.0634059455918256e-06,
+      "L1_cohens_d": -0.9133125014058928,
+      "L2_msipurge_p": 1.139990081901708e-06,
+      "L4_loo_max_p": 2.0121894829464494e-06,
+      "broadly_essential_frac": 0.234
+    },
+    {
+      "driver": "CIC",
+      "partner": "ZNF629",
+      "mode": "LOF",
+      "stream": "mechanism_family",
+      "n_mut_total": 11.0,
+      "L1_fdr": 3.2224162637314973e-06,
+      "L1_cohens_d": -1.9052985231030704,
+      "L2_msipurge_p": 1.4723266975026777e-05,
+      "L4_loo_max_p": 5.3677398925802885e-06,
+      "broadly_essential_frac": 0.006
+    },
+    {
+      "driver": "KMT2D",
+      "partner": "SMARCD1",
+      "mode": "LOF",
+      "stream": "mechanism_family",
+      "n_mut_total": 69.0,
+      "L1_fdr": 3.7652159959406695e-06,
+      "L1_cohens_d": -0.6347925882634485,
+      "L2_msipurge_p": 5.2063423264750805e-06,
+      "L4_loo_max_p": 3.455642698965926e-06,
+      "broadly_essential_frac": 0.158
+    },
+    {
+      "driver": "BRAF",
+      "partner": "SYNCRIP",
+      "mode": "ACT",
+      "stream": "mechanism_family",
+      "n_mut_total": 52.0,
+      "L1_fdr": 3.925850025722679e-06,
+      "L1_cohens_d": -0.7049819566592259,
+      "L2_msipurge_p": 2.6048802872257665e-06,
+      "L4_loo_max_p": 4.330198726279346e-06,
+      "broadly_essential_frac": 0.171
+    }
+  ],
+  "known_confirmed": [
+    {
+      "driver": "MTAP",
+      "partner": "PRMT5",
+      "mode": "CN_loss",
+      "L1_fdr": 1.7351885468001494e-08,
+      "L1_cohens_d": NaN,
+      "citation": NaN
+    },
+    {
+      "driver": "PTEN",
+      "partner": "PIK3CB",
+      "mode": "LOF",
+      "L1_fdr": 1.9660515150659816e-05,
+      "L1_cohens_d": -0.8356906479632927,
+      "citation": "Wee 2008 PNAS 10.1073/pnas.0802655105; Jia 2008 Nature 10.1038/nature07091"
+    },
+    {
+      "driver": "ARID1A",
+      "partner": "ARID1B",
+      "mode": "LOF",
+      "L1_fdr": 8.7817098472317e-05,
+      "L1_cohens_d": -0.9907926080828696,
+      "citation": "Helming 2014 Nat Med 10.1038/nm.3480"
+    },
+    {
+      "driver": "MTAP",
+      "partner": "MAT2A",
+      "mode": "CN_loss",
+      "L1_fdr": 0.0005599547620969,
+      "L1_cohens_d": NaN,
+      "citation": NaN
+    },
+    {
+      "driver": "VHL",
+      "partner": "EPAS1",
+      "mode": "LOF",
+      "L1_fdr": 0.0043585510558422,
+      "L1_cohens_d": -2.0410093675279306,
+      "citation": "Kaelin 2008 Nat Rev Cancer (VHL/HIF2A/EPAS1)"
+    },
+    {
+      "driver": "ARID1A",
+      "partner": "EZH2",
+      "mode": "LOF",
+      "L1_fdr": 0.014116447739236,
+      "L1_cohens_d": -0.2850335922619325,
+      "citation": "Bitler 2015 Nat Med 10.1038/nm.3799"
+    },
+    {
+      "driver": "SMARCA4",
+      "partner": "SMARCA2",
+      "mode": "LOF",
+      "L1_fdr": 0.014116447739236,
+      "L1_cohens_d": -1.4186714141367571,
+      "citation": "Hoffman 2014 PNAS 10.1073/pnas.1316793111; Oike 2013 Cancer Res"
+    },
+    {
+      "driver": "KRAS",
+      "partner": "STK33",
+      "mode": "ACT",
+      "L1_fdr": 0.0251815217711646,
+      "L1_cohens_d": -0.2866620468775283,
+      "citation": "Scholl 2009 Cell 10.1016/j.cell.2009.03.017"
+    },
+    {
+      "driver": "CCNE1",
+      "partner": "WEE1",
+      "mode": "CN_gain",
+      "L1_fdr": 0.0370404813718001,
+      "L1_cohens_d": NaN,
+      "citation": NaN
+    },
+    {
+      "driver": "CCNE1",
+      "partner": "PKMYT1",
+      "mode": "CN_gain",
+      "L1_fdr": 0.0370404813718001,
+      "L1_cohens_d": NaN,
+      "citation": NaN
+    },
+    {
+      "driver": "BRCA1",
+      "partner": "PARP1",
+      "mode": "LOF",
+      "L1_fdr": 0.2528475928796491,
+      "L1_cohens_d": -0.4835506351003514,
+      "citation": "Farmer 2005 Nature 10.1038/nature03445; Bryant 2005 Nature 10.1038/nature03443"
+    }
+  ],
+  "capability_builds": [
+    {
+      "capability": "expression_proxy_cn_detection",
+      "reason": "MTAP(9p21 del)/CCNE1(amp) are CN events invisible to point-mutation gating; standard MTAP-SL literature (Kryukov/Mavrakis 2016 Science) defines MTAP-loss by protein/expression",
+      "method": "log2(TPM+1) bottom-decile (loss) / top-decile (gain), restricted to CRISPR universe; battery primitives reused",
+      "impact": "recovered MTAP->PRMT5 (p=3.5e-9,d=-0.70) previously mut-gated n=2/p=1.0; added 'dependency_modifier' tier for differential SL on essential genes",
+      "date": "2026-07-20"
+    }
+  ]
+}

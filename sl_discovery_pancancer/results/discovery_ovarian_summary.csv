@@ -1,0 +1,9 @@
+task,gene,mode,n_mut,n_wt,n_hits,status,warning
+ovarian_TP53_LOF,TP53,LOF,9,36,0,ok,
+ovarian_TP53_ACT,TP53,ACT,16,36,0,ok,
+ovarian_ARID1A_LOF,ARID1A,LOF,10,46,0,ok,
+ovarian_KMT2C_LOF,KMT2C,LOF,10,44,0,ok,
+ovarian_KMT2D_LOF,KMT2D,LOF,5,46,0,ok,
+ovarian_PIK3CA_ACT,PIK3CA,ACT,10,48,0,ok,
+ovarian_PIK3R1_LOF,PIK3R1,LOF,5,53,0,ok,
+ovarian_KRAS_ACT,KRAS,ACT,7,51,1,ok,

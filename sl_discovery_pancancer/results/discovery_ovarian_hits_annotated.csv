@@ -1,0 +1,2 @@
+cancer,driver,mode,n_mut,n_wt,partner,delta_dependency,p_value,fdr,effect_size_cohend,codependency_r,pathway,is_essential_in_wt,cytoband,band_key,positional_flag,cluster_meanr,frac_essential_alllines,broadly_essential_flag,pathway_curated,tier
+ovarian,KRAS,ACT,7,51,PPP2R5C,-0.2615,7.572983808302097e-06,0.127855,-1.7457,0.4069,,False,14q32.31,14q32,False,,0.0357,False,,Nominal (CRISPR FDR<=0.25)
