@@ -88,6 +88,34 @@ _AXIS_META: Dict[CandidateAxis, Dict] = {
             "in replication-stressed cells."
         ),
     },
+    CandidateAxis.PI3K_MTOR: {
+        "label": "PI3K / AKT / mTOR Inhibitors (alpelisib, capivasertib, everolimus)",
+        "mechanism": (
+            "PI3K/AKT/mTOR pathway activation via PIK3CA/AKT/MTOR gain or PTEN/TSC1/TSC2/"
+            "STK11/PIK3R1 loss. Grounded pharmacology: alpelisib/BYL719 (SOLAR-1 Phase III, "
+            "PIK3CA-mut HR+/HER2- breast cancer, PFS 11.0 vs 5.7 mo, HR=0.65, p<0.001, PMID "
+            "31091374); capivasertib (CAPItello-291); everolimus (mTORi, JAX KB, PTEN-LOF). "
+            "Primary clinical evidence is in BREAST cancer; ovarian use is extrapolation."
+        ),
+        # Honest, validation-grounded interpretation. Numbers trace to the
+        # PI3K/mTOR VALIDATION_SUMMARY receipt (2-cohort TCGA-OV Cox + 3-cohort
+        # platinum-response). NO fabricated HR/p/sign-flip strings are used.
+        "interpretation": (
+            "PI3K/mTOR pathway score is NOT prognostic in TCGA-OV: two independent cohorts "
+            "(n=299 and n=303) show no significant association with overall survival "
+            "(directional Cox HR/SD 1.01 p=0.88 and 1.01 p=0.93; PH assumption holds; 0/13 "
+            "genes significant at FDR<0.05). A weak, NON-significant trend toward worse OS "
+            "appears only in an unsigned score (p~0.06). As a platinum-response predictor it "
+            "is UNSTABLE and non-significant: directional AUROC 0.58/0.43/0.64 across three "
+            "GPL570 cohorts, all 95% CIs crossing 0.5, with inconsistent direction. It is "
+            "therefore a pharmacologically actionable but NON-validated-prognostic axis; treat "
+            "as a targetable-pathway flag, not a standalone risk or response classifier. "
+            "RESEARCH USE ONLY — not validated for clinical decision-making."
+        ),
+        "evidence_provenance": "pi3k_mtor VALIDATION_SUMMARY (W1 TCGA PanCan Cox, W2 ov_tcga "
+                               "replication, W3 GSE63885/GSE30161/GSE51373 platinum response, "
+                               "W4 grounded pharmacology).",
+    },
 }
 
 

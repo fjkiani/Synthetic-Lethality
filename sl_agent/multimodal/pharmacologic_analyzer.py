@@ -94,6 +94,25 @@ _DRUG_TO_AXIS: Dict[str, str] = {
     "thalidomide":  "imid",
     "iberdomide":   "imid",
     "mezigdomide":  "imid",
+    # ── PI3K/AKT/mTOR (pi3k_mtor first-class axis) ───────────────────────────
+    # Grounded: alpelisib/BYL719 (SOLAR-1 Ph3, PMID 31091374), capivasertib
+    # (CAPItello-291), inavolisib, everolimus (JAX KB). Metformin intentionally
+    # NOT mapped: no grounded receipt in repo (see w4_pharmacology_grounding).
+    "alpelisib":    "pi3k_mtor",
+    "byl719":       "pi3k_mtor",
+    "byl-719":      "pi3k_mtor",
+    "capivasertib": "pi3k_mtor",
+    "azd5363":      "pi3k_mtor",
+    "inavolisib":   "pi3k_mtor",
+    "ipatasertib":  "pi3k_mtor",
+    "everolimus":   "pi3k_mtor",
+    "temsirolimus": "pi3k_mtor",
+    "sirolimus":    "pi3k_mtor",
+    "rapamycin":    "pi3k_mtor",
+    "buparlisib":   "pi3k_mtor",
+    "bkm120":       "pi3k_mtor",
+    "pictilisib":   "pi3k_mtor",
+    "copanlisib":   "pi3k_mtor",
 }
 
 # MSI/MMR marker columns we look for in sample_info

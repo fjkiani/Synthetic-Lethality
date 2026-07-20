@@ -92,7 +92,14 @@ class CandidateAxis(str, Enum):
     # ── PRMT5/MTAP axis (AACR 2026 addition) ─────────────────────────────────
     PRMT5_MTAP       = "prmt5_mtap"         # PRMT5 SL in MTAP-deleted tumors (9p21 deletion)
     # ── Breast cancer expansion axes ─────────────────────────────────────────
-    PI3K_AKT         = "pi3k_akt"           # PI3K/AKT pathway (PIK3CA-mut, PIK3R1-LOF)
+    PI3K_AKT         = "pi3k_akt"           # PI3K/AKT pathway (PIK3CA-mut, PIK3R1-LOF) — retained; superseded by PI3K_MTOR
+    # ── PI3K/AKT/mTOR first-class axis (superset of PI3K_AKT) ─────────────────
+    # Promoted to first-class per axis-promotion review. Grounded evidence:
+    # alpelisib/BYL719 (SOLAR-1 Ph3, PMID 31091374), capivasertib (CAPItello-291),
+    # everolimus (mTORi, JAX KB). NOTE: validated as NON-prognostic in TCGA-OV
+    # (2-cohort Cox null, p=0.88/0.93) and NOT a reliable platinum-response
+    # predictor (unstable, non-significant). See VALIDATION_SUMMARY receipt.
+    PI3K_MTOR        = "pi3k_mtor"          # PI3K/AKT/mTOR (PIK3CA/AKT/MTOR act; PTEN/TSC1/2/STK11/PIK3R1 loss)
 
 
 # ── Full row in the evidence matrix ──────────────────────────────────────────
