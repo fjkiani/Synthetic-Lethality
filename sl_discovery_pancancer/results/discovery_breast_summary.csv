@@ -1,0 +1,6 @@
+task,gene,mode,n_mut,n_wt,n_hits,status,warning
+breast_TP53_LOF,TP53,LOF,9,25,0,ok,
+breast_TP53_ACT,TP53,ACT,19,25,8,ok,
+breast_PTEN_LOF,PTEN,LOF,6,44,22,ok,
+breast_KMT2C_LOF,KMT2C,LOF,7,36,1,ok,
+breast_PIK3CA_ACT,PIK3CA,ACT,12,40,0,ok,

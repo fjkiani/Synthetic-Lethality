@@ -1,0 +1,61 @@
+{
+  "dataset": "Sanger Project Score CERES (Figshare 10.6084/m9.figshare.9116732)",
+  "publication": "Behan et al. Nature 2019, DOI 10.1038/s41586-019-1103-9",
+  "library": "KY1.0/1.1 (Tzelepis 2016, Addgene 67989)",
+  "pipeline": "CERES (Sanger wet-lab)",
+  "discovery_platform": "Broad Avana Cas9 + Chronos (integrated DepMap 24Q4)",
+  "replication_type": "cross-platform (orthogonal library + wet-lab + algorithm)",
+  "NOT_replication_type": "cross-cohort / held-out cell lines (panel overlaps)",
+  "sanger_gene_effect_md5": "9a9e92d984766532a7b4152d440ec86a",
+  "cell_line_accounting": {
+    "sanger_total": 318,
+    "discovery_total": 1178,
+    "overlap": 315,
+    "held_out_sanger_only": 3,
+    "held_out_with_mutation_data": 0,
+    "held_out_testable": false,
+    "held_out_reason": "Figshare CERES version pre-filtered to lines with Broad CN data (per README); held-out lines lack mutation calls",
+    "shared_lines_testable": 311
+  },
+  "results": {
+    "n_axes_total": 58,
+    "n_tested": 51,
+    "n_sign_concordant": 47,
+    "n_replicated_fdr05": 41,
+    "not_tested": {
+      "insufficient_n": 3,
+      "na_cn": 4,
+      "partner_absent": 0
+    },
+    "effect_size_concordance": {
+      "spearman_rho": 0.7908,
+      "spearman_p": 5.086358150416077e-12,
+      "pearson_r": 0.8125,
+      "pearson_p": 4.524144367847445e-13,
+      "n": 51
+    }
+  },
+  "positive_controls": {
+    "PTEN->PIK3CB": {
+      "status": "tested",
+      "replicated": true
+    },
+    "BRAF->MAPK1": {
+      "status": "tested",
+      "replicated": true
+    },
+    "BRAF->MAP2K1": {
+      "status": "tested",
+      "replicated": true
+    },
+    "STAG2->STAG1": {
+      "status": "tested",
+      "replicated": true
+    },
+    "VHL->EPAS1": {
+      "status": "insufficient_n",
+      "replicated": false
+    }
+  },
+  "honesty_note": "Panels overlap (315/318 shared); this is cross-platform replication (different library, wet-lab, algorithm) on shared lines, NOT out-of-cohort replication. The prior Benchmark B (rho=0.973) reused the Chronos pipeline (integration-robustness); this cross-platform rho=0.791 is the honest orthogonal-technology number."
+}

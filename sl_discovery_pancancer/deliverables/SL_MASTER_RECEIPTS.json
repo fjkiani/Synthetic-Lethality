@@ -1,0 +1,231 @@
+{
+  "title": "Pan-cancer synthetic-lethality: literature-anchored discovery + 5-layer validation",
+  "generated_utc": "2026-07-20T08:40:02.978824+00:00",
+  "engine": {
+    "repo": "fjkiani/Synthetic-Lethality",
+    "branch": "feat/pancancer-sl-5layer-validation",
+    "commit": "90a56b769f714fedd9e64e7e5f05028a08ac49a6",
+    "components": [
+      "sl_agent.core.sl_engine.SLEngine (CRISPR differential dependency)",
+      "sl_discovery_pancancer/sl_battery.py (5-layer confound battery, this phase)",
+      "sl_discovery_pancancer/known_sl_panel.py (28 curated known pairs + 10 novel anchors)"
+    ]
+  },
+  "data_sources": {
+    "DepMap_release": "24Q4",
+    "figshare_article": "27993248",
+    "files": {
+      "CRISPRGeneEffect": {
+        "figshare_file_id": "51064667",
+        "shape": "1178x17916",
+        "type": "Chronos gene effect"
+      },
+      "OmicsExpressionProteinCodingGenesTPMLogp1": {
+        "figshare_file_id": "51065489",
+        "shape": "1673x19193",
+        "type": "log2(TPM+1)"
+      },
+      "Model": {
+        "figshare_file_id": "51065297",
+        "shape": "2105x46",
+        "type": "cell line metadata"
+      }
+    },
+    "GDSC2": {
+      "version": "GDSC2 (fitted dose-response)",
+      "n_rows": 242036,
+      "n_drugs": 286,
+      "key": "SANGER_MODEL_ID"
+    },
+    "mutations": {
+      "source": "DepMap OmicsSomaticMutations (24Q4), driver-gated",
+      "n_rows": 666518
+    }
+  },
+  "method": {
+    "gating": {
+      "LOF_effects": [
+        "frameshift",
+        "nonsense",
+        "ess_splice",
+        "start_lost",
+        "stop_lost"
+      ],
+      "ACT": "driver-annotated missense (cancer_driver=True; else any missense)",
+      "min_n_per_arm": 5,
+      "CN_proxy": "log2(TPM+1) bottom-decile=loss, top-decile=gain, CRISPR universe only"
+    },
+    "battery_layers": {
+      "L1_CRISPR_primary": "one-sided Mann-Whitney (mutant more dependent), Cohen's d, BH-FDR; gate p<0.05",
+      "L2_MSI_purge": "re-test excluding MSI-H/hypermutator lines; gate p<0.10",
+      "L3_TP53_strat": "re-test within TP53-mutant lines; persistence check",
+      "L4_leave_one_out": "drop each mutant line, worst-case p; gate max_p<0.10",
+      "L5_lineage_trap": "split by lineage; flag if confined (>=80% mutants one lineage)",
+      "guard_pan_essential": "fraction lines Chronos<-0.5; fail if >=50%"
+    },
+    "verdict": "survives_battery = L1 p<0.05 AND L2 p<0.10(if n>=5) AND L4 max_p<0.10 AND NOT pan-essential",
+    "pharmacology": "GDSC2 one-sided MWU on LN_IC50 by mutant status + falsification control (mechanistically-sparing agent must be null)"
+  },
+  "results_summary": {
+    "total_axes": 102,
+    "survive_full_battery": 58,
+    "known_confirmed": 29,
+    "novel_candidate": 24,
+    "dependency_modifier": 4,
+    "reclassified_total": 44,
+    "reclassified_broadly_essential": 36,
+    "reclassified_msi_confounded": 5,
+    "reclassified_outlier_driven": 1,
+    "not_supported": 2
+  },
+  "controls": {
+    "positive_PTEN_PIK3CB": "L1 p=5.6e-6 d=-0.84; survives all layers; GDSC2 beta-selective confirm + alpha-selective falsification passes",
+    "directional_RB1_palbociclib": "d=+0.58 FDR=9e-4 RESISTANCE direction (correct sign)",
+    "reclassified_demo_RB1_SKP2": "L1 FDR=3.6e-9 but 58% pan-essential -> correctly reclassified (would be false headline)"
+  },
+  "emergent_hypothesis": "Chromatin-remodeler LOF (ARID1A, KMT2D, EP300) -> WRN dependency, all survive MSI-purge -> candidate MSI-independent WRN-SL mechanism family.",
+  "deliverable_checksums": {
+    "sl_master_matrix.csv": {
+      "file": "sl_master_matrix.csv",
+      "bytes": 30384,
+      "sha256": "0dcda5e37c3f158e02d33eeab064f56a9ccafef799cf90437b26309d9653c886"
+    },
+    "sl_master_matrix.json": {
+      "file": "sl_master_matrix.json",
+      "bytes": 11385,
+      "sha256": "acd9aac7b4cdad9fd923fa7a7899154849ce49efd4a7f8deed60b93d2afbadb5"
+    },
+    "VALIDATION_REPORT.md": {
+      "file": "VALIDATION_REPORT.md",
+      "bytes": 13887,
+      "sha256": "3f4c785942bc6069dd11ebf4e8d2b4e1d05018b2e88e05abeedbfc3ddce2aaa6"
+    },
+    "fig_sl_master_landscape.png": {
+      "file": "fig_sl_master_landscape.png",
+      "bytes": 172110,
+      "sha256": "7dcbbbaecda3b4e19e5cbfa54cee10df428ad30e53727e00320e9fe66d8ffc99"
+    },
+    "fig_sl_master_landscape.svg": {
+      "file": "fig_sl_master_landscape.svg",
+      "bytes": 25082,
+      "sha256": "5b53252dccaaa81fa802a747c5a86744f42b37b611b231d5b4bb81f70ea4a71e"
+    },
+    "fig_sl_novel_volcano.png": {
+      "file": "fig_sl_novel_volcano.png",
+      "bytes": 170597,
+      "sha256": "911c6d007d6e50a1d98f9629597baeb21cffc3151053447d58637a80f1398395"
+    },
+    "fig_sl_novel_volcano.svg": {
+      "file": "fig_sl_novel_volcano.svg",
+      "bytes": 27016,
+      "sha256": "d6697ea3c60c54bf35c97b219e90d654002ac0b79b163e6edef63c6d2ea823bf"
+    },
+    "fig_sl_known_panel_forest.png": {
+      "file": "fig_sl_known_panel_forest.png",
+      "bytes": 260060,
+      "sha256": "87faf404b39daf3b7576326b83a43433a0990e923011008733cfd286f4763a60"
+    },
+    "fig_sl_known_panel_forest.svg": {
+      "file": "fig_sl_known_panel_forest.svg",
+      "bytes": 19237,
+      "sha256": "e7801161d4f3969b72d2fbf74ef9b95435f1930f1082c1ab47bc1a942fe72cb5"
+    },
+    "fig_sl_stress_panels.png": {
+      "file": "fig_sl_stress_panels.png",
+      "bytes": 374286,
+      "sha256": "aa8beb9870389154ae10b01dd0ba4a76cd9e0b77f223b78bb257e3674bdcbb7b"
+    },
+    "fig_sl_stress_panels.svg": {
+      "file": "fig_sl_stress_panels.svg",
+      "bytes": 86349,
+      "sha256": "398a5f45d30d0e91068269dcec665dbe418826bc6131b7aa31ccbc2f16a3b68d"
+    },
+    "fig_sl_chromatin_wrn.png": {
+      "file": "fig_sl_chromatin_wrn.png",
+      "bytes": 87469,
+      "sha256": "d3bbc7d1339bb3ddd756fef50d3557117f5b97a53b3160334050a5e406824f83"
+    },
+    "fig_sl_chromatin_wrn.svg": {
+      "file": "fig_sl_chromatin_wrn.svg",
+      "bytes": 10634,
+      "sha256": "d892e6964bff56149cb2965b211fa3a00f02b86b2775131d709f23ec13d8be66"
+    }
+  },
+  "script_checksums": {
+    "known_block_A.csv": {
+      "file": "known_block_A.csv",
+      "bytes": 5533,
+      "sha256": "8572b476c6825fa390a947ab704f6d11f1bf4613023e81b2d84cdd29ef1a702d"
+    },
+    "known_block_A.json": {
+      "file": "known_block_A.json",
+      "bytes": 11697,
+      "sha256": "bbf1a9ea15806d8221b0c4871d5125dd7a277d7be89098062bfed30b8cc871a1"
+    },
+    "known_block_B.csv": {
+      "file": "known_block_B.csv",
+      "bytes": 3339,
+      "sha256": "98f244177cce676f016cff817d15e0f30c21864cd034b5c71fb677189a15c67b"
+    },
+    "known_block_B.json": {
+      "file": "known_block_B.json",
+      "bytes": 7382,
+      "sha256": "486244525049f4078c2cdb9cb351601f97fd6367f80b857598b25a249d5860e3"
+    },
+    "known_block_C.csv": {
+      "file": "known_block_C.csv",
+      "bytes": 3328,
+      "sha256": "36b02dacfefc7cebd9079acac7b7567cb35222e0a9d3b3e90e16fb94017e2f5d"
+    },
+    "known_block_C.json": {
+      "file": "known_block_C.json",
+      "bytes": 6622,
+      "sha256": "63efbceaa0fd914f87557eb6dcb9475d5515b844bc99fb10060fcb3baba3fb7b"
+    },
+    "known_block_CN.csv": {
+      "file": "known_block_CN.csv",
+      "bytes": 1125,
+      "sha256": "5a8f42ddb9221b356c2e0bd12432d74a177dcf554b5686e7a75261d91d779cd1"
+    },
+    "novel_discovery.csv": {
+      "file": "novel_discovery.csv",
+      "bytes": 6221,
+      "sha256": "4560b7c2da62abc967877624b9fe2fcdd1262f52c538f62c8300405367361b95"
+    },
+    "novel_battery.csv": {
+      "file": "novel_battery.csv",
+      "bytes": 13794,
+      "sha256": "3ee54086de2de4fefcf6d3f08946236aecbeaa65bb98ed800e1ac33e7de760c0"
+    },
+    "novel_battery.json": {
+      "file": "novel_battery.json",
+      "bytes": 32741,
+      "sha256": "6b20a818f302f36c8b69f8913892deaf0bf7adc9b363651f4e2079fc15f079a7"
+    },
+    "mechfam_discovery.csv": {
+      "file": "mechfam_discovery.csv",
+      "bytes": 7228,
+      "sha256": "536414069ea214e0ef0aee6bd46f0cacee0d260dfc227631bc8eb6e4dd2a1137"
+    },
+    "mechfam_battery.csv": {
+      "file": "mechfam_battery.csv",
+      "bytes": 9721,
+      "sha256": "b75c167b64ae69bb6b10e3a47b6c558d210a8ae9fff82bf0c2f62fecfcfc8eae"
+    },
+    "pharmacology_v2.csv": {
+      "file": "pharmacology_v2.csv",
+      "bytes": 3115,
+      "sha256": "17de3fa9844b12b88fed6aa07a82975e86ffb08f241edd0b7a29cd63695299c8"
+    },
+    "pharmacology_v2.json": {
+      "file": "pharmacology_v2.json",
+      "bytes": 7151,
+      "sha256": "3c112b421bcdc59c9681dffcd2ef462b0f424f07c2eb9b237aa7284e60d79be1"
+    },
+    "capability_build_log.json": {
+      "file": "capability_build_log.json",
+      "bytes": 570,
+      "sha256": "58b1592ed2d1ba4ff96fc05ea235a52d6f1898844425eb18dfb088b4fe70c288"
+    }
+  }
+}

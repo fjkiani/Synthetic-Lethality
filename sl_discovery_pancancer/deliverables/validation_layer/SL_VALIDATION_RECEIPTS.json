@@ -1,0 +1,335 @@
+{
+  "deliverable": "Trust / Benchmark / Clinical-Validation Layer for Pan-Cancer SL Portfolio",
+  "generated_utc": "2026-07-20T11:56:13Z",
+  "phase": "external-validation + trust-scoring layer (adds to prior 5-layer confound-validated discovery)",
+  "honest_ceiling": "CRISPR-derived SL cannot be clinically validated here (requires prospective trial data). No axis labeled 'clinically proven'. Top rung = reproducible + clinically actionable node with trial precedent. Novel = discovery-only nominations.",
+  "engine": {
+    "repo": "fjkiani/Synthetic-Lethality",
+    "branch": "feat/pancancer-sl-5layer-validation",
+    "engine_commit_sha": "90a56b769f714fedd9e64e7e5f05028a08ac49a6",
+    "new_module": "sl_discovery_pancancer/sl_clinical_validation.py"
+  },
+  "data_sources": {
+    "discovery_crispr_integrated_chronos": "DepMap 24Q4 CRISPRGeneEffect (integrated Chronos), 1178 x 17916",
+    "independent_per_screen_crispr": "DepMap 24Q4 ScreenGeneEffect.csv (1416 screens -> 1186 models after ScreenID->ModelID collapse)",
+    "cell_line_overlap_note": "per-screen shares 1177/1186 lines with integrated discovery matrix (9 truly held out) -> Benchmark B = integration-robustness, NOT independent replication",
+    "mutations": "DepMap 24Q4 OmicsSomaticMutations subset (666518 rows)",
+    "model_metadata": "DepMap 24Q4 Model.csv (2105 x 46)",
+    "drug_repurposing_hub": "Broad Drug Repurposing Hub phase_moa_target (6798 drugs)",
+    "clinpgx_relationships": "clinpgx relationships.tsv (127601 rows; version CREATED_2026-01-05)",
+    "clinpgx_drug_labels": "clinpgx drugLabels.byGene.tsv (234 gene labels)"
+  },
+  "benchmarks": {
+    "rung_A_known_sl_recovery": {
+      "truth_set_pairs": 27,
+      "anchor_tiers": {
+        "approved": 4,
+        "pivotal_trial": 13,
+        "preclinical_validated": 10
+      },
+      "crispr_visible_recall": "10/22 = 0.455",
+      "recall_by_tier": {
+        "approved": "1/2",
+        "pivotal_trial": "6/11",
+        "preclinical_validated": "3/9"
+      },
+      "parp_modality_limited": "1/5 recovered; excluded from primary recall by design (CRISPR KO cannot model PARP trapping)",
+      "precision_note": "not meaningfully computable against truth set (most positives are novel pairs); recall + reclassification-correctness only",
+      "all_misses_mechanistically_explained": true
+    },
+    "rung_B_cross_screen_robustness": {
+      "framing": "INTEGRATION-ROBUSTNESS check, NOT independent-cohort replication (1177/1186 overlap)",
+      "n_survivors": 58,
+      "n_testable": 53,
+      "n_cn_not_testable": 4,
+      "n_partner_absent": 1,
+      "replication_rate_among_testable": "53/53 = 1.0",
+      "sign_concordance": 1.0,
+      "spearman_rho": 0.973,
+      "spearman_p": 4.844e-34,
+      "pearson_r": 0.99
+    },
+    "rung_C_actionability": {
+      "moa_consistent_selective_druggable_any_phase": "13/58",
+      "actionable_late_phase_ph3plus_approved": "9/58",
+      "druggable_or_trial_precedent": "17/58",
+      "clinpgx_annotated_partners": "23/58",
+      "fda_ema_label": "5/58",
+      "hub_promiscuity_caveat": "raw hub target annotations noisy; MOA-consistency filter (inhibitor/antagonist/degrader term + target-set <=8) applied; promiscuous-only nodes flagged not counted",
+      "literature_searched_axes": 12,
+      "literature_not_searched_axes": 46,
+      "not_searched_meaning": "unexamined, NOT 'no precedent'"
+    }
+  },
+  "trust_tiers": {
+    "T1_clinically_anchored": 12,
+    "T2_reproduced_druggable": 5,
+    "T3_reproduced_not_druggable": 40,
+    "T4_discovery_only": 1,
+    "drug_source_counts": {
+      "none": 33,
+      "repurposing_hub": 20,
+      "literature": 5
+    }
+  },
+  "emergent_hypothesis": {
+    "chromatin_loss_to_WRN": [
+      "ARID1A->WRN (FDR 6.6e-6)",
+      "KMT2D->WRN (2.7e-5)",
+      "EP300->WRN (5.3e-5)"
+    ],
+    "angle": "MSI-independent WRN dependency via chromatin-remodeler loss; survived MSI purge",
+    "external_corroboration_citations": "[4,5,7,10,11,12]",
+    "clinical_node": "WRN targeted by HRO761 (Ph1 NCT05838768) and VVD-214/RO7589831",
+    "status": "mechanistic-direction corroborated; NOT clinical proof of our specific axes; KMT2D/EP300 links less established than ARID1A"
+  },
+  "integrity_assertions": {
+    "prior_58_survivors_preserved": true,
+    "prior_44_reclassified_preserved": true,
+    "matrix_columns_before": 24,
+    "matrix_columns_after": 50,
+    "no_axis_deleted": true,
+    "no_fabricated_clinical_data": true,
+    "STAG2_STAG1_labeled_literature_known": true,
+    "PARP_BRCA_stays_modality_limited": true,
+    "PTEN_PIK3CB_stays_known_not_novel": true
+  },
+  "files": {
+    "CLINICAL_VALIDATION_REPORT.md": {
+      "sha256": "c76c9b4c9df25e3f6bbda5bb01f5ee1faef8d969485092a8d6551b0b0c8094b4",
+      "bytes": 14464
+    },
+    "sl_master_matrix.csv": {
+      "sha256": "fe0cb93a645b0a08dce33032bd3f7390682f73df34d36e42510a14e1fd8168d8",
+      "bytes": 67559
+    },
+    "sl_master_matrix.json": {
+      "sha256": "75899ffaebf33cdca2d2dc0ddcf3f0021ce0b31742cf4a9486a5b8f1962b8c75",
+      "bytes": 211461
+    },
+    "clinical_validation.csv": {
+      "sha256": "f6dd6ae87c5e2527c4d0e537b263d3bb80dd652242d69f2dcabe4ca463e216ad",
+      "bytes": 22989
+    },
+    "benchmark_known_sl_recovery.json": {
+      "sha256": "53067ac4cdec535505f8f4a926214da9a044e67f009c09c4223f91acafd5c573",
+      "bytes": 7347
+    },
+    "benchmark_cross_screen.csv": {
+      "sha256": "c8dff99c5d97d2c3b8a42c81cd2f7791871575280d5183620c633d480ea1f487",
+      "bytes": 10475
+    },
+    "benchmark_cross_screen_summary.json": {
+      "sha256": "b45a04e6287d45f92c70fc612a904cdbb3150fe56118f04f0f301215fdde0c9b",
+      "bytes": 1487
+    },
+    "clinical_actionability.csv": {
+      "sha256": "21adff337392247db31f462346e12530f60253ba052196615df3a148914b0a73",
+      "bytes": 6584
+    },
+    "fig_benchmark_scorecard.png": {
+      "sha256": "ec28cf8e8d0e022f89dda330897d5e08e6ba1062cf46c37b16db8e362eaad8f8",
+      "bytes": 168741
+    },
+    "fig_benchmark_scorecard.svg": {
+      "sha256": "8007b6af19eae31d042281e7dea35fe434b9195a64cffb177bb3b8a37540ca93",
+      "bytes": 17750
+    },
+    "fig_cross_screen_concordance.png": {
+      "sha256": "5b0ba445ac9c28285149aca9fea48f509e4c01b58cd823a09a9bb42d8b6a93d7",
+      "bytes": 215853
+    },
+    "fig_cross_screen_concordance.svg": {
+      "sha256": "f40fc3183ed9d1861bd0e6b1ea6a637029dced2a8436e79a86b74b4398da86c2",
+      "bytes": 27587
+    },
+    "fig_trust_tier_landscape.png": {
+      "sha256": "4f3a917a3649685630ce563dcf633d991c0667e3046c3114a35f7b64bba6141a",
+      "bytes": 241143
+    },
+    "fig_trust_tier_landscape.svg": {
+      "sha256": "2886e4076f4bcc9566059c9736b575b37efbc25bd540dd0a6cae927f1b367542",
+      "bytes": 30731
+    },
+    "fig_clinical_actionability_map.png": {
+      "sha256": "500fc1fcb0eb141f69aaabf31e0c0bdb95c34c7713671d94c57382e2ef3da7ca",
+      "bytes": 231581
+    },
+    "fig_clinical_actionability_map.svg": {
+      "sha256": "feeea3dd65409b068376932a62237a7685723208e80e0101484028acc3ec5e88",
+      "bytes": 29434
+    },
+    "CLINICAL_GRADE_REPORT.md": {
+      "sha256": "9c9439b798156bd43b91025c4971c80c6b068f33ad129836f56ac342d1d3b9ae",
+      "bytes": 16963
+    },
+    "clinical_evidence_ladder.csv": {
+      "sha256": "c578524a45bbb8ea522d275e8c3cabe75c95fae73ddce7870ee9e2826cea05d2",
+      "bytes": 15716
+    },
+    "benchmark_independent_sanger.csv": {
+      "sha256": "a013849d9ff5b18ed7c5bde0cec0551f9fa650bc7b36d4283931c833670db003",
+      "bytes": 10836
+    },
+    "benchmark_independent_sanger_summary.json": {
+      "sha256": "3d7e2653e255f669dd6d6e35c94c2f4a3a2dc44334df63765a50e1b736cd0407",
+      "bytes": 2134
+    },
+    "data_versions.json": {
+      "sha256": "2b63f3d6b2f85245ae5ee9a5db9a34386824b446186408eb193fa278dd6073a3",
+      "bytes": 1984
+    },
+    "fig_independent_replication.png": {
+      "sha256": "1d79ce58c023f9322ff33e0e29bc86059b23b6ebd30a41037d1aa6c53f183177",
+      "bytes": 282564
+    },
+    "fig_independent_replication.svg": {
+      "sha256": "2fc8785d41890086c6651192d19e28375f9d2fefb59da2b1320222e177be332f",
+      "bytes": 40737
+    },
+    "fig_evidence_ladder.png": {
+      "sha256": "736f87f5b81eab39538764c8aa9bb2fcbaafbaf3d821fb2ec6843506012ff752",
+      "bytes": 205840
+    },
+    "fig_evidence_ladder.svg": {
+      "sha256": "e6b7e6c43793169f4b3e3fe207ae43720ec98dc179ea93b920650405bad5fcde",
+      "bytes": 27042
+    },
+    "fig_replication_overlap.png": {
+      "sha256": "303f235c6e2015075a57c946dd90dd8075cb6965c8ec319e6d1b1ae3d0e861cd",
+      "bytes": 193753
+    },
+    "fig_replication_overlap.svg": {
+      "sha256": "4745c984671ad909e47ac402992477cc5a995edddfcd9896608d1f27164c08e9",
+      "bytes": 20591
+    }
+  },
+  "clinical_grade_upgrade_v2": {
+    "schema_version": "v2.0-clinical-grade",
+    "generated_utc": "2026-07-20T17:21:04.258854+00:00",
+    "purpose": "Close the four prior caveats with real work: cross-platform independent replication, exhaustive literature (58/58), formal evidence ladder (E1-E5), production hardening. Explicitly declines the 'clinically proven' label.",
+    "clinical_proof_declined": {
+      "statement": "No axis is labeled 'clinically proven', 'clinically validated', or 'validated in patients'. That bar requires prospective human outcome data for the specific driver->partner relationship, which does not exist for these novel axes and was not fabricated.",
+      "operationalization": "graded evidence ladder + genuine cross-platform independent replication"
+    },
+    "caveat_status": {
+      "caveat_1_orthogonal_not_proof": "reframed (kept honest label; formalized as evidence ladder, ceiling = precedent not efficacy)",
+      "caveat_2_benchmarkB_robustness": "PARTIALLY closed (upgraded to cross-platform replication rho=0.791; panels overlap 315/318 so NOT out-of-cohort)",
+      "caveat_3_46_unsearched": "CLOSED (58/58 literature-searched)",
+      "caveat_4_discovery_only": "CLOSED for grading (28/58 external precedent E1-E4; 30/58 remain E5 nominations, labeled as such)"
+    },
+    "independent_replication_sanger": {
+      "dataset": "Sanger Project Score CERES (Figshare 10.6084/m9.figshare.9116732)",
+      "publication": "Behan et al. Nature 2019, DOI 10.1038/s41586-019-1103-9",
+      "library": "KY1.0/1.1 (Tzelepis 2016)",
+      "pipeline": "CERES (Sanger wet-lab)",
+      "replication_type": "cross-platform (orthogonal library + wet-lab + algorithm)",
+      "NOT_replication_type": "cross-cohort / held-out (panels overlap 315/318)",
+      "cell_line_accounting": {
+        "sanger_total": 318,
+        "discovery_total": 1178,
+        "overlap": 315,
+        "held_out": 3,
+        "held_out_with_mutation_data": 0,
+        "held_out_replication_rate": "N/A",
+        "shared_testable": 311
+      },
+      "held_out_hunt": "FAILED (bounded best-effort): Score portal is JS SPA returning HTML shell; CMP S3 403 without auth keys. Figshare CERES only verifiable source.",
+      "results": {
+        "n_axes": 58,
+        "n_tested": 51,
+        "n_sign_concordant": 47,
+        "n_replicated_fdr05": 41,
+        "not_tested": {
+          "insufficient_n": 3,
+          "na_cn": 4,
+          "partner_absent": 0
+        },
+        "spearman_rho": 0.7908,
+        "spearman_p": 5.086e-12,
+        "pearson_r": 0.8125,
+        "pearson_p": 4.524e-13
+      },
+      "positive_controls_passed": [
+        "PTEN->PIK3CB",
+        "BRAF->MAPK1",
+        "BRAF->MAP2K1",
+        "STAG2->STAG1"
+      ],
+      "positive_control_underpowered": "VHL->EPAS1 insufficient_n (3 mut lines); direction concordant; not a failure",
+      "informative_nonreplications": [
+        "KRAS->STK33 sign-flip (recapitulates Babij 2011 non-reproduction of Scholl 2009)",
+        "TP53->KRTAP4-11 & ARID1A->KRTAP4-11 keratin partners flip sign (expected artifacts)",
+        "SMARCA4->SMARCA2 FDR=0.053 & ARID1A->EZH2 FDR=0.083 concordant-not-sig"
+      ],
+      "chromatin_to_WRN_all_replicate": {
+        "ARID1A->WRN": "FDR 7.3e-8",
+        "KMT2D->WRN": "FDR 1.7e-6",
+        "EP300->WRN": "FDR 3.6e-3",
+        "caveat": "WRN precedent MSI-driven, not driver-specific"
+      }
+    },
+    "evidence_ladder": {
+      "rubric": {
+        "E1": "approved-in-context",
+        "E2": "clinical-trial precedent",
+        "E3": "preclinical in vivo",
+        "E4": "preclinical in vitro / paralog-established",
+        "E5": "computational-only nomination"
+      },
+      "distribution": {
+        "E1": 4,
+        "E2": 8,
+        "E3": 6,
+        "E4": 10,
+        "E5": 30
+      },
+      "precedent_class": {
+        "none_found": 23,
+        "mechanistic_no_drug": 13,
+        "clinical_target_in_trials": 12,
+        "preclinical_in_vivo": 5,
+        "preclinical_in_vitro": 3,
+        "established_SL_drug_dev": 2
+      },
+      "conservative_rules": "E1/E2 require MOA-consistent drug + context match; promiscuous hub hits cannot raise grade",
+      "lit_searched_all_58": true
+    },
+    "trust_tier_v2_2D": {
+      "T1_anchored_and_replicated": 5,
+      "T2_anchored_precedent": 21,
+      "T3_replicated_no_precedent": 22,
+      "T3_precedent_only": 2,
+      "T4_discovery_only": 8
+    },
+    "production_hardening": {
+      "unit_tests": "tests/test_sl_clinical_validation.py",
+      "tests_passing": "25/25",
+      "entrypoint": "run_clinical_validation.py",
+      "entrypoint_reproduces_canonical": "verified rho=0.7908 r=0.8125 41-replicated from clean kernel",
+      "pinned_versions": "data_versions.json",
+      "schema_version": "v2.0-clinical-grade",
+      "new_v2_functions": [
+        "load_sanger_score",
+        "independent_replication",
+        "assign_evidence_grade",
+        "assign_trust_tier_v2"
+      ]
+    },
+    "engine_files": {
+      "run_clinical_validation.py": {
+        "sha256": "2528c7df7ac66016169f4bdb393e737a91c3bfc0fe82b470f4cf15c6e70d9313"
+      },
+      "sl_clinical_validation.py": {
+        "sha256": "a0f237f69fb6b6424f2c2f0c9fb7cf7d0676084d5eb7945ad7bbff903a27c0d5"
+      },
+      "tests/test_sl_clinical_validation.py": {
+        "sha256": "cb46bc273d562029c248988d890e6e8c00d9c58f1c472264304fd51b9fdcb839"
+      }
+    },
+    "data_versions_md5": {
+      "sanger_gene_effect.csv": "9a9e92d984766532a7b4152d440ec86a",
+      "sanger_copy_number.csv": "cd214c1a74fdc6bc30723ab7ea3654ef"
+    }
+  }
+}

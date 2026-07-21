@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="641.084503pt" height="389.480312pt" viewBox="0 0 641.084503 389.480312" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2022-01-01T05:00:00+00:00</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.5, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 389.480312 
+L 641.084503 389.480312 
+L 641.084503 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 34.015 365.02625 
+L 633.08361 365.02625 
+L 633.08361 34.87425 
+L 34.015 34.87425 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 61.245391 365.02625 
+L 133.325839 365.02625 
+L 133.325839 50.595774 
+L 61.245391 50.595774 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #0279ee; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 261.468857 365.02625 
+L 333.549305 365.02625 
+L 333.549305 99.263758 
+L 261.468857 99.263758 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #0279ee; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 461.692323 365.02625 
+L 533.772771 365.02625 
+L 533.772771 121.263067 
+L 461.692323 121.263067 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #0279ee; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 133.325839 365.02625 
+L 205.406287 365.02625 
+L 205.406287 141.902642 
+L 133.325839 141.902642 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #75a025; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 333.549305 365.02625 
+L 405.629752 365.02625 
+L 405.629752 225.047113 
+L 333.549305 225.047113 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #75a025; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 533.772771 365.02625 
+L 605.853218 365.02625 
+L 605.853218 211.117269 
+L 533.772771 211.117269 
+z
+" clip-path="url(#p5bdd2a8ab4)" style="fill: #75a025; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m2a88283128" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m2a88283128" x="133.325839" y="365.02625" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="133.325839" y="379.997812" transform="rotate(-0 133.325839 379.997812)">ARID1A→WRN</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m2a88283128" x="333.549305" y="365.02625" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="333.549305" y="379.997812" transform="rotate(-0 333.549305 379.997812)">KMT2D→WRN</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m2a88283128" x="533.772771" y="365.02625" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="533.772771" y="379.997812" transform="rotate(-0 533.772771 379.997812)">EP300→WRN</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="m3eeb7d2e52" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="365.02625" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="368.649687" transform="rotate(-0 27.015 368.649687)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="308.238363" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="311.861801" transform="rotate(-0 27.015 311.861801)">1</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="251.450476" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="255.073914" transform="rotate(-0 27.015 255.073914)">2</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="194.662589" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="198.286027" transform="rotate(-0 27.015 198.286027)">3</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="137.874702" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="141.49814" transform="rotate(-0 27.015 141.49814)">4</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m3eeb7d2e52" x="34.015" y="81.086816" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="27.015" y="84.710253" transform="rotate(-0 27.015 84.710253)">5</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 11px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="15.171563" y="199.95025" transform="rotate(-90 15.171563 199.95025)">-log10(p)</text>
+    </g>
+   </g>
+   <g id="line2d_10">
+    <path d="M 34.015 291.143506 
+L 633.08361 291.143506 
+" clip-path="url(#p5bdd2a8ab4)" style="fill: none; stroke-dasharray: 2.96,1.28; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.6; stroke-width: 0.8"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 34.015 365.02625 
+L 34.015 34.87425 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 34.015 365.02625 
+L 633.08361 365.02625 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: end" x="633.884503" y="282.625323" transform="rotate(-0 633.884503 282.625323)">p=0.05</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="97.285615" y="39.238196" transform="rotate(-0 97.285615 39.238196)">d=-1.72</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="297.509081" y="87.906181" transform="rotate(-0 297.509081 87.906181)">d=-1.48</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: middle" x="497.732547" y="109.905489" transform="rotate(-0 497.732547 109.905489)">d=-1.26</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(134.863055 15.89625)">Emergent hypothesis: chromatin-remodeler LOF → WRN dependency</text>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'" transform="translate(111.957117 28.87425)">survives MSI purge → candidate MSI-independent WRN-SL mechanism family</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_11">
+     <path d="M 449.578922 71.518 
+L 626.08361 71.518 
+Q 628.08361 71.518 628.08361 69.518 
+L 628.08361 41.87425 
+Q 628.08361 39.87425 626.08361 39.87425 
+L 449.578922 39.87425 
+Q 447.578922 39.87425 447.578922 41.87425 
+L 447.578922 69.518 
+Q 447.578922 71.518 449.578922 71.518 
+z
+" style="fill: #ffffff; opacity: 0.95; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="patch_12">
+     <path d="M 451.578922 51.121125 
+L 471.578922 51.121125 
+L 471.578922 44.121125 
+L 451.578922 44.121125 
+z
+" style="fill: #0279ee; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start" x="479.578922" y="51.121125" transform="rotate(-0 479.578922 51.121125)">L1 CRISPR primary</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 451.578922 65.443 
+L 471.578922 65.443 
+L 471.578922 58.443 
+L 451.578922 58.443 
+z
+" style="fill: #75a025; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 10px; font-family: 'Liberation Sans', 'Arimo', 'DejaVu Sans'; text-anchor: start" x="479.578922" y="65.443" transform="rotate(-0 479.578922 65.443)">L2 after MSI/hypermutator purge</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p5bdd2a8ab4">
+   <rect x="34.015" y="34.87425" width="599.06861" height="330.152"/>
+  </clipPath>
+ </defs>
+</svg>
