@@ -227,7 +227,21 @@ def _build_interpretation(row: EvidenceRow, rs_score: Optional[RSScore] = None) 
     """
     Generate an interpretation statement for one axis.
     Follows the exact doc templates from Section D of the spec.
+
+    Axes with a validation-grounded interpretation registered in _AXIS_META
+    (e.g. pi3k_mtor, backed by the PI3K/mTOR VALIDATION_SUMMARY receipt) return
+    that curated string directly — it reflects real multi-cohort evidence and
+    takes precedence over the generic CRISPR/pharma templates.
     """
+    # Local import to avoid a circular import at module load.
+    try:
+        from .matrix_builder import _AXIS_META
+        validated = _AXIS_META.get(row.axis, {}).get("interpretation")
+        if validated:
+            return validated
+    except Exception:
+        pass
+
     cells = row.cells()
     crispr_cell = cells["crispr"]
     crispr_neg = crispr_cell.status == ModalityStatus.NEGATIVE
