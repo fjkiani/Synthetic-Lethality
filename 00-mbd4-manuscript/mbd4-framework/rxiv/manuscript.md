@@ -50,8 +50,9 @@ abstract: |
   a base-excision-repair (BER) glycosylase defect. In DepMap 24Q2, MBD4-LOF cell lines (n=21; 15 TP53
   co-mutated, 6 MSI-H) show the gold-standard cytidine-analog SL interaction (isogenic rescue in the
   literature) and a replication-stress-driven ATR-checkpoint dependency (ceralasertib LN_IC50
-  Delta=-0.74, p=0.021, Cohen's d=-0.50, n=14 vs 914; robust to four confound stress tests), while a
-  transcriptional PARP1-upregulation model for PARP-inhibitor vulnerability is falsified (p=0.605) and
+  Delta=-0.73, one-sided p=0.022, Cohen's d=-0.50, n=14 LOF vs 922 WT; robust to four confound stress tests), while a
+  transcriptional PARP1-upregulation model for PARP-inhibitor vulnerability is falsified (no elevation;
+  one-sided Mann-Whitney p=0.27, two-sided p=0.53; n=19 LOF) and
   therefore retained here only as a cautionary vignette that motivates orthogonal validation. We then
   generalize to a pan-cancer portfolio of 58 driver->partner SL axes. Across an orthogonal-technology
   benchmark (Sanger Project Score CERES, KY1.0/1.1 library, versus Broad Avana+Chronos discovery), 51
@@ -151,21 +152,25 @@ sets the calibration bar against which downstream findings are judged.
 
 **Layer 2-3 (discovery + confounds) — a replication-stress ATR dependency.** Genotype-stratified GDSC2
 analysis shows MBD4-LOF lines are significantly more sensitive to the ATR inhibitor ceralasertib (AZD6738)
-than wild-type: LN_IC50 Delta=-0.74 (p=0.021, Cohen's d=-0.50; n=14 LOF vs 914 WT), concordant across AUC
-and Z-score metrics. The WEE1 inhibitor adavosertib shows the same direction sub-significantly
-(LN_IC50 Delta=-0.51, p=0.074). The ceralasertib signal survives four orthogonal confound stress tests:
-it *strengthens* after removing MSI-H lines (Delta=-0.91, p=0.015), remains large after isolating the
-MBD4 contribution within a *TP53*-mutant background (Delta=-1.07, p=0.003, d=-0.74), retains p<0.05 in
-14/14 leave-one-out iterations, and is preserved outside the dominant lineage (non-bowel Delta=-0.87,
-p=0.025). This is the Layer-3 pattern a real driver->partner axis should produce.
+than wild-type: LN_IC50 Delta=-0.73 (one-sided p=0.022, Cohen's d=-0.50; n=14 LOF vs 922 WT; two-sided
+p=0.044), directionally concordant across all three GDSC2 potency metrics (AUC Delta=-0.06, one-sided
+p=0.013, d=-0.55; Z-score Delta=-0.50, one-sided p=0.022, d=-0.50). The WEE1 inhibitor adavosertib shows
+the same direction sub-significantly (LN_IC50 Delta=-0.51, one-sided p=0.074). The ceralasertib signal survives four orthogonal confound stress tests:
+it *strengthens* after removing MSI-H lines (Delta=-0.91, one-sided p=0.015), remains large after
+isolating the MBD4 contribution within a *TP53*-mutant background (Delta=-1.07, one-sided p=0.003,
+d=-0.74), retains one-sided p<0.05 in 14/14 leave-one-out iterations, and is preserved outside the
+dominant lineage (non-bowel Delta=-0.87, one-sided p=0.025). All anchor drug-response tests are one-sided
+(directional SL hypothesis: LOF more sensitive). This is the Layer-3 pattern a real driver->partner axis should produce.
 
 **A falsification, retained as a cautionary vignette.** It has been proposed that BER deficiency drives
 compensatory PARP1 upregulation, creating a PARP-trapping vulnerability. In DepMap 24Q2 expression,
-MBD4-LOF lines show **no** PARP1 elevation (median 6.77 vs 6.66; Mann-Whitney p=0.605; n=19 LOF vs 1,498
-WT), and the proposed RNF144A degradation bridge is likewise absent (p=0.48). The specific
-transcriptional-upregulation mechanism is therefore falsified for MBD4. Separately, PARP1 expression is a
-strong pan-cancer predictor of PARP-inhibitor sensitivity (Spearman rho=-0.416, p=1.4x10^-21, n=481;
-GDSC2), so the marker is real but is *not* switched on by MBD4 status. We keep this vignette in the SL
+MBD4-LOF lines show **no** PARP1 elevation (n=19 LOF with expression, out of 21 MBD4-LikelyLoF models;
+median 6.77 vs 6.64 in non-LOF lines): the hypothesized *upregulation* direction is not supported
+(one-sided Mann-Whitney p=0.27; two-sided p=0.53), and the proposed RNF144A degradation bridge is
+likewise absent (one-sided p=0.28; two-sided p=0.56). The specific transcriptional-upregulation mechanism
+is therefore falsified for MBD4. Separately, PARP1 expression is a strong pan-cancer predictor of
+PARP-inhibitor sensitivity (Spearman rho=-0.42, p=5.2x10^-22, n=488; GDSC2), so the marker is real but is
+*not* switched on by MBD4 status. We keep this vignette in the SL
 manuscript precisely because it demonstrates Layer-3 discipline: an attractive, mechanistically plausible
 SL hypothesis that the data do not support is reported as falsified, not quietly dropped. PARP inhibition
 is not advanced as an MBD4 SL axis on this basis.
@@ -229,7 +234,14 @@ only nominations.
 A two-dimensional trust tier crossed clinical anchoring with replication: **5 axes are both clinically
 anchored and replicated** (T1: BRAF->MAPK1, BRAF->MAP2K1, PTEN->PIK3CB, STK11->HDAC4, BRCA1->PARP1),
 21 are anchored with precedent (T2), 22 are replicated without precedent (T3), 2 are precedent-only, and
-8 are discovery-only (T4). Actionability annotation (MOA-consistency-filtered against the Drug
+8 are discovery-only (T4). Four of the five T1 axes clear the Layer-1 CRISPR discovery gate directly
+(FDR from 1.1x10^-14 to 3.8x10^-5). The fifth, BRCA1->PARP1, does *not* clear that gate (Layer-1
+FDR=0.25; internally tiered "Nominal") because gene knockout cannot model PARP trapping — the same
+modality blind spot the MBD4 vignette illustrates — and it enters T1 only via its approved-drug clinical
+anchor plus cross-platform support; we flag it explicitly rather than let it read as a CRISPR-discovered
+hit. (This T1 set uses the primary two-dimensional trust scheme; an alternative one-dimensional
+clinical-anchor tiering that ignores replication status labels 12 axes and is reported in the
+supplementary receipts only.) Actionability annotation (MOA-consistency-filtered against the Drug
 Repurposing Hub and ClinPGx) found 13/58 axes with an MOA-consistent selective druggable agent at any
 phase, 9/58 at late phase (Phase 3+/approved), 17/58 with druggable or trial precedent, 23/58 with a
 ClinPGx-annotated partner, and 5/58 with an FDA/EMA label. Literature was formally searched for 12 axes;
@@ -245,8 +257,8 @@ evidence carries it, and makes the whole chain auditable against receipts.
 The MBD4 anchor shows why each layer is load-bearing. Layer 1 (cytidine-analog gold standard) calibrates
 the pipeline. Layers 2-3 promote the ATR dependency only after it strengthens through an MSI purge,
 survives *TP53* stratification, and passes leave-one-out and lineage controls — the exact confounds that
-sink naive SL screens. And the PARP1 falsification (p=0.605) demonstrates the framework reporting a
-negative result rather than a convenient one. At scale, the same layers separate 5 clinically anchored,
+sink naive SL screens. And the PARP1 falsification (no upregulation; one-sided p=0.27) demonstrates the
+framework reporting a negative result rather than a convenient one. At scale, the same layers separate 5 clinically anchored,
 replicated axes from 30 discovery-only nominations, so downstream users can prioritize accordingly.
 
 The most important result to read correctly is the L4 replication. We report **two** numbers because they
@@ -299,9 +311,12 @@ used DepMap 24Q2. Cross-platform replication used Sanger Project Score CERES (Be
 LikelyLoF annotation; missense/passenger variants were purged before stratification. Model metadata
 (lineage, MSI, subtype) came from DepMap Model.csv.
 
-**Differential dependency and pharmacology.** Genotype-stratified comparisons used two-sided
-Mann-Whitney/t statistics on gene effect (discovery/replication) or GDSC2 drug-response metrics
-(LN_IC50, AUC, Z-score) for the MBD4 anchor; effect sizes are reported as Cohen's d. Cross-platform
+**Differential dependency and pharmacology.** SL is a directional hypothesis (driver-altered lines are
+*more* dependent / *more* drug-sensitive than wild-type), so the discovery engine uses **one-sided**
+Mann-Whitney tests (`alternative="less"` on gene effect / drug-response) with Benjamini-Hochberg FDR
+control; the MBD4-anchor GDSC2 drug-response comparisons (LN_IC50, AUC, Z-score) are reported one-sided
+on the same directional basis (corresponding two-sided p-values are 2x the one-sided value and are noted
+in-text for the primary ceralasertib result). Effect sizes are reported as Cohen's d. Cross-platform
 concordance is reported as Spearman rho and Pearson r on paired effect sizes; replication at the axis
 level required sign concordance and FDR<0.05 (Benjamini-Hochberg).
 
@@ -316,7 +331,15 @@ counted.
 **Reproducibility.** The validation engine (`sl_clinical_validation.py`, `run_clinical_validation.py`)
 regenerates the pan-cancer benchmark statistics deterministically; frozen receipts (evidence ladder,
 benchmark summaries, receipts JSON) accompany this manuscript and back every in-text number
-(see Data and Code Availability and `SUPPLEMENTAL_DATA_PROVENANCE.md`).
+(see Data and Code Availability and `SUPPLEMENTAL_DATA_PROVENANCE.md`). The MBD4 PARP1/RNF144A
+falsification was re-derived directly from the repository mutations table
+(`OmicsSomaticMutations.parquet`; MBD4 LikelyLoF=True yields 21 models, 19 with expression) and the
+per-line expression receipt (`depmap_expression_axis_genes.csv`, 1,673 lines): LOF-group medians
+reproduce exactly (PARP1 6.77) and the PARP1-PARPi correlation reproduces (Spearman rho=-0.42, n=488).
+The p-values reported above use this repository slice (19 LOF vs 1,654 non-LOF comparator); the internal
+receipt value (p=0.605) was computed against the full DepMap `OmicsExpression.csv` (19 LOF vs 1,498
+non-LOF), which is not redistributed here. Both comparator pools give the same conclusion (no PARP1
+elevation in MBD4-LOF).
 
 ## Data and Code Availability
 
@@ -324,9 +347,12 @@ Public inputs: DepMap 24Q2/24Q4 (depmap.org); GDSC2 (cancerrxgene.org); Sanger P
 (Figshare 10.6084/m9.figshare.9116732); Broad Drug Repurposing Hub; ClinPGx. Discovery/validation code
 and frozen receipts are in the `fjkiani/Synthetic-Lethality` repository (validation engine on branch
 `feat/pancancer-sl-5layer-validation`, commit 90a56b7; MBD4 anchor artifacts under
-`00-mbd4-manuscript/mbd4_parp_response/`). Supplementary tables (evidence ladder, cross-platform and
-cross-screen benchmark summaries, actionability) and a claims->receipt map are provided with this
-manuscript under `sl_platform_manuscript/`.
+`00-mbd4-manuscript/mbd4_parp_response/`). The complete pan-cancer discovery and five-layer validation
+pipeline, including all frozen benchmark summaries and the master SL matrix that back every in-text
+number, is available at
+<https://github.com/fjkiani/Synthetic-Lethality/tree/main/sl_discovery_pancancer>.
+Supplementary tables (evidence ladder, cross-platform and cross-screen benchmark summaries, actionability)
+and a claims->receipt map are provided with this manuscript under `sl_platform_manuscript/`.
 
 ## Competing Interests
 
