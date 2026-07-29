@@ -12,6 +12,8 @@ header-includes: |
   \providecommand{\xmpquote}[1]{#1}
   \usepackage{float}
   \usepackage{placeins}
+  \usepackage{booktabs}
+  \usepackage{graphicx}
   \floatplacement{figure}{H}
   \makeatletter
   \AtBeginDocument{%
@@ -205,16 +207,28 @@ Analysis scripts and frozen receipts accompanying this preprint are in the Synth
 
 Data source: GDSC2 release 8.5 (Oct 2023). BH correction applied within each gene×stratum group (6 comparisons per gene). MSI enrichment: ATM-LOF lines 13/31 MSI-H (42%); MBD4-LOF lines 6/14 MSI-H (43%) by ModelSubtypeFeatures annotation. One-sided Mann-Whitney U test (LOF < WT). WT pool: no somatic mutation in the respective gene (Methods primary definition). WT-pool sensitivity: including MBD4 non-LOF mutants in the WT pool yields $n_{\mathrm{WT}}=922$, $p=0.022$, $d=-0.501$ (LN\_IC50), confirming the primary result is not an artifact of the WT definition.
 
-| Gene | Drug | Stratum | $n_{\mathrm{LOF}}$ | $n_{\mathrm{WT}}$ | $\Delta$ LN\_IC50 | $p$ (unadj) | $p_{\mathrm{adj}}$ (BH) | Cohen's $d$ | Direction |
-| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| ATM | Ceralasertib | All lines | 31 | 905 | $+0.121$ | 0.773 | 0.773 | $+0.121$ | Wrong |
-| ATM | Ceralasertib | MSS only | 18 | 792 | $+0.348$ | 0.225 | 0.450 | $+0.348$ | Wrong |
-| ATM | Gemcitabine | All lines | 31 | 905 | $+0.412$ | 0.033 | 0.099 | $+0.289$ | Wrong |
-| ATM | Gemcitabine | MSS only | 18 | 792 | $+0.287$ | 0.118 | 0.354 | $+0.201$ | Wrong |
-| MBD4 | Ceralasertib | All lines | 14 | 914 | $-0.732$ | 0.021 | 0.063 | $-0.503$ | Correct |
-| MBD4 | Ceralasertib | MSS only | 10 | 906 | $-0.910$ | 0.015 | 0.060 | $-0.623$ | Correct |
-| MBD4 | Gemcitabine | All lines | 14 | 914 | $-0.618$ | 0.038 | 0.076 | $-0.441$ | Correct |
-| MBD4 | Gemcitabine | MSS only | 10 | 906 | $-0.724$ | 0.029 | 0.072 | $-0.512$ | Correct |
+::: {=latex}
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lllrrrrrrl@{}}
+\toprule
+Gene & Drug & Stratum & $n_{\mathrm{LOF}}$ & $n_{\mathrm{WT}}$ & $\Delta$ LN\_IC50 & $p$ (unadj) & $p_{\mathrm{adj}}$ (BH) & Cohen's $d$ & Direction \\
+\midrule
+ATM & Ceralasertib & All lines & 31 & 905 & $+0.121$ & 0.773 & 0.773 & $+0.121$ & Wrong \\
+ATM & Ceralasertib & MSS only & 18 & 792 & $+0.348$ & 0.225 & 0.450 & $+0.348$ & Wrong \\
+ATM & Gemcitabine & All lines & 31 & 905 & $+0.412$ & 0.033 & 0.099 & $+0.289$ & Wrong \\
+ATM & Gemcitabine & MSS only & 18 & 792 & $+0.287$ & 0.118 & 0.354 & $+0.201$ & Wrong \\
+MBD4 & Ceralasertib & All lines & 14 & 914 & $-0.732$ & 0.021 & 0.063 & $-0.503$ & Correct \\
+MBD4 & Ceralasertib & MSS only & 10 & 906 & $-0.910$ & 0.015 & 0.060 & $-0.623$ & Correct \\
+MBD4 & Gemcitabine & All lines & 14 & 914 & $-0.618$ & 0.038 & 0.076 & $-0.441$ & Correct \\
+MBD4 & Gemcitabine & MSS only & 10 & 906 & $-0.724$ & 0.029 & 0.072 & $-0.512$ & Correct \\
+\bottomrule
+\end{tabular}%
+}
+\end{center}
+:::
 
 Note: ATM-LOF gemcitabine signal ($p_{\mathrm{adj}}=0.099$) is in the wrong direction (ATM-LOF lines less sensitive than WT), driven by lineage composition (ATM-LOF enriched in skin, lung, and bowel lines with inherent gemcitabine resistance). This illustrates that pan-cancer observational comparisons may be non-resolving for context-specific synthetic lethalities. All frozen values sourced from `canonical_atr_wee1_rerun.json` (2026-04-05).
 
