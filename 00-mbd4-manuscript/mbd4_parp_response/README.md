@@ -10,4 +10,6 @@ Study bundle for the preprint **“MBD4 deficiency defines cytidine analog and A
 | Project overview & structure | [`00_README.md`](00_README.md) |
 | Analysis receipts & outputs | [`artifacts/`](artifacts/) |
 
-**Canonical public repository (manuscript, scripts, frozen artifacts):** [github.com/crispro-ai/MBD4-LOF-Dual-Therapeutic-Vulnerability](https://github.com/crispro-ai/MBD4-LOF-Dual-Therapeutic-Vulnerability)
+**Canonical public repository (manuscript, scripts, frozen artifacts):** [github.com/fjkiani/Synthetic-Lethality — `00-mbd4-manuscript/mbd4_parp_response`](https://github.com/fjkiani/Synthetic-Lethality/tree/main/00-mbd4-manuscript/mbd4_parp_response)
+
+**Evo2 scoring documentation:** [github.com/fjkiani/evo2-e2e/docs](https://github.com/fjkiani/evo2-e2e/tree/main/docs)

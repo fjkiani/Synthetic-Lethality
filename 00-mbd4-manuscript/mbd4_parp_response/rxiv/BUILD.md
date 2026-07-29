@@ -84,6 +84,7 @@ pandoc manuscript.md \
   --citeproc
 ```
 
+- **Figure/References order:** LaTeX floats can interleave figures into the bibliography. This manuscript forces `\floatplacement{figure}{H}` + `\clearpage\FloatBarrier` before References so figures print as a block, then bibliography last.
 - Bibliography: `references.bib` is set in YAML (`bibliography: references.bib`); `citeproc` resolves `[@key]` citations.
 - Crossrefs: `pandoc-crossref` resolves `@fig:...` to numbered “Figure …” in text.
 - **Tectonic + `\xmpquote`:** Pandoc’s LaTeX template can emit `\xmpquote` inside `\hypersetup{pdfkeywords=...}`. Tectonic fails with “Undefined control sequence” unless defined. `manuscript.md` includes:
@@ -93,7 +94,7 @@ pandoc manuscript.md \
     \providecommand{\xmpquote}[1]{#1}
   ```
 
-- **Author block:** Structured `authors:` does not fill PDF `\author{...}`. Putting `\\` or `\newline` inside YAML `author:` fails because Pandoc escapes backslashes (`\\` → `\textbackslash{}`), so the title page uses `author: []` plus `\AtBeginDocument{\def\@author{...}}` in `header-includes` (raw LaTeX line breaks and `\and`). **Title:** avoid `\mbox{ATR}~...` in YAML `title:` — Pandoc turns `~` into `\textasciitilde` (visible tilde in PDF); use plain “ATR inhibitor” / “PARP1” text.
+- **Author block:** Structured `authors:` does not fill PDF `\author{...}`. Putting `\\` or `\newline` inside YAML `author:` fails because Pandoc escapes backslashes (`\\` → `\textbackslash{}`). Use a simple Pandoc `author:` list (e.g. `- "Fahad Kiani"`) plus `\AtBeginDocument{\author{...}}` in `header-includes` for thanks/affiliation line breaks — **not** `\def\@author{...}` (that renders no extractable title-page author). **Title:** avoid `\mbox{ATR}~...` in YAML `title:` — Pandoc turns `~` into `\textasciitilde` (visible tilde in PDF); use plain “ATR inhibitor” / “PARP1” text.
 
 ## Output
 
