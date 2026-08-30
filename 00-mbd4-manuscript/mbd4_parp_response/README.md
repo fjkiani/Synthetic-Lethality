@@ -1,6 +1,6 @@
 # MBD4-LOF: Dual Therapeutic Vulnerability
 
-Study bundle for the preprint **“MBD4 deficiency defines cytidine analog and ATR inhibitor vulnerability independent of PARP1 upregulation”** — manuscript source, figure scripts, and frozen analysis artifacts. **Research Use Only (RUO).**
+Study bundle for the preprint **“MBD4 deficiency defines cytidine analog and ATR inhibitor vulnerability independent of PARP1 upregulation”** — manuscript source, figure scripts, and frozen analysis artifacts.
 
 | Resource | Location |
 |----------|----------|

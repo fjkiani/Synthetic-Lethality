@@ -1,6 +1,6 @@
 # MBD4 Deficiency: Dual Therapeutic Vulnerability & Mechanistic Characterization
 
-**MBD4-LOF Manuscript Project** | bioRxiv-ready preprint package | *Research Use Only (RUO)*
+**MBD4-LOF Manuscript Project** | bioRxiv-ready preprint package
 
 **Public GitHub repository:** [github.com/crispro-ai/MBD4-LOF-Dual-Therapeutic-Vulnerability](https://github.com/crispro-ai/MBD4-LOF-Dual-Therapeutic-Vulnerability)
 

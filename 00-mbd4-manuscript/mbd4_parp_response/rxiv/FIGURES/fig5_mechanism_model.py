@@ -98,7 +98,6 @@ ax.text(6, 9.0, 'MBD4-LOF Dual Therapeutic Framework: Cytidine + ATRi',
         ha='center', fontsize=15, fontweight='bold', color='#2C3E50')
 
 # === Evidence badges ===
-ax.text(7.8, -0.7, 'RUO — Research Use Only', fontsize=8, color='#7F8C8D', fontstyle='italic')
 
 plt.tight_layout()
 plt.savefig('fig5_mechanism_model.png', dpi=300, bbox_inches='tight')

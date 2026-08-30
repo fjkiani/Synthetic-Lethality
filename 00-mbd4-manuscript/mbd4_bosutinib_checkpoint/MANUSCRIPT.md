@@ -42,7 +42,7 @@ abstract: |
   protective HSPC effects (PMID 39447291) of Bosutinib at clinical exposures. The viability of
   this off-label hypothesis is binary: it requires wet-lab confirmation of the ≥1.0 log-unit IC50
   shift in an isogenic MBD4-KO model, after which clinical deployment is mathematically justified
-  by the pharmacokinetic selectivity window. Research Use Only (RUO).
+  by the pharmacokinetic selectivity window. 
 ruo: true
 ---
 

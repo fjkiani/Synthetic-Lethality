@@ -65,7 +65,7 @@ abstract: |
   derived SL cannot be clinically validated in this study, panel overlap means the L4 replication is
   cross-platform rather than out-of-cohort, and no axis is labeled clinically proven. The framework is a
   reproducibility and interpretability contract for turning dependency signals into graded, auditable SL
-  hypotheses. Research Use Only.
+  hypotheses. 
 ---
 
 ## Introduction
@@ -357,7 +357,7 @@ and a claims->receipt map are provided with this manuscript under `sl_platform_m
 
 ## Competing Interests
 
-The authors are affiliated with CrisPRO.org and Rutgers University. This work is Research Use Only and is
+The authors are affiliated with CrisPRO.org and Rutgers University. This work is  and is
 not intended to guide diagnosis, prognosis, or treatment selection.
 
 ## Supplementary Materials
