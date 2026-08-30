@@ -211,7 +211,7 @@ MBD4 & Gemcitabine & MSS only & 10 & 906 & $-0.724$ & 0.029 & 0.072 & $-0.512$ &
 \end{center}
 :::
 
-Note: ATM-LOF gemcitabine signal ($p_{\mathrm{adj}}=0.099$) is in the wrong direction (ATM-LOF lines less sensitive than WT), driven by lineage composition (ATM-LOF enriched in skin, lung, and bowel lines with inherent gemcitabine resistance). This illustrates that pan-cancer observational comparisons may be non-resolving for context-specific synthetic lethalities. All frozen values sourced from `canonical_atr_wee1_rerun.json` (2026-04-05).
+Note: ATM-LOF gemcitabine signal ($p_{\mathrm{adj}}=0.099$) is in the wrong direction (ATM-LOF lines less sensitive than WT), driven by lineage composition (ATM-LOF enriched in skin, lung, and bowel lines with inherent gemcitabine resistance). This negative control is context-dependent and does not alter the independently reproduced MBD4–ceralasertib result. All frozen values sourced from `canonical_atr_wee1_rerun.json` (2026-04-05).
 
 \clearpage
 \FloatBarrier
