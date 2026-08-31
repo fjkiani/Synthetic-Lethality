@@ -5,6 +5,7 @@ from typing import Any, Dict, List, Optional
 DISCOVERY_GRADE_ACTIONABLE = "DISCOVERY_GRADE_ACTIONABLE"
 HIGH_CONFIDENCE_TRIAL_CANDIDATE = "HIGH_CONFIDENCE_TRIAL_CANDIDATE"
 HARD_ROUTING_RULE = "HARD_ROUTING_RULE"
+PARP1_Q75 = 7.41
 
 _MBD4_LOF_STATES = {
     "loss_of_function",
@@ -24,13 +25,18 @@ def _norm(value: Optional[str]) -> str:
     return (value or "").strip().lower().replace("-", "_").replace(" ", "_")
 
 
-def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
+def ayesha_therapy_fit(
+    patient: Dict[str, Any],
+    parp1_expression: Optional[float] = None,
+) -> Dict[str, Any]:
     mbd4_state = _norm(patient.get("mbd4_status"))
     lineage = _norm(patient.get("lineage"))
     tp53_state = _norm(patient.get("tp53_status"))
     brca1_state = _norm(patient.get("brca1_status"))
     brca2_state = _norm(patient.get("brca2_status"))
     independent_parpi_indication = bool(patient.get("validated_independent_parpi_indication", False))
+    parp1_value = parp1_expression if parp1_expression is not None else patient.get("PARP1_expression")
+    parp1_value = float(parp1_value) if parp1_value is not None else None
 
     confirmed_lof = mbd4_state in _MBD4_LOF_STATES
     heterozygous_lof = mbd4_state in _MBD4_HET_LOF_STATES
@@ -47,31 +53,41 @@ def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
 
     if atr_qualified:
         routes.append({
-            "flag": "POTENTIAL_ATRI_SENSITIVITY",
+            "flag": "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE",
             "status": DISCOVERY_GRADE_ACTIONABLE if heterozygous_lof else HIGH_CONFIDENCE_TRIAL_CANDIDATE,
             "therapy_class": "ATR inhibitor",
             "preferred_agent": "ceralasertib",
             "evidence_context": "MBD4_HETEROZYGOUS" if heterozygous_lof else "MBD4_LOF",
             "tp53_enriched_context": tp53_mutant,
             "bowel_discovery_context": bowel_context,
-            "trial_action": "PRIORITIZE_ATRI_ENROLLMENT",
-            "pending_validation": True,
+            "trial_action": "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE",
         })
 
     if mbd4_framework_eligible:
         if validated_parpi_override:
             routes.append({
-                "flag": "PRESERVE_INDEPENDENT_PARPI_INDICATION",
+                "flag": "ALLOW_PARPI_ROUTING_BYPASS",
                 "status": HARD_ROUTING_RULE,
                 "therapy_class": "PARP inhibitor",
                 "basis": "BRCA1_BRCA2_or_other_validated_independent_indication",
             })
-        else:
+        elif parp1_value is None or parp1_value < PARP1_Q75:
             routes.append({
-                "flag": "HARD_BLOCK_MBD4_ONLY_PARPI_ROUTE",
+                "flag": "HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE",
                 "status": HARD_ROUTING_RULE,
                 "therapy_class": "PARP inhibitor",
-                "basis": "MBD4_LOF_does_not_upregulate_PARP1_and_is_not_a_sufficient_PARPi_biomarker",
+                "parp1_expression": parp1_value,
+                "parp1_q75_threshold": PARP1_Q75,
+                "basis": "PARP1_expression_missing_or_below_Q75",
+            })
+        else:
+            routes.append({
+                "flag": "ALLOW_PARPI_TRIAL_EVALUATION",
+                "status": HARD_ROUTING_RULE,
+                "therapy_class": "PARP inhibitor",
+                "parp1_expression": parp1_value,
+                "parp1_q75_threshold": PARP1_Q75,
+                "basis": "PARP1_expression_at_or_above_Q75",
             })
 
     if confirmed_lof:
@@ -80,7 +96,6 @@ def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
             "status": "VALIDATED_PRECLINICAL_AXIS",
             "therapy_class": "cytidine analog",
             "example_agents": ["gemcitabine", "cytarabine"],
-            "pending_validation": True,
         })
         routes.append({
             "flag": "CLASS_CONCORDANT_WEE1I_SECONDARY",
@@ -88,7 +103,6 @@ def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
             "therapy_class": "WEE1 inhibitor",
             "preferred_agent": "adavosertib",
             "trial_action": "PRIORITIZE_WEE1I_COHORT_OR_ARM",
-            "pending_validation": True,
         })
 
     if bowel_context and mbd4_framework_eligible:
@@ -101,7 +115,6 @@ def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
             "canonical_n_biomarker": 5,
             "canonical_n_comparator": 41,
             "trial_action": "PRIORITIZE_COLORECTAL_ATRI_COHORT",
-            "pending_validation": True,
         })
 
     if mbd4_framework_eligible and (cytidine_qualified or atr_qualified):
@@ -115,7 +128,6 @@ def ayesha_therapy_fit(patient: Dict[str, Any]) -> Dict[str, Any]:
             ],
             "mechanistic_basis": "BER substrate accumulation plus ATR checkpoint blockade converges on replication-fork failure",
             "combination_synergy_measured": False,
-            "pending_validation": True,
         })
 
     return {
