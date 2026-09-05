@@ -79,7 +79,7 @@ Adavosertib extends the same vulnerability across the ATR/CHK1/WEE1 cascade. MBD
 
 #### TP53 co-mutation creates the apex ATR-hypersensitive state
 
-Within a strictly TP53-mutant background, MBD4-LOF produces its largest ceralasertib effect: Δ LN_IC50=−1.069, p=0.0030, and d=−0.740 (n=11 versus 619), equivalent to a 2.91-fold reduction in geometric-mean IC50. Because TP53 mutation defines approximately 96% of HGSOC, MBD4-LOF/TP53-mutant disease is the primary ovarian enrollment state. CrisPRO executes `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE`.
+Within a strictly TP53-mutant background, MBD4-LOF produces its largest ceralasertib effect: Δ LN_IC50=−1.069, p=0.0030, and d=−0.740 (n=11 versus 619), equivalent to a 2.91-fold reduction in geometric-mean IC50. Because TP53 mutation defines approximately 96% of HGSOC, MBD4-LOF/TP53-mutant disease is the primary ovarian enrollment state. CrisPRO assigns `HIGH_CONFIDENCE_TRIAL_ENROLLMENT`.
 
 #### Colorectal carcinoma is an immediate ceralasertib expansion cohort
 
@@ -87,16 +87,16 @@ The canonical bowel comparison locks n=5 MBD4-LOF versus n=41 WT. Ceralasertib p
 
 ### Heterozygous LikelyLoF is the operational genomic gate
 
-Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls; one is homozygous-alt. The measured checkpoint vulnerability therefore arises from a target population dominated by single-allele calls. CrisPRO treats heterozygous LikelyLoF as operationally sufficient for trial routing and rejects confirmed LOH or homozygous deletion as an eligibility requirement. Nonsense, splice-site, and frameshift mutations passing the LikelyLoF gate execute `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE`.
+Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls; one is homozygous-alt. The measured checkpoint vulnerability therefore arises from a target population dominated by single-allele calls. CrisPRO treats heterozygous LikelyLoF as operationally sufficient for trial routing and rejects confirmed LOH or homozygous deletion as an eligibility requirement. Nonsense, splice-site, and frameshift mutations passing the LikelyLoF gate enter the pan-cancer `HIGH_CONFIDENCE_TRIAL_CANDIDATE` cohort.
 
 ### Clinical routing matrix
 
 | Biomarker state | Locked evidence | CrisPRO action |
 |---|---|---|
 | MBD4 LikelyLoF | Isogenic knockout/rescue and PDX cytidine-analog axis | `CYTIDINE_ANALOG_SYNTHETIC_LETHALITY` |
-| MBD4-LOF, all lineages | Ceralasertib n=14 vs 914; Δ=−0.732; p=0.0215; d=−0.503 | `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE` |
-| MBD4-LOF, MSS | Ceralasertib n=10 vs 906; Δ=−0.910; p=0.0153; d=−0.623 | `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE` |
-| MBD4-LOF/TP53-mutant | Ceralasertib n=11 vs 619; Δ=−1.069; p=0.0030; d=−0.740 | `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE` |
+| MBD4-LOF, all lineages | Ceralasertib n=14 vs 914; Δ=−0.732; p=0.0215; d=−0.503 | `HIGH_CONFIDENCE_TRIAL_CANDIDATE` |
+| MBD4-LOF, MSS | Ceralasertib n=10 vs 906; Δ=−0.910; p=0.0153; d=−0.623 | `PRIORITIZE_ATRI_ENROLLMENT` |
+| MBD4-LOF/TP53-mutant | Ceralasertib n=11 vs 619; Δ=−1.069; p=0.0030; d=−0.740 | `HIGH_CONFIDENCE_TRIAL_ENROLLMENT` |
 | MBD4-LOF colorectal/bowel | Ceralasertib n=5 vs 41; Δ=−0.692; p=0.126; d=−0.464 | `COLORECTAL_TRIAL_TARGET` |
 | MBD4-LOF | Adavosertib n=15 vs 929; Δ=−0.512; p=0.0733; d=−0.361 | `CLASS_CONCORDANT_WEE1I_SECONDARY` |
 | MBD4 LikelyLoF; PARP1 missing or <7.41 Q75; no override | No PARP1 induction; no MBD4-specific PARPi separation | `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE` |
