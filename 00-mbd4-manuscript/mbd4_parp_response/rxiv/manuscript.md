@@ -80,23 +80,23 @@ MBD4 True-LOF lines did not upregulate PARP1 relative to the non-LOF expression 
 
 The lack of PARP1 transcriptional upregulation mathematically justifies a hard block on MBD4-driven PARP inhibitor routing, preventing biomarker misallocation. This rule blocks MBD4 as the sufficient PARPi biomarker; pathogenic BRCA1/2 or another independently validated PARPi indication bypasses the block.
 
-### Ceralasertib defines the high-confidence pan-cancer checkpoint route
+### Replication Stress Checkpoint Axis: ATR and WEE1 inhibition
 
 The MBD4-LikelyLoF population spans eight lineages: Bowel, Lymphoid, Ovary, Uterus, Esophagus, CNS, Prostate, and Lung. This distribution establishes the primary development architecture as a pan-cancer MBD4 basket with lineage-specific expansion cohorts.
 
 The canonical GDSC2 receipt locks the primary comparison at n=14 MBD4 True-LOF versus n=914 MBD4-WT lines. Ceralasertib sensitivity shifted by Δ LN_IC50=−0.732 (one-sided Mann–Whitney p=0.0215; Cohen’s d=−0.503), corresponding to approximately 2.08-fold lower geometric-mean IC50. AUC and Z-score analyses were concordant.
 
+Adavosertib supplied a class-concordant WEE1 checkpoint signal: Δ LN_IC50=−0.512, d=−0.361, one-sided p=0.0733, and n=15 versus n=929, corresponding to 1.67-fold lower geometric-mean IC50. CrisPRO emits `CLASS_CONCORDANT_WEE1I_SECONDARY` and assigns adavosertib as the checkpoint-class expansion arm for MBD4-LOF tumors.
+
 After MSI-H removal, the comparison was n=10 versus n=906 with Δ LN_IC50=−0.910, p=0.0153, and d=−0.623. All 14 leave-one-out iterations remained below p=0.05.
 
-### MBD4-LOF in TP53-mutant backgrounds creates hypersensitivity to ATR inhibition
+#### MBD4-LOF in TP53-mutant backgrounds creates hypersensitivity to ATR inhibition
 
 Within TP53-mutant lines, MBD4-LOF produced Δ LN_IC50=−1.069, p=0.0030, and d=−0.740 (n=11 versus n=619), equivalent to approximately 2.91-fold lower geometric-mean IC50. CrisPRO assigns this genotype to `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE`. Because TP53 mutation defines approximately 96% of HGSOC, MBD4-LOF/TP53-mutant disease is the primary ovarian trial-enrichment architecture and the strongest measured genomic context for ceralasertib response.
 
-### Colorectal carcinoma and WEE1 inhibition define immediate expansion cohorts
+#### Colorectal carcinoma defines an immediate ceralasertib expansion cohort
 
 The canonical bowel denominator is locked at n=5 MBD4-LOF versus n=41 WT lines. The bowel-specific ceralasertib effect was Δ LN_IC50=−0.692, d=−0.464, and one-sided p=0.126, corresponding to a 2.00-fold lower geometric-mean IC50. CrisPRO designates MBD4-LOF colorectal carcinoma as an immediate ceralasertib expansion cohort and emits `COLORECTAL_TRIAL_TARGET`; the two-fold effect magnitude drives cohort nomination.
-
-Adavosertib supplied a class-concordant WEE1 checkpoint signal: Δ LN_IC50=−0.512, d=−0.361, one-sided p=0.0733, and n=15 versus n=929, corresponding to 1.67-fold lower geometric-mean IC50. CrisPRO emits `CLASS_CONCORDANT_WEE1I_SECONDARY` and assigns adavosertib as the checkpoint-class expansion arm for MBD4-LOF tumors.
 
 ### LikelyLoF truncation is the operational biomarker gate
 

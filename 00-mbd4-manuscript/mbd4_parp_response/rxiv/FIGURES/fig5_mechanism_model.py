@@ -100,6 +100,7 @@ ax.text(6, 9.0, 'MBD4-LOF Dual Therapeutic Framework: Cytidine + ATRi',
 # === Evidence badges ===
 
 plt.tight_layout()
+fig.text(0.5, 0.985, 'PAN-CANCER MBD4 REPLICATION-STRESS ROUTING', ha='center', va='top', fontsize=9, fontweight='bold', color='#1B2631')
 plt.savefig('fig5_mechanism_model.png', dpi=300, bbox_inches='tight')
 plt.savefig('fig5_mechanism_model.pdf', bbox_inches='tight')
 print("Figure 5 saved — Cytidine/ATRi dual strategy, PARP1 demoted to biomarker.")
