@@ -125,15 +125,21 @@ The combination joins substrate loading to checkpoint removal. Gemcitabine or cy
 
 ## Discussion
 
-The routing consequence is direct. MBD4 is not a standalone PARP inhibitor biomarker. It does not induce PARP1, and it does not separate PARPi response. PARP1 expression—not MBD4 status—controls entry to the PARPi trial branch. The Q75 firewall blocks the route below 7.41 log1p TPM and preserves independent BRCA1/2 or validated indications.
+The clinical and translational routing consequences are direct. MBD4 is not a standalone PARP inhibitor biomarker. It does not induce PARP1 transcription, and MBD4 status produces no pharmacologically meaningful PARPi response separation. Generalized BER-to-HRD mimicry therefore cannot support MBD4-only PARP inhibitor assignment.
 
-MBD4 instead exposes a pan-cancer checkpoint dependency. Ceralasertib produces a 2.08-fold IC50 reduction in the canonical cohort, strengthens after MSI-H removal, survives every leave-one-out iteration, and reaches a 2.91-fold reduction in TP53-mutant disease. That TP53-defined state is the apex measured vulnerability and the primary HGSOC enrollment route. The eight-lineage footprint expands development beyond ovarian cancer into a pan-cancer basket.
+CrisPRO places PARP1 expression—not MBD4 status—at the entry gate for the MBD4-associated PARPi trial branch. Missing or sub-Q75 PARP1 expression (<7.41 log1p TPM) executes `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE`. PARP1 expression at or above Q75 executes `ALLOW_PARPI_TRIAL_EVALUATION`. Pathogenic BRCA1/2 or another validated independent indication executes `ALLOW_PARPI_ROUTING_BYPASS`, preserving established PARPi pathways while blocking unsupported MBD4-only routing.
 
-The bowel effect establishes colorectal carcinoma as a dedicated expansion cohort. The WEE1 result extends the same biology across the ATR/CHK1/WEE1 cascade and defines adavosertib as the checkpoint-class secondary arm. Heterozygous LikelyLoF calls dominate the genomic population, so the engine routes single-allele truncating states without an LOH prerequisite.
+MBD4 loss instead exposes a pan-cancer checkpoint vulnerability. Ceralasertib reduces geometric-mean IC50 approximately 2.08-fold in the canonical cohort (Δ LN_IC50=−0.732; p=0.0215; d=−0.503; n=14 versus 914). The signal sharpens after MSI-H exclusion (Δ LN_IC50=−0.910; p=0.0153; d=−0.623; n=10 versus 906), remains below p=0.05 in every leave-one-out iteration, and reaches a 2.91-fold reduction in TP53-mutant disease (Δ LN_IC50=−1.069; p=0.0030; d=−0.740; n=11 versus 619). TP53-mutant/MBD4-LOF is the apex measured response state and executes `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE`. Its direct relevance to the approximately 96% TP53-mutant HGSOC landscape defines the primary ovarian enrollment route.
 
-The development program is dual-axis. Cytidine analogs load the stalled-fork substrate; ATR/WEE1 inhibitors remove checkpoint protection. The machine-readable matrix converts that convergence into `SYNERGISTIC_COMBINATION_CANDIDATE`, linking biomarker detection directly to a controlled combination trial with constituent monotherapy comparators.
+The eight-lineage MBD4-LikelyLoF footprint—Bowel, Lymphoid, Ovary, Uterus, Esophagus, CNS, Prostate, and Lung—requires a pan-cancer basket architecture. Colorectal carcinoma is the first lineage expansion. Its canonical ceralasertib effect is a 2.00-fold reduction in geometric-mean IC50 (Δ LN_IC50=−0.692; p=0.126; d=−0.464; n=5 versus 41), matching the direction and scale of the pan-cancer effect. CrisPRO executes `COLORECTAL_TRIAL_TARGET`.
 
-CrisPRO now encodes one coherent rule set: block unsupported MBD4-only PARPi assignment, preserve independent PARPi indications, route MBD4-LikelyLoF disease to ATR-directed trials, elevate TP53-mutant and colorectal cohorts, retain WEE1 class concordance, and test coordinated fork collapse.
+Adavosertib extends the same vulnerability across the ATR/CHK1/WEE1 checkpoint cascade. MBD4-LOF produces a 1.67-fold reduction in geometric-mean IC50 (Δ LN_IC50=−0.512; p=0.0733; d=−0.361; n=15 versus 929). CrisPRO executes `CLASS_CONCORDANT_WEE1I_SECONDARY`, establishing adavosertib as the checkpoint-class expansion arm.
+
+Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls. The measured pharmacologic population is therefore dominated by single-allele states. CrisPRO treats heterozygous nonsense, splice-site, and frameshift LikelyLoF mutations as operationally sufficient for routing and rejects confirmed LOH or homozygous deletion as an eligibility requirement. This expands the trial population to heterozygous carriers without delaying enrollment for an LOH assay.
+
+The development program is dual-axis. Gemcitabine or cytarabine loads unresolved BER substrate and stalls replication forks. Ceralasertib or adavosertib removes ATR/WEE1 checkpoint protection. CrisPRO converts that convergence into `SYNERGISTIC_COMBINATION_CANDIDATE`, linking MBD4 detection to a controlled combination trial with constituent monotherapy comparators.
+
+The rule set is unified: block unsupported MBD4-only PARPi routing, preserve validated PARPi pathways, route MBD4-LikelyLoF disease to ATR-directed trials, elevate TP53-mutant and colorectal cohorts, retain WEE1 class concordance, and test coordinated replication-fork collapse.
 
 ## Methods
 
