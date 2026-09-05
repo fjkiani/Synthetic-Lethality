@@ -87,7 +87,7 @@ The canonical bowel comparison locks n=5 MBD4-LOF versus n=41 WT. Ceralasertib p
 
 ### Heterozygous LikelyLoF is the operational genomic gate
 
-Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls; one is homozygous-alt. The measured checkpoint vulnerability therefore arises from a target population dominated by single-allele calls. CrisPRO treats heterozygous LikelyLoF as operationally sufficient for trial routing and rejects confirmed LOH or homozygous deletion as an eligibility requirement. Nonsense, splice-site, and frameshift mutations passing the LikelyLoF gate enter the pan-cancer `HIGH_CONFIDENCE_TRIAL_CANDIDATE` cohort.
+Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls; one is homozygous-alt. This genotype composition supports inclusion of single-allele LikelyLoF states in prospective ATR-inhibitor trials without making confirmed LOH or homozygous deletion an enrollment prerequisite. The drug-matched cohort does not resolve allele-specific function, so this operational gate does not prove haploinsufficiency; that mechanism requires matched LOH/copy-number analysis or allele-specific rescue. Nonsense, splice-site, and frameshift mutations passing the LikelyLoF gate enter the pan-cancer `HIGH_CONFIDENCE_TRIAL_CANDIDATE` cohort.
 
 ### Clinical routing matrix
 
