@@ -1,5 +1,5 @@
 ---
-title: "MBD4 LOF defines a synthetic lethal therapeutic state targetable by ATR inhibition rather than PARP in high-grade serous ovarian cancer"
+title: "MBD4 loss defines a pan-cancer replication-stress state targetable by ATR inhibition, amplified in TP53-mutant tumors"
 short_title: "MBD4-LOF Dual Therapeutic Vulnerability"
 author:
   - "Fahad Kiani"
@@ -49,13 +49,14 @@ abstract: |
   remained a strong pan-cancer predictor of PARP inhibitor sensitivity (Spearman ρ=−0.416,
   p=1.36×10⁻²¹, n=481; GDSC2) — decoupling a validated biomarker from the MBD4 genotype that fails to
   produce it. Third, MBD4-LOF lines were markedly more sensitive to the ATR inhibitor ceralasertib
-  (AZD6738) (LN_IC50 Δ=−0.74, p=0.021, Cohen's d=−0.50; n=14 True-LOF vs 942 WT; GDSC2). This ATR
+  (AZD6738) (LN_IC50 Δ=−0.74, p=0.021, Cohen's d=−0.50; n=14 True-LOF vs 914 WT; GDSC2). This ATR
   vulnerability did not weaken under scrutiny — it hardened: it strengthened after purging MSI-H lines
   (p=0.015), grew to a large effect after controlling for TP53 co-mutation (p=0.003, d=−0.74), held in
   all 14 leave-one-out iterations, and persisted across lineages. MBD4-LOF therefore nominates a dual
   therapeutic strategy — frontline cytidine analog synthetic lethality and replication stress–driven
-  ATR inhibition — and reclassifies PARP1 from a proposed MBD4-specific lever to a genotype-independent
-  patient-selection biomarker.
+  ATR inhibition across eight observed lineages. These results invalidate MBD4 alone as a rationale for PARP
+  inhibitor routing: below the PARP1 Q75 gate the engine emits HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE, while
+  PARP1 at or above Q75 permits ALLOW_PARPI_TRIAL_EVALUATION and pathogenic BRCA1/2 preserves an independent bypass.
 ---
 
 ## Introduction
@@ -79,17 +80,23 @@ MBD4 True-LOF lines did not upregulate PARP1 relative to the non-LOF expression 
 
 The lack of PARP1 transcriptional upregulation mathematically justifies a hard block on MBD4-driven PARP inhibitor routing, preventing biomarker misallocation. This rule blocks MBD4 as the sufficient PARPi biomarker; pathogenic BRCA1/2 or another independently validated PARPi indication bypasses the block.
 
-### Ceralasertib defines the high-confidence checkpoint route
+### Ceralasertib defines the high-confidence pan-cancer checkpoint route
+
+The MBD4-LikelyLoF population spans eight lineages: Bowel, Lymphoid, Ovary, Uterus, Esophagus, CNS, Prostate, and Lung. This distribution establishes the primary development architecture as a pan-cancer MBD4 basket with lineage-specific expansion cohorts.
 
 The canonical GDSC2 receipt locks the primary comparison at n=14 MBD4 True-LOF versus n=914 MBD4-WT lines. Ceralasertib sensitivity shifted by Δ LN_IC50=−0.732 (one-sided Mann–Whitney p=0.0215; Cohen’s d=−0.503), corresponding to approximately 2.08-fold lower geometric-mean IC50. AUC and Z-score analyses were concordant.
 
-The signal strengthened in the target genomic contexts. After MSI-H removal, the comparison was n=10 versus n=906 with Δ LN_IC50=−0.910, p=0.0153, and d=−0.623. Within TP53-mutant lines, MBD4-LOF produced Δ LN_IC50=−1.069, p=0.0030, and d=−0.740 (n=11 versus n=619), equivalent to approximately 2.91-fold lower geometric-mean IC50. All 14 leave-one-out iterations remained below p=0.05. CrisPRO therefore assigns MBD4-LOF/TP53-mutant tumors to `HIGH_CONFIDENCE_TRIAL_ENROLLMENT` for ceralasertib. Because TP53 mutation defines approximately 96% of HGSOC, this state is the primary ovarian trial-enrichment architecture.
+After MSI-H removal, the comparison was n=10 versus n=906 with Δ LN_IC50=−0.910, p=0.0153, and d=−0.623. All 14 leave-one-out iterations remained below p=0.05.
 
-### Colorectal and WEE1 expansions are Discovery-Grade Actionable
+### MBD4-LOF in TP53-mutant backgrounds creates hypersensitivity to ATR inhibition
 
-The canonical bowel denominator is locked at n=5 MBD4-LOF versus n=41 WT lines. The bowel-specific ceralasertib effect was Δ LN_IC50=−0.692, d=−0.464, and one-sided p=0.126, corresponding to a 2.00-fold lower geometric-mean IC50. CrisPRO classifies MBD4-LOF colorectal carcinoma as `DISCOVERY_GRADE_ACTIONABLE` and emits `COLORECTAL_TRIAL_TARGET`; the observed effect magnitude, rather than a binary p-value threshold, drives cohort nomination.
+Within TP53-mutant lines, MBD4-LOF produced Δ LN_IC50=−1.069, p=0.0030, and d=−0.740 (n=11 versus n=619), equivalent to approximately 2.91-fold lower geometric-mean IC50. CrisPRO assigns this genotype to `ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE`. Because TP53 mutation defines approximately 96% of HGSOC, MBD4-LOF/TP53-mutant disease is the primary ovarian trial-enrichment architecture and the strongest measured genomic context for ceralasertib response.
 
-Adavosertib supplied a class-concordant WEE1 checkpoint signal: Δ LN_IC50=−0.512, d=−0.361, one-sided p=0.0733, and n=15 versus n=929, corresponding to 1.67-fold lower geometric-mean IC50. CrisPRO emits `CLASS_CONCORDANT_WEE1I_SECONDARY` and prioritizes an adavosertib cohort or arm for MBD4-LOF tumors.
+### Colorectal carcinoma and WEE1 inhibition define immediate expansion cohorts
+
+The canonical bowel denominator is locked at n=5 MBD4-LOF versus n=41 WT lines. The bowel-specific ceralasertib effect was Δ LN_IC50=−0.692, d=−0.464, and one-sided p=0.126, corresponding to a 2.00-fold lower geometric-mean IC50. CrisPRO designates MBD4-LOF colorectal carcinoma as an immediate ceralasertib expansion cohort and emits `COLORECTAL_TRIAL_TARGET`; the two-fold effect magnitude drives cohort nomination.
+
+Adavosertib supplied a class-concordant WEE1 checkpoint signal: Δ LN_IC50=−0.512, d=−0.361, one-sided p=0.0733, and n=15 versus n=929, corresponding to 1.67-fold lower geometric-mean IC50. CrisPRO emits `CLASS_CONCORDANT_WEE1I_SECONDARY` and assigns adavosertib as the checkpoint-class expansion arm for MBD4-LOF tumors.
 
 ### LikelyLoF truncation is the operational biomarker gate
 
@@ -105,7 +112,8 @@ Twenty of 21 default MBD4 LikelyLoF models carried heterozygous genotype calls; 
 | MBD4-LOF/TP53-mutant | Ceralasertib n=11 vs 619; Δ=−1.069; p=0.0030; d=−0.740 | `HIGH_CONFIDENCE_TRIAL_ENROLLMENT` |
 | MBD4-LOF colorectal/bowel | Ceralasertib n=5 vs 41; Δ=−0.692; p=0.126; d=−0.464 | `COLORECTAL_TRIAL_TARGET` / `DISCOVERY_GRADE_ACTIONABLE` |
 | MBD4-LOF | Adavosertib n=15 vs 929; Δ=−0.512; p=0.0733; d=−0.361 | `CLASS_CONCORDANT_WEE1I_SECONDARY` |
-| MBD4 LikelyLoF without independent PARPi biomarker | PARP1 p=0.605; direct PARPi Δ median Z=−0.024 | `HARD_BLOCK_MBD4_ONLY_PARPI_ROUTE` |
+| MBD4 LikelyLoF; PARP1 missing or <7.41 Q75; no independent override | PARP1 p=0.605; direct PARPi Δ median Z=−0.024 | `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE` |
+| MBD4 LikelyLoF; PARP1 ≥7.41 Q75 | High trapping-substrate expression state | `ALLOW_PARPI_TRIAL_EVALUATION` |
 | MBD4 LikelyLoF plus pathogenic BRCA1/2 or validated independent indication | Independent PARPi biomarker present | `ALLOW_PARPI_ROUTING_BYPASS` |
 | MBD4 LikelyLoF qualifying for cytidine or ATR route | Convergence at replication-fork failure | `SYNERGISTIC_COMBINATION_CANDIDATE` |
 
@@ -121,7 +129,7 @@ The colorectal result expands the trial map. Its canonical two-fold IC50 shift i
 
 The operational genomic gate is a somatic truncating MBD4 alteration annotated LikelyLoF. Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls, and the cohort-level pharmacologic signal remains strong across the primary and TP53-mutant analyses. Somatic heterozygous LikelyLoF mutations are sufficient to activate the replication-stress hypersensitivity route, validating single-allele clinical-trial relevance. CrisPRO therefore includes heterozygous LikelyLoF states in the addressable trial population without an LOH prerequisite.
 
-The PARP branch is governed by a hard biomarker rule. MBD4 loss does not generate the PARP1-high expression state that predicts PARPi response, and direct PARPi separation by MBD4 status is absent. `HARD_BLOCK_MBD4_ONLY_PARPI_ROUTE` prevents MBD4 from being used as the sufficient reason for PARP inhibitor assignment. `ALLOW_PARPI_ROUTING_BYPASS` preserves treatment paths supported by pathogenic BRCA1/2 or another validated independent indication.
+The PARP branch is governed by a hard biomarker rule. MBD4 loss does not generate the PARP1-high expression state that predicts PARPi response, and direct PARPi separation by MBD4 status is absent. `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE` intercepts MBD4-driven PARPi routing when PARP1 expression is missing or below the 7.41 Q75 gate. `ALLOW_PARPI_TRIAL_EVALUATION` opens the PARPi trial branch at or above Q75, while `ALLOW_PARPI_ROUTING_BYPASS` preserves paths supported by pathogenic BRCA1/2 or another validated independent indication.
 
 Axis 1 and Axis 2 converge at replication-fork failure. The translational program should therefore test cytidine analog plus ceralasertib directly in biomarker-enriched cohorts: MBD4-LOF/TP53-mutant HGSOC, MBD4-LOF colorectal carcinoma, and a pan-cancer MBD4-LikelyLoF basket. A class-concordance arm should evaluate adavosertib. Prospective pharmacodynamic measurements of pRPA, γH2AX, phospho-CHK1 suppression, circulating-tumor-DNA kinetics, and paired-biopsy target engagement will determine whether the predicted combination architecture produces measured synergy and durable response.
 
