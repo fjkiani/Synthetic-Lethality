@@ -6,7 +6,7 @@
 Bundle path: `publications/00-mbd4-manuscript/mbd4_parp_response/`. All `cd` examples below use this prefix unless you are in the standalone clone (B).
 
 **B. Standalone canonical repo**  
-Clone [MBD4-LOF-Dual-Therapeutic-Vulnerability](https://github.com/crispro-ai/MBD4-LOF-Dual-Therapeutic-Vulnerability): the manuscript bundle lives at repo root with `rxiv/` and `artifacts/` siblings. Replace monorepo paths with `rxiv/` and `rxiv/FIGURES/` from that repo root (no `publications/...` prefix).
+Clone [Synthetic-Lethality/tree/main/00-mbd4-manuscript/mbd4_parp_response](https://github.com/crispro-ai/Synthetic-Lethality/tree/main/00-mbd4-manuscript/mbd4_parp_response): the manuscript bundle lives at repo root with `rxiv/` and `artifacts/` siblings. Replace monorepo paths with `rxiv/` and `rxiv/FIGURES/` from that repo root (no `publications/...` prefix).
 
 ## Prerequisites
 

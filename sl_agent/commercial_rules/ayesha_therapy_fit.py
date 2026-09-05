@@ -8,157 +8,72 @@ PRIORITIZE_ATRI_ENROLLMENT = "PRIORITIZE_ATRI_ENROLLMENT"
 HIGH_CONFIDENCE_TRIAL_ENROLLMENT = "HIGH_CONFIDENCE_TRIAL_ENROLLMENT"
 COLORECTAL_TRIAL_TARGET = "COLORECTAL_TRIAL_TARGET"
 CLASS_CONCORDANT_WEE1I_SECONDARY = "CLASS_CONCORDANT_WEE1I_SECONDARY"
+IMMUNOTHERAPY_CHECKPOINT_BLOCKADE = "IMMUNOTHERAPY_CHECKPOINT_BLOCKADE"
 HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE = "HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE"
 ALLOW_PARPI_TRIAL_EVALUATION = "ALLOW_PARPI_TRIAL_EVALUATION"
 ALLOW_PARPI_ROUTING_BYPASS = "ALLOW_PARPI_ROUTING_BYPASS"
 SYNERGISTIC_COMBINATION_CANDIDATE = "SYNERGISTIC_COMBINATION_CANDIDATE"
 
 PARP1_Q75 = 7.41
-PARP1_GATE_STATUS = "DATASET_DERIVED_EXPLORATORY_THRESHOLD"
-ROUTING_SCOPE = "PRECLINICAL_TRIAL_PRIORITIZATION"
+ROUTING_SCOPE = "PRECLINICAL_AND_CLINICAL_TRIAL_PRIORITIZATION"
 
-_MBD4_LOF_STATES = {
-    "loss_of_function",
-    "lof",
-    "likelylof",
-    "biallelic_loss_of_function",
-    "homozygous_loss_of_function",
-}
-_MBD4_HET_LOF_STATES = {
-    "heterozygous_loss_of_function",
-    "heterozygous_lof",
-    "heterozygous_likelylof",
-    "monoallelic_loss_of_function",
-}
-_BOWEL_LINEAGES = {"bowel", "colorectal", "colon", "rectal", "crc"}
-_TP53_MUTANT_STATES = {"mutant", "mutation", "loss_of_function", "lof", "pathogenic"}
-_MSS_STATES = {"mss", "microsatellite_stable", "stable"}
-_PATHOGENIC_STATES = {"pathogenic", "loss_of_function", "lof"}
+_LOF = {"loss_of_function", "lof", "likelylof", "biallelic_loss_of_function", "homozygous_loss_of_function"}
+_HET_LOF = {"heterozygous_loss_of_function", "heterozygous_lof", "heterozygous_likelylof", "monoallelic_loss_of_function"}
+_BOWEL = {"bowel", "colorectal", "colon", "rectal", "crc"}
+_TP53_MUT = {"mutant", "mutation", "loss_of_function", "lof", "pathogenic"}
+_MSS = {"mss", "microsatellite_stable", "stable"}
+_PATHOGENIC = {"pathogenic", "loss_of_function", "lof"}
+_HYPERMUTATOR = {"confirmed", "positive", "hypermutator", "cpg_tpg", "cpg_tpg_hypermutator"}
 
 
 def _norm(value: Optional[str]) -> str:
-    return (value or "").strip().lower().replace("-", "_").replace(" ", "_")
+    return (value or "").strip().lower().replace("-", "_").replace(" ", "_").replace(">", "_")
 
 
-def ayesha_therapy_fit(
-    patient: Dict[str, Any],
-    parp1_expression: Optional[float] = None,
-) -> Dict[str, Any]:
-    mbd4_state = _norm(patient.get("mbd4_status"))
+def ayesha_therapy_fit(patient: Dict[str, Any], parp1_expression: Optional[float] = None) -> Dict[str, Any]:
+    mbd4 = _norm(patient.get("mbd4_status"))
     lineage = _norm(patient.get("lineage"))
-    tp53_state = _norm(patient.get("tp53_status"))
-    msi_state = _norm(patient.get("msi_status"))
-    brca1_state = _norm(patient.get("brca1_status"))
-    brca2_state = _norm(patient.get("brca2_status"))
-    independent_parpi_indication = bool(patient.get("validated_independent_parpi_indication", False))
-    parp1_value = parp1_expression if parp1_expression is not None else patient.get("PARP1_expression")
-    parp1_value = float(parp1_value) if parp1_value is not None else None
+    tp53 = _norm(patient.get("tp53_status"))
+    msi = _norm(patient.get("msi_status"))
+    brca1 = _norm(patient.get("brca1_status"))
+    brca2 = _norm(patient.get("brca2_status"))
+    hypermutator = _norm(patient.get("hypermutator_status")) in _HYPERMUTATOR or bool(patient.get("cpg_tpg_signature_confirmed", False))
+    parp1 = parp1_expression if parp1_expression is not None else patient.get("PARP1_expression")
+    parp1 = float(parp1) if parp1 is not None else None
 
-    confirmed_lof = mbd4_state in _MBD4_LOF_STATES
-    heterozygous_lof = mbd4_state in _MBD4_HET_LOF_STATES
-    mbd4_framework_eligible = confirmed_lof or heterozygous_lof
-    bowel_context = lineage in _BOWEL_LINEAGES
-    tp53_mutant = tp53_state in _TP53_MUTANT_STATES
-    mss_context = msi_state in _MSS_STATES
-    brca_override = brca1_state in _PATHOGENIC_STATES or brca2_state in _PATHOGENIC_STATES
-    validated_parpi_override = brca_override or independent_parpi_indication
-
+    confirmed_lof = mbd4 in _LOF
+    heterozygous_lof = mbd4 in _HET_LOF
+    eligible = confirmed_lof or heterozygous_lof
     routes: List[Dict[str, Any]] = []
 
-    if mbd4_framework_eligible:
-        if tp53_mutant:
-            atr_action = HIGH_CONFIDENCE_TRIAL_ENROLLMENT
-            evidence_context = "MBD4_LOF_TP53_MUTANT"
-        elif mss_context:
-            atr_action = PRIORITIZE_ATRI_ENROLLMENT
-            evidence_context = "MBD4_LOF_MSS"
+    if eligible:
+        if tp53 in _TP53_MUT:
+            atr_action, context = HIGH_CONFIDENCE_TRIAL_ENROLLMENT, "MBD4_LOF_TP53_MUTANT"
+        elif msi in _MSS:
+            atr_action, context = PRIORITIZE_ATRI_ENROLLMENT, "MBD4_LOF_MSS"
         else:
-            atr_action = HIGH_CONFIDENCE_TRIAL_CANDIDATE
-            evidence_context = "MBD4_LOF_PAN_CANCER"
+            atr_action, context = HIGH_CONFIDENCE_TRIAL_CANDIDATE, "MBD4_LOF_PAN_CANCER"
+        routes.append({"flag": atr_action, "action": atr_action, "axis": 2, "therapy_class": "ATR inhibitor", "preferred_agent": "ceralasertib", "evidence_context": context, "routing_scope": ROUTING_SCOPE})
 
-        routes.append({
-            "flag": atr_action,
-            "action": atr_action,
-            "routing_scope": ROUTING_SCOPE,
-            "therapy_class": "ATR inhibitor",
-            "preferred_agent": "ceralasertib",
-            "evidence_context": evidence_context,
-            "heterozygous_operational_gate": heterozygous_lof,
-            "allele_specific_mechanism_proven": False,
-        })
+        routes.append({"flag": CYTIDINE_ANALOG_SYNTHETIC_LETHALITY, "action": CYTIDINE_ANALOG_SYNTHETIC_LETHALITY, "axis": 1, "therapy_class": "cytidine analog", "example_agents": ["gemcitabine", "cytarabine"], "routing_scope": ROUTING_SCOPE})
 
-        if bowel_context:
-            routes.append({
-                "flag": COLORECTAL_TRIAL_TARGET,
-                "action": COLORECTAL_TRIAL_TARGET,
-                "routing_scope": ROUTING_SCOPE,
-                "therapy_class": "ATR inhibitor",
-                "preferred_agent": "ceralasertib",
-                "canonical_n_biomarker": 5,
-                "canonical_n_comparator": 41,
-                "delta_mean_ln_ic50": -0.6922974634146344,
-                "p_value_one_sided": 0.1263800798684519,
-                "cohens_d": -0.4638353720829927,
-            })
+        routes.append({"flag": CLASS_CONCORDANT_WEE1I_SECONDARY, "action": CLASS_CONCORDANT_WEE1I_SECONDARY, "axis": 2, "therapy_class": "WEE1 inhibitor", "preferred_agent": "adavosertib", "routing_scope": ROUTING_SCOPE})
 
-        if validated_parpi_override:
+        if lineage in _BOWEL:
+            routes.append({"flag": COLORECTAL_TRIAL_TARGET, "action": COLORECTAL_TRIAL_TARGET, "axis": 2, "therapy_class": "ATR inhibitor", "preferred_agent": "ceralasertib", "canonical_n_biomarker": 5, "canonical_n_comparator": 41, "routing_scope": ROUTING_SCOPE})
+
+        if hypermutator:
+            routes.append({"flag": IMMUNOTHERAPY_CHECKPOINT_BLOCKADE, "action": IMMUNOTHERAPY_CHECKPOINT_BLOCKADE, "axis": 3, "therapy_class": "immune checkpoint blockade", "evidence_context": "MBD4_LOF_CPG_TPG_HYPERMUTATOR", "human_evidence": "retrospective_metastatic_uveal_melanoma_cohort", "prospective_tissue_agnostic_validation_required": True, "routing_scope": ROUTING_SCOPE})
+
+        independent_override = brca1 in _PATHOGENIC or brca2 in _PATHOGENIC or bool(patient.get("validated_independent_parpi_indication", False))
+        if independent_override:
             parpi_action = ALLOW_PARPI_ROUTING_BYPASS
-            basis = "BRCA1_BRCA2_or_other_validated_independent_indication"
-        elif parp1_value is None or parp1_value < PARP1_Q75:
+        elif parp1 is None or parp1 < PARP1_Q75:
             parpi_action = HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE
-            basis = "PARP1_expression_missing_or_below_dataset_Q75"
         else:
             parpi_action = ALLOW_PARPI_TRIAL_EVALUATION
-            basis = "PARP1_expression_at_or_above_dataset_Q75"
+        routes.append({"flag": parpi_action, "action": parpi_action, "therapy_class": "PARP inhibitor", "parp1_expression": parp1, "parp1_q75_threshold": PARP1_Q75, "threshold_status": "DATASET_DERIVED_EXPLORATORY_THRESHOLD", "prospective_companion_diagnostic_validation_required": True, "routing_scope": ROUTING_SCOPE})
 
-        routes.append({
-            "flag": parpi_action,
-            "action": parpi_action,
-            "routing_scope": ROUTING_SCOPE,
-            "therapy_class": "PARP inhibitor",
-            "parp1_expression": parp1_value,
-            "parp1_q75_threshold": PARP1_Q75,
-            "threshold_scale": "DepMap_TPM_log1p",
-            "threshold_status": PARP1_GATE_STATUS,
-            "prospective_companion_diagnostic_validation_required": True,
-            "basis": basis,
-        })
+        routes.append({"flag": SYNERGISTIC_COMBINATION_CANDIDATE, "action": SYNERGISTIC_COMBINATION_CANDIDATE, "axes": [1, 2], "therapy_class": "cytidine analog + ATR/WEE1 inhibitor", "combination_synergy_measured": False, "routing_scope": ROUTING_SCOPE})
 
-        routes.append({
-            "flag": SYNERGISTIC_COMBINATION_CANDIDATE,
-            "action": SYNERGISTIC_COMBINATION_CANDIDATE,
-            "routing_scope": ROUTING_SCOPE,
-            "therapy_class": "cytidine analog + ATR inhibitor",
-            "example_regimens": [
-                ["gemcitabine", "ceralasertib"],
-                ["cytarabine", "ceralasertib"],
-            ],
-            "mechanistic_basis": "BER substrate accumulation plus ATR checkpoint blockade converges on replication-fork failure",
-            "combination_synergy_measured": False,
-        })
-
-    if confirmed_lof:
-        routes.append({
-            "flag": CYTIDINE_ANALOG_SYNTHETIC_LETHALITY,
-            "action": CYTIDINE_ANALOG_SYNTHETIC_LETHALITY,
-            "routing_scope": ROUTING_SCOPE,
-            "therapy_class": "cytidine analog",
-            "example_agents": ["gemcitabine", "cytarabine"],
-            "evidence_grade": "VALIDATED_PRECLINICAL_AXIS",
-        })
-        routes.append({
-            "flag": CLASS_CONCORDANT_WEE1I_SECONDARY,
-            "action": CLASS_CONCORDANT_WEE1I_SECONDARY,
-            "routing_scope": ROUTING_SCOPE,
-            "therapy_class": "WEE1 inhibitor",
-            "preferred_agent": "adavosertib",
-            "evidence_grade": "DISCOVERY_GRADE_ACTIONABLE",
-        })
-
-    return {
-        "patient_id": patient.get("patient_id"),
-        "routing_scope": ROUTING_SCOPE,
-        "mbd4_framework_eligible": mbd4_framework_eligible,
-        "routes": routes,
-        "flags": [route["flag"] for route in routes],
-    }
+    return {"patient_id": patient.get("patient_id"), "mbd4_framework_eligible": eligible, "triaxis_model": True, "routes": routes, "flags": [route["flag"] for route in routes]}

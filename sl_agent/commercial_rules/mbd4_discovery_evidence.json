@@ -1,6 +1,6 @@
 {
   "schema": "sl_evidence_record.v1",
-  "version": "2026-04-mbd4-cross-artifact-reconciliation",
+  "version": "2026-04-mbd4-triaxis",
   "source_commit": "488da52d8124c9ae1bfece2e9744414c787ff5b8",
   "routing_scope": "preclinical trial prioritization and biomarker governance",
   "canonical_denominator_policy": "canonical_atr_wee1_rerun_20260405 receipts override manuscript prose",
@@ -216,6 +216,64 @@
       "mechanistic_basis": "BER substrate accumulation plus ATR checkpoint blockade converges on replication-fork failure",
       "combination_synergy_measured": false,
       "validation_state": "prospective_combination_synergy_and_tolerability_testing_required"
+    },
+    {
+      "record_id": "MBD4_HYPERMUTATOR_IMMUNOTHERAPY",
+      "action": "IMMUNOTHERAPY_CHECKPOINT_BLOCKADE",
+      "axis": 3,
+      "biomarker": {
+        "gene": "MBD4",
+        "state_any_of": [
+          "loss_of_function",
+          "heterozygous_loss_of_function"
+        ],
+        "requires": "confirmed_CpG_TpG_hypermutator_signature_or_validated_equivalent"
+      },
+      "therapy": {
+        "class": "immune checkpoint blockade",
+        "agents_or_classes": [
+          "anti-PD1",
+          "anti-CTLA4",
+          "combined ICI"
+        ]
+      },
+      "mechanism": "Failed methyl-CpG mismatch repair produces CpG>TpG hypermutation and an expanded candidate neoantigen repertoire.",
+      "human_evidence": {
+        "sentinel_case": {
+          "citation": "Rodrigues et al. 2018",
+          "design": "single exceptional responder",
+          "features": [
+            "germline deleterious MBD4",
+            "somatic MBD4 inactivation",
+            "outlier CpG>TpG burden",
+            "anti-PD1 response"
+          ]
+        },
+        "retrospective_cohort": {
+          "citation": "Saint-Ghislain et al. 2022",
+          "ici_treated_mum": 300,
+          "mbd4_sequenced": 131,
+          "mbd4_mutated": 5,
+          "mbd4_mutation_prevalence": 0.038,
+          "objective_response_mbd4_mutated": 0.6,
+          "objective_response_mbd4_wild_type": 0.04,
+          "response_p_value": "<0.001",
+          "median_pfs_months_mbd4_mutated": 22.3,
+          "median_pfs_months_wild_type": 4.0,
+          "pfs_hr": 0.22,
+          "pfs_p_value": 0.01,
+          "median_os_months_mbd4_mutated": "unreached",
+          "median_os_months_comparator": 16.6,
+          "os_hr": 0.11,
+          "os_hr_95ci": [
+            0.02,
+            0.86
+          ],
+          "os_p_value": 0.04
+        }
+      },
+      "validation_boundary": "Retrospective five-patient MBD4-mutated subgroup; prospective tissue-agnostic validation required."
     }
-  ]
+  ],
+  "therapeutic_model": "MBD4_LOF_TRIAXIS"
 }
