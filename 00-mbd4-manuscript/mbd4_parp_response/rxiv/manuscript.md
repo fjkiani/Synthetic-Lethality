@@ -138,7 +138,7 @@ Cross-dataset matching creates three locked analytical cohorts:
 2. **Expression cohort:** n=19 MBD4-LikelyLoF models with matched DepMap transcriptomics for PARP1 and RNF144A analysis.
 3. **Pharmacologic cohort:** n=14 MBD4-LikelyLoF models with matched GDSC2 ceralasertib response.
 
-Genotype auditing identifies heterozygous calls in 20 of 21 default LikelyLoF models (95.2%) and a homozygous-alt call in one. CrisPRO therefore uses a somatic heterozygous truncating LikelyLoF state as an operational ATR-trial routing gate; confirmed LOH is not an enrollment prerequisite.
+Genotype auditing identifies heterozygous calls in 20 of 21 default LikelyLoF models (95.2%) and a homozygous-alt call in one. CrisPRO therefore includes somatic heterozygous truncating LikelyLoF states at the operational ATR-trial gate without requiring confirmed LOH before enrollment. The matched pharmacologic subset does not resolve allele-specific function; this rule supports prospective eligibility but does not prove haploinsufficiency.
 
 ### Pharmacologic stratification and decision engine
 
@@ -149,7 +149,7 @@ Directional hypersensitivity is tested with a one-sided Mann–Whitney U test un
 1. **Exploratory screen:** Six therapeutic axes were defined before comparative analysis—cytidine analogs, PARP inhibitors, ATR/WEE1 inhibitors, WRN helicase inhibitors, immunotherapy, and PKMYT1 inhibitors. The five non-confirmatory axes retain Benjamini–Hochberg FDR control for exploratory axis-level comparisons.
 2. **Confirmatory checkpoint axis:** ATR/WEE1 was prespecified from the replication-stress mechanism created by unresolved BER substrate. Ceralasertib and adavosertib are analyzed with directional p-values under that confirmatory plan.
 
-The canonical receipt fixes the primary ceralasertib denominator at n=14 MBD4-LOF versus n=914 WT. The same receipt controls every downstream stratum and prevents prose-to-analysis denominator drift.
+The deterministic overlap cascade locks n=21 genomic models, n=19 expression-matched models, n=14 ceralasertib-matched models, n=10 MSS ceralasertib-matched models, n=11 TP53-mutant ceralasertib-matched models, and n=5 bowel ceralasertib-matched models. The canonical receipt fixes the corresponding primary comparator at n=914 WT, MSS comparator at n=906 WT, TP53-mutant comparator at n=619 WT, and bowel comparator at n=41 WT. These receipts control every downstream statistic and prevent prose-to-analysis denominator drift.
 
 ### Confounder stress-testing engine
 
