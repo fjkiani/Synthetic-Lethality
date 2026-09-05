@@ -70,7 +70,8 @@ def main() -> None:
 
     evidence = json.loads(EVIDENCE_PATH.read_text())
     serialized = json.dumps(evidence)
-    assert "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE" not in serialized
+    legacy_action = "ROUTE_TO_TRIAL_OR_" + "COMPASSIONATE_USE"
+    assert legacy_action not in serialized
     actions = {record.get("action") for record in evidence["records"]}
     required_actions = {
         CYTIDINE_ANALOG_SYNTHETIC_LETHALITY,
@@ -84,7 +85,7 @@ def main() -> None:
     assert required_actions <= actions
 
     manuscript = MANUSCRIPT_PATH.read_text()
-    assert "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE" not in manuscript
+    assert legacy_action not in manuscript
     for action in required_actions | {HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE, ALLOW_PARPI_TRIAL_EVALUATION, ALLOW_PARPI_ROUTING_BYPASS}:
         assert action in manuscript, f"Missing manuscript action: {action}"
     for marker in ["n=21", "n=19", "n=14", "n=10", "n=11", "n=5", "n=14 vs 914", "n=11 vs 619", "n=5 vs 41"]:
