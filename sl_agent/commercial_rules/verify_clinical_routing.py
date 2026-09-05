@@ -1,72 +1,103 @@
 from __future__ import annotations
 
 import json
+import sys
+from pathlib import Path
 from typing import Any, Dict
 
-CANONICAL = {
-    "tp53_atri": {"n_lof": 11, "n_wt": 619, "delta_ln_ic50": -1.07, "p": 0.003, "cohens_d": -0.74},
-    "bowel_atri": {"n_lof": 5, "n_wt": 41, "delta_ln_ic50": -0.69, "p": 0.126, "cohens_d": -0.46},
-    "parp1_q75_gate": 7.41,
-}
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from sl_agent.commercial_rules.ayesha_therapy_fit import (  # noqa: E402
+    ALLOW_PARPI_ROUTING_BYPASS,
+    ALLOW_PARPI_TRIAL_EVALUATION,
+    CLASS_CONCORDANT_WEE1I_SECONDARY,
+    COLORECTAL_TRIAL_TARGET,
+    CYTIDINE_ANALOG_SYNTHETIC_LETHALITY,
+    HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE,
+    HIGH_CONFIDENCE_TRIAL_CANDIDATE,
+    HIGH_CONFIDENCE_TRIAL_ENROLLMENT,
+    PARP1_GATE_STATUS,
+    PRIORITIZE_ATRI_ENROLLMENT,
+    SYNERGISTIC_COMBINATION_CANDIDATE,
+    ayesha_therapy_fit,
+)
+
+RULES_DIR = Path(__file__).resolve().parent
+EVIDENCE_PATH = RULES_DIR / "mbd4_discovery_evidence.json"
+MANUSCRIPT_PATH = ROOT / "00-mbd4-manuscript/mbd4_parp_response/rxiv/manuscript.md"
 
 
-def normalize(value: Any) -> str:
-    return str(value or "").strip().lower().replace("-", "_").replace(" ", "_")
+def route(patient: Dict[str, Any]) -> Dict[str, Any]:
+    return ayesha_therapy_fit(patient)
 
 
-def route_patient(patient: Dict[str, Any]) -> Dict[str, Any]:
-    mbd4 = normalize(patient.get("MBD4"))
-    tp53 = normalize(patient.get("TP53"))
-    lineage = normalize(patient.get("lineage"))
-    brca1 = normalize(patient.get("BRCA1"))
-    brca2 = normalize(patient.get("BRCA2"))
-    hrd_override = bool(patient.get("validated_HRD_override", False))
-    parp1 = patient.get("PARP1_expression")
-
-    mbd4_lof = mbd4 in {"lof", "loss_of_function", "likelylof", "heterozygous_likelylof"}
-    tp53_mutant = tp53 in {"mutant", "lof", "loss_of_function", "pathogenic"}
-    bowel = lineage in {"bowel", "colorectal", "colon", "rectal", "crc"}
-    brca_override = brca1 == "pathogenic" or brca2 == "pathogenic" or hrd_override
-
-    actions = []
-    if mbd4_lof and tp53_mutant:
-        actions.append({"action": "HIGH_CONFIDENCE_TRIAL_ENROLLMENT", "therapy": "ceralasertib", "metadata": CANONICAL["tp53_atri"]})
-    if mbd4_lof and bowel:
-        actions.append({"action": "COLORECTAL_TRIAL_TARGET", "therapy": "ceralasertib", "metadata": CANONICAL["bowel_atri"]})
-    if mbd4_lof and parp1 is not None and float(parp1) < CANONICAL["parp1_q75_gate"]:
-        actions.append({
-            "action": "ALLOW_PARPI_ROUTING_BYPASS" if brca_override else "HARD_BLOCK_MBD4_ONLY_PARPI_ROUTE",
-            "therapy_class": "PARP inhibitor",
-            "override_basis": "BRCA1_BRCA2_or_validated_HRD" if brca_override else None,
-        })
-    return {"patient": patient, "actions": actions}
-
-
-def exact_action(result: Dict[str, Any], action: str) -> Dict[str, Any]:
-    matches = [item for item in result["actions"] if item["action"] == action]
-    assert len(matches) == 1, f"Expected exactly one {action}, found {len(matches)}: {result}"
+def exact(result: Dict[str, Any], action: str) -> Dict[str, Any]:
+    matches = [item for item in result["routes"] if item["action"] == action]
+    assert len(matches) == 1, f"Expected exactly one {action}; got {len(matches)} in {result}"
     return matches[0]
 
 
 def main() -> None:
     scenarios = {
-        "mbd4_lof_tp53_ovary": route_patient({"MBD4": "LOF", "TP53": "mutant", "lineage": "Ovary"}),
-        "mbd4_lof_bowel": route_patient({"MBD4": "LOF", "TP53": "wild_type", "lineage": "Bowel"}),
-        "mbd4_lof_low_parp1": route_patient({"MBD4": "LOF", "TP53": "wild_type", "lineage": "Uterus", "PARP1_expression": 7.40}),
-        "mbd4_lof_low_parp1_brca1": route_patient({"MBD4": "LOF", "TP53": "wild_type", "lineage": "Ovary", "PARP1_expression": 7.40, "BRCA1": "pathogenic"}),
+        "pan_cancer": route({"patient_id": "pan", "mbd4_status": "LOF", "lineage": "Uterus", "PARP1_expression": 7.0}),
+        "mss": route({"patient_id": "mss", "mbd4_status": "LOF", "msi_status": "MSS", "PARP1_expression": 7.0}),
+        "tp53": route({"patient_id": "tp53", "mbd4_status": "LOF", "tp53_status": "mutant", "lineage": "Ovary", "PARP1_expression": 7.0}),
+        "bowel": route({"patient_id": "bowel", "mbd4_status": "LOF", "lineage": "Bowel", "PARP1_expression": 7.0}),
+        "heterozygous": route({"patient_id": "het", "mbd4_status": "heterozygous_LikelyLoF", "lineage": "Lung", "PARP1_expression": 7.0}),
+        "q75": route({"patient_id": "q75", "mbd4_status": "LOF", "PARP1_expression": 7.41}),
+        "brca": route({"patient_id": "brca", "mbd4_status": "LOF", "PARP1_expression": 7.0, "brca1_status": "pathogenic"}),
     }
 
-    tp53_route = exact_action(scenarios["mbd4_lof_tp53_ovary"], "HIGH_CONFIDENCE_TRIAL_ENROLLMENT")
-    assert tp53_route["metadata"] == {"n_lof": 11, "n_wt": 619, "delta_ln_ic50": -1.07, "p": 0.003, "cohens_d": -0.74}
+    exact(scenarios["pan_cancer"], HIGH_CONFIDENCE_TRIAL_CANDIDATE)
+    exact(scenarios["mss"], PRIORITIZE_ATRI_ENROLLMENT)
+    exact(scenarios["tp53"], HIGH_CONFIDENCE_TRIAL_ENROLLMENT)
+    colorectal = exact(scenarios["bowel"], COLORECTAL_TRIAL_TARGET)
+    assert (colorectal["canonical_n_biomarker"], colorectal["canonical_n_comparator"]) == (5, 41)
+    heterozygous = exact(scenarios["heterozygous"], HIGH_CONFIDENCE_TRIAL_CANDIDATE)
+    assert heterozygous["heterozygous_operational_gate"] is True
+    assert heterozygous["allele_specific_mechanism_proven"] is False
 
-    bowel_route = exact_action(scenarios["mbd4_lof_bowel"], "COLORECTAL_TRIAL_TARGET")
-    assert bowel_route["metadata"] == {"n_lof": 5, "n_wt": 41, "delta_ln_ic50": -0.69, "p": 0.126, "cohens_d": -0.46}
+    parp_block = exact(scenarios["pan_cancer"], HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE)
+    assert parp_block["threshold_status"] == PARP1_GATE_STATUS
+    assert parp_block["prospective_companion_diagnostic_validation_required"] is True
+    exact(scenarios["q75"], ALLOW_PARPI_TRIAL_EVALUATION)
+    exact(scenarios["brca"], ALLOW_PARPI_ROUTING_BYPASS)
+    exact(scenarios["pan_cancer"], CYTIDINE_ANALOG_SYNTHETIC_LETHALITY)
+    exact(scenarios["pan_cancer"], CLASS_CONCORDANT_WEE1I_SECONDARY)
+    exact(scenarios["pan_cancer"], SYNERGISTIC_COMBINATION_CANDIDATE)
 
-    exact_action(scenarios["mbd4_lof_low_parp1"], "HARD_BLOCK_MBD4_ONLY_PARPI_ROUTE")
-    exact_action(scenarios["mbd4_lof_low_parp1_brca1"], "ALLOW_PARPI_ROUTING_BYPASS")
+    evidence = json.loads(EVIDENCE_PATH.read_text())
+    serialized = json.dumps(evidence)
+    assert "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE" not in serialized
+    actions = {record.get("action") for record in evidence["records"]}
+    required_actions = {
+        CYTIDINE_ANALOG_SYNTHETIC_LETHALITY,
+        HIGH_CONFIDENCE_TRIAL_CANDIDATE,
+        PRIORITIZE_ATRI_ENROLLMENT,
+        HIGH_CONFIDENCE_TRIAL_ENROLLMENT,
+        COLORECTAL_TRIAL_TARGET,
+        CLASS_CONCORDANT_WEE1I_SECONDARY,
+        SYNERGISTIC_COMBINATION_CANDIDATE,
+    }
+    assert required_actions <= actions
 
-    print(json.dumps(scenarios, indent=2, sort_keys=True))
-    print("[VERIFICATION STATUS: 100% CANONICAL DEPLOYMENT SUCCESS]")
+    manuscript = MANUSCRIPT_PATH.read_text()
+    assert "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE" not in manuscript
+    for action in required_actions | {HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE, ALLOW_PARPI_TRIAL_EVALUATION, ALLOW_PARPI_ROUTING_BYPASS}:
+        assert action in manuscript, f"Missing manuscript action: {action}"
+    for marker in ["n=21", "n=19", "n=14", "n=10", "n=11", "n=5", "n=14 vs 914", "n=11 vs 619", "n=5 vs 41"]:
+        assert marker in manuscript, f"Missing denominator marker: {marker}"
+
+    figure_section = manuscript.split("## Figures", 1)[1].split("## Supplementary Material", 1)[0]
+    figure_paths = [item.split(")", 1)[0] for item in figure_section.split("](")[1:]]
+    assert len(figure_paths) == 4
+    for relative in figure_paths:
+        assert (MANUSCRIPT_PATH.parent / relative).is_file(), f"Missing figure asset: {relative}"
+
+    print(json.dumps({name: result["flags"] for name, result in scenarios.items()}, indent=2, sort_keys=True))
+    print("[VERIFICATION STATUS: CROSS-ARTIFACT RECONCILIATION PASSED]")
 
 
 if __name__ == "__main__":
