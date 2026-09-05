@@ -143,24 +143,37 @@ The rule set is unified: block unsupported MBD4-only PARPi routing, preserve val
 
 ## Methods
 
-### Cell line classification
+### Multi-omic filtration and cell-line classification
 
-MBD4 mutation status was determined from DepMap 24Q2 OmicsSomaticMutations data (release 24Q2). Cell lines were classified as True-LOF if carrying truncating mutations (nonsense, splice-site, frameshift) with DepMap annotation LikelyLoF=True. Missense and passenger mutations were excluded. Wild-type (WT) lines were defined as having no somatic MBD4 mutations. Sample sizes vary by analysis modality depending on data availability and cross-dataset overlap (e.g., n=21 total LOF pool, n=19 with expression data, n=14 with ceralasertib GDSC2 data). DepMap's LikelyLoF annotation is the operational inclusion gate. Twenty of 21 default LikelyLoF models (95.2%) carry heterozygous genotype calls; heterozygous truncating states directly qualify for ATR-inhibitor trial routing without an LOH prerequisite.
+The MBD4 evidence layer begins with a deterministic multi-omic filtration cascade built from DepMap 24Q2 OmicsSomaticMutations. MBD4 True-LOF requires a nonsense, splice-site, or frameshift variant annotated `LikelyLoF=True`. Missense, silent, and passenger variants are excluded. The WT reference pool contains no somatic MBD4 mutation.
 
-### Pharmacological stratification
+Cross-dataset matching creates three locked analytical cohorts:
 
-Drug sensitivity data were obtained from GDSC2 (Genomics of Drug Sensitivity in Cancer, release 2). For each compound, cell lines with matched MBD4 mutation status and drug response data were stratified into MBD4-LOF and WT groups. Three metrics were analyzed: natural log IC50 (LN_IC50), area under the dose-response curve (AUC), and standardized Z-score (Z_SCORE).
+1. **Genomic cohort:** n=21 pan-cancer MBD4-LikelyLoF models for mutation, lineage, MSI, TP53, and genotype characterization.
+2. **Expression cohort:** n=19 MBD4-LikelyLoF models with matched DepMap transcriptomics for PARP1 and RNF144A analysis.
+3. **Pharmacologic cohort:** n=14 MBD4-LikelyLoF models with matched GDSC2 ceralasertib response.
 
-Statistical significance was assessed using a one-sided Mann-Whitney U test (alternative: MBD4-LOF < WT). Effect sizes were computed as Cohen's d with pooled standard deviation. Multiple testing correction was applied via Benjamini-Hochberg FDR where applicable. Six candidate therapy axes were defined before comparative testing based on the evidence-matrix framework; the GDSC2 screen encompassed these six axes; BH-FDR correction was applied to exploratory axis-level comparisons. The ATR/WEE1 axis was prespecified from the replication-stress mechanism and analyzed with directional p-values; exploratory axis-level comparisons retain BH-FDR correction.
+Genotype auditing identifies heterozygous calls in 20 of 21 default LikelyLoF models (95.2%) and a homozygous-alt call in one. CrisPRO therefore uses a somatic heterozygous truncating LikelyLoF state as an operational ATR-trial routing gate; confirmed LOH is not an enrollment prerequisite.
 
-### Confound stress testing
+### Pharmacologic stratification and decision engine
 
-Four confound analyses were applied to the ceralasertib signal:
+GDSC2 release 2 provides compound-response measurements. Deterministic genotype-to-pharmacology matching partitions each compound into MBD4-LOF and mutation-free WT cohorts. Three response endpoints enforce metric concordance: natural log IC50 (LN_IC50), area under the dose-response curve (AUC), and standardized Z-score (Z_SCORE).
 
-1. **MSI-H purge**: All lines annotated as MSI-H in DepMap ModelSubtypeFeatures were removed from both MBD4-LOF and WT groups before retesting.
-2. **TP53 stratification**: MBD4-LOF/TP53-mut lines were compared against MBD4-WT/TP53-mut lines, controlling for TP53 status.
-3. **Leave-one-out**: Each MBD4-LOF line was iteratively removed and the test recomputed.
-4. **Lineage matching**: Analysis was repeated within individual tissue lineages (Bowel; non-Bowel).
+Directional hypersensitivity is tested with a one-sided Mann–Whitney U test under the alternative MBD4-LOF < WT. Cohen's d uses the pooled standard deviation. Multiplicity rules are fixed by analysis class:
+
+1. **Exploratory screen:** Six therapeutic axes were defined before comparative analysis—cytidine analogs, PARP inhibitors, ATR/WEE1 inhibitors, WRN helicase inhibitors, immunotherapy, and PKMYT1 inhibitors. The five non-confirmatory axes retain Benjamini–Hochberg FDR control for exploratory axis-level comparisons.
+2. **Confirmatory checkpoint axis:** ATR/WEE1 was prespecified from the replication-stress mechanism created by unresolved BER substrate. Ceralasertib and adavosertib are analyzed with directional p-values under that confirmatory plan.
+
+The canonical receipt fixes the primary ceralasertib denominator at n=14 MBD4-LOF versus n=914 WT. The same receipt controls every downstream stratum and prevents prose-to-analysis denominator drift.
+
+### Confounder stress-testing engine
+
+Four orthogonal tests challenge the ceralasertib route against the dominant failure modes in pan-cancer pharmacogenomics:
+
+1. **MSI-H purge:** MSI-H models are removed from both arms. The resulting MSS comparison is n=10 MBD4-LOF versus n=906 WT and isolates the checkpoint signal from microsatellite-instability enrichment.
+2. **TP53 target-state stratification:** MBD4-LOF/TP53-mutant models are compared directly with MBD4-WT/TP53-mutant models. The locked comparison is n=11 versus n=619 and measures the incremental MBD4 effect inside the genomic background that defines approximately 96% of HGSOC.
+3. **Leave-one-out invariance:** Each of the 14 MBD4-LOF models is removed once and the directional Mann–Whitney test is recomputed. All 14 iterations remain below p=0.05, eliminating single-model dominance.
+4. **Lineage contrasts:** The bowel comparison is locked at n=5 MBD4-LOF versus n=41 WT; the complementary non-bowel comparison is n=9 versus n=873. Concordant direction across both strata tests tissue-lineage dependence and anchors the colorectal expansion route.
 
 ### Analysis workflow
 
