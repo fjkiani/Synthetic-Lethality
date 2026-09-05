@@ -1,13 +1,86 @@
 {
-  "schema": "sl_evidence_record.v1.proposed",
-  "version": "2026-04-mbd4-clinical-trial-routing",
+  "schema": "sl_evidence_record.v1",
+  "version": "2026-04-mbd4-cross-artifact-reconciliation",
   "source_commit": "488da52d8124c9ae1bfece2e9744414c787ff5b8",
-  "routing_scope": "clinical-trial prioritization and biomarker governance",
+  "routing_scope": "preclinical trial prioritization and biomarker governance",
   "canonical_denominator_policy": "canonical_atr_wee1_rerun_20260405 receipts override manuscript prose",
+  "scientific_boundaries": {
+    "heterozygous_gate": "Operationally eligible for prospective ATR-inhibitor trials; not allele-specific proof of haploinsufficiency.",
+    "parp1_q75_gate": "Dataset-derived exploratory DepMap threshold requiring prospective assay and companion-diagnostic validation.",
+    "combination": "Mechanistically motivated trial hypothesis; pharmacologic synergy and tolerability remain unmeasured."
+  },
   "records": [
     {
-      "record_id": "MBD4_LOF_BOWEL_CERALASERTIB_DISCOVERY",
-      "status": "DISCOVERY_GRADE_ACTIONABLE",
+      "record_id": "MBD4_LOF_CERALASERTIB_PAN_CANCER",
+      "action": "HIGH_CONFIDENCE_TRIAL_CANDIDATE",
+      "biomarker": {
+        "gene": "MBD4",
+        "state_any_of": [
+          "loss_of_function",
+          "heterozygous_loss_of_function"
+        ]
+      },
+      "therapy": {
+        "class": "ATR inhibitor",
+        "agent": "ceralasertib"
+      },
+      "evidence": {
+        "dataset": "GDSC2",
+        "endpoint": "LN_IC50",
+        "n_biomarker": 14,
+        "n_comparator": 914,
+        "delta_mean_ln_ic50": -0.732453,
+        "p_value_one_sided": 0.0214845,
+        "cohens_d": -0.503287
+      }
+    },
+    {
+      "record_id": "MBD4_LOF_CERALASERTIB_MSS",
+      "action": "PRIORITIZE_ATRI_ENROLLMENT",
+      "biomarker": {
+        "gene": "MBD4",
+        "state": "loss_of_function",
+        "msi_status": "MSS"
+      },
+      "therapy": {
+        "class": "ATR inhibitor",
+        "agent": "ceralasertib"
+      },
+      "evidence": {
+        "dataset": "GDSC2",
+        "endpoint": "LN_IC50",
+        "n_biomarker": 10,
+        "n_comparator": 906,
+        "delta_mean_ln_ic50": -0.909528,
+        "p_value_one_sided": 0.015329,
+        "cohens_d": -0.622705
+      }
+    },
+    {
+      "record_id": "MBD4_LOF_CERALASERTIB_TP53_MUTANT",
+      "action": "HIGH_CONFIDENCE_TRIAL_ENROLLMENT",
+      "biomarker": {
+        "gene": "MBD4",
+        "state": "loss_of_function",
+        "tp53_status": "mutant"
+      },
+      "therapy": {
+        "class": "ATR inhibitor",
+        "agent": "ceralasertib"
+      },
+      "evidence": {
+        "dataset": "GDSC2",
+        "endpoint": "LN_IC50",
+        "n_biomarker": 11,
+        "n_comparator": 619,
+        "delta_mean_ln_ic50": -1.069202,
+        "p_value_one_sided": 0.003003,
+        "cohens_d": -0.740478
+      }
+    },
+    {
+      "record_id": "MBD4_LOF_CERALASERTIB_COLORECTAL",
+      "action": "COLORECTAL_TRIAL_TARGET",
       "biomarker": {
         "gene": "MBD4",
         "state": "loss_of_function",
@@ -22,24 +95,20 @@
         "class": "ATR inhibitor",
         "agent": "ceralasertib"
       },
-      "routing_action": "PRIORITIZE_COLORECTAL_ATRI_TRIAL",
       "evidence": {
         "dataset": "GDSC2",
         "endpoint": "LN_IC50",
         "n_biomarker": 5,
         "n_comparator": 41,
         "delta_mean_ln_ic50": -0.6922974634146344,
-        "geometric_mean_ic50_ratio": 0.500425039128599,
-        "fold_lower_geometric_mean_ic50": 1.9983012875241446,
         "p_value_one_sided": 0.1263800798684519,
-        "cohens_d": -0.4638353720829927,
-        "receipt": "00-mbd4-manuscript/mbd4_parp_response/artifacts/canonical_atr_wee1_rerun_20260405/canonical_atr_wee1_rerun.csv"
+        "cohens_d": -0.4638353720829927
       },
-      "validation_state": "pending_lineage_specific_replication"
+      "validation_state": "prospective_lineage_specific_replication_required"
     },
     {
-      "record_id": "MBD4_LOF_ADAVOSERTIB_DISCOVERY",
-      "status": "DISCOVERY_GRADE_ACTIONABLE",
+      "record_id": "MBD4_LOF_ADAVOSERTIB",
+      "action": "CLASS_CONCORDANT_WEE1I_SECONDARY",
       "biomarker": {
         "gene": "MBD4",
         "state": "loss_of_function"
@@ -48,47 +117,52 @@
         "class": "WEE1 inhibitor",
         "agent": "adavosertib"
       },
-      "routing_action": "PRIORITIZE_CLASS_CONCORDANT_WEE1I_TRIAL",
       "evidence": {
         "dataset": "GDSC2",
         "endpoint": "LN_IC50",
         "n_biomarker": 15,
         "n_comparator": 929,
         "delta_mean_ln_ic50": -0.5117322005740941,
-        "geometric_mean_ic50_ratio": 0.5994563004050977,
-        "fold_lower_geometric_mean_ic50": 1.668178313121782,
         "p_value_one_sided": 0.0732583188620979,
-        "cohens_d": -0.3610039432038471,
-        "receipt": "00-mbd4-manuscript/mbd4_parp_response/artifacts/canonical_atr_wee1_rerun_20260405/canonical_atr_wee1_rerun.csv"
+        "cohens_d": -0.3610039432038471
       },
-      "validation_state": "pending_independent_replication"
+      "validation_state": "independent_replication_required"
     },
     {
-      "record_id": "MBD4_HETEROZYGOUS_ATRI_DISCOVERY",
-      "status": "DISCOVERY_GRADE_ACTIONABLE",
+      "record_id": "MBD4_HETEROZYGOUS_OPERATIONAL_GATE",
+      "action": "HIGH_CONFIDENCE_TRIAL_CANDIDATE",
       "biomarker": {
         "gene": "MBD4",
         "state": "heterozygous_loss_of_function"
       },
-      "therapy": {
-        "class": "ATR inhibitor",
-        "agent": "ceralasertib"
-      },
-      "routing_action": "ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE",
       "evidence": {
         "dataset": "DepMap OmicsSomaticMutations 24Q2",
-        "default_likely_lof_models": 21,
-        "heterozygous_gt_only_models": 20,
-        "homozygous_alt_models": 1,
-        "drug_matched_zygosity_unresolved": true,
-        "copy_number_or_loh_not_resolved": true
+        "genomic_cohort": 21,
+        "heterozygous_gt_calls": 20,
+        "homozygous_alt_calls": 1,
+        "drug_matched_allele_specific_status_resolved": false,
+        "copy_number_or_loh_resolved": false
       },
-      "validation_state": "pending_allele_specific_pharmacology",
-      "routing_policy": "any_somatic_LikelyLoF_truncation_surfaces_ATRi_candidate_without_confirmed_LOH"
+      "scientific_interpretation": "Supports operational inclusion in prospective trials without an LOH prerequisite; does not prove haploinsufficiency."
     },
     {
-      "record_id": "MBD4_LOF_PARP_ROUTING_GOVERNANCE",
-      "status": "HARD_ROUTING_RULE",
+      "record_id": "MBD4_LOF_CYTIDINE_ANALOG",
+      "action": "CYTIDINE_ANALOG_SYNTHETIC_LETHALITY",
+      "biomarker": {
+        "gene": "MBD4",
+        "state": "loss_of_function"
+      },
+      "therapy": {
+        "class": "cytidine analog",
+        "agents": [
+          "gemcitabine",
+          "cytarabine"
+        ]
+      },
+      "evidence_grade": "validated_preclinical_isogenic_rescue_axis"
+    },
+    {
+      "record_id": "MBD4_LOF_PARP_GOVERNANCE",
       "biomarker": {
         "gene": "MBD4",
         "state_any_of": [
@@ -99,40 +173,32 @@
       "therapy": {
         "class": "PARP inhibitor"
       },
-      "override_if_any": [
-        {
-          "gene": "BRCA1",
-          "state": "pathogenic"
-        },
-        {
-          "gene": "BRCA2",
-          "state": "pathogenic"
-        },
-        {
-          "feature": "validated_independent_PARPi_indication",
-          "value": true
-        }
-      ],
       "evidence": {
-        "PARP1_expression_MBD4_LOF_vs_comparator_p": 0.6047878879741422,
-        "MBD4_LOF_PARPi_delta_median_z": -0.0240625,
-        "MBD4_LOF_PARPi_bootstrap_95ci": [
+        "parp1_expression_medians_log1p_tpm": {
+          "mbd4_lof": 6.77,
+          "comparator": 6.66
+        },
+        "parp1_expression_p": 0.6047878879741422,
+        "parpi_delta_median_z": -0.0240625,
+        "parpi_bootstrap_95ci": [
           -0.8379669575,
           0.62434211
         ]
       },
-      "policy_note": "Blocks MBD4 as the sufficient biomarker; it does not cancel an independently validated PARPi indication.",
       "parp1_expression_gate": {
         "threshold": 7.41,
         "scale": "DepMap_TPM_log1p",
+        "status": "dataset_derived_exploratory_threshold",
+        "prospective_companion_diagnostic_validation_required": true,
         "if_missing_or_below_q75": "HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE",
         "if_at_or_above_q75": "ALLOW_PARPI_TRIAL_EVALUATION",
-        "if_validated_override": "ALLOW_PARPI_ROUTING_BYPASS"
-      }
+        "if_validated_independent_override": "ALLOW_PARPI_ROUTING_BYPASS"
+      },
+      "policy_note": "Blocks MBD4 as a sufficient PARPi biomarker within the trial-prioritization engine; does not cancel an independently validated PARPi indication."
     },
     {
-      "record_id": "MBD4_CYTIDINE_ATRI_COMBINATION_DISCOVERY",
-      "status": "DISCOVERY_GRADE_ACTIONABLE",
+      "record_id": "MBD4_CYTIDINE_ATRI_COMBINATION",
+      "action": "SYNERGISTIC_COMBINATION_CANDIDATE",
       "biomarker": {
         "gene": "MBD4",
         "state_any_of": [
@@ -145,17 +211,11 @@
         "components": [
           "cytidine analog",
           "ATR inhibitor"
-        ],
-        "example_agents": [
-          "gemcitabine",
-          "cytarabine",
-          "ceralasertib"
         ]
       },
-      "routing_action": "SYNERGISTIC_COMBINATION_CANDIDATE",
       "mechanistic_basis": "BER substrate accumulation plus ATR checkpoint blockade converges on replication-fork failure",
-      "trigger": "patient qualifies for either MBD4-framework cytidine-analog or ATR-inhibitor route",
-      "validation_state": "combination_synergy_and_tolerability_untested"
+      "combination_synergy_measured": false,
+      "validation_state": "prospective_combination_synergy_and_tolerability_testing_required"
     }
   ]
 }
