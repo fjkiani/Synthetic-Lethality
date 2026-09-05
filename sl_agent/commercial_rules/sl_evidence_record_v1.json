@@ -1,6 +1,7 @@
 {
   "schema": "sl_evidence_record.v1",
   "therapeutic_model": "MBD4_LOF_TRIAXIS",
+  "source_boundary": "Active uploaded and repository evidence only; externally retrieved cohort metrics excluded.",
   "denominators": {
     "total_genomic_cohort": 21,
     "expression_cohort": 19,
@@ -17,29 +18,41 @@
   "therapeutic_axes": {
     "axis_1": {
       "name": "Frontline Substrate Loading (Cytidine Analogs)",
-      "biological_mechanism": "Unrepaired BER substrate accumulation stalls active replication forks",
-      "primary_drug_targets": [
+      "mechanism": "Unrepaired BER substrate accumulation stalls active replication forks",
+      "lead_therapy": [
         "gemcitabine",
         "cytarabine"
-      ]
+      ],
+      "primary_action": "CYTIDINE_ANALOG_SYNTHETIC_LETHALITY"
     },
     "axis_2": {
       "name": "Replication Stress Checkpoint Cascade",
-      "biological_mechanism": "Targeting reliance on ATR/CHK1/WEE1 replication fork stabilization",
-      "primary_drug_targets": [
+      "mechanism": "MBD4-associated lesion stalling creates reliance on ATR/CHK1/WEE1 fork stabilization",
+      "lead_therapy": [
         "ceralasertib",
         "adavosertib"
+      ],
+      "primary_actions": [
+        "HIGH_CONFIDENCE_TRIAL_CANDIDATE",
+        "PRIORITIZE_ATRI_ENROLLMENT",
+        "HIGH_CONFIDENCE_TRIAL_ENROLLMENT",
+        "COLORECTAL_TRIAL_TARGET",
+        "CLASS_CONCORDANT_WEE1I_SECONDARY"
       ]
     },
     "axis_3": {
-      "name": "CpG>TpG Hypermutator Immunogenicity",
-      "biological_mechanism": "Deamination-mismatch repair failure drives high clonal neoantigen burden",
-      "primary_drug_targets": [
-        "anti-PD1",
-        "pembrolizumab",
-        "nivolumab"
-      ],
-      "evidence_boundary": "The neoantigen link is a mechanistic interpretation of the CpG>TpG hypermutator state; prospective tissue-agnostic validation is required."
+      "name": "Hypermutator Phenotype & Immune Checkpoint Blockade",
+      "mechanism": "Spontaneous CpG deamination failure fixing CpG>TpG transition mutations, driving a hypermutator phenotype",
+      "lead_therapy": "anti-PD-1 / anti-PD-L1 immunotherapy",
+      "primary_action": "IMMUNOTHERAPY_CHECKPOINT_BLOCKADE",
+      "evidence": {
+        "clinical_cohorts": [
+          "Rodrigues human case",
+          "Saint-Ghislain retrospective cohort"
+        ],
+        "clinical_outcomes": "Associated with exceptional anti-PD-1 response in a sentinel case and improved clinical outcomes within a five-patient MBD4-mutated uveal melanoma subgroup.",
+        "validation_boundary": "Neoantigen load and CD8-recruitment pathways represent biological interpretations requiring prospective assay validation."
+      }
     }
   },
   "graded_action_schema": [
@@ -54,43 +67,5 @@
     "ALLOW_PARPI_TRIAL_EVALUATION",
     "ALLOW_PARPI_ROUTING_BYPASS",
     "SYNERGISTIC_COMBINATION_CANDIDATE"
-  ],
-  "clinical_evidence_registry": {
-    "cohorts": [
-      {
-        "study": "Rodrigues et al.",
-        "citation_key": "rodrigues2018",
-        "indication": "MBD4-mutated metastatic uveal melanoma",
-        "treatment": "anti-PD1 therapy",
-        "outcome_metric": "Exceptional anti-PD1 response in a single patient with outlier CpG>TpG burden",
-        "evidence_design": "single-patient case report"
-      },
-      {
-        "study": "Saint-Ghislain et al.",
-        "citation_key": "saintghislain2022",
-        "indication": "MBD4-deficient metastatic uveal melanoma",
-        "treatment": "immune checkpoint blockade",
-        "outcome_metric": "Objective response 60% versus 4%; median PFS 22.3 versus 4.0 months",
-        "evidence_design": "retrospective cohort",
-        "ici_treated_patients": 300,
-        "mbd4_sequenced_tumors": 131,
-        "mbd4_mutated_tumors": 5,
-        "objective_response_mbd4_mutated": 0.6,
-        "objective_response_mbd4_wild_type": 0.04,
-        "response_p_value": "<0.001",
-        "median_pfs_months_mbd4_mutated": 22.3,
-        "median_pfs_months_mbd4_wild_type": 4.0,
-        "pfs_hazard_ratio": 0.22,
-        "pfs_p_value": 0.01,
-        "median_os_months_mbd4_mutated": "unreached",
-        "median_os_months_comparator": 16.6,
-        "os_hazard_ratio": 0.11,
-        "os_hazard_ratio_95ci": [
-          0.02,
-          0.86
-        ],
-        "os_p_value": 0.04
-      }
-    ]
-  }
+  ]
 }

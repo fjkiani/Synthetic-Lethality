@@ -7,7 +7,8 @@
   "scientific_boundaries": {
     "heterozygous_gate": "Operationally eligible for prospective ATR-inhibitor trials; not allele-specific proof of haploinsufficiency.",
     "parp1_q75_gate": "Dataset-derived exploratory DepMap threshold requiring prospective assay and companion-diagnostic validation.",
-    "combination": "Mechanistically motivated trial hypothesis; pharmacologic synergy and tolerability remain unmeasured."
+    "combination": "Mechanistically motivated trial hypothesis; pharmacologic synergy and tolerability remain unmeasured.",
+    "axis_3": "Qualitative sentinel-case and retrospective five-patient subgroup evidence only; numerical cohort metrics excluded pending an in-repository receipt."
   },
   "records": [
     {
@@ -233,46 +234,18 @@
         "class": "immune checkpoint blockade",
         "agents_or_classes": [
           "anti-PD1",
-          "anti-CTLA4",
-          "combined ICI"
+          "anti-PD-L1"
         ]
       },
-      "mechanism": "Failed methyl-CpG mismatch repair produces CpG>TpG hypermutation and an expanded candidate neoantigen repertoire.",
+      "mechanism": "Failed methyl-CpG mismatch repair produces CpG>TpG hypermutation; neoantigen and CD8-recruitment links remain prospective assay targets.",
       "human_evidence": {
-        "sentinel_case": {
-          "citation": "Rodrigues et al. 2018",
-          "design": "single exceptional responder",
-          "features": [
-            "germline deleterious MBD4",
-            "somatic MBD4 inactivation",
-            "outlier CpG>TpG burden",
-            "anti-PD1 response"
-          ]
-        },
-        "retrospective_cohort": {
-          "citation": "Saint-Ghislain et al. 2022",
-          "ici_treated_mum": 300,
-          "mbd4_sequenced": 131,
-          "mbd4_mutated": 5,
-          "mbd4_mutation_prevalence": 0.038,
-          "objective_response_mbd4_mutated": 0.6,
-          "objective_response_mbd4_wild_type": 0.04,
-          "response_p_value": "<0.001",
-          "median_pfs_months_mbd4_mutated": 22.3,
-          "median_pfs_months_wild_type": 4.0,
-          "pfs_hr": 0.22,
-          "pfs_p_value": 0.01,
-          "median_os_months_mbd4_mutated": "unreached",
-          "median_os_months_comparator": 16.6,
-          "os_hr": 0.11,
-          "os_hr_95ci": [
-            0.02,
-            0.86
-          ],
-          "os_p_value": 0.04
-        }
+        "clinical_cohorts": [
+          "Rodrigues human case",
+          "Saint-Ghislain retrospective cohort"
+        ],
+        "clinical_outcomes": "Exceptional anti-PD1 response in a sentinel case and notable clinical response and survival benefits in a five-patient MBD4-mutated uveal melanoma subgroup."
       },
-      "validation_boundary": "Retrospective five-patient MBD4-mutated subgroup; prospective tissue-agnostic validation required."
+      "validation_boundary": "No cohort-level numerical receipt in the active source package; prospective tissue-agnostic validation required."
     }
   ],
   "therapeutic_model": "MBD4_LOF_TRIAXIS"
