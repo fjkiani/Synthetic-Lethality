@@ -37,25 +37,11 @@ keywords:
 journal: "bioRxiv"
 doi: ""
 abstract: |
-  Legacy MBD4-to-PARP inhibitor routing incorrectly treats base excision repair loss as a surrogate for
-  homologous-recombination deficiency. Pan-cancer transcriptomic and pharmacologic data falsify the required
-  mechanism: MBD4 loss does not induce PARP1, and MBD4 status does not separate PARP inhibitor response.
-  PARP1 expression remains an independent predictor of PARP inhibitor sensitivity, so CrisPRO enforces a
-  zero-trust gate: PARP1 expression below 7.41 log1p TPM triggers HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE;
-  expression at or above that Q75 threshold opens ALLOW_PARPI_TRIAL_EVALUATION; pathogenic BRCA1/2 or another
-  validated indication activates ALLOW_PARPI_ROUTING_BYPASS.
+  Legacy MBD4-to-PARP inhibitor routing incorrectly treats base excision repair (BER) loss as a surrogate for homologous-recombination deficiency. Large-scale multi-omic and pharmacologic data falsify the required mechanism: MBD4-LOF lines show no detected baseline PARP1 upregulation relative to wild-type pools (median 6.77 vs 6.66 log1p TPM; p=0.605, n=19 vs 1,498) and no meaningful median separation in PARP inhibitor response (Δ median Z=−0.024). Although baseline PARP1 expression strongly predicts PARP inhibitor sensitivity pan-cancer (ρ=−0.416, p=1.36×10⁻²¹), MBD4 genotype is decoupled from that expression state. CrisPRO therefore applies an expression-gated firewall: PARP1 expression below the 7.41 log1p TPM Q75 threshold triggers HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE; expression at or above the gate permits ALLOW_PARPI_TRIAL_EVALUATION; and pathogenic BRCA1/2 preserves independent routing through ALLOW_PARPI_ROUTING_BYPASS.
 
-  MBD4 loss instead defines a pan-cancer replication-stress state spanning Bowel, Lymphoid, Ovary, Uterus,
-  Esophagus, CNS, Prostate, and Lung. Ceralasertib reduced geometric-mean IC50 approximately 2.08-fold in the
-  canonical MBD4-LOF cohort (n=14 versus 914; p=0.0215; d=−0.503). TP53 co-mutation intensified the response
-  to a 2.91-fold reduction (n=11 versus 619; p=0.0030; d=−0.740), establishing the strongest measured genomic
-  route and a direct HGSOC trial-enrichment strategy. Twenty of 21 MBD4 LikelyLoF models carry heterozygous
-  genotype calls, making single-allele LikelyLoF sufficient for trial routing without an LOH prerequisite.
+  MBD4 loss instead defines a pan-cancer replication-stress and checkpoint-dependency state spanning Bowel, Lymphoid, Ovary, Uterus, Esophagus, CNS, Prostate, and Lung. In the canonical GDSC2 cohort, ceralasertib produced a 2.08-fold lower geometric-mean IC50 in MBD4-LOF lines (n=14 vs 914; p=0.0215; d=−0.503), with concordant robustness after MSI-H exclusion and across leave-one-out tests. TP53 co-mutation intensified the response to a 2.91-fold reduction (n=11 vs 619; p=0.0030; d=−0.740), establishing the strongest measured genomic stratum and the HIGH_CONFIDENCE_TRIAL_ENROLLMENT cohort. The pan-cancer MBD4-LikelyLoF population is classified as HIGH_CONFIDENCE_TRIAL_CANDIDATE. Because 20 of 21 MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls, the operational trial gate includes single-allele LikelyLoF states without requiring confirmed loss of heterozygosity.
 
-  The therapeutic architecture is dual-axis: cytidine analogs load unresolved BER substrate and stall
-  replication forks; ATR or WEE1 inhibition removes checkpoint protection. CrisPRO therefore executes
-  ROUTE_TO_TRIAL_OR_COMPASSIONATE_USE for ATR inhibition, retains adavosertib as the checkpoint-class expansion
-  arm, and assigns SYNERGISTIC_COMBINATION_CANDIDATE to the cytidine-analog plus checkpoint-inhibitor strategy.
+  The resulting clinical-development architecture is dual-axis: cytidine analogs (gemcitabine or cytarabine) load the replication fork with unrepaired substrate, while ATR inhibition with ceralasertib—or checkpoint-class expansion through WEE1 inhibition with adavosertib—removes fork stabilization. CrisPRO encodes this convergent trial hypothesis as SYNERGISTIC_COMBINATION_CANDIDATE.
 ---
 
 ## Introduction
