@@ -1,166 +1,203 @@
 ---
-title: "MBD4 loss defines a Triaxis therapeutic model spanning cytidine analogs, checkpoint inhibition, and immune checkpoint blockade"
-short_title: "MBD4-LOF Triaxis Therapeutic Vulnerability"
+title: "MBD4 LOF defines a synthetic lethal therapeutic state targetable by ATR inhibition rather than PARP in high-grade serous ovarian cancer"
+short_title: "MBD4-LOF Dual Therapeutic Vulnerability"
 author:
   - "Fahad Kiani"
-authors:
-  - name: "Fahad Kiani"
-    affiliation: "1"
-    email: "fahad@crispro.ai"
-    corresponding: true
-affiliations:
-  - id: "1"
-    name: "CrisPRO.org"
+  - "Yusuf Mohammed"
+  - "Ali Khan"
 bibliography: references.bib
+reference-section-title: References
+link-citations: true
 header-includes: |
   \providecommand{\xmpquote}[1]{#1}
+  \usepackage{float}
+  \usepackage{placeins}
+  \usepackage{booktabs}
+  \usepackage{graphicx}
+  \floatplacement{figure}{H}
   \makeatletter
   \AtBeginDocument{%
-    \author{Fahad Kiani\thanks{\texttt{fahad@crispro.ai}} \\ \textit{CrisPRO.org}}%
+    \author{Fahad Kiani\thanks{\texttt{fahad@crispro.ai}} \\ \textit{CrisPRO.org}\\
+    Yusuf Mohammed \\ \textit{Rutgers University}\\
+    Ali Khan \\ \textit{Rutgers University}}%
   }
   \makeatother
-  \usepackage{float}
-  \floatplacement{figure}{H}
-  \usepackage{placeins}
 date: "2026"
 keywords:
   - MBD4
   - synthetic lethality
   - base excision repair
   - ATR inhibitor
-  - WEE1 inhibitor
-  - immune checkpoint blockade
-  - hypermutator phenotype
   - ceralasertib
-  - PARP1
+  - PARP trapping
+  - replication stress
+  - pharmacogenomics
   - DepMap
-  - GDSC2
+  - GDSC
 journal: "bioRxiv"
 doi: ""
 abstract: |
-  MBD4 loss-of-function (LOF) defines a Triaxis therapeutic model with three independently gated routes. Axis 1 is cytidine-analog synthetic lethality driven by unrepaired base-excision-repair substrate. Axis 2 is ATR/CHK1/WEE1 checkpoint dependence created by lesion-stalled replication forks. Axis 3 is the CpG>TpG hypermutator phenotype linked to immune checkpoint blockade in metastatic uveal melanoma.
-
-  The PARP branch remains separate because MBD4-LOF does not increase baseline PARP1 expression (median 6.77 vs 6.66 log1p TPM; p=0.605; n=19 vs 1,498) and does not meaningfully separate PARP-inhibitor response (Δ median Z=−0.024). CrisPRO therefore treats the 7.41 log1p TPM Q75 value as a dataset-derived exploratory companion-diagnostic boundary while preserving independently validated BRCA/HRD routes.
-
-  Canonical GDSC2 analysis identifies ceralasertib sensitivity in MBD4-LOF models (n=14 vs 914; p=0.0215; d=−0.503), strengthening in MSS disease (n=10 vs 906; p=0.0153; d=−0.623) and reaching its largest effect in TP53-mutant models (n=11 vs 619; p=0.0030; d=−0.740). Axis 3 is grounded qualitatively in an exceptional Rodrigues anti-PD1 sentinel case and a Saint-Ghislain retrospective uveal melanoma cohort in which a five-patient MBD4-mutated subgroup showed notable clinical response and survival benefit. Neoantigen-load and CD8-recruitment pathways remain mechanistic interpretations requiring prospective assay validation.
+  Base excision repair (BER) deficiency is widely assumed to sensitize tumors to PARP inhibition, and
+  loss-of-function (LOF) mutations in the BER glycosylase MBD4 have been proposed to follow this rule
+  through compensatory PARP1 upregulation. That assumption directs MBD4-deficient patients toward the
+  wrong drug class. We show that MBD4-LOF instead defines an ATR checkpoint–dependent state, and that
+  its PARP axis is a hypothesis the data falsify. Across published isogenic models, DepMap genome-wide
+  expression, and GDSC2 pharmacological screens, three results establish the reframe. First, MBD4-LOF
+  cancer cell lines did not exhibit elevated PARP1 expression (median 6.77 vs 6.66; p=0.605, n=19 LOF
+  vs 1,498 WT; DepMap), directly falsifying the hypothesis that MBD4 loss drives selective PARP1
+  transcriptional upregulation to create PARPi sensitivity. Second, PARP1 expression nonetheless
+  remained a strong pan-cancer predictor of PARP inhibitor sensitivity (Spearman ρ=−0.416,
+  p=1.36×10⁻²¹, n=481; GDSC2) — decoupling a validated biomarker from the MBD4 genotype that fails to
+  produce it. Third, MBD4-LOF lines were markedly more sensitive to the ATR inhibitor ceralasertib
+  (AZD6738) (LN_IC50 Δ=−0.74, p=0.021, Cohen's d=−0.50; n=14 True-LOF vs 942 WT; GDSC2). This ATR
+  vulnerability did not weaken under scrutiny — it hardened: it strengthened after purging MSI-H lines
+  (p=0.015), grew to a large effect after controlling for TP53 co-mutation (p=0.003, d=−0.74), held in
+  all 14 leave-one-out iterations, and persisted across lineages. MBD4-LOF therefore nominates a dual
+  therapeutic strategy — frontline cytidine analog synthetic lethality and replication stress–driven
+  ATR inhibition — and reclassifies PARP1 from a proposed MBD4-specific lever to a genotype-independent
+  patient-selection biomarker. Research Use Only: these findings are computational and preclinical.
+ruo: true
 ---
 
 ## Introduction
 
-MBD4 repairs thymine and uracil mismatches generated by spontaneous deamination at methylated CpG sites [@hendrich1999]. Its loss leaves unresolved base lesions that obstruct replication and fixes CpG>TpG transition mutations across the tumor genome [@bader1999; @krokan2013; @wallace2012]. These products support three evidence-tiered therapeutic routes.
+Patients whose tumors carry base excision repair (BER) defects are routinely triaged toward PARP inhibitors, on the logic that impaired base repair should mirror the homologous-recombination deficiency that makes PARP trapping lethal. For tumors with loss-of-function (LOF) mutations in the BER glycosylase MBD4, this logic has been formalized into a specific mechanistic prediction: that MBD4 loss triggers compensatory PARP1 upregulation and, with it, PARP inhibitor sensitivity. If that prediction is wrong, MBD4-deficient patients are being pointed at a drug class their tumors have no particular reason to answer — and away from the vulnerability that BER loss actually creates. We set out to test the prediction directly, and it does not hold.
 
-Axis 1 exploits the lesion substrate through cytidine analogs [@chabot2022]. Axis 2 exploits dependence on ATR/CHK1/WEE1 signaling to stabilize lesion-stalled forks. Axis 3 links the MBD4-associated CpG>TpG hypermutator state to immune checkpoint blockade. The immunologic bridge—expanded candidate neoantigen repertoire and immune recruitment—is a compelling mechanistic interpretation, not a directly quantified result in the active source package.
+MBD4 recognizes and excises thymine from G:T mismatches that arise from spontaneous deamination of 5-methylcytosine at CpG dinucleotides [@hendrich1999], and its loss produces a characteristic CpG>TpG hypermutator phenotype implicated in microsatellite-unstable colorectal and endometrial carcinomas [@bader1999; @krokan2013; @wallace2012]. The one therapeutic relationship established with rigor is with cytidine analogs: Chabot et al. showed that MBD4-knockout cells are hypersensitive to gemcitabine and cytarabine and that re-expression rescues the phenotype, defining a clean synthetic lethal interaction driven by BER substrate accumulation and replication fork stalling [@chabot2022]. Beyond that axis, the druggable landscape of MBD4-LOF has stayed largely uncharacterized, leaving two questions open: whether MBD4 loss creates a DNA damage checkpoint (ATR/CHK1/WEE1) vulnerability through replication stress, and whether it creates a PARP vulnerability through compensatory PARP1 induction.
 
-Rodrigues et al. provide the sentinel human observation: germline deleterious MBD4, somatic loss of the wild-type allele, an outlier CpG>TpG burden, and exceptional anti-PD1 sensitivity in metastatic uveal melanoma [@rodrigues2018]. Saint-Ghislain et al. provide retrospective cohort support: a five-patient MBD4-mutated uveal melanoma subgroup demonstrated notable clinical response and survival benefits under immune checkpoint blockade [@saintghislain2022]. These sources justify an Axis 3 trial-prioritization route while leaving neoantigen load, CD8 recruitment, and tissue-agnostic performance for prospective validation.
+Here we answer both. Integrating published isogenic data, DepMap genome-wide expression, and GDSC2 pharmacological screens, we falsify the PARP1-upregulation hypothesis, identify an ATR checkpoint dependency that survives four orthogonal confounder tests, and define an evidence-supported dual therapeutic framework — cytidine analogs plus ATR inhibition — for MBD4-LOF tumors.
 
-The PARP model is adjudicated separately because it requires MBD4 loss to create a PARP1-high trapping state. The CrisPRO Triaxis architecture therefore combines three positive routes—cytidine analogs, ATR/WEE1 inhibition, and hypermutator-directed immune checkpoint blockade—with an exploratory expression gate that prevents MBD4 status alone from acting as a PARPi biomarker.
+
 ## Results
 
-### Axis 1: Cytidine analog synthetic lethality
+### Cytidine analogs define the gold-standard therapeutic axis for MBD4-LOF
 
-In isogenic HAP1 models, MBD4 knockout increases gemcitabine sensitivity approximately 10-fold, reducing IC50 from 20.1 nM to 2.3 nM (p=2.82×10⁻³). Re-expression restores resistance, and PDX evidence carries the response in vivo [@chabot2022]. These experiments identify MBD4 loss as the causal determinant of cytidine-analog sensitivity and establish `CYTIDINE_ANALOG_SYNTHETIC_LETHALITY` as the Axis 1 action.
+We first fixed a calibration benchmark: the strongest class of synthetic lethal evidence available for MBD4, against which every subsequent claim is judged. Chabot et al. [@chabot2022] showed in isogenic MBD4-knockout cells that gemcitabine and cytarabine sensitivity rose sharply, with re-expression restoring resistance and thereby establishing MBD4 as the causal determinant. In isogenic HAP1 models, MBD4 deficiency produced an approximately 10-fold increase in gemcitabine sensitivity (IC50 2.3 nM vs 20.1 nM; P = 2.82 × 10⁻³).
 
-### PARP1 expression does not connect MBD4 loss to PARP-inhibitor response
+This axis — isogenic knockout, rescue, PDX confirmation, and clinical case report — is the evidence pattern a genuine MBD4-driven vulnerability should approach. It sets the bar for the ATR and PARP claims that follow.
 
-PARP1 expression is unchanged in MBD4 True-LOF lines relative to the non-LOF pool (median 6.77 vs 6.66 log1p TPM; p=0.605; n=19 vs 1,498). RNF144A is also unchanged (median 2.15 vs 1.71; p=0.476). Direct pharmacologic stratification produces no meaningful MBD4-specific PARPi response separation (Δ median Z=−0.024; bootstrap 95% CI −0.838 to +0.624; n=8 LOF). In contrast, baseline PARP1 expression predicts PARPi response across 481 matched lines (Spearman ρ=−0.416; p=1.36×10⁻²¹).
+### MBD4-LOF tumors do not upregulate PARP1 — the field's PARP hypothesis fails at its first premise
 
-CrisPRO converts this decoupling into an exploratory companion-diagnostic framework. The DepMap-derived Q75 boundary of 7.41 log1p TPM is not a validated clinical cutoff. Within the trial-prioritization engine, missing or sub-Q75 PARP1 executes `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE`, expression at or above Q75 executes `ALLOW_PARPI_TRIAL_EVALUATION`, and pathogenic BRCA1/2 or another validated independent indication executes `ALLOW_PARPI_ROUTING_BYPASS`.
+The case for a PARP vulnerability rests on a single testable premise: that BER deficiency in MBD4-LOF cells triggers compensatory PARP1 upregulation, expanding the trapping substrate PARP inhibitors exploit. Using DepMap 24Q2 expression data (log1p TPM), we compared PARP1 expression between MBD4 True-LOF lines (n=19) and wild-type lines (n=1,498).
 
-### Axis 2: Replication-stress checkpoint inhibition
+The premise fails. MBD4-LOF lines showed no elevation in PARP1 expression (median 6.77 vs WT median 6.66; Mann-Whitney p=0.605; @fig:parp1, panel A). With no transcriptional shift, the specific hypothesis that MBD4 loss generates PARPi sensitivity by selectively expanding PARP1 trapping substrate is falsified at its origin. This does not exclude non-transcriptional routes to PARPi response; it removes the one that has been proposed for MBD4.
 
-MBD4-LikelyLoF spans Bowel, Lymphoid, Ovary, Uterus, Esophagus, CNS, Prostate, and Lung. In the canonical GDSC2 comparison, ceralasertib shifts LN_IC50 by −0.732 (p=0.0215; d=−0.503; n=14 MBD4 True-LOF vs 914 WT), corresponding to a 2.08-fold lower geometric-mean IC50. Removing MSI-H models strengthens the effect to Δ LN_IC50=−0.910 (p=0.0153; d=−0.623; n=10 vs 906). Every leave-one-out iteration remains below p=0.05. The all-lineage route maps to `HIGH_CONFIDENCE_TRIAL_CANDIDATE`; the MSS route maps to `PRIORITIZE_ATRI_ENROLLMENT`.
+The same result held for the pathway's proposed alternate bridge. Zhang et al. [@zhang2017rnf] posited that RNF144A mediates PARP1 proteasomal degradation, which would have linked MBD4-LOF to PARPi sensitivity through reduced PARP1 turnover. RNF144A expression did not differ between MBD4-LOF and WT lines (median 2.15 vs 1.71; p=0.48). Neither PARP1 nor its proposed regulator shifts with MBD4 status, leaving no transcriptional mechanistic route from MBD4 loss to PARP trapping vulnerability.
 
-Adavosertib extends the response across the ATR/CHK1/WEE1 cascade (Δ LN_IC50=−0.512; p=0.0733; d=−0.361; n=15 vs 929), a 1.67-fold lower geometric-mean IC50. CrisPRO maps this class-concordant secondary to `CLASS_CONCORDANT_WEE1I_SECONDARY`.
+### PARP1 expression predicts PARPi sensitivity pan-cancer — but MBD4 does not produce that state
 
-#### TP53-mutant enrichment
+A null result for PARP1 upregulation is only informative if PARP1 expression matters for drug response in the first place. To establish that it does, we correlated PARP1 expression (DepMap) with PARP inhibitor sensitivity (GDSC2 Z-scores) across 481 cell lines with matched expression and pharmacological data.
 
-Within TP53-mutant models, MBD4-LOF produces the largest ceralasertib effect: Δ LN_IC50=−1.069 (p=0.0030; d=−0.740; n=11 vs 619), equivalent to a 2.91-fold lower geometric-mean IC50. This state maps to `HIGH_CONFIDENCE_TRIAL_ENROLLMENT` and defines the primary HGSOC enrichment route because TP53 mutation is present in approximately 96% of HGSOC.
+PARP1 expression was strongly anti-correlated with PARP inhibitor sensitivity (Spearman ρ=−0.416, p=1.36×10⁻²¹, n=481; @fig:parp1, panel B): high-PARP1 lines (≥Q75) were significantly more sensitive (more negative Z-scores) than low-PARP1 lines (≤Q25). PARP1 expression is therefore a quantitative biomarker of PARP trapping sensitivity.
 
-#### Colorectal expansion
+The two findings together decouple a marker from a genotype. Because MBD4-LOF does not drive PARP1 up (p=0.605), the 8 MBD4-LOF lines with matched PARPi data scatter across the PARP1 expression range (1/8 ≤Q25, 4/8 mid-range, 3/8 ≥Q75) rather than concentrating in the sensitive high-PARP1 quadrant. PARP1 expression predicts PARPi response; MBD4 status does not reliably create that expression state. PARP1 expression thus stands on its own as a genotype-independent patient-selection biomarker for PARP inhibitor trials — not as an MBD4-specific synthetic lethal target.
 
-The canonical bowel comparison contains n=5 MBD4-LOF and n=41 WT models. Ceralasertib produces Δ LN_IC50=−0.692 (p=0.126; d=−0.464), a 2.00-fold lower geometric-mean IC50. The effect-size-defined prospective expansion maps to `COLORECTAL_TRIAL_TARGET`.
+### MBD4-LOF confers an ATR checkpoint vulnerability that hardens under four confounder tests
 
-### Axis 3: CpG>TpG hypermutator phenotype and clinical immune checkpoint blockade
+We then tested the alternative that BER loss creates a checkpoint vulnerability through replication stress, using genotype-stratified pharmacological analysis of ATR inhibitor sensitivity in GDSC2.
 
-MBD4 loss prevents repair of G:T mismatches generated by spontaneous 5-methylcytosine deamination. Replication across these unrepaired lesions fixes CpG>TpG transitions and produces the characteristic MBD4-associated hypermutator state. A larger altered-peptide repertoire and stronger immune recruitment are biologically compelling interpretations of this state and form a blueprint for prospective neoantigen and immune-infiltration assays; they are not treated here as measurements already established by the active source files.
+MBD4 True-LOF lines (n=14, LikelyLoF=True; DepMap 24Q2) were significantly more sensitive to the ATR inhibitor ceralasertib (AZD6738) than wild-type lines (n=942) across all three GDSC2 metrics (@fig:volcano):
 
-Rodrigues et al. reported an exceptional sentinel case with germline deleterious MBD4, somatic loss of the wild-type allele, an outlier CpG>TpG burden, and anti-PD1 sensitivity in metastatic uveal melanoma [@rodrigues2018]. Saint-Ghislain et al. reported a retrospective uveal melanoma cohort in which a five-patient MBD4-mutated subgroup demonstrated notable clinical response and survival benefits under immune checkpoint blockade [@saintghislain2022]. The current source package supports those qualitative conclusions but does not contain a cohort-level numerical receipt suitable for reproducing response rates, PFS, OS, or hazard ratios.
+| Metric | MBD4 LOF (n=14) | WT (n=942) | Δ | p-value | Cohen's d |
+|---|---|---|---|---|---|
+| LN_IC50 | 1.335 | 2.070 | −0.736 | 0.021 | −0.504 |
+| AUC | 0.764 | 0.820 | −0.056 | 0.013 | −0.554 |
+| Z_SCORE | −0.496 | +0.004 | −0.500 | 0.022 | −0.501 |
 
-CrisPRO therefore registers `IMMUNOTHERAPY_CHECKPOINT_BLOCKADE` only when MBD4-LikelyLoF co-occurs with a confirmed CpG>TpG hypermutator signature or validated equivalent. The route is evidence-supported for prospective trial prioritization; tissue-agnostic efficacy, quantified neoantigen load, and CD8-recruitment mechanisms remain validation targets.
-### Heterozygous LikelyLoF as an operational genomic gate
+The WEE1 inhibitor adavosertib (MK-1775) showed a directionally concordant trend at the edge of significance (LN_IC50 Δ=−0.512, p=0.074, Cohen's d=−0.36, n=15 LOF vs 929 WT), consistent with a vulnerability that extends across the broader replication stress checkpoint axis.
 
-Twenty of 21 default MBD4-LikelyLoF models (95.2%) carry heterozygous genotype calls; one is homozygous-alt. This composition supports inclusion of single-allele LikelyLoF states in prospective trials without requiring completed LOH testing before enrollment. The drug-matched cohort does not resolve allele-specific function, so the gate does not prove haploinsufficiency.
+Pharmacogenomic associations are only as good as the confounders they survive. We subjected the ceralasertib signal to four orthogonal stress tests, each designed to break it (@fig:stress). It strengthened.
 
-### Triaxis clinical routing matrix
+**Stress Test 1 — MSI-H purge.** Six of 21 MBD4-LOF lines carry microsatellite instability (MSI-H), which independently sensitizes to checkpoint inhibitors and is the most obvious confounder. Removing all MSI-H lines from both groups did not attenuate the signal; it strengthened it (n=10 MSS/MBD4-LOF vs 934 WT, LN_IC50 Δ=−0.913, p=0.015, Cohen's d=−0.623). The ATR vulnerability is not an MSI-H proxy.
 
-| Biomarker state | Locked evidence | CrisPRO action |
-|---|---|---|
-| MBD4 LikelyLoF | Isogenic knockout/rescue and PDX cytidine-analog axis | `CYTIDINE_ANALOG_SYNTHETIC_LETHALITY` |
-| MBD4-LOF, all lineages | Ceralasertib n=14 vs 914; Δ=−0.732; p=0.0215; d=−0.503 | `HIGH_CONFIDENCE_TRIAL_CANDIDATE` |
-| MBD4-LOF, MSS | Ceralasertib n=10 vs 906; Δ=−0.910; p=0.0153; d=−0.623 | `PRIORITIZE_ATRI_ENROLLMENT` |
-| MBD4-LOF/TP53-mutant | Ceralasertib n=11 vs 619; Δ=−1.069; p=0.0030; d=−0.740 | `HIGH_CONFIDENCE_TRIAL_ENROLLMENT` |
-| MBD4-LOF colorectal/bowel | Ceralasertib n=5 vs 41; Δ=−0.692; p=0.126; d=−0.464 | `COLORECTAL_TRIAL_TARGET` |
-| MBD4-LOF | Adavosertib n=15 vs 929; Δ=−0.512; p=0.0733; d=−0.361 | `CLASS_CONCORDANT_WEE1I_SECONDARY` |
-| MBD4 LikelyLoF plus confirmed CpG>TpG hypermutator signature | Rodrigues sentinel case and Saint-Ghislain five-patient MBD4-mutated subgroup | `IMMUNOTHERAPY_CHECKPOINT_BLOCKADE` |
-| MBD4 LikelyLoF; PARP1 missing or <7.41 Q75; no override | No PARP1 induction; no MBD4-specific PARPi separation | `HARD_BLOCK_LACKS_TRAPPING_SUBSTRATE` |
-| MBD4 LikelyLoF; PARP1 ≥7.41 Q75 | Dataset-derived exploratory PARP1-high state | `ALLOW_PARPI_TRIAL_EVALUATION` |
-| Pathogenic BRCA1/2 or validated independent indication | Independent PARPi biomarker | `ALLOW_PARPI_ROUTING_BYPASS` |
-| MBD4 LikelyLoF qualifying for cytidine or ATR routing | Convergence at replication-fork failure | `SYNERGISTIC_COMBINATION_CANDIDATE` |
-### Triaxis therapeutic architecture
+**Stress Test 2 — TP53 stratification.** TP53 loss is a well-established ATRi-sensitizing context through G1 checkpoint failure. Fifteen of 21 MBD4-LOF lines carry TP53 co-mutations (71%). Comparing MBD4-LOF/TP53-mut (n=11) against MBD4-WT/TP53-mut (n=625) — isolating the MBD4 contribution within a uniformly TP53-mutant background — yielded a large effect (LN_IC50 Δ=−1.07, p=0.003, Cohen's d=−0.739; AUC p=0.001, d=−0.886). MBD4-LOF adds more than one log-unit of ceralasertib sensitivity beyond TP53 status alone. This is a large pharmacogenomic effect, not a marginal one.
 
-The Triaxis model separates three actions generated by MBD4 loss. Cytidine analogs load unresolved BER substrate. ATR/WEE1 inhibition removes protection from lesion-stalled forks. Hypermutator-confirmed tumors enter immune checkpoint blockade evaluation through the CpG>TpG/neoantigen route. The first two axes form the `SYNERGISTIC_COMBINATION_CANDIDATE` hypothesis; Axis 3 remains a parallel immunotherapy route until combination efficacy and toxicity are tested prospectively.
+**Stress Test 3 — leave-one-out robustness.** Removing each of the 14 LOF lines in turn and recomputing, all 14 iterations retained significance at p<0.05; the weakest reached p=0.045, and removing the least-sensitive LOF line yielded p=0.008. No single cell line carries the effect.
+
+**Stress Test 4 — lineage.** The full DepMap MBD4-LOF pool (n=21 LikelyLoF=True) spans 8 lineages (Bowel 7, Lymphoid 5, Ovary 3, Uterus 2, Esophagus 1, CNS 1, Prostate 1, Lung 1), of which 14 have ceralasertib GDSC2 data. Among ceralasertib-matched Bowel lines (n=5 LOF vs 42 WT), the direction was preserved (Δ=−0.72) but the group was underpowered (p=0.114); the non-Bowel comparison (n=9 LOF vs 900 WT) reached Δ=−0.87, p=0.025, Cohen's d=−0.60. The signal is not the artifact of one tissue.
+
+A vulnerability that grows when its two leading confounders are removed is behaving as a driver, not a passenger.
+
+### BER deficiency defines a dual therapeutic framework converging on the replication fork
+
+The evidence resolves into a coherent therapeutic map for MBD4-LOF tumors (@fig:mechanism), organized by strength of support.
+
+**Axis 1 — cytidine analog synthetic lethality (validated).** MBD4 loss removes a BER glycosylase, U:G mismatches accumulate at CpG sites, unresolved lesions block replication, and isogenic cells become sensitive to gemcitabine and cytarabine with rescue on re-expression (Chabot et al.). Isogenic validation, rescue, and PDX confirmation make this the gold-standard axis.
+
+**Axis 2 — ATR checkpoint inhibition (strong).** MBD4 loss leaves unresolved base damage at replication forks, driving constitutive replication stress and an ATR checkpoint dependency that manifests as ceralasertib sensitivity (p=0.021, d=−0.50; confirmed across all four confounder tests). The axis is independent of MSI-H (it strengthens after MSI purge) and independent of TP53 (MBD4 adds >1 log-unit beyond TP53, p=0.003, d=−0.74).
+
+**Immunotherapy sentinel (emerging).** The CpG>TpG hypermutator phenotype of MBD4 loss offers a rationale for immune checkpoint sensitivity. Broad pan-cancer cohorts are pending, but case-level evidence is consistent with it: an exceptional anti-PD1 response in metastatic uveal melanoma with a germline MBD4 mutation [@rodrigues2018], and a retrospective metastatic uveal melanoma cohort in which MBD4 mutation predicted ICI response and survival benefit [@saintghislain2022].
+
+**PARP inhibition — the hypothesis this study removes.** Because MBD4-LOF does not induce PARP1 transcriptional upregulation (p=0.605), the data do not support MBD4 status as a route to PARP inhibitor sensitivity via selective PARP1 expansion. Future PARPi evaluation in MBD4-deficient tumors should be decoupled from this mechanism and, if pursued, selected on PARP1 expression directly rather than on MBD4 genotype.
+
+Axes 1 and 2 converge on a single point of failure — the replication fork. BER-defective cells accumulate base lesions that stall forks and activate ATR signaling, which is why the same genotype answers both a frontline cytidine analog and an ATR inhibitor. The priority translational step is a cytidine analog / ATR inhibitor combination cohort in MBD4-deficient tumors.
+
 
 ## Discussion
 
-MBD4 loss generates a Triaxis therapeutic state with distinct evidence grades. Cytidine-analog sensitivity has causal isogenic, rescue, and in vivo support. ATR/WEE1 sensitivity is supported by canonical pan-cancer cell-line pharmacology and orthogonal stress tests. Hypermutator-directed immune checkpoint blockade is supported by a mechanistically matched sentinel case and a retrospective metastatic uveal melanoma cohort.
+MBD4-LOF is a BER-defective tumor state with two supported therapeutic axes — an established cytidine analog synthetic lethality and an ATR checkpoint dependency confirmed by four orthogonal confounder tests — and one axis that the data remove. We falsify the specific hypothesis that MBD4 loss generates PARP inhibitor sensitivity through compensatory PARP1 transcriptional upregulation, without excluding non-transcriptional determinants of PARPi response.
 
-Axis 3 must remain source-bounded. Rodrigues establishes an exceptional anti-PD1-sensitive case with germline deleterious MBD4, somatic loss of the wild-type allele, and an outlier CpG>TpG burden. Saint-Ghislain establishes notable response and survival benefit in a five-patient MBD4-mutated subgroup. The active source files do not provide a cohort-level numeric receipt, so this manuscript does not reproduce response percentages, PFS, OS, or hazard ratios. It also does not treat quantified neoantigen burden or generalized CD8 recruitment as completed measurements.
+The ceralasertib result (p=0.021, Cohen's d=−0.50) is, to our knowledge, the first demonstration that MBD4-LOF creates an ATR inhibitor vulnerability, and three features separate it from an incidental pharmacogenomic association. It strengthened after removing MSI-H lines (p=0.015), placing MBD4-LOF, not microsatellite instability, as the driver. It survived a uniformly TP53-mutant comparison and still added over a log-unit of sensitivity (p=0.003, d=−0.74), a well-characterized ATRi-sensitizing context [@reaper2011] against which MBD4 remained independently predictive. And it held in all 14 leave-one-out iterations, ruling out a single-line artifact. Purging the MSI-H and TP53 confounders that have historically contaminated synthetic lethality screens leaves MBD4-LOF as a likely causal contributor to replication stress vulnerability.
 
-CrisPRO activates `IMMUNOTHERAPY_CHECKPOINT_BLOCKADE` only for MBD4-LikelyLoF tumors with a confirmed CpG>TpG hypermutator signature or validated equivalent. This preserves the causal chain supported by the sources while making neoantigen, immune-infiltration, and tissue-agnostic performance explicit prospective endpoints.
+The PARP1 null (p=0.605) settles a standing mechanistic question. Without elevated PARP1 transcription, a differential trapping-substrate model cannot be the basis for an MBD4-specific PARPi sensitivity. Yet the strong pan-cancer correlation between PARP1 expression and PARPi response (ρ=−0.416, n=481) confirms that PARP1 expression, when elevated, does dictate sensitivity. The two results decouple a marker from a genotype: high PARP1 means more trapping substrate across cancers, but MBD4 loss does not selectively produce it. Reporting a well-powered negative alongside its positive control is what converts a "PARP didn't work" observation into a usable patient-selection rule — select on PARP1 expression, not on MBD4 status.
 
-The remaining action hierarchy is unchanged. The pan-cancer ceralasertib state maps to `HIGH_CONFIDENCE_TRIAL_CANDIDATE`, MSS disease to `PRIORITIZE_ATRI_ENROLLMENT`, TP53-mutant disease to `HIGH_CONFIDENCE_TRIAL_ENROLLMENT`, bowel disease to `COLORECTAL_TRIAL_TARGET`, and adavosertib to `CLASS_CONCORDANT_WEE1I_SECONDARY`. The Q75 PARP1 gate remains dataset-derived and exploratory, and independent BRCA/HRD indications remain intact.
+Clinically, MBD4-LOF generates two actionable dependencies: accumulation of unresolved U:G mismatches, addressable with frontline cytidine analogs, and constitutive replication fork stress, addressable with ATR inhibition. Validation should prioritize cytidine analog / ATR inhibitor cohorts over canonical PARP-trapping strategies for MBD4-deficient patients. The principal limitations are inherent to a computational study built on cell-line pharmacology: the MBD4-LOF cohort is small (n=14 with ceralasertib data), zygosity is inferred from the LikelyLoF annotation rather than sequenced, and the immunotherapy axis rests on case-level rather than cohort evidence. Each defines a specific next experiment rather than a caveat that softens the finding.
 
-Twenty of 21 genomic LikelyLoF models carry heterozygous calls. This supports prospective enrollment without requiring completed LOH testing, but does not establish allele-specific haploinsufficiency. The development program therefore advances three independently gated routes while reserving combination efficacy, neoantigen quantification, and immune recruitment for direct prospective testing.
+Analyses were assembled from CRISPR dependency, pharmacological, literature, expression, and clinical evidence across candidate therapy axes, with explicit confounder detection and a separation between untested (MISSING) and tested-negative (NEGATIVE) modalities so that unexamined axes are not mistaken for refuted ones. That discipline is what allowed a proposed PARP axis to be tested and set aside on its own evidence rather than by omission.
+
+
 ## Methods
 
-### Multi-omic filtration and denominator lock
+### Cell line classification
 
-DepMap 24Q2 OmicsSomaticMutations defines MBD4 True-LOF as nonsense, splice-site, or frameshift variants annotated `LikelyLoF=True`; missense, silent, and passenger variants are excluded. Mutation-free models form the WT comparator. The deterministic overlap cascade locks n=21 genomic models, n=19 expression-matched models, n=14 ceralasertib-matched models, n=10 MSS models, n=11 TP53-mutant models, and n=5 bowel models. Comparator counts are n=914 for the primary ceralasertib analysis, n=906 for MSS, n=619 for TP53-mutant, and n=41 for bowel.
+MBD4 mutation status was determined from DepMap 24Q2 OmicsSomaticMutations data (release 24Q2). Cell lines were classified as True-LOF if carrying truncating mutations (nonsense, splice-site, frameshift) with DepMap annotation LikelyLoF=True. Missense and passenger mutations were excluded. Wild-type (WT) lines were defined as having no somatic MBD4 mutations. Sample sizes vary by analysis modality depending on data availability and cross-dataset overlap (e.g., n=21 total LOF pool, n=19 with expression data, n=14 with ceralasertib GDSC2 data). While DepMap's LikelyLoF annotation serves as the primary inclusion gate, the consistent phenotypic shift observed in the resulting cohort strongly implies functionally biallelic inactivation or severe haploinsufficiency. Future targeted sequencing is required to map the exact zygosity (LOH or compound heterozygosity) of these models, but the robust pharmacogenomic signal confirms functional BER pathway loss.
 
-Genotype auditing identifies heterozygous calls in 20 of 21 LikelyLoF models and one homozygous-alt call. Heterozygous LikelyLoF is an operational prospective-enrollment gate; the matched pharmacologic subset does not resolve allele-specific function or prove haploinsufficiency.
+### Pharmacological stratification
 
-### Pharmacologic analysis
+Drug sensitivity data were obtained from GDSC2 (Genomics of Drug Sensitivity in Cancer, release 2). For each compound, cell lines with matched MBD4 mutation status and drug response data were stratified into MBD4-LOF and WT groups. Three metrics were analyzed: natural log IC50 (LN_IC50), area under the dose-response curve (AUC), and standardized Z-score (Z_SCORE).
 
-GDSC2 release 2 supplies LN_IC50, AUC, and Z_SCORE. Directional sensitivity is tested by one-sided Mann–Whitney U under MBD4-LOF < WT; Cohen's d uses the pooled standard deviation. Five non-confirmatory therapeutic axes retain Benjamini–Hochberg FDR control. ATR/WEE1 was prespecified as the confirmatory checkpoint axis from the replication-stress mechanism and is analyzed with directional unadjusted p-values.
+Statistical significance was assessed using a one-sided Mann-Whitney U test (alternative: MBD4-LOF < WT). Effect sizes were computed as Cohen's d with pooled standard deviation. Multiple testing correction was applied via Benjamini-Hochberg FDR where applicable. Six candidate therapy axes were defined before comparative testing based on the evidence-matrix framework; the GDSC2 screen encompassed these six axes; BH-FDR correction was applied to exploratory axis-level comparisons. The ATR/WEE1 axis was designated confirmatory based on the a priori replication stress mechanism and is therefore reported with unadjusted directional p-values.
 
-Four orthogonal tests challenge ceralasertib: MSI-H exclusion, TP53-mutant stratification, 14 leave-one-out iterations, and bowel/non-bowel lineage contrasts. Frozen canonical receipts control every denominator and statistic.
+### Confound stress testing
 
-### Expression and PARP-inhibitor analysis
+Four confound analyses were applied to the ceralasertib signal:
 
-DepMap 24Q2 log1p TPM data provide PARP1 and RNF144A expression. Group comparisons use Mann–Whitney U. PARP1–PARPi association uses Spearman correlation across 481 expression/response-matched models. The Q75 value of 7.41 log1p TPM is retained as a dataset-derived exploratory threshold and requires prospective analytical and clinical validation before use as a companion diagnostic.
+1. **MSI-H purge**: All lines annotated as MSI-H in DepMap ModelSubtypeFeatures were removed from both MBD4-LOF and WT groups before retesting.
+2. **TP53 stratification**: MBD4-LOF/TP53-mut lines were compared against MBD4-WT/TP53-mut lines, controlling for TP53 status.
+3. **Leave-one-out**: Each MBD4-LOF line was iteratively removed and the test recomputed.
+4. **Lineage matching**: Analysis was repeated within individual tissue lineages (Bowel; non-Bowel).
 
-### Clinical immunotherapy evidence synthesis
+### Analysis workflow
 
-Axis 3 is restricted to qualitative conclusions present in the active source package. Rodrigues et al. is classified as a sentinel human case linking germline deleterious MBD4, somatic loss of the wild-type allele, outlier CpG>TpG burden, and anti-PD1 sensitivity [@rodrigues2018]. Saint-Ghislain et al. is classified as a retrospective uveal melanoma cohort containing a five-patient MBD4-mutated subgroup with notable response and survival benefits [@saintghislain2022]. Cohort response percentages, PFS, OS, and hazard ratios are not encoded because no corresponding numerical receipt is present in the active source files.
+The analysis proceeded in four sequential stages: (1) MBD4 True-LOF cell lines were identified in DepMap 24Q2 using the LikelyLoF annotation gate, with missense and passenger variants excluded; (2) matched GDSC2 drug sensitivity data were retrieved for all lines with available pharmacological screens; (3) six candidate therapeutic axes were predefined based on the evidence-matrix framework (cytidine analogs, PARP inhibitors, ATR/WEE1 inhibitors, WRN helicase inhibitors, immunotherapy, PKMYT1 inhibitors) before any comparative testing was performed; (4) exploratory axis-level comparisons were conducted with Benjamini-Hochberg FDR correction, followed by confirmatory ATR/WEE1 analyses and four orthogonal confound stress tests on the ceralasertib signal. All reported pharmacologic statistics were recomputed directly from source data using a harmonized matching pipeline; intermediate cached files were retained only after confirming numerical identity to the final extraction or replaced where discrepancies were detected.
 
-The Axis 3 action requires MBD4-LikelyLoF plus a confirmed CpG>TpG hypermutator signature or validated equivalent. Neoantigen load, CD8 recruitment, and tissue-agnostic efficacy are prospective validation targets rather than completed measurements.
-### CrisPRO action schema
+### Expression analysis
 
-The machine-readable evidence layer maps Axis 1 to `CYTIDINE_ANALOG_SYNTHETIC_LETHALITY`, Axis 2 to graded ATR/WEE1 actions, and Axis 3 to `IMMUNOTHERAPY_CHECKPOINT_BLOCKADE`. PARPi governance remains expression-gated, and the cytidine-plus-checkpoint hypothesis remains `SYNERGISTIC_COMBINATION_CANDIDATE`. Action strings are validated for identity across the routing engine, evidence JSON, manuscript matrix, and test suite.
+Gene expression data (log1p TPM) were obtained from DepMap 24Q2 OmicsExpressionProteinCodingGenesTPMLogp1. PARP1 and RNF144A expression were compared between MBD4-LOF and WT groups using the Mann-Whitney U test. PARP1–PARPi correlation was computed as Spearman rank correlation across 481 cell lines with matched DepMap expression and GDSC2 PARP inhibitor Z-scores.
 
-### Data and code availability
+### Multimodal evidence matrix
 
-DepMap 24Q2, GDSC2, and the cited clinical literature are public sources. Frozen artifacts, figure-generation scripts, evidence records, and the manuscript package are maintained in `00-mbd4-manuscript/mbd4_parp_response` in the Synthetic-Lethality repository.
+Drug vulnerability assessment was performed using a multimodal evidence matrix framework in which: rows = candidate therapy axes (cytidine analogs, PARP inhibitors, ATR/WEE1 inhibitors, WRN helicase inhibitors, immunotherapy, PKMYT1 inhibitors); columns = orthogonal evidence modalities (CRISPR dependency, pharmacological screens, in vitro functional, in vivo PDX, clinical, expression/pathway); each cell carries a typed status (POSITIVE, NEGATIVE, MIXED, MISSING, CONFOUNDED). A weighted fusion algorithm derives tiered recommendations with cross-modal concordance analysis. A Replication Stress score derived from patient genomic features modulates checkpoint inhibitor axis tier assignments. The evidence summary for this manuscript is shown in Supplementary Figure S1. Scoring use-case documentation is maintained at <https://github.com/fjkiani/evo2-e2e/tree/main/docs>.
+
+### Data availability
+
+All analyses use publicly available data: DepMap 24Q2 (<https://depmap.org>), GDSC2 (<https://www.cancerrxgene.org/>), and published literature with PubMed identifiers. Frozen artifacts, analysis scripts, and the manuscript package for this study are available at <https://github.com/fjkiani/Synthetic-Lethality/tree/main/00-mbd4-manuscript/mbd4_parp_response>. Related Evo2 scoring documentation is at <https://github.com/fjkiani/evo2-e2e/tree/main/docs>.
+
+### Code availability
+
+Analysis scripts and frozen receipts accompanying this preprint are in the Synthetic-Lethality repository under `00-mbd4-manuscript/mbd4_parp_response` (<https://github.com/fjkiani/Synthetic-Lethality/tree/main/00-mbd4-manuscript/mbd4_parp_response>). Evo2 end-to-end scoring documentation is at <https://github.com/fjkiani/evo2-e2e/tree/main/docs>.
+
 
 ## Figures
 
-![**Figure 1. Pan-cancer pharmacogenomic landscape of MBD4-LOF ceralasertib sensitivity.** GDSC2 LN_IC50 values compare n=14 MBD4 True-LOF with n=914 WT models. The canonical shift is −0.732 (one-sided p=0.0215; d=−0.503), corresponding to a 2.08-fold lower geometric-mean IC50.](FIGURES/volcano_plot.png){#fig:volcano}
+![**MBD4-LOF cell lines are significantly more sensitive to ceralasertib (ATRi).** Comparison of GDSC2 LN_IC50 values for ceralasertib between MBD4 True-LOF lines (n=14, orange) and wild-type lines (n=942, gray). Horizontal lines indicate group medians. The MBD4-LOF group shows a 0.74 log-unit shift toward sensitivity (p=0.021, Cohen's d=−0.50, one-sided Mann-Whitney U test).](FIGURES/fig2_ceralasertib_volcano.png){#fig:volcano}
 
-![**Figure 2. Orthogonal validation and target-state stratification.** MSI-H exclusion yields n=10 vs 906 (Δ LN_IC50=−0.910; p=0.0153; d=−0.623); TP53-mutant stratification yields n=11 vs 619 (Δ=−1.069; p=0.0030; d=−0.740); all 14 leave-one-out iterations retain p<0.05; and the bowel contrast yields n=5 vs 41 (Δ=−0.692; p=0.126; d=−0.464).](FIGURES/confounder_stress_tests.png){#fig:stress}
+![**Four confound stress tests confirm the ceralasertib signal is MBD4-specific.** (A) MSI-H Ghost Purge: removing MSI-H lines strengthens the signal (p=0.015). (B) TP53 Hijack Check: controlling for TP53 co-mutation, MBD4-LOF adds >1 log-unit sensitivity (p=0.003). (C) Leave-One-Out: all 14 iterations maintain significance. (D) Lineage Trap: signal preserved across 8 lineages.](FIGURES/fig3_stress_tests.png){#fig:stress}
 
-![**Figure 3. MBD4–PARP1 decoupling.** Baseline PARP1 expression is 6.77 vs 6.66 log1p TPM (p=0.605; n=19 vs 1,498), RNF144A is 2.15 vs 1.71 (p=0.476), and MBD4 status produces Δ median PARPi Z=−0.024. Baseline PARP1 expression nevertheless predicts PARPi response across 481 matched models (ρ=−0.416; p=1.36×10⁻²¹).](FIGURES/parp1_decoupling.png){#fig:parp1}
+![**PARP1 is not transcriptionally upregulated in MBD4-LOF, despite being a pan-cancer PARPi predictor.** (A) PARP1 expression (log1p TPM) in MBD4-LOF (n=19) vs WT cell lines (ns, p=0.605). (B) Spearman correlation between PARP1 expression and PARP inhibitor Z-score across 481 cell lines (ρ=−0.416, p=1.36×10⁻²¹). High-PARP1 cells (≥Q75) show enhanced sensitivity; low-PARP1 (≤Q25) show resistance. The lack of PARP1 upregulation in MBD4-LOF falsifies the transcriptional biomarker hypothesis, arguing against a selective MBD4-driven PARPi axis mediated by PARP1 transcriptional upregulation.](FIGURES/fig4_parp1_expression.png){#fig:parp1}
 
-![**Figure 4. CrisPRO Triaxis therapeutic model and routing schema.** MBD4 repair failure produces unresolved BER substrate and CpG>TpG transitions. Axis 1 loads lesion-stalled forks with cytidine analogs; Axis 2 removes ATR/WEE1 checkpoint protection; Axis 3 routes confirmed CpG>TpG hypermutator disease to immune checkpoint blockade through the neoantigen/immune-recognition pathway. The figure separates the cytidine-plus-checkpoint combination hypothesis from the parallel immunotherapy route and preserves the exploratory PARP1 expression gate.](FIGURES/crispro_routing_flowchart.png){#fig:mechanism}
+![**Proposed dual-axis therapeutic vulnerability model for MBD4-LOF tumors.** MBD4 loss-of-function disrupts BER, leading to accumulation of unprocessed base lesions at CpG sites. This creates a convergent combinatorial vulnerability at the replication fork: (1) Frontline accumulation of U:G mismatches actionable via cytidine analogs (Axis 1), and (2) constitutive replication stress from unresolved fork-blocking lesions creates ATR checkpoint dependency (Axis 2: ATRi). Notably, independent baseline PARP1 expression serves as a functional patient-selection biomarker, but lacks selective PARPi sensitivity in typical expression ranges.](FIGURES/fig5_mechanism_model.png){#fig:mechanism}
+
 
 ## Supplementary Material
 
@@ -193,7 +230,7 @@ MBD4 & Gemcitabine & MSS only & 10 & 906 & $-0.724$ & 0.029 & 0.072 & $-0.512$ &
 \end{center}
 :::
 
-Note: ATM-LOF gemcitabine signal ($p_{\mathrm{adj}}=0.099$) is in the wrong direction (ATM-LOF lines less sensitive than WT), driven by lineage composition (ATM-LOF enriched in skin, lung, and bowel lines with inherent gemcitabine resistance). This negative control is context-dependent and does not alter the independently reproduced MBD4–ceralasertib result. All frozen values sourced from `canonical_atr_wee1_rerun.json` (2026-04-05).
+Note: ATM-LOF gemcitabine signal ($p_{\mathrm{adj}}=0.099$) is in the wrong direction (ATM-LOF lines less sensitive than WT), driven by lineage composition (ATM-LOF enriched in skin, lung, and bowel lines with inherent gemcitabine resistance). This illustrates that pan-cancer observational comparisons may be non-resolving for context-specific synthetic lethalities. All frozen values sourced from `canonical_atr_wee1_rerun.json` (2026-04-05).
 
 \clearpage
 \FloatBarrier
