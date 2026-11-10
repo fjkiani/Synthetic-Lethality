@@ -53,3 +53,17 @@ CLAUDE.md
 # Large data files — stored in shared workspace, not git
 data/aacr2026/*.jsonl
 data/aacr2026/*.json
+
+# Sprint / agent patch dumps (do not re-add)
+*.zip
+sl_agent_*.zip
+
+# Duplicate / regenerable manuscript artifacts outside canon rxiv/
+00-mbd4-manuscript/**/ai_figures_v1/
+00-mbd4-manuscript/mbd4_parp_response/*.pdf
+00-mbd4-manuscript/mbd4-framework/FIGURES/
+00-mbd4-manuscript/mbd4-framework/sl_platform_manuscript_biorxiv_submission.pdf
+
+# DepMap / local caches
+**/.cache/
+*.parquet
